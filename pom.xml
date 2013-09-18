@@ -60,7 +60,7 @@
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
-        <version.jboss.bom.eap>6.2.0-redhat-1</version.jboss.bom.eap>
+        <version.jboss.bom.wfk>2.4.0-build-1</version.jboss.bom.wfk>
         <!-- Alternatively, comment out the above line, and un-comment the 
             line below to use version 1.0.4.Final-redhat-4 which is a release certified 
             to work with JBoss EAP 6. It requires you have access to the JBoss EAP 6 
@@ -187,16 +187,7 @@
             <modules>
                 <!-- All the modules that require nothing but JBoss Enterprise
                     Application Platform or JBoss AS -->
-                <module>bean-validation</module>
-                <module>bmt</module>
                 <module>cdi-add-interceptor-binding</module>
-                <module>cdi-alternative</module>
-                <module>cdi-decorator</module>
-                <module>cdi-interceptors</module>
-                <module>cdi-injection</module>
-                <module>cdi-portable-extension</module>
-                <module>cdi-stereotype</module>
-                <module>cdi-veto</module>
                 <module>deltaspike-authorization</module>
                 <module>deltaspike-beanbuilder</module>
                 <module>deltaspike-beanmanagerprovider</module>
@@ -206,154 +197,25 @@
                 <module>deltaspike-partialbean-basic</module>
                 <module>deltaspike-partialbean-advanced</module>
                 <module>deltaspike-projectstage</module>
-                <module>ejb-asynchronous</module>
-                <module>ejb-in-ear</module>
-                <module>ejb-in-war</module>
-                <module>ejb-remote</module>
-                <module>ejb-security</module>
-                <module>ejb-security-interceptors</module>
-                <module>ejb-security-plus</module>
-                <module>ejb-throws-exception</module>
-                <module>ejb-timer</module>
-                <module>ejb-multi-server</module>
-                <module>greeter</module>
                 <module>greeter-spring</module>
-                <module>helloworld</module>
                 <module>helloworld-errai</module>
                 <module>helloworld-gwt</module>
                 <module>helloworld-html5</module>
-                <module>helloworld-jms</module>
-                <module>helloworld-mbean</module>
-                <module>helloworld-mdb</module>
-                <module>helloworld-osgi</module>
-                <module>helloworld-rs</module>
-                <module>helloworld-singleton</module>
-                <module>helloworld-ws</module>
-                <module>hibernate3</module>
-                <module>hibernate4</module>
-                <module>jdg-quickstarts</module>
-                <module>kitchensink</module>
                 <module>kitchensink-angularjs</module>
                 <module>kitchensink-angularjs-topcoat</module>
                 <module>kitchensink-backbone</module>
                 <module>kitchensink-deltaspike</module>
-                <module>kitchensink-ear</module>
                 <module>kitchensink-html5-mobile</module>
-                <module>kitchensink-jsp</module>
-                <module>kitchensink-ml</module>
-                <module>kitchensink-ml-ear</module>
                 <module>kitchensink-spring-asyncrequestmapping</module>
                 <module>kitchensink-spring-basic</module>
                 <module>kitchensink-spring-controlleradvice</module>
                 <module>kitchensink-spring-matrixvariables</module>
                 <module>kitchensink-spring-springmvctest</module>
-                <module>log4j</module>
-                <module>logging</module>
-                <module>logging-tools</module>
-                <module>mail</module>
-                <module>numberguess</module>
-                <module>payment-cdi-event</module>
                 <module>petclinic-spring</module>
                 <module>richfaces-quickstarts/helloworld-rf</module>
                 <module>richfaces-quickstarts/kitchensink-rf</module>
                 <module>richfaces-quickstarts/richfaces-validation</module>
-                <module>servlet-async</module>
-                <module>servlet-filterlistener</module>
-                <module>servlet-security</module>
-                <module>servlet-security-genericheader-auth</module>
-                <module>shopping-cart</module>
                 <module>shrinkwrap-resolver</module>
-                <module>tasks</module>
-                <module>tasks-jsf</module>
-                <module>tasks-rs</module>
-                <module>temperature-converter</module>
-                <module>wicket-ear</module>
-                <module>wicket-war</module>
-                <module>xml-dom4j</module>
-                <module>xml-jaxp</module>
-                <module>picketlink-quickstarts/picketlink-authentication-form</module>
-                <module>picketlink-quickstarts/picketlink-authentication-http-basic</module>
-                <module>picketlink-quickstarts/picketlink-authentication-http-client-cert</module>
-                <module>picketlink-quickstarts/picketlink-authentication-http-digest</module>
-                <module>picketlink-quickstarts/picketlink-authentication-idm-jsf</module>
-                <module>picketlink-quickstarts/picketlink-authentication-idm-multi-tenancy</module>
-                <module>picketlink-quickstarts/picketlink-authentication-jsf</module>
-                <module>picketlink-quickstarts/picketlink-authentication-recaptcha</module>
-                <module>picketlink-quickstarts/picketlink-authentication-rs-endpoint</module>
-                <module>picketlink-quickstarts/picketlink-authentication-two-factor</module>
-                <module>picketlink-quickstarts/picketlink-authorization-idm-jpa</module>
-                <module>picketlink-quickstarts/picketlink-authorization-idm-ldap</module>
-                <module>picketlink-quickstarts/picketlink-authorization-rs-rbac</module>
-                <module>picketlink-quickstarts/picketlink-deltaspike-authorization</module>
-            </modules>
-        </profile>
-        <profile>
-            <!-- All the quickstarts that require Postgres to be running -->
-            <id>requires-postgres</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-                <property>
-                    <name>requires-postgres</name>
-                    <value>!disabled</value>
-                </property>
-            </activation>
-            <modules>
-                <module>cmt</module>
-                <module>jts</module>
-            </modules>
-        </profile>
-        <profile>
-            <!-- All the quickstarts that have weird requirements around deployment that Maven can't handle -->
-            <id>complex-dependencies</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-                <property>
-                    <name>complex-dependencies</name>
-                    <value>!disabled</value>
-                </property>
-            </activation>
-            <modules>
-                <module>cluster-ha-singleton</module>
-                <module>ejb-security-plus</module>
-                <module>ejb-security-propagation</module>
-                <module>inter-app</module>                
-                <module>jax-rs-client</module>
-                <module>jts</module>
-                <module>jpp-quickstarts</module>
-                <module>servlet-security-genericheader-auth</module>
-            </modules>
-        </profile>
-        <profile>
-            <!-- All the quickstarts that require the "standalone-full" profile
-                to be in use -->
-            <id>requires-full</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-                <property>
-                    <name>requires-full</name>
-                    <value>!disabled</value>
-                </property>
-            </activation>
-            <modules>
-                <module>helloworld-mbean</module>
-                <module>helloworld-mdb</module>
-                <module>jta-crash-rec</module>
-            </modules>
-        </profile>
-        <profile>
-            <!-- All the quickstarts that require the xts to be enabled -->
-            <id>requires-xts</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-                <property>
-                    <name>requires-xts</name>
-                    <value>!disabled</value>
-                </property>
-            </activation>
-            <modules>
-                <module>wsat-simple</module>
-                <module>wsba-coordinator-completion-simple</module>
-                <module>wsba-participant-completion-simple</module>
             </modules>
         </profile>
         <profile>
