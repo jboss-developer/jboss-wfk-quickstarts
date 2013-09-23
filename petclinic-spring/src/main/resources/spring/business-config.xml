@@ -39,10 +39,9 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     <!-- enables scanning for @Transactional annotations -->
     <tx:annotation-driven />
  
-	
-	<!-- ================== 3 Profiles to choose from =================== 
-									- default (uses JPA)
-		                            - jdbc (uses Spring" JdbcTemplate)
+    <!-- ================== 3 Profiles to choose from =================== 
+                                    - default (uses JPA)
+                                    - jdbc (uses Spring" JdbcTemplate)
                                     - spring-data-jpa
     =============================================================================-->
 
