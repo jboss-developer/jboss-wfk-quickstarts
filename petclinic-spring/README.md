@@ -5,7 +5,7 @@ Level: Advanced
 Technologies: JPA 2.0, Junit, JMX, Spring MVC Annotations, Spring Data, JSP, webjars, and Dandellion
 Summary: An example that incorporates multiple technologies in JBoss Enterprise Application Platform 6 or JBoss AS 7.
 Target Product: WFK
-Source: <https://github.com/jboss-jdf/jboss-as-quickstart/>
+Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
 
 What is it?
 -----------

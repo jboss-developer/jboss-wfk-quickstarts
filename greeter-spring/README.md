@@ -5,7 +5,7 @@ Level: Beginner
 Technologies: Spring MVC, JSP, and JPA 2.0
 Summary: Demonstrates the use of JPA 2.0 and JSP in JBoss Enterprise Application Platform 6 or JBoss AS 7.
 Target Product: WFK
-Source: <https://github.com/jboss-jdf/jboss-as-quickstart/>
+Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
 
 What is this?
 -------------
