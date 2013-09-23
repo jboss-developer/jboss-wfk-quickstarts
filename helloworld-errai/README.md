@@ -5,7 +5,7 @@ Level: Beginner
 Technologies: Errai, JAX-RS, GWT
 Summary: Helloworld using the Errai framework
 Target Product: WFK
-Source: <https://github.com/jboss-jdf/jboss-as-quickstart/>
+Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
 
 What is it?
 -----------
