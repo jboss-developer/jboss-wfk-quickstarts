@@ -81,8 +81,7 @@ public class JdbcOwnerRepositoryImpl implements OwnerRepository {
         List<Owner> owners = this.namedParameterJdbcTemplate.query(
             "SELECT id, first_name, last_name, address, city, telephone FROM owners WHERE last_name like :lastName",
             params,
-            ParameterizedBeanPropertyRowMapper.newInstance(Owner.class)
-            );
+            ParameterizedBeanPropertyRowMapper.newInstance(Owner.class));
         loadOwnersPetsAndVisits(owners);
         return owners;
     }
@@ -100,8 +99,7 @@ public class JdbcOwnerRepositoryImpl implements OwnerRepository {
             owner = this.namedParameterJdbcTemplate.queryForObject(
                 "SELECT id, first_name, last_name, address, city, telephone FROM owners WHERE id= :id",
                 params,
-                ParameterizedBeanPropertyRowMapper.newInstance(Owner.class)
-                );
+                ParameterizedBeanPropertyRowMapper.newInstance(Owner.class));
         } catch (EmptyResultDataAccessException ex) {
             throw new ObjectRetrievalFailureException(Owner.class, id);
         }
@@ -115,8 +113,7 @@ public class JdbcOwnerRepositoryImpl implements OwnerRepository {
         final List<JdbcPet> pets = this.namedParameterJdbcTemplate.query(
             "SELECT id, name, birth_date, type_id, owner_id FROM pets WHERE owner_id=:id",
             params,
-            new JdbcPetRowMapper()
-            );
+            new JdbcPetRowMapper());
         for (JdbcPet pet : pets) {
             owner.addPet(pet);
             pet.setType(EntityUtils.getById(getPetTypes(), PetType.class, pet.getTypeId()));
