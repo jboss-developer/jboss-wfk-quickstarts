@@ -231,6 +231,18 @@
                 <module>jts-distributed-crash-rec</module>
             </modules>
         </profile>
+        <profile>
+            <!-- Functional tests are not part of the quickstarts' structure.
+                Follow the quickstart README files to run the individual 
+                functional tests. -->
+            <id>functional-tests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <modules>
+                <module>kitchensink-deltaspike/functional-tests</module>
+            </modules>
+        </profile>
     </profiles>
 
 </project>
