@@ -16,7 +16,7 @@
     limitations under the License.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.jboss.quickstarts.wfk</groupId>
@@ -41,7 +41,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- JBoss dependency versions -->
-        
+
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
         
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
@@ -55,9 +55,6 @@
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.source>1.6</maven.compiler.source>
-
-		<!-- maven-war-plugin -->
-		<version.war.plugin>2.1.1</version.war.plugin>
 
     </properties>
 
@@ -209,8 +206,8 @@
         </plugins>
     </build>
 
-	<profiles>
-    	<profile>
+    <profiles>
+        <profile>
             <!-- When built in OpenShift the 'openshift' profile will be 
                 used when invoking mvn. -->
             <!-- Use this profile for any OpenShift specific customization 
@@ -232,5 +229,5 @@
                 </plugins>
             </build>
         </profile>
-	</profiles>
+    </profiles>
 </project>

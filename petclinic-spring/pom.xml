@@ -15,7 +15,7 @@
     limitations under the License.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jboss.quickstarts.wfk</groupId>
     <artifactId>jboss-petclinic-spring</artifactId>
@@ -102,15 +102,13 @@
         <version.tomcat.maven>2.0</version.tomcat.maven>
         <version.maven.eclipse.wtp>2.0</version.maven.eclipse.wtp>
         <version.maven.eclipse>2.9</version.maven.eclipse>
-        <version.maven.war>2.3</version.maven.war>
+        <version.war.plugin>2.1.1</version.war.plugin>
         <version.maven.surefire>2.13</version.maven.surefire>
 
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.source>1.6</maven.compiler.source>
 
-		<!-- maven-war-plugin -->
-		<version.war.plugin>2.1.1</version.war.plugin>
     </properties>
 
     <dependencyManagement>
@@ -668,7 +666,7 @@
                 <version>${version.maven.compiler}</version>
                 <configuration>
                     <compilerArguments>
-                        <Xlint/>
+                        <Xlint />
                     </compilerArguments>
                     <verbose>true</verbose>
                     <showWarnings>true</showWarnings>
@@ -687,7 +685,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>${version.maven.war}</version>
+                <version>${version.war.plugin}</version>
                 <configuration>
                     <warName>${project.artifactId}</warName>
                 </configuration>
@@ -765,7 +763,7 @@
             </dependencies>
         </profile>
 
-		<profile>
+        <profile>
             <!-- When built in OpenShift the 'openshift' profile will be 
                 used when invoking mvn. -->
             <!-- Use this profile for any OpenShift specific customization 

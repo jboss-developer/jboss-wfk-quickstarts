@@ -173,6 +173,7 @@
                 <module>kitchensink-spring-matrixvariables</module>
                 <module>kitchensink-spring-springmvctest</module>
                 <module>petclinic-spring</module>
+                <module>picketlink-quickstarts</module>
                 <module>richfaces-quickstarts</module>
                 <module>shrinkwrap-resolver</module>
             </modules>

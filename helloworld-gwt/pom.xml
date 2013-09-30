@@ -16,7 +16,7 @@
     limitations under the License.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.jboss.quickstarts.wfk</groupId>
@@ -27,8 +27,8 @@
     <description>JBoss WFK Quickstart: Hello World with GWT front-end client</description>
 
     <url>http://jboss.org/jbossas</url>
-        <licenses>
-            <license>
+    <licenses>
+        <license>
             <name>Apache License, Version 2.0</name>
             <distribution>repo</distribution>
             <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
@@ -57,9 +57,6 @@
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.source>1.6</maven.compiler.source>
-
-		<!-- maven-war-plugin -->
-		<version.war.plugin>2.1.1</version.war.plugin>
     </properties>
 
     <dependencyManagement>
@@ -184,8 +181,8 @@
         </plugins>
     </build>
 
-	<profiles>
-    	<profile>
+    <profiles>
+        <profile>
             <!-- When built in OpenShift the 'openshift' profile will be 
                 used when invoking mvn. -->
             <!-- Use this profile for any OpenShift specific customization 
@@ -207,6 +204,6 @@
                 </plugins>
             </build>
         </profile>
-	</profiles>
+    </profiles>
 
 </project>
