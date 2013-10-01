@@ -52,7 +52,7 @@
     <version.jboss.bom.eap>1.0.7.Final</version.jboss.bom.eap>
 
     <!-- Define the version of the JBoss WFK BOMs we want to import to specify tested stacks. -->
-    <version.jboss.bom.wfk>2.4.0-build-5</version.jboss.bom.wfk>
+    <version.jboss.bom.wfk>1.0.7.Final</version.jboss.bom.wfk>
 
     <!-- Alternatively, comment out the above line, and un-comment the
         line below to use version 1.0.4.Final-redhat-3 which is a release certified

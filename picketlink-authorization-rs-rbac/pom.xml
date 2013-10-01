@@ -51,7 +51,7 @@
     <version.jboss.bom.eap>1.0.7.Final</version.jboss.bom.eap>
 
     <!-- Define the version of the JBoss WFK BOMs we want to import to specify tested stacks. -->
-    <version.jboss.bom.wfk>2.4.0-build-5</version.jboss.bom.wfk>
+    <version.jboss.bom.wfk>1.0.7.Final</version.jboss.bom.wfk>
 
     <version.war.plugin>2.1.1</version.war.plugin>
 

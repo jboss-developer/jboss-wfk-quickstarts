@@ -21,17 +21,12 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>8</version>
+        <version>10</version>
         <relativePath />
     </parent>
     <groupId>org.jboss.quickstarts.wfk</groupId>
-    <!-- groupId for WFK quickstarts:
-    <groupId>org.jboss.quickstarts.eap</groupId> -->
-    
     <artifactId>jboss-wfk-quickstarts-parent</artifactId>
     <version>2.4.0-build-SNAPSHOT</version>
-    <!-- version for WFK quickstarts:
-    <groupId>2.4.0-build-SNAPSHOT</groupId> -->
     <packaging>pom</packaging>
     <name>JBoss WFK Quickstart: Parent</name>
     <description>JBoss AS Quickstarts Parent</description>
@@ -55,8 +50,8 @@
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
-        <version.jboss.bom.wfk>2.4.0-build-5</version.jboss.bom.wfk>
-        <version.jboss.bom.eap>1.0.7.Final</version.jboss.bom.eap>
+        <version.jboss.bom.wfk>2.4.0-redhat-1</version.jboss.bom.wfk>
+        <version.jboss.bom.eap>1.0.4.Final-redhat-9</version.jboss.bom.eap>
 
 
         <version.jboss.spec.javaee.6.0>3.0.2.Final-redhat-4</version.jboss.spec.javaee.6.0> 
@@ -178,9 +173,9 @@
                 <module>helloworld-rf</module>
                 <module>kitchensink-rf</module>
                 <module>richfaces-validation</module>
-                <!-- Remote Quickstarts - Picketlink - https://github.com/picketlink/picketlink-wfk-quickstarts -->
+                <!-- Remote Quickstarts - Picketlink - https://github.com/picketlink/picketlink-wfk-quickstarts 
                 <module>picketlink-authorization-rs-rbac</module>
-                <module>picketlink-deltaspike-authorization</module>
+                <module>picketlink-deltaspike-authorization</module>-->
             </modules>
         </profile>
         <profile>
