@@ -173,12 +173,14 @@
                 <module>kitchensink-spring-matrixvariables</module>
                 <module>kitchensink-spring-springmvctest</module>
                 <module>petclinic-spring</module>
-                <module>picketlink-quickstarts</module>
                 <module>shrinkwrap-resolver</module>
                 <!-- Remote Quicksarts - Richfaces - https://github.com/richfaces/jdf-quickstarts -->
                 <module>helloworld-rf</module>
                 <module>kitchensink-rf</module>
                 <module>richfaces-validation</module>
+                <!-- Remote Quickstarts - Picketlink - https://github.com/picketlink/picketlink-wfk-quickstarts -->
+                <module>picketlink-authorization-rs-rbac</module>
+                <module>picketlink-deltaspike-authorization</module>
             </modules>
         </profile>
         <profile>
