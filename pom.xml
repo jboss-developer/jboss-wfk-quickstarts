@@ -174,8 +174,11 @@
                 <module>kitchensink-spring-springmvctest</module>
                 <module>petclinic-spring</module>
                 <module>picketlink-quickstarts</module>
-                <module>richfaces-quickstarts</module>
                 <module>shrinkwrap-resolver</module>
+                <!-- Remote Quicksarts - Richfaces -->
+                <module>helloworld-rf</module>
+                <module>kitchensink-rf</module>
+                <module>richfaces-validation</module>
             </modules>
         </profile>
         <profile>
