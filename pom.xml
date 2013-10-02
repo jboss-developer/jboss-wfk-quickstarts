@@ -178,9 +178,6 @@
                 <module>helloworld-rf</module>
                 <module>kitchensink-rf</module>
                 <module>richfaces-validation</module>
-                <!-- Remote Quickstarts - Picketlink - https://github.com/picketlink/picketlink-wfk-quickstarts -->
-                <module>picketlink-authorization-rs-rbac</module>
-                <module>picketlink-deltaspike-authorization</module>
             </modules>
         </profile>
         <profile>
