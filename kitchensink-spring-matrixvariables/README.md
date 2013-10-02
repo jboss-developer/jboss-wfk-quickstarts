@@ -5,12 +5,13 @@ Level: Intermediate
 Technologies: JSP, JPA, JSON, Spring, JUnit
 Summary: An example that incorporates multiple technologies
 Target Product: WFK
+Product Versions: EAP 6.1, EAP 6.2, WFK 2.4
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
 
 What is it?
 -----------
 
-This is your project! It is a sample, deployable Maven 3 project to help you get your foot in the door developing with Java EE 6 on JBoss Enterprise Application Platform 6 or JBoss AS 7.
+This is your project! It is a sample, deployable Maven 3 project to help you get your foot in the door developing with Java EE 6 on Red Hat JBoss Enterprise Application Platform 6.1 or later.
 
 This project is setup to allow you to create a compliant Java EE 6 application using JSP, JPA 2.0 and Spring 3.2. It includes a persistence unit and some sample persistence and transaction code to introduce you to database access in enterprise Java:
 
@@ -23,15 +24,16 @@ This project is setup to allow you to create a compliant Java EE 6 application u
 System requirements
 -------------------
 
-All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven 3.0 or better.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.4.
 
-The application this project produces is designed to be run on JBoss Enterprise Application Platform 6 or JBoss AS 7.
+All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
+
 
 Configure Maven
 ---------------
 
 1. If you have not yet done so, you must Configure Maven before testing the quickstarts.
-2. Start JBoss Enterprise Application Platform 6 or JBoss AS 7 with the Web Profile
+2. Start the JBoss Server
 3. Open a command line and navigate to the root of the JBoss server directory.
 4. The following shows the command line to start the server with the web profile:
 
