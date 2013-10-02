@@ -5,12 +5,13 @@ Level: Beginner
 Technologies: GWT
 Summary: Demonstrates the use of CDI 1.0 and JAX-RS with a GWT front-end client
 Target Product: WFK
+Product Versions: EAP 6.1, EAP 6.2, WFK 2.4
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
 
 What is it?
 -----------
 
-This example demonstrates the use of *CDI 1.0* and *JAX-RS* in *JBoss AS 7* or *JBoss Enterprise Application Platform 6* with a GWT front-end client.
+This example demonstrates the use of *CDI 1.0* and *JAX-RS* in Red Hat JBoss Enterprise Application Platform 6.1 or later with a GWT front-end client.
 GWT is basically a typesafe, statically checked programming model for producing HTML5+CSS3+JavaScript front-ends. In this example, we use RESTful services on the backend.
 
 You can test the REST endpoint at the URL http://localhost:8080/jboss-helloworld-gwt/hello/json/David
@@ -18,9 +19,9 @@ You can test the REST endpoint at the URL http://localhost:8080/jboss-helloworld
 System requirements
 -------------------
 
-All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven 3.0 or better.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the  Red Hat JBoss Web Framework Kit (WFK) 2.4.
 
-The application this project produces is designed to be run on JBoss Enterprise Application Platform 6 or JBoss AS 7. 
+All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
  
 Configure Maven
@@ -29,7 +30,7 @@ Configure Maven
 If you have not yet done so, you must [Configure Maven](../README.md#configure-maven) before testing the quickstarts.
 
 
-Start JBoss Enterprise Application Platform 6 or JBoss AS 7 with the Web Profile
+Start the JBoss Server
 -------------------------
 
 1. Open a command line and navigate to the root of the JBoss server directory.

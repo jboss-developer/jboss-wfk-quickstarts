@@ -5,6 +5,7 @@ Level: Intermediate
 Technologies: HTML5, REST, Apache Cordova
 Summary: Based on kitchensink, but uses hybrid HTML5 running as a native application on mobiles
 Target Product: WFK
+Product Versions: EAP 6.1, EAP 6.2, WFK 2.4
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
 
 What is it?
@@ -42,6 +43,8 @@ This quickstart was built upon the HTML5 kitchensink quickstart, which was conve
 
 ### System requirements
 
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.4.
+
 All you need to build this project is Mac OS X Lion (10.7) (or later) and XCode 4.5 or later and the appropriate iOS SDK for your needs. If you need more detailed instruction to setup a iOS Development Environment with Apache Cordova, take a look at [Setting up your development environment to use Apache Cordova](http://aerogear.org/docs/guides/CordovaSetup/)
 
 
@@ -70,7 +73,7 @@ This application is built upon the HTML5 kitchensink quickstart, which was conve
 
 ### System requirements
 
-All you need to build this project is Java 6.0 (Java SDK 1.6) or better, JBDS 5 or Eclipse with [Android Development Tools (ADT) Plugin for the Eclipse IDE](http://developer.android.com/tools/sdk/eclipse-adt.html). If you need more detailed instruction to setup a Android Development Environment with Apache Cordova, you can take a look at [Setting up your development environment to use Apache Cordova](http://aerogear.org/docs/guides/CordovaSetup/)
+All you need to build this project is Java 6.0 (Java SDK 1.6) or later, JBDS 5 or Eclipse with [Android Development Tools (ADT) Plugin for the Eclipse IDE](http://developer.android.com/tools/sdk/eclipse-adt.html). If you need more detailed instruction to setup a Android Development Environment with Apache Cordova, you can take a look at [Setting up your development environment to use Apache Cordova](http://aerogear.org/docs/guides/CordovaSetup/)
 
 ### Import the Quickstart Code
 
