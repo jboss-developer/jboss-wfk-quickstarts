@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
     JBoss, Home of Professional Open Source
     Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
@@ -15,8 +15,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.jboss.quickstarts.wfk</groupId>
@@ -46,13 +45,17 @@
 
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 
-        <version.jboss.spec.javaee.6.0>3.0.2.Final</version.jboss.spec.javaee.6.0>
+        <version.jboss.spec.javaee.6.0>3.0.2.Final-redhat-4</version.jboss.spec.javaee.6.0>
 
         <version.richfaces>4.3.4.Final</version.richfaces>
 
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.source>1.6</maven.compiler.source>
+    
+        <!--Automatically created property by QSTools for
+        org.jboss.bom.wfk:jboss-javaee-6.0-with-richfaces BOM-->
+        <version.jboss.bom.wfk>2.4.0-build-5</version.jboss.bom.wfk>
     </properties>
 
     <dependencyManagement>
@@ -77,9 +80,9 @@
             <!-- Similarly to the JBoss Java EE 6 BOM above, the RichFaces BOM specifies the
                 versions of artifacts required for using RichFaces in your project. -->
             <dependency>
-                <groupId>org.richfaces</groupId>
-                <artifactId>richfaces-bom</artifactId>
-                <version>${version.richfaces}</version>
+                <groupId>org.jboss.bom.wfk</groupId>
+                <artifactId>jboss-javaee-6.0-with-richfaces</artifactId>
+                <version>${version.jboss.bom.wfk}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

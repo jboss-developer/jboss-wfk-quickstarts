@@ -15,8 +15,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.jboss.quickstarts.wfk</groupId>
@@ -48,7 +47,7 @@
 
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
         <version.jboss.bom.eap>1.0.7.Final</version.jboss.bom.eap>
-        <version.jboss.bom.wfk>1.0.7.Final</version.jboss.bom.wfk>
+        <version.jboss.bom.wfk>2.4.0-build-5</version.jboss.bom.wfk>
         
 
         <version.richfaces>4.3.4.Final</version.richfaces>
@@ -74,7 +73,7 @@
                 stack you can read this as the JBoss stack of the Java EE 6 APIs, with extras
                 from the Hibernate family of projects) -->
             <dependency>
-                <groupId>org.jboss.bom</groupId>
+                <groupId>org.jboss.bom.wfk</groupId>
                 <artifactId>jboss-javaee-6.0-with-tools</artifactId>
                 <version>${version.jboss.bom.wfk}</version>
                 <type>pom</type>
@@ -90,9 +89,9 @@
             <!-- Similarly to the JBoss Java EE 6 BOM above, the RichFaces BOM specifies the
                 versions of artifacts required for using RichFaces in your project. -->
             <dependency>
-                <groupId>org.richfaces</groupId>
-                <artifactId>richfaces-bom</artifactId>
-                <version>${version.richfaces}</version>
+                <groupId>org.jboss.bom.wfk</groupId>
+                <artifactId>jboss-javaee-6.0-with-richfaces</artifactId>
+                <version>${version.jboss.bom.wfk}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
