@@ -103,6 +103,8 @@ Run the Arquillian Functional Tests
 
 This quickstart provides Arquillian functional tests as well. They are located under the directory "functional-tests". Functional tests verify that your application behaves correctly from the user's point of view - simulating clicking around the page as a normal user would do.
 
+_NOTE: The following commands assume you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line. See [Run the Arquillian Tests](../README.md#run-the-arquillian-tests) for complete instructions and additional options._
+
 To run these tests, you must build the main project as described above.
 
 1. Open a command line and navigate to the root directory of this quickstart.
