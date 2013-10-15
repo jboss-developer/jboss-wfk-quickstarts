@@ -203,7 +203,14 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <modules>
+                <module>deltaspike-authorization/functional-tests</module>
+                <module>deltaspike-beanmanagerprovider/functional-tests</module>
+                <module>deltaspike-exception-handling/functional-tests</module>
+                <module>deltaspike-helloworld-jms/functional-tests</module>
+                <module>deltaspike-projectstage/functional-tests</module>
                 <module>kitchensink-deltaspike/functional-tests</module>
+                <module>petclinic-spring/functional-tests</module>
+                <module>richfaces-validation/functional-tests</module>
             </modules>
         </profile>
     </profiles>
