@@ -86,10 +86,9 @@ release()
    read -p "Do you want to send release notifcations to $EAP_EMAIL_TO[y/N]?" yn
    case $yn in
        [Yy]* ) notify_email;;
-       * ) exit;
    esac
    echo "Don't forget to push the tag and the branch"
-   echo "   git push --tags upstream refs/heads/$RELEASEVERSION"
+   echo "   git push --tags upstream refs/heads/$RELEASEVERSION master"
 }
 
 parse_git_branch() {
