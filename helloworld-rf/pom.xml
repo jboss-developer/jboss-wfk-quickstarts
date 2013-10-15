@@ -47,14 +47,10 @@
 
         <version.jboss.spec.javaee.6.0>3.0.2.Final-redhat-4</version.jboss.spec.javaee.6.0>
 
-        <version.richfaces>4.3.4.Final</version.richfaces>
-
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.source>1.6</maven.compiler.source>
     
-        <!--Automatically created property by QSTools for
-        org.jboss.bom.wfk:jboss-javaee-6.0-with-richfaces BOM-->
         <version.jboss.bom.wfk>2.4.0-build-5</version.jboss.bom.wfk>
     </properties>
 
