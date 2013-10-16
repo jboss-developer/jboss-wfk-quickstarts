@@ -33,7 +33,7 @@ VERSION_REGEX='([0-9]*)\.([0-9]*)([a-zA-Z0-9\.]*)'
 # EAP team email subject
 EMAIL_SUBJECT="\${RELEASEVERSION} of JBoss Quickstarts released, please merge with https://github.com/jboss-eap/quickstart, tag and add to EAP maven repo build"
 # EAP team email To ?
-EMAIL_TO="mnovotny@redhat.com maschmid@redhat.com"
+EMAIL_TO="mnovotny@redhat.com maschmid@redhat.com benevides@redhat.com"
 EMAIL_FROM="\"JDF Publish Script\" <benevides@redhat.com>"
 
 
@@ -88,7 +88,8 @@ release()
        [Yy]* ) notify_email;;
    esac
    echo "Don't forget to push the tag and the branch"
-   echo "   git push --tags upstream refs/heads/$RELEASEVERSION master"
+#   echo "   git push --tags upstream refs/heads/$RELEASEVERSION master"
+   echo "   git push --tags HEAD master"
 }
 
 parse_git_branch() {
