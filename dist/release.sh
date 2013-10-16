@@ -33,7 +33,7 @@ VERSION_REGEX='([0-9]*)\.([0-9]*)([a-zA-Z0-9\.]*)'
 # EAP team email subject
 EMAIL_SUBJECT="\${RELEASEVERSION} of JBoss Quickstarts released, please merge with https://github.com/jboss-eap/quickstart, tag and add to EAP maven repo build"
 # EAP team email To ?
-EMAIL_TO="pgier@redhat.com kpiwko@redhat.com"
+EMAIL_TO="mnovotny@redhat.com maschmid@redhat.com"
 EMAIL_FROM="\"JDF Publish Script\" <benevides@redhat.com>"
 
 
@@ -76,13 +76,13 @@ release()
    #git branch $RELEASEVERSION tags/$RELEASEVERSION
    $DIR/release-utils.sh -u -o $RELEASEVERSION -n $NEWSNAPSHOTVERSION
    git commit -a -m "Prepare for development of $NEWSNAPSHOTVERSION"
-   echo "Building Distribution zip"
-   BRANCH=$(parse_git_branch)
-   git checkout $RELEASEVERSION
-   mvn clean install -f $DIR/pom.xml
-   git checkout $BRANCH
-   echo "Uploading distribution to http://download.jboss.org/jbossas/$MAJOR_VERSION.$MINOR_VERSION/jboss-as-$RELEASEVERSION/jboss-as-quickstarts-$RELEASEVERSION-dist.zip"
-   rsync -Pv --protocol=28 $DIR/target/jboss-as-quickstarts-$RELEASEVERSION-dist.zip jbossas@filemgmt.jboss.org:downloads_htdocs/jbossas/$MAJOR_VERSION.$MINOR_VERSION/jboss-as-$RELEASEVERSION/
+   #echo "Building Distribution zip"
+   #BRANCH=$(parse_git_branch)
+   #git checkout $RELEASEVERSION
+   #mvn clean install -f $DIR/pom.xml
+   #git checkout $BRANCH
+   #echo "Uploading distribution to http://download.jboss.org/jbossas/$MAJOR_VERSION.$MINOR_VERSION/jboss-as-$RELEASEVERSION/jboss-as-quickstarts-$RELEASEVERSION-dist.zip"
+   #rsync -Pv --protocol=28 $DIR/target/jboss-as-quickstarts-$RELEASEVERSION-dist.zip jbossas@filemgmt.jboss.org:downloads_htdocs/jbossas/$MAJOR_VERSION.$MINOR_VERSION/jboss-as-$RELEASEVERSION/
    read -p "Do you want to send release notifcations to $EAP_EMAIL_TO[y/N]?" yn
    case $yn in
        [Yy]* ) notify_email;;
