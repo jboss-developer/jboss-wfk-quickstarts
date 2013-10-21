@@ -74,7 +74,7 @@ update()
     perl -pi -e "s/${OLDVERSION}/${NEWVERSION}/g" `find . -name \*.java`
 
     echo "Performing updates to POMs"
-    poms=`find . -type f -iname "pom.xml" -maxdepth 2 | sort`
+    poms=`find . -type f -iname "pom.xml" -maxdepth 3 | sort`
     for pom in $poms
     do
         echo "Updating ${pom}"
