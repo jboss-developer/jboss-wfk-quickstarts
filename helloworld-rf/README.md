@@ -6,7 +6,7 @@ Technologies: CDI, JSF, RichFaces
 Summary: Similar to the helloworld quickstart, but with a JSF and RichFaces front end
 Target Product: WFK
 Product Versions: EAP 6.1, EAP 6.2, WFK 2.4
-Source: <https://github.com/richfaces/as-quickstarts>
+Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
 
 What is it?
 -----------
