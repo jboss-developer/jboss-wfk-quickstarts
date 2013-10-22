@@ -6,7 +6,7 @@ Technologies: CDI, JSF, JPA, EJB, JPA, JAX-RS, BV, RichFaces
 Summary: The canonical JSF kitchensink quickstart implemented with JSF and RichFaces
 Target Product: WFK
 Product Versions: EAP 6.1, EAP 6.2, WFK 2.4
-Source: <https://github.com/richfaces/as-quickstarts>
+Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
 
 What is it?
 -----------
