@@ -16,16 +16,18 @@
  */
 package org.jboss.as.quickstarts.kitchensink.spring.asyncrequestmapping.data;
 
-import org.jboss.as.quickstarts.kitchensink.spring.asyncrequestmapping.model.Member;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import java.util.List;
+
+import org.jboss.as.quickstarts.kitchensink.spring.asyncrequestmapping.model.Member;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
@@ -38,8 +40,8 @@ public class MemberDaoImpl implements MemberDao {
     }
 
     public Member findByEmail(String email) {
-        CriteriaBuilder builder = em.getCriteriaBuilder();
-        CriteriaQuery<Member> criteria = builder.createQuery(Member.class);
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Member> criteria = cb.createQuery(Member.class);
         Root<Member> member = criteria.from(Member.class);
 
         /*
@@ -47,7 +49,7 @@ public class MemberDaoImpl implements MemberDao {
          * feature in JPA 2.0 criteria.select(member).orderBy(cb.asc(member.get(Member_.name)));
          */
 
-        criteria.select(member).where(builder.equal(member.get("email"), email));
+        criteria.select(member).where(cb.equal(member.get("email"), email));
         return em.createQuery(criteria).getSingleResult();
     }
 

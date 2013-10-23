@@ -16,23 +16,25 @@
  */
 package org.jboss.as.quickstarts.kitchensink.spring.controlleradvice.test;
 
-import junit.framework.Assert;
+import java.util.Date;
+import java.util.List;
+
 import org.jboss.as.quickstarts.kitchensink.spring.controlleradvice.data.MemberDao;
 import org.jboss.as.quickstarts.kitchensink.spring.controlleradvice.model.Member;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import static org.junit.Assert.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.util.List;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:test-context.xml",
-        "classpath:/META-INF/spring/applicationContext.xml"})
+                                   "classpath:/META-INF/spring/applicationContext.xml"})
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
 public class MemberDaoTest {
@@ -43,9 +45,9 @@ public class MemberDaoTest {
     public void testFindById() {
         Member member = memberDao.findById(0l);
 
-        Assert.assertEquals("John Smith", member.getName());
-        Assert.assertEquals("john.smith@mailinator.com", member.getEmail());
-        Assert.assertEquals("2125551212", member.getPhoneNumber());
+        assertEquals("John Smith", member.getName());
+        assertEquals("john.smith@mailinator.com", member.getEmail());
+        assertEquals("2125551212", member.getPhoneNumber());
         return;
     }
 
@@ -53,9 +55,9 @@ public class MemberDaoTest {
     public void testFindByEmail() {
         Member member = memberDao.findByEmail("john.smith@mailinator.com");
 
-        Assert.assertEquals("John Smith", member.getName());
-        Assert.assertEquals("john.smith@mailinator.com", member.getEmail());
-        Assert.assertEquals("2125551212", member.getPhoneNumber());
+        assertEquals("John Smith", member.getName());
+        assertEquals("john.smith@mailinator.com", member.getEmail());
+        assertEquals("2125551212", member.getPhoneNumber());
         return;
     }
 
@@ -69,14 +71,14 @@ public class MemberDaoTest {
 
         memberDao.register(member);
         Long id = member.getId();
-        Assert.assertNotNull(id);
+        assertNotNull(id);
 
-        Assert.assertEquals(2, memberDao.findAllOrderedByName().size());
+        assertEquals(2, memberDao.findAllOrderedByName().size());
         Member newMember = memberDao.findById(id);
 
-        Assert.assertEquals("Jane Doe", newMember.getName());
-        Assert.assertEquals("jane.doe@mailinator.com", newMember.getEmail());
-        Assert.assertEquals("2125552121", newMember.getPhoneNumber());
+        assertEquals("Jane Doe", newMember.getName());
+        assertEquals("jane.doe@mailinator.com", newMember.getEmail());
+        assertEquals("2125552121", newMember.getPhoneNumber());
         return;
     }
 
@@ -90,12 +92,12 @@ public class MemberDaoTest {
         memberDao.register(member);
 
         List<Member> members = memberDao.findAllOrderedByName();
-        Assert.assertEquals(2, members.size());
+        assertEquals(2, members.size());
         Member newMember = members.get(0);
 
-        Assert.assertEquals("Jane Doe", newMember.getName());
-        Assert.assertEquals("jane.doe@mailinator.com", newMember.getEmail());
-        Assert.assertEquals("2125552121", newMember.getPhoneNumber());
+        assertEquals("Jane Doe", newMember.getName());
+        assertEquals("jane.doe@mailinator.com", newMember.getEmail());
+        assertEquals("2125552121", newMember.getPhoneNumber());
         return;
     }
 }

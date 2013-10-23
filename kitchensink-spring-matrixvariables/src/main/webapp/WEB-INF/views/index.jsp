@@ -38,7 +38,7 @@
                 variables.</p>
         </div>
 
-        <form:form commandName="newMember" id="reg" method="post" action="">
+        <form:form commandName="newMember" id="reg" method="post" action=".">
             <h2>Member Registration</h2>
 
             <p>Enforces annotation-based constraints defined on the model class.</p>
@@ -55,13 +55,12 @@
                     <td><form:errors class="invalid" path="email"/></td>
                 </tr>
                 <tr>
-                    <td>
-                        <form:label path="phoneNumber">Phone #:</form:label>
+                    <td><form:label path="phoneNumber">Phone #:</form:label></td>
                     <td><form:input path="phoneNumber"/></td>
                     <td><form:errors class="invalid" path="phoneNumber"/></td>
                 </tr>
                 <tr>
-                    <p style="color: red">${error}</p>
+                    <td><p style="color: red">${error}</p></td>
                 </tr>
                 </tbody>
             </table>
@@ -77,17 +76,17 @@
 
         <h2>Filter</h2>
 
-        <form commandName="filterMember" id="filter">
+        <form id="filter">
             <h2>Member Search Filter</h2>
             <table>
                 <tbody>
                 <tr>
-                    <td><label path="name">Name:</label></td>
-                    <td><input path="name"/></td>
+                    <td><label>Name:</label></td>
+                    <td><input id="name"/></td>
                 </tr>
                 <tr>
-                    <td><label path="email">Email:</label></td>
-                    <td><input path="email"/></td>
+                    <td><label>Email:</label></td>
+                    <td><input id="email"/></td>
                 </tr>
                 </tbody>
             </table>
@@ -111,22 +110,23 @@
             <c:otherwise>
                 <table id="membersTable" class="simpletablestyle">
                     <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone #</th>
-                        <th>REST URL</th>
-                    </tr>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone #</th>
+                            <th>REST URL</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${members}" var="member">
-                    <tr>
-                        <td>${member.id}</td>
-                        <td>${member.name}</td>
-                        <td>${member.email}</td>
-                        <td>${member.phoneNumber}</td>
-                        <td><a href="<c:url value="/rest/members/${member.id}"/>">/rest/members/${member.id}</a></td>
+                        <c:forEach items="${members}" var="member">
+                            <tr>
+                                <td>${member.id}</td>
+                                <td>${member.name}</td>
+                                <td>${member.email}</td>
+                                <td>${member.phoneNumber}</td>
+                                <td><a href="<c:url value="/rest/members/${member.id}"/>">/rest/members/${member.id}</a></td>
+                            </tr>
                         </c:forEach>
                     </tbody>
                 </table>
@@ -143,8 +143,7 @@
     <div id="aside">
         <p>Learn more about JBoss Enterprise Application Platform 6.</p>
         <ul>
-            <li><a
-                    href="https://access.redhat.com/site/documentation/JBoss_Enterprise_Application_Platform/">Documentation</a></li>
+            <li><a href="https://access.redhat.com/site/documentation/JBoss_Enterprise_Application_Platform/">Documentation</a></li>
             <li><a href="http://red.ht/jbeap-6">Product Information</a></li>
         </ul>
     </div>
@@ -155,26 +154,71 @@
         </p>
     </div>
 </div>
-<script type="text/javascript"
-        src="resources/js/jquery/jquery-1.9.1.js"></script>
+<script src="resources/js/jquery/jquery-1.9.1.js"></script>
 <script type="text/javascript">
     $(document).ready(
-            function () {
-                $("#filt").click(function (event) {
-                    event.preventDefault();
-                    var inputs = $('form#filter :input');
-                    $.get("filter;n=" + inputs[0].value + ";e=" + inputs[1].value, function (data) {
-                        $('body').html(data);
-                    });
+        function () {
+            $("#filt").click(function (event) {
+                event.preventDefault();
+                var inputs = $('form#filter :input');
+                var matrixvar = "mv/filter;n=" + inputs[0].value + ";e=" + inputs[1].value;
+//                 console.log("matrixvar = " + matrixvar);
+                $.get(matrixvar, function (data) {
+                    // This feels more like a hack to me and should be refactored.  This re-paints the entire page when 
+                    //  I think it should just clear the fields and return the correct data.
+                    $('body').html(data);
+                })
+                .done(function(data, textStatus, jqXHR) {
+//                     console.log("done filter");
+//                     console.log("data = " + data + ", textStatus = " + textStatus + ", jqXHR = " + jqXHR);
+//                     alert( "success" );
+                })
+                .fail(function(jqXHR, textStatus, errorThrown) {
+                    console.log("jqXHR.status = " + jqXHR.status);
+                    console.log("jqXHR.responseText = " + jqXHR.responseText);
+                    console.log("textStatus = " + textStatus);
+                    console.log("errorThrown = " + errorThrown);
+//                     alert( "error" );
+                })
+                // In response to a successful request, the function's arguments are the same as those of .done(): 
+                //  data, textStatus, and the jqXHR object. For failed requests the arguments are the same as those of .fail(): 
+                //  the jqXHR object, textStatus, and errorThrown.
+                .always(function(data, textStatus, jqXHR) {
+//                     console.log("always filter");
+//                     console.log("data = " + data + ", textStatus = " + textStatus + ", jqXHR = " + jqXHR);
+//                     alert( "finished" );
                 });
+            });
 
-                $("#clear").click(function (event) {
-                    event.preventDefault();
-                    $.get("filter;n=" + ";e=", function (data) {
-                        $('body').html(data);
-                    });
+            $("#clear").click(function (event) {
+                event.preventDefault();
+                $.get("mv/filter;n=;e=", function (data) {
+                    // This feels more like a hack to me and should be refactored.  This re-paints the entire page when 
+                    //  I think it should just clear the fields and return the correct data.
+                    $('body').html(data);
+                })
+                .done(function(data, textStatus, jqXHR) {
+//                     console.log("done clear");
+//                     console.log("data = " + data + ", textStatus = " + textStatus + ", jqXHR = " + jqXHR);
+//                     alert( "success" );
+                })
+                .fail(function(jqXHR, textStatus, errorThrown) {
+                    console.log("jqXHR.status = " + jqXHR.status);
+                    console.log("jqXHR.responseText = " + jqXHR.responseText);
+                    console.log("textStatus = " + textStatus);
+                    console.log("errorThrown = " + errorThrown);
+//                     alert( "error" );
+                })
+                // In response to a successful request, the function's arguments are the same as those of .done(): 
+                //  data, textStatus, and the jqXHR object. For failed requests the arguments are the same as those of .fail(): 
+                //  the jqXHR object, textStatus, and errorThrown.
+                .always(function(data, textStatus, jqXHR) {
+//                     console.log("always clear");
+//                     console.log("data = " + data + ", textStatus = " + textStatus + ", jqXHR = " + jqXHR);
+//                     alert( "finished" );
                 });
-            }
+            });
+        }
     );
 </script>
 </body>

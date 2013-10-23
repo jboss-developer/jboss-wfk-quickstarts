@@ -16,8 +16,15 @@
  */
 package org.jboss.as.quickstarts.kitchensink.spring.matrixvariables.controller;
 
+import java.util.List;
+import java.util.logging.Logger;
+
+import javax.validation.Valid;
+
 import org.jboss.as.quickstarts.kitchensink.spring.matrixvariables.data.MemberDao;
+import org.jboss.as.quickstarts.kitchensink.spring.matrixvariables.data.MemberDaoImpl;
 import org.jboss.as.quickstarts.kitchensink.spring.matrixvariables.model.Member;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.UnexpectedRollbackException;
@@ -29,28 +36,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
-import java.util.List;
-
 @Controller
 @RequestMapping(value = "/")
 public class MemberController {
-    @Autowired
+	private static final Logger log = Logger.getLogger(MemberDaoImpl.class.getName());
+
+	@Autowired
     private MemberDao memberDao;
 
+    /*
+     * When you go to http://localhost:8080/jboss-kitchensink-spring-matrixvariables/ this method is fired.  This is 
+     *   because of the class level @RequestMapping(value = "/").  This method does not specify the path and therefore it 
+     *   runs when you access the root level of the URI.
+     * This method will access DAO to query the database and return all the Members.
+     */
     @RequestMapping(method = RequestMethod.GET)
     public String displaySortedMembers(Model model) {
+        // "newMember" is the form commandName and it is being linked with the Member POJO that backs the forms attributes.
         model.addAttribute("newMember", new Member());
+        // The list of Members are now available on the index.jsp as "members" to be iterated over and displayed.
         model.addAttribute("members", memberDao.findAllOrderedByName());
         return "index";
     }
 
-
-    @RequestMapping(value = "/{filter}", method = RequestMethod.GET)
-    public ModelAndView filteredMembers(@MatrixVariable(required = false, defaultValue = "") String n, @MatrixVariable(required = false, defaultValue = "") String e) {
+    // Note that to enable the use of matrix variables, you must set the removeSemicolonContent property of RequestMappingHandlerMapping 
+    //  to false. By default it is set to true with the exception of the MVC namespace and the MVC Java config both of which automatically 
+    //  enable the use of matrix variables. 
+    // This will allow the Matrix Variables to be passed in because they use semicolons to separate each one.
+    // This was done by creating a Configuration class and pointing to it in the jboss-as-spring-mvc-context.xml. 
+    @RequestMapping(value = "/mv/{filter}", method = RequestMethod.GET)
+    public ModelAndView filteredMembers(@MatrixVariable(value = "n", pathVar = "filter", required = false, defaultValue = "") String n, 
+                                        @MatrixVariable(value = "e", pathVar = "filter", required = false, defaultValue = "") String e) {
+        log.fine("filteredMembers @MatrixVariable n = " + n + ", e = " + e);
         ModelAndView model = new ModelAndView("index");
         model.addObject("newMember", new Member());
         List<Member> members = memberDao.findByNameAndEmail(n, e);
+        // The list of Members are now available on the index.jsp as "members" to be iterated over and displayed.
         model.addObject("members", members);
         return model;
     }
