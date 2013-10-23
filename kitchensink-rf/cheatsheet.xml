@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!--
+    JBoss, Home of Professional Open Source
+    Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+    contributors by the @authors tag. See the copyright.txt in the
+    distribution for a full listing of individual contributors.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<cheatsheet title="JSF 2.0 + RichFaces + CDI: Kitchensink RichFaces Mobile quickstart">
+  <intro>
+    <description>
+      This quickstart is based on the kichensink quickstart. It starts with the basic JSF front end, but adds RichFaces components to allow for a rich user experience. RichFaces builds on top of the JSF standard, and is a fully portable solution compatible with all JSF implementations. Some key points to make note of while running the application:
+      <br/><br/>
+      <b>AJAX Push</b>
+      <br/><br/>
+       This application makes use of AJAX push.  When a member is created in one browser, the member list is updated in all open browsers. Try this yourself by opening two different browsers. Create a new member in one browser and watch for the list to be updated in both browsers.
+      <br/><br/>
+      <b>AJAX Calls</b>
+      <br/><br/>
+      All page updates are made with an AJAX call, which increases the page responsiveness.
+      <br/><br/>
+      <b>Client-side Validation</b>
+      <br/><br/>
+      By simply nesting a &#60;rich:validator /&#62; tag in the input elements, we wire them with RichFaces client-side validation capabilities.  The inputs are validated locally using JavaScript, which does not require a round-trip to the server.
+      <br/><br/>
+      <b>Popups</b>
+      <br/><br/>
+      Click the view link next to a member in the member list to view a popup with the member details.  To close the popup, click the "X" in the top right-hand corner, or click anywhere on the background mask.
+      <br/><br/>
+      <b>Mobile Support</b>
+      <br/><br/>
+      View the application on a mobile device to try out the mobile version of the application.  Alternatively, view the mobile version on your desktop by navigating to the url: <http://localhost:8080/jboss-kitchensink-rf/mobile/>
+      <br/><br/>
+    </description>
+  </intro>
+  <item
+    skip="false"
+    title="The kitchensink-rf example in depth">
+    <description>
+      The kitchensink-rf application shows off a number of Java EE technologies such as RichFaces, AJAX, JSF 2.0, CDI 1.0, EJB 3.1, JPA 2.0, Bean Validation 1.0, and Arquillian. 
+      <br/><br/>
+      Let&apos;s start by looking at the necessary deployment descriptors. 
+      NOT SURE WHAT YOU WANT TO DO HERE
+    </description> 
+    <command
+    required="true"
+    returns="currentProject"
+    serialization="org.jboss.tools.project.examples.cheatsheet.getProjectForCheatsheet"/>
+  </item>
+  <item
+    skip="true"
+    title="Member.java">
+    <description>
+      Next, let&apos;s take a look the <b>Member</b> class:
+    </description>
+    <subitem
+            label="The Member class holds the member data. Note the table name is unique to avoid conflicts with other quickstarts."
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/kitchensink-rf/service/MemberRegistration.java,fromLine=39,toLine=39)"/>
+    </subitem>
+    <subitem
+            label="The unique identifier is a generated value."
+            skip="true">
+      <command
+        required="false"
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/rest/MemberService.java,fromLine=42,toLine=43)"/>
+    </subitem>
+    <subitem
+            label="Annotations define the valid column values. For example, the phone number must be from 10 to 12 numbers in length and can not be null."
+            skip="true">
+      <command
+        required="false"
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/rest/MemberService.java,fromLine=56,toLine=60)"/>
+    </subitem>
+  
+  </item>
+
+  <item
+    skip="true"
+    title="MemberRegistration.java">
+    <description>
+      Next, let&apos;s take a look the <b>MemberRegistration</b> class:
+    </description>
+    <subitem
+            label="The member instance is passed to the register() method when a new user is added."
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/kitchensink-rf/service/MemberRegistration.java,fromLine=40,toLine=44)"/>
+    </subitem>
+  
+  </item>
+
+  <item
+    skip="true"
+    title="index.xhtml">
+    <description>
+    Next, let&apos;s take a look the <b>index.xhtml</b> file:
+    </description>
+    <subitem
+          label="The newMemberPanel ... "
+          skip="true">
+      <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.xhtml,fromLine=40,toLine=50)"/>
+    </subitem>
+  </item>
+
+
+  
+  <item
+    skip="true"
+    title="Create your own application ">
+    <description>
+      The <b>kitchensink-rf quickstart</b> is generated from a Maven archetype. 
+      Using this archetype offers you the perfect opportunity to generate your own project.
+      <br/><br/>
+      To generate your own RichFaces application, select <b>Help&gt;JBoss Central</b> and click the <b>RichFaces Project</b> wizard.
+      <br/>
+      This creates brand new project with the same functionality as <b>kitchensink-rf</b>, 
+      but customized with your details.
+    </description>
+  </item>
+  
+</cheatsheet>

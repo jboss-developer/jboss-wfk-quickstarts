@@ -1,0 +1,116 @@
+<!DOCTYPE html><html><head><title>README</title><link href="https://raw.github.com/pmuir/github-flavored-markdown/gh-pages/shared/css/documentation.css" rel="stylesheet"></link><link href="https://raw.github.com/github/github-flavored-markdown/gh-pages/shared/css/pygments.css" rel="stylesheet"></link></head><body>
+<h1><a id="kitchensinkcordova-example-mobile-applications-using-hybrid-html5-rest-with-apache-cordova" class="anchor" href="#kitchensinkcordova-example-mobile-applications-using-hybrid-html5-rest-with-apache-cordova"><span class="anchor-icon"></span></a>kitchensink-cordova: Example Mobile Applications Using Hybrid HTML5 + REST with Apache Cordova</h1>
+
+<p>Author: Kris Borchers
+Level: Intermediate
+Technologies: HTML5, REST, Apache Cordova
+Summary: Based on kitchensink, but uses hybrid HTML5 running as a native application on mobiles
+Target Product: WFK
+Product Versions: EAP 6.1, EAP 6.2, WFK 2.4
+Source: <a href="https://github.com/jboss-developer/jboss-wfk-quickstarts/">https://github.com/jboss-developer/jboss-wfk-quickstarts/</a></p>
+
+<h2><a id="what-is-it" class="anchor" href="#what-is-it"><span class="anchor-icon"></span></a>What is it?</h2>
+
+<p>This project serves as an example of the HTML5 <a href="https://github.com/jboss-developer/jboss-wfk-quickstarts/tree/master/kitchensink-html5-mobile">kitchensink</a> quickstart converted to a hybrid <a href="http://cordova.apache.org/">Apache Cordova</a> application.</p>
+
+<p>What does this mean? Basically, this takes our <a href="https://community.jboss.org/wiki/HTML5RESTApplications">HTML5 + REST</a> / <a href="http://jquerymobile.com/">jQuery Mobile</a> web application and converts it to a native application for both iOS and Android. </p>
+
+<p>Currently, these applications must be built separately, but in the future we hope to provide a single build step for all supported mobile OS types. </p>
+
+<p>These concepts can be applied to the conversion of most HTML5/JS based web apps by just replacing the specific paths described in this article with paths that match your environment. If you have an existing Web Application based on HTML5 + REST, use the following guide to convert it to a hybrid application with Apache Cordova: <a href="http://aerogear.org/docs/guides/HTML5ToHybridWithCordova/">Converting a Mobile HTML5 + REST Web App to a Hybrid App with Apache Cordova</a></p>
+
+<h2><a id="available-hybrid-applications" class="anchor" href="#available-hybrid-applications"><span class="anchor-icon"></span></a>Available Hybrid Applications</h2>
+
+<p>The following is a list of the currently available hybrid applications.
+For more detailed information about a quickstart, click on the quickstart name.</p>
+
+<p>Click on the link below to see instructions to see instructions for each OS type:</p>
+
+<ol>
+<li><a href="#kitchensink-apache-cordova-ios-example">Kitchensink Apache Cordova iOS</a></li>
+<li><a href="#kitchensink-apache-cordova-android-example">Kitchensink Apache Cordova Android</a></li>
+</ol>
+
+<h2><a id="kitchensink-apache-cordova-ios-example" class="anchor" href="#kitchensink-apache-cordova-ios-example"><span class="anchor-icon"></span></a>Kitchensink Apache Cordova iOS Example</h2>
+
+<h3><a id="what-is-it_1" class="anchor" href="#what-is-it_1"><span class="anchor-icon"></span></a>What is it?</h3>
+
+<p>This quickstart was built upon the HTML5 kitchensink quickstart, which was converted to a hybrid Apache Cordova application. Basically, this takes our HTML5 + REST / jQuery Mobile based web application and converts it to a native application for iOS.</p>
+
+<h3><a id="system-requirements" class="anchor" href="#system-requirements"><span class="anchor-icon"></span></a>System requirements</h3>
+
+<p>The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.4.</p>
+
+<p>All you need to build this project is Mac OS X Lion (10.7) (or later) and XCode 4.5 or later and the appropriate iOS SDK for your needs. If you need more detailed instruction to setup a iOS Development Environment with Apache Cordova, take a look at <a href="http://aerogear.org/docs/guides/CordovaSetup/">Setting up your development environment to use Apache Cordova</a></p>
+
+<h3><a id="import-the-quickstart-code" class="anchor" href="#import-the-quickstart-code"><span class="anchor-icon"></span></a>Import the Quickstart Code</h3>
+
+<p>First you need to import the existing iOS code to XCode.</p>
+
+<ol>
+<li>Open Finder and navigate to <code>QUICKSTART_HOME/kitchensink-cordova/ios/</code>. Be sure to replace <code>QUICKSTART_HOME</code> with the root directory of your quickstarts.</li>
+<li>Right click on <em>KitchensinkCordova.xcodeproj</em> and select <em>Open With XCode</em></li>
+<li>Change the <code>Target</code> in the Scheme menu to KitchensinkCordova and select a device</li>
+<li>Make sure that your <code>QUICKSTART_HOME/kitchensink-cordova/ios/www</code> is a symbolic link to <code>../shared/www</code></li>
+</ol>
+
+<h3><a id="run-and-access-the-application" class="anchor" href="#run-and-access-the-application"><span class="anchor-icon"></span></a>Run and Access the Application</h3>
+
+<p>If the toolbar in XCode is visible, click on the <code>Run</code> button. This will start the iOS Simulator with this quickstart running in it. If your toolbar is not visible, click <code>View -&gt; Show Toolbar</code> to show it.</p>
+
+<h2><a id="kitchensink-apache-cordova-android-example" class="anchor" href="#kitchensink-apache-cordova-android-example"><span class="anchor-icon"></span></a>Kitchensink Apache Cordova Android Example</h2>
+
+<h3><a id="what-is-it_2" class="anchor" href="#what-is-it_2"><span class="anchor-icon"></span></a>What is it?</h3>
+
+<p>This application is built upon the HTML5 kitchensink quickstart, which was converted to an Apache Cordova based hybrid application. Basically, this takes our HTML5 + REST / jQuery Mobile based web application and converts it to a native application for Android. </p>
+
+<h3><a id="system-requirements_1" class="anchor" href="#system-requirements_1"><span class="anchor-icon"></span></a>System requirements</h3>
+
+<p>All you need to build this project is Java 6.0 (Java SDK 1.6) or later, JBDS 5 or Eclipse with <a href="http://developer.android.com/tools/sdk/eclipse-adt.html">Android Development Tools (ADT) Plugin for the Eclipse IDE</a>. If you need more detailed instruction to setup a Android Development Environment with Apache Cordova, you can take a look at <a href="http://aerogear.org/docs/guides/CordovaSetup/">Setting up your development environment to use Apache Cordova</a></p>
+
+<h3><a id="import-the-quickstart-code_1" class="anchor" href="#import-the-quickstart-code_1"><span class="anchor-icon"></span></a>Import the Quickstart Code</h3>
+
+<p>First we need to import the existing Android code to JBDS or Eclipse</p>
+
+<ol>
+<li>In Eclipse, click on <code>File</code>, then <code>Import</code>.</li>
+<li>Select <code>Existing Android Code Into Workspace</code> and click <code>Next</code>.</li>
+<li>In <code>Root Directory</code>, click on the <code>Browse...</code> button, then find and select <code>QUICKSTART_HOME/kitchensink-cordova/android/</code>. Be sure to replace <code>QUICKSTART_HOME</code> with the root directory of your quickstarts.</li>
+<li>Click the <code>Finish</code> button to start the project import.</li>
+<li>Make sure that your <code>QUICKSTART_HOME/kitchensink-cordova/android/assets/www</code> is a symbolic link to <code>../shared/www</code></li>
+</ol>
+
+<h3><a id="troubleshooting-tips" class="anchor" href="#troubleshooting-tips"><span class="anchor-icon"></span></a>Troubleshooting Tips</h3>
+
+<h4><a id="troubleshooting-fedorared-hat-enterprise-linux" class="anchor" href="#troubleshooting-fedorared-hat-enterprise-linux"><span class="anchor-icon"></span></a>Troubleshooting Fedora/Red Hat Enterprise Linux</h4>
+
+<p>If you receive an error <em>Unable to resolve target &lsquo;android-10&rsquo;</em>, it means you don&rsquo;t have the Android API 10 (Android 2.3.3) installed. </p>
+
+<p>To solve this you must:</p>
+
+<ol>
+<li>Right-click the project in the left pane.</li>
+<li>Select <code>Properties</code></li>
+<li>In Android options, select the appropriate Android API.</li>
+</ol>
+
+<p><em>NOTE: This sample was built for the Android 2.1 SDK for maximum compatibility with current devices but should work on any 2.x or 4.0 SDK. The sample was not tested on the 3.x series.</em></p>
+
+<h4><a id="troubleshooting-windows-operating-systems" class="anchor" href="#troubleshooting-windows-operating-systems"><span class="anchor-icon"></span></a>Troubleshooting Windows Operating Systems</h4>
+
+<p>As Windows doesn&rsquo;t support symbolic links you must copy <code>shared/www</code> folder to <code>QUICKSTART_HOME/kitchensink-cordova/android/assets/www</code></p>
+
+<h3><a id="start-the-emulator-and-deploy-the-application" class="anchor" href="#start-the-emulator-and-deploy-the-application"><span class="anchor-icon"></span></a>Start the Emulator and Deploy the application</h3>
+
+<ol>
+<li>To start the emulator in Eclipse, click on <code>Window</code> and select <code>AVD Manager</code>.</li>
+<li>In the <code>Android Virtual Device Manager</code> window, select the appropriate AVD and click the <code>Start</code> button.</li>
+<li>In the <code>Launch Options</code> window. click the <code>Launch</code> button.</li>
+<li>When the Emulator starts, select your project on Eclipse.</li>
+<li>Click on <code>Run</code>, then <code>Run As</code> and <code>Android Application</code>.</li>
+</ol>
+
+<h3><a id="access-the-application" class="anchor" href="#access-the-application"><span class="anchor-icon"></span></a>Access the application</h3>
+
+<p>The application will be running on the Emulator.</p>
+</body></html>
