@@ -16,8 +16,13 @@
  */
 package org.jboss.as.quickstarts.kitchensink.spring.controlleradvice.controller;
 
+import java.io.IOException;
+
+import javax.validation.Valid;
+
 import org.jboss.as.quickstarts.kitchensink.spring.controlleradvice.data.MemberDao;
 import org.jboss.as.quickstarts.kitchensink.spring.controlleradvice.model.Member;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.UnexpectedRollbackException;
@@ -26,9 +31,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import javax.validation.Valid;
-import java.io.IOException;
 
 @Controller
 @RequestMapping(value = "/")
@@ -43,8 +45,8 @@ public class MemberController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String displaySortedMembers(Model model) {
-        /*model.addAttribute("members", memberDao.findAllOrderedByName());*/
         model.addAttribute("newMember", new Member());
+        /*model.addAttribute("members", memberDao.findAllOrderedByName());*/
         return "index";
     }
 
@@ -65,6 +67,7 @@ public class MemberController {
                 return "index";
             }
         } else {
+            /*model.addAttribute("members", memberDao.findAllOrderedByName());*/
             return "index";
         }
     }

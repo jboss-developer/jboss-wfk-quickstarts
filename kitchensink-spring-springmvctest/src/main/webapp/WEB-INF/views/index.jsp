@@ -55,13 +55,12 @@
                     <td><form:errors class="invalid" path="email"/></td>
                 </tr>
                 <tr>
-                    <td>
-                        <form:label path="phoneNumber">Phone #:</form:label>
+                    <td><form:label path="phoneNumber">Phone #:</form:label></td>
                     <td><form:input path="phoneNumber"/></td>
                     <td><form:errors class="invalid" path="phoneNumber"/></td>
                 </tr>
                 <tr>
-                    <p style="color: red">${error}</p>
+                    <td><p style="color: red">${error}</p></td>
                 </tr>
                 </tbody>
             </table>
@@ -82,22 +81,23 @@
             <c:otherwise>
                 <table class="simpletablestyle">
                     <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone #</th>
-                        <th>REST URL</th>
-                    </tr>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone #</th>
+                            <th>REST URL</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${members}" var="member">
-                    <tr>
-                        <td>${member.id}</td>
-                        <td>${member.name}</td>
-                        <td>${member.email}</td>
-                        <td>${member.phoneNumber}</td>
-                        <td><a href="<c:url value="/rest/members/${member.id}"/>">/rest/members/${member.id}</a></td>
+                        <c:forEach items="${members}" var="member">
+                            <tr>
+                                <td>${member.id}</td>
+                                <td>${member.name}</td>
+                                <td>${member.email}</td>
+                                <td>${member.phoneNumber}</td>
+                                <td><a href="<c:url value="/rest/members/${member.id}"/>">/rest/members/${member.id}</a></td>
+                            </tr>
                         </c:forEach>
                     </tbody>
                 </table>
@@ -114,8 +114,7 @@
     <div id="aside">
         <p>Learn more about JBoss Enterprise Application Platform 6.</p>
         <ul>
-            <li><a
-                    href="https://access.redhat.com/site/documentation/JBoss_Enterprise_Application_Platform/">Documentation</a></li>
+            <li><a href="https://access.redhat.com/site/documentation/JBoss_Enterprise_Application_Platform/">Documentation</a></li>
             <li><a href="http://red.ht/jbeap-6">Product Information</a></li>
         </ul>
     </div>

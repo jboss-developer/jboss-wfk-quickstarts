@@ -16,9 +16,9 @@
  */
 package org.jboss.as.quickstarts.kitchensink.spring.springmvctest.data;
 
-import org.jboss.as.quickstarts.kitchensink.spring.springmvctest.model.Member;
-
 import java.util.List;
+
+import org.jboss.as.quickstarts.kitchensink.spring.springmvctest.model.Member;
 
 public interface MemberDao {
     public Member findById(Long id);
