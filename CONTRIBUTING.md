@@ -99,14 +99,10 @@ General Guidelines
 
 * The `<name>` in the quickstart `pom.xml` file should follow the template: `JBoss <target-product> Quickstart: <quickstart-name> < - optional-subfolder-name>` where `target-product` is the `Target Product` metadata specified in the README.md file,  `quickstart-name` is the quickstart folder name, and `optional-subfolder-name` is the name of any nested subfolder containing a `pom.xml` file. The following are a few examples of quickstart pom files and the correct name tags:
 
-        greeter/pom.xml ==> `JBoss EAP Quickstart: greeter`
-        helloworld-errai/pom.xml ==> `JBoss WFK Quickstart: helloworld-errai`
-        kitchensink-ear/pom.xml ==> `JBoss EAP Quickstart: kitchensink-ear`
-        kitchensink-ear/ear/pom.xml --> `JBoss EAP Quickstart: kitchensink-ear - ear`
-        kitchensink-ear/ejb/pom.xml ==> `JBoss EAP Quickstart: kitchensink-ear - ejb`
-        kitchensink-ear/web/pom.xml ==> `JBoss EAP Quickstart: kitchensink-ear - web`
+        kitchensink-html5-mobile/pom.xml ==> `JBoss WFK Quickstart: JBoss WFK Quickstart: kitchensink-html5-mobile`
+        helloworld-html5/pom.xml ==> `JBoss WFK Quickstart: helloworld-html5`
 
-* The `<artifactId>` in the quickstart `pom.xml` file should follow the template: `jboss-<target-product>-<quickstart-name>`. For example, the `<artifactId>` for the `greeter` quickstart in the AS 7 project is `jboss-as-greeter`. The `<artifactId>` for `errors` quickstart in the Fuse project is `jboss-fuse-errors`.
+* The `<artifactId>` in the quickstart `pom.xml` file should follow the template: `jboss-<target-product>-<quickstart-name>`. For example, the `<artifactId>` for the `kitchensink-html5-mobile` quickstart in the WFK project is `jboss-wfk-kitchensink-html5-mobile`. The `<artifactId>` for `errors` quickstart in the Fuse project is `jboss-fuse-errors`.
 
 * The JBoss developer Maven repository that contains newly staged artifacts is located at [developer.github.io](developer.github.io). To access these artifacts, you must add the following profile to your `settings.xml` file.
 
@@ -179,12 +175,12 @@ Kitchensink variants
 
   * Follow the primary layout, style, and graphics of the original.
 
-  * Projects can have 3-4 lines directly under the AS/EAP banner in the middle section to describe what makes this variant different.
+  * Projects can have 3-4 lines directly under the EAP banner in the middle section to describe what makes this variant different.
      * How projects use that space is up to them, but options include plain text, bullet points, etc....
 
   * Projects can have their logo in the left side of the banner.
     * The sidebar area can contain a section with links to the related projects, wiki, tutorials, etc...
-       * This should be below any AS/EAP link areas.
+       * This should be below any EAP link areas.
 
     If appropriate for the technology the application should expose RESTful endpoints following the example of the original kitchensink quickstart.  This should also include the RESTful links in the member table.
     

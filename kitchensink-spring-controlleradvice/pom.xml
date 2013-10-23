@@ -149,7 +149,7 @@
     <dependencies>
 
         <!-- Import the JPA API using the provided scope It is included in JBoss
-            AS 7 / EAP 6 -->
+            EAP 6 / EAP 6 -->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.0-api</artifactId>
@@ -158,7 +158,7 @@
 
         <!-- JSR-303 (Bean Validation) Implementation -->
         <!-- Provides portable constraints such as @Email -->
-        <!-- Hibernate Validator is shipped in JBoss AS 7 -->
+        <!-- Hibernate Validator is shipped in JBoss EAP 6 -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>

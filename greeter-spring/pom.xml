@@ -74,8 +74,8 @@
                 of artifacts. Here we use the jboss-javaee-web-6.0 stack (you can read this
                 as the JBoss stack of the Java EE Web Profile 6 APIs), and we use version
                 2.0.0.Beta1 which is the latest release of the stack. You can actually use
-                this stack with any version of JBoss AS that implements Java EE 6, not just
-                JBoss AS 7! -->
+                this stack with any version of JBoss that implements Java EE 6, not just
+                JBoss EAP 6! -->
             <dependency>
                 <groupId>org.jboss.bom</groupId>
                 <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
@@ -108,7 +108,7 @@
     <dependencies>
 
         <!-- Import the JPA API using the provided scope It is included in JBoss
-            AS 7 / EAP 6 -->
+            EAP 6 -->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.0-api</artifactId>
