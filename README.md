@@ -41,7 +41,7 @@ Suggested Approach to the Quickstarts
 
 We suggest you approach the quickstarts as follows:
 
-* Regardless of your level of expertise, we suggest you start with the **helloworld** quickstart. It is the simplest example and is an easy way to prove your server is configured and started correctly.
+* Regardless of your level of expertise, we suggest you start with the **helloworld-html5** quickstart. It is the simplest example and is an easy way to prove your server is configured and started correctly.
 * If you are a beginner or new to JBoss, start with the quickstarts labeled **Beginner**, then try those marked as **Intermediate**. When you are comfortable with those, move on to the **Advanced** quickstarts.
 * Some quickstarts are based upon other quickstarts but have expanded capabilities and functionality. If a prerequisite quickstart is listed, be sure to deploy and test it before looking at the expanded version.
 
@@ -275,7 +275,7 @@ You can either start the server yourself or let Arquillian manage its lifecycle 
     * Open the `src/test/resources/arquillian.xml` file located in the quickstart directory.
     * Find the configuration for the JBoss container. It should look like this:
 
-            <!-- Example configuration for a managed/remote JBoss AS 7 instance -->
+            <!-- Example configuration for a managed/remote JBoss EAP instance -->
             <container qualifier="jboss" default="true">
                 <!-- If you want to use the JBOSS_HOME environment variable, just delete the jbossHome property -->
                 <!--<configuration> -->

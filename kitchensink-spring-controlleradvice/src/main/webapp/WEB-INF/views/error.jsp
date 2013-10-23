@@ -29,7 +29,7 @@
 <body>
 <div id="container">
     <div class="dualbrand">
-        <img src="<c:url value="/static/resources/gfx/dualbrand_logo.png"/>"/>
+        <img src="<c:url value="/static/resources/gfx/rhjb_eap_logo.png"/>"/>
     </div>
     <div id="content">
         <p>Global Error Handler was invoked with:</p>
