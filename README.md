@@ -65,7 +65,7 @@ To run these quickstarts with the provided build scripts, you need the following
 3. The JBoss EAP distribution ZIP.
     * For information on how to install and run JBoss, refer to the product documentation.
 
-4. You can also use [JBoss Developer Studio or Eclipse](#use-jBoss-developer-studio-or-eclipse-to-run-the-quickstarts) to run the quickstarts. 
+4. You can also use [JBoss Developer Studio or Eclipse](#use-jboss-developer-studio-or-eclipse-to-run-the-quickstarts) to run the quickstarts. 
 
 
 Configure Maven
@@ -217,7 +217,7 @@ To build the quickstarts:
 2. Open a command line and navigate to the root directory of the quickstarts.
 3. Use this command to build the quickstarts that do not have complex dependencies:
 
-            mvn clean install '-Pdefault,!complex-dependencies'
+            mvn clean install
 
 _Note_: If you see a `java.lang.OutOfMemoryError: PermGen space` error when you run this command, increase the memory by typing the following command for your operating system, then try the above command again.
 

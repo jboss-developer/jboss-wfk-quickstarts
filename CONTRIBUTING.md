@@ -104,14 +104,14 @@ General Guidelines
 
 * The `<artifactId>` in the quickstart `pom.xml` file should follow the template: `jboss-<target-product>-<quickstart-name>`. For example, the `<artifactId>` for the `kitchensink-html5-mobile` quickstart in the WFK project is `jboss-wfk-kitchensink-html5-mobile`. The `<artifactId>` for `errors` quickstart in the Fuse project is `jboss-fuse-errors`.
 
-* The JBoss developer Maven repository that contains newly staged artifacts is located at [developer.github.io](developer.github.io). To access these artifacts, you must add the following profile to your `settings.xml` file.
+* The JBoss developer Maven repository that contains newly staged artifacts is located at [developer.github.io](http://jboss-developer.github.io/temp-maven-repo/). To access these artifacts, you must add the following profile to your `settings.xml` file.
 
         <profile>
             <id>jboss-developer-repository</id>
             <repositories>
                 <repository>
                     <id>jboss-developer-repository</id>
-                    <url> http://jboss-developer.github.io/temp-maven-repo/</url>
+                    <url>http://jboss-developer.github.io/temp-maven-repo/</url>
                     <releases>
                        <enabled>true</enabled>
                     </releases>
@@ -123,7 +123,7 @@ General Guidelines
             <pluginRepositories>
                 <pluginRepository>
                     <id>jboss-developer-plugin-repository</id>
-                    <url> http://jboss-developer.github.io/temp-maven-repo/</url>
+                    <url>http://jboss-developer.github.io/temp-maven-repo/</url>
                     <releases>
                       <enabled>true</enabled>
                     </releases>
@@ -138,7 +138,7 @@ General Guidelines
     
 * If you create a quickstart that uses a database table, make sure the name you use for the table is unique across all quickstarts. 
 
-* The project must follow the structure used by existing quickstarts such as [numberguess](https://github.com/jboss-jdf/jboss-as-quickstart/tree/master/numberguess). A good starting point would be to copy the  `numberguess` project.
+* The project must follow the structure used by existing quickstarts such as [numberguess](https://github.com/jboss-developer/jboss-eap-quickstarts/tree/master/numberguess). A good starting point would be to copy the  `numberguess` project.
 
 * The sample project should be importable into JBoss Developer Studio/JBoss Tools and be deployable from there.
 
