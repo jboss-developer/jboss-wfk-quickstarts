@@ -617,7 +617,7 @@
     // timerLabel.autoresizingMask = reSizeMask;
     [self.timerLabel setBackgroundColor:[UIColor clearColor]];
     [self.timerLabel setTextColor:[UIColor whiteColor]];
-    [self.timerLabel setTextAlignment:UITextAlignmentCenter];
+    [self.timerLabel setTextAlignment:NSTextAlignmentCenter];
     [self.timerLabel setText:@"0:00"];
     [self.timerLabel setAccessibilityHint:NSLocalizedString(@"recorded time in minutes and seconds", nil)];
     self.timerLabel.accessibilityTraits |= UIAccessibilityTraitUpdatesFrequently;
