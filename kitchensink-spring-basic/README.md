@@ -1,4 +1,4 @@
-kitchensink-spring-basic: Kitchensink Example using Spring 3.1
+kitchensink-spring-basic: Kitchensink Example using Spring 3.2
 ===========================================
 Author: Marius Bogoevici
 Level: Intermediate
@@ -11,12 +11,11 @@ Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
 What is it?
 -----------
 
-
 This is your project! It is a sample, deployable Maven 3 project to help you get your foot in the door developing with Java EE 6 on Red Hat JBoss Enterprise Application Platform 6.1 or later.
 
 This project is setup to allow you to create a compliant Java EE 6 application using JSP, JPA 2.0 and Spring 3.2. It includes a persistence unit and some sample persistence and transaction code to introduce you to database access in enterprise Java:
 
-* In `jboss-as-spring-mvc-context.xml` `<context:component-scan base-package="org.jboss.as.quickstarts.kitchensink.spring.basic.mvc"/>` and `<mvc:annotation-driven/>` are used to register both the non-rest and rest controllers.
+* In `jboss-as-spring-mvc-context.xml` `<context:component-scan base-package="org.jboss.as.quickstarts.kitchensink.spring.basic.controller"/>` and `<mvc:annotation-driven/>` are used to register both the non-rest and rest controllers.
 
 * The controllers map the respective urls to methods using `@RequestMapping(url)`.
 
