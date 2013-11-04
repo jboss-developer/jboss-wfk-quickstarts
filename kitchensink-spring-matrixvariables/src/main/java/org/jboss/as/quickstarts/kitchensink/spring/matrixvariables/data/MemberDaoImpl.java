@@ -16,21 +16,27 @@
  */
 package org.jboss.as.quickstarts.kitchensink.spring.matrixvariables.data;
 
-import org.jboss.as.quickstarts.kitchensink.spring.matrixvariables.model.Member;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
+import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.persistence.metamodel.EntityType;
-import java.util.List;
+
+import org.jboss.as.quickstarts.kitchensink.spring.matrixvariables.model.Member;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
 public class MemberDaoImpl implements MemberDao {
+    
+    private static final Logger log = Logger.getLogger(MemberDaoImpl.class.getName());
+    
     @Autowired
     private EntityManager em;
 
@@ -39,20 +45,21 @@ public class MemberDaoImpl implements MemberDao {
     }
 
     public List<Member> findByNameAndEmail(String name, String email) {
-        CriteriaBuilder builder = em.getCriteriaBuilder();
-        CriteriaQuery<Member> criteria = builder.createQuery(Member.class);
+    	log.fine("findByNameAndEmail name = " + name + ", email = " + email);
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Member> criteria = cb.createQuery(Member.class);
         EntityType<Member> type = em.getMetamodel().entity(Member.class);
         Root<Member> member = criteria.from(Member.class);
         if (name != null && !name.isEmpty() && name != "")
-            criteria.where(builder.like(member.get(type.getDeclaredSingularAttribute("name", String.class)), "%" + name.toLowerCase() + "%"));
+            criteria.where(cb.like(cb.lower(member.get(type.getDeclaredSingularAttribute("name", String.class))), "%" + name.toLowerCase() + "%"));
         if (email != null && !email.isEmpty() && email != "")
-            criteria.where(builder.like(member.get(type.getDeclaredSingularAttribute("email", String.class)), "%" + email.toLowerCase() + "%"));
+            criteria.where(cb.like(cb.lower(member.get(type.getDeclaredSingularAttribute("email", String.class))), "%" + email.toLowerCase() + "%"));
         return em.createQuery(criteria).getResultList();
     }
 
     public Member findByEmail(String email) {
-        CriteriaBuilder builder = em.getCriteriaBuilder();
-        CriteriaQuery<Member> criteria = builder.createQuery(Member.class);
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Member> criteria = cb.createQuery(Member.class);
         Root<Member> member = criteria.from(Member.class);
 
         /*
@@ -60,7 +67,7 @@ public class MemberDaoImpl implements MemberDao {
          * feature in JPA 2.0 criteria.select(member).orderBy(cb.asc(member.get(Member_.name)));
          */
 
-        criteria.select(member).where(builder.equal(member.get("email"), email));
+        criteria.select(member).where(cb.equal(member.get("email"), email));
         return em.createQuery(criteria).getSingleResult();
     }
 
