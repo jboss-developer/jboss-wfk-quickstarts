@@ -15,22 +15,30 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<cheatsheet title="CDI + HTML5 + REST: Kitchensink HTML5 Mobile quickstart">
+<cheatsheet title="HTML5 + Mobile + JAX-RS: Kitchensink quickstart">
   <intro>
     <description>
-      This quickstart shows how to develop an HTML5 based desktop movile web application with Java EE 6 on JBoss Enterprise Application Platform 6.1 or later. This project is setup to allow you to create a basic Java EE 6 application using HTML5, jQuery Mobile, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0, and Bean Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to help you get your feet wet with database access in enterprise Java.
+      This quickstart shows off HTML5 based desktop/mobile web application development with Java EE 6 on JBoss Enterprise Application Platform 6.1 or later. This project uses HTML5, jQuery Mobile, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to help you get your feet wet with database access in enterprise Java.
       <br/><br/>
-      <b>HTML5 + REST</b>
+      <b>HTML5</b>
       <br/><br/>
-      This uses a pure HTML client that interacts with with the application server via restful end-points (JAX-RS).  This application also uses some of the latest HTML5 features and advanced JAX-RS. And since testing is just as important with client side as it is server side, this application uses QUnit to show you how to unit test your JavaScript.
+      HTML5 refers to both the newest version of HTML language, and the set of associated technologies that allow creation of web applications and sites that target various devices.
+      <br/><br/>
+      <b>jQuery Mobile</b>
+      <br/><br/>
+      jQuery Mobile is a client-side web framework with touch-friendly widgets. It provides a HTML5-based user-interface that uses semantic markup. Sites built with jQuery Mobile are accessible on all popular smartphone, tablet and desktop devices.  
       <br/><br/>
       <b>JAX-RS: The Java API for RESTful Web Services</b>
       <br/><br/>
       JAX-RS is a new specification in Java EE 6. It allows application developers to easily expose Java services as RESTful web services.
       <br/><br/>
-      <b>Mobile Web Support</b>
+      <b>EJB 3.1</b>
       <br/><br/>
-      his application also integrates jQuery mobile and basic client side device detection to give you both a desktop and mobile  version of the interface. Both support the same features, including form validation, member registration, etc. However the mobile version adds in mobile layout, touch, and performance  improvements needed to get you started with mobile web development on JBoss.
+      EJB 3.1 is an update to the EJB specification for Java EE 6. It allows application developers to build business components and services.
+      <br/><br/>
+      <b>JPA 2.0</b>
+      <br/><br/>
+      JPA 2.0 is an update to the JPA specification for Java EE 6. It provides application developers with an object-relational mapping facility to manage relational data. 
       <br/><br/>
       <b>Bean Validation</b>
       <br/><br/>
@@ -42,15 +50,52 @@
     skip="false"
     title="The kitchensink-html5-mobile example in depth">
     <description>
-      The kitchensink-html5-mobile application shows off a number of Java EE technologies such as HTML5, jQuery Mobile, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0, Bean Validation 1.0, and Arquillian. 
+      The kitchensink-html5-mobile application shows off a number of Java EE technologies such as HTML5, jQuery Mobile, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. 
+      It does this by providing a member registration database, available via HTML5 and JAX-RS.
       <br/><br/>
-      Let&apos;s start by looking at the necessary deployment descriptors. 
-      NOT SURE WHAT YOU WANT TO DO HERE
+      As usual, let&apos;s start by looking at the necessary deployment descriptors. By now, we&apos;re very used to seeing <b>beans.xml</b> in <b>WEB-INF/</b> (which can be found in the <b>src/main/webapp</b> directory of the example). Notice that, once again, we don&apos;t need a web.xml. There are two configuration files (which can be found in the <b>src/main/resources</b> directory of the example) — <b>WEB-INF/classes/META-INF/persistence.xml</b>, which sets up JPA, and <b>WEB-INF/classes/import.sql</b> which Hibernate, the JPA provider in JBoss Enterprise Application Platform, will use to load the initial users into the application when the application starts. We discussed both of these files in detail in The <b>greeter example in depth</b>, and these are largely the same.
     </description> 
     <command
     required="true"
     returns="currentProject"
     serialization="org.jboss.tools.project.examples.cheatsheet.getProjectForCheatsheet"/>
+  </item>
+  
+  <item
+    skip="true"
+    title="index.html">
+    <description>
+    Next, let&apos;s take a look the <b>index.html</b> file the user sees. The HTML page consists of several jQuery Mobile pages. The first one is the introduction page:
+    </description>
+    <subitem
+          label=""
+          skip="true">
+      <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=144,toLine=193)"/>
+    </subitem>
+    <subitem
+          label="The content section ...YOU MAY WANT TO BREAK THIS DOWN INTO MULTIPLE SUBITEMS"
+          
+          skip="true">
+      <command
+        required="false"
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=152,toLine=181)"/>
+    </subitem>
+    <subitem
+            label="and a common footer... "
+            skip="true">
+        <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=188,toLine=192)"/>
+    </subitem>
+      <subitem
+              label="Describe more important lines in the file. "
+              skip="true">
+          <command
+        required="false"
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=1,toLine=1)"/>
+     </subitem>
   </item>
   
   <item
@@ -76,43 +121,6 @@
   
   </item>
 
-  <item
-    skip="true"
-    title="index.html">
-    <description>
-    Next, let&apos;s take a look the <b>index.html</b> file:
-    </description>
-    <subitem
-          label="We have a common header section that contains our logo. "
-          skip="true">
-      <command
-      required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=144,toLine=149)"/>
-    </subitem>
-    <subitem
-          label="The content section ...YOU MAY WANT TO BREAK THIS DOWN INTO MULTIPLE SUBITEMS"
-          
-          skip="true">
-      <command
-        required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=152,toLine=181)"/>
-    </subitem>
-    <subitem
-            label="and a common footer... "
-            skip="true">
-        <command
-      required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=188,toLine=192)"/>
-    </subitem>
-      <subitem
-              label="Describe more important lines in the file. "
-              skip="true">
-          <command
-        required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=1,toLine=1)"/>
-     </subitem>
-  </item>
- 
   <item
     skip="true"
     title="Create your own application ">
