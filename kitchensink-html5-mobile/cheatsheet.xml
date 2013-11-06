@@ -63,64 +63,515 @@
   
   <item
     skip="true"
-    title="index.html">
+    title="jQuery Mobile pages in index.html">
     <description>
-    Next, let&apos;s take a look the <b>index.html</b> file the user sees. The HTML page consists of several jQuery Mobile pages. The first one is the introduction page:
+    Next, let&apos;s take a look the <b>index.html</b> file the user sees. The HTML page consists of several jQuery Mobile pages.
     </description>
     <subitem
-          label=""
+          label="jQuery Mobile and other required JavaScript and CSS artifacts are added to the page in the head element."
+          skip="true">
+      <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=24,toLine=47)"/>
+    </subitem>
+    <subitem
+          label="The first jQuery Mobile page is the introduction page."
           skip="true">
       <command
       required="false"
       serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=144,toLine=193)"/>
     </subitem>
     <subitem
-          label="The content section ...YOU MAY WANT TO BREAK THIS DOWN INTO MULTIPLE SUBITEMS"
-          
+          label="We have a header that displays a button to view information about the application. Clicking the button opens a jQuery Mobile page as a dialog, displaying information about the application."
+          skip="true">
+      <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=146,toLine=149)"/>
+    </subitem>
+    <subitem
+          label="The content section contains text introducing the application features."
           skip="true">
       <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=152,toLine=181)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=152,toLine=178)"/>
     </subitem>
     <subitem
-            label="and a common footer... "
-            skip="true">
+          label="And we have a footer containing a button to navigate to the Home page (the current page), and the Add member and List member pages."
+          skip="true">
         <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=188,toLine=192)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=182,toLine=191)"/>
     </subitem>
-      <subitem
-              label="Describe more important lines in the file. "
-              skip="true">
+    <subitem
+          label="The next jQuery Mobile page is the one to create a new member. The header and footer is similar to the one in the introduction page."
+          skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=1,toLine=1)"/>
-     </subitem>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=196,toLine=243)"/>
+    </subitem>
+    <subitem
+          label="The content section allows us to register new members via a registration form (with id &quot;reg&quot;). There should be one member already created when the application started. The form in the content section allows input of the name, email and telephone number of a member."
+          skip="true">
+          <command
+        required="false"
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=204,toLine=229)"/>
+    </subitem>
+    <subitem
+          label="The name is input via a HTML form text field."
+          skip="true">
+          <command
+        required="false"
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=210,toLine=213)"/>
+    </subitem>
+    <subitem
+          label="The email is input through a HTML5 form input field of type email. Browser supporting this form of input will perform validation of the email keyed in by the user."
+          skip="true">
+          <command
+        required="false"
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=214,toLine=217)"/>
+    </subitem>
+    <subitem
+          label="The telephone number is input through a HTML form field of type telephone number with a pattern allowing numbers of length 10 through 12. Browser supporting the telephone number as input may display an reduced keyboard with allowed characters (mobile browsers typically display such a keyboard). Browsers supporting telephone number input will also perform validation of the number keyed in by the user."
+          skip="true">
+          <command
+        required="false"
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=218,toLine=221)"/>
+    </subitem>
+    <subitem
+          label="The next jQuery Mobile page is the one to display members. The header and footer is similar to the one in the introduction page."
+          skip="true">
+          <command
+        required="false"
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=246,toLine=278)"/>
+    </subitem>
+    <subitem
+          label="The content section allows us to refresh the list of members displayed. The members are displayed in a placeholder div element with id: &quot;members&quot;."
+          skip="true">
+          <command
+        required="false"
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=255,toLine=264)"/>
+    </subitem>
+    <subitem
+          label="The final jQuery Mobile page is the one to display information about the application. It was introduced earlier as the dialog displayed on clicking the button in the header section on all pages."
+          skip="true">
+          <command
+        required="false"
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=281,toLine=303)"/>
+    </subitem>
   </item>
   
   <item
     skip="true"
-    title="MemberService.java">
+    title="Presentation logic in index.html">
     <description>
-      Next, let&apos;s take a look the <b>MemberService</b> class:
+    Next, let&apos;s take a look at the wiring done in JavaScript, defined in the <b>index.html</b> file. 
     </description>
     <subitem
-            label="Talk about the annotations..."
+          label="We detect if a mobile or tablet device is used to load the page via a simple check..."
+          skip="true">
+      <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=52,toLine=53)"/>
+    </subitem>
+    <subitem
+          label="When a mobile or tablet is used, we load jQuery Mobile"
+          skip="true">
+      <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=56,toLine=66)"/>
+    </subitem>
+    <subitem
+          label="Otherwise, we don't load jQuery Mobile and instead attach a desktop-specific stylesheet. When the browser finishes loading the index.html page, the information article element (with id &quot;aside&quot;) is modified to become a child element of the main section element."
+          skip="true">
+      <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=71,toLine=78)"/>
+    </subitem>
+    <subitem
+          label="In all environments (mobile or not), when the browser finishes loading the index.html page, it unhides the &apos;container&apos; element and fetches the list of members to display from the server. Event handlers are also attached to handle the events when the submit button in the registration page is clicked, when the cancel button in the registration page is clicked, and when the refresh button in the member list page is clicked."
+          skip="true">
+      <command
+        required="false"
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=80,toLine=115)"/>
+    </subitem>
+    <subitem
+          label="We also define a utility method to convert the registration form values into a JavaScript object that can be easily passed to the server as a JSON object."
+          skip="true">
+        <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=117,toLine=131)"/>
+    </subitem>
+  </item>
+  
+  <item
+    skip="true"
+    title="app.js">
+    <description>
+    We now take a look at the core JavaScript functionality for the application referenced from JavaScript methods that were earlier defined in the index.html file.
+    This is defined in the app.js file present in the <b>src/main/webapp/js/app.js</b> file of the project.
+    The core functionality invokes the REST API on the server to register new members. It also updates the member list when the refresh button is clicked.  
+    </description>
+    <subitem
+          label="In the &quot;buildMemberRows&quot; function, we apply the Underscore.js template present in the element with id &quot;member-tmpl&quot; using the array of members as an argument to the template."
+          skip="true">
+      <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/js/app.js,fromLine=23,toLine=25)"/>
+    </subitem>
+    <subitem
+          label="In the &quot;updateMemberTable&quot; function, we invoke the REST API located at &quot;/rest/members&quot; to obtain the collection of members. Once the collection is available in the response, we update the contents of the &quot;members&quot; element with the output of the &quot;buildMemberRows&quot; function."
+          skip="true">
+      <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/js/app.js,fromLine=28,toLine=39)"/>
+    </subitem>
+    <subitem
+          label="The &quot;registerMember&quot; function invokes the the REST API located at &quot;/rest/members&quot; with the JSON representation of the values in the registration form. Any existing error messages are removed."
+          skip="true">
+      <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/js/app.js,fromLine=46,toLine=83)"/>
+    </subitem>
+    <subitem
+          label="On successful registration, the form values are cleared, a message indicating successful registration is displayed and the list of members is updated."
+          skip="true">
+      <command
+        required="false"
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/js/app.js,fromLine=57,toLine=67)"/>
+    </subitem>
+    <subitem
+          label="On a failure to register, if the HTTP response code is 400 or 409, the response is parsed and any error messages are displayed adjacent the form input fields."
+          skip="true">
+        <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/js/app.js,fromLine=68,toLine=81)"/>
+    </subitem>
+  </item>
+  
+  <item
+        skip="true"
+        title="Member.java">
+     <description>
+       Next, let&apos;s take a look at the Member entity, before we look at how the application is wired together:
+    </description>
+    <subitem
+            label="As usual with JPA, we define that the class is an entity by adding @Entity"
             skip="true">
     <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/rest/MemberService.java,fromLine=90,toLine=92)"/>
-    </subitem>
-    <subitem
-            label="Talk about other stuff ... "
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/model/Member.java,fromLine=36)"/>
+  </subitem>
+  <subitem
+            label="Members are exposed as a RESTful service using JAX-RS. We can use JAXB to map the object to XML and to do this we need to add @XmlRootElement."
             skip="true">
-      <command
-        required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/rest/MemberService.java,fromLine=1,toLine=1)"/>
-    </subitem>
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/model/Member.java,fromLine=37)"/>
+  </subitem>
+  <subitem
+            label="Bean Validation allows constraints to be defined once (on the entity) and applied everywhere. Here we constrain the person's name to a certain size and regular expression. "
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/model/Member.java,fromLine=47,toLine=49)"/>
+  </subitem>
+  <subitem
+            label="Hibernate Validator also offers some extra validations such as @Email. "
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/model/Member.java,fromLine=54,toLine=54)"/>
+  </subitem>
+  <subitem
+            label="@Digits, @NotNull and @Size are further examples of constraints. "
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/model/Member.java,fromLine=57,toLine=59)"/>
+  </subitem>
   
   </item>
 
+  <item
+        skip="true"
+        title="MemberRepository.java">
+     <description>
+       Let&apos;s take a look at MemberRepository, which is responsible for interactions with the persistence layer:
+    </description>
+    <subitem
+            label="The bean is application scoped, as it is a singleton."
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/data/MemberRepository.java,fromLine=29)"/>
+  </subitem>
+  <subitem
+            label="The entity manager is injected, to allow interaction with JPA."
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/data/MemberRepository.java,fromLine=32)"/>
+  </subitem>
+  <subitem
+            label="The JPA criteria api is used to load a member by his or her unique identifier, email address."
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/data/MemberRepository.java,fromLine=40,toLine=47)"/>
+  </subitem>
+  <subitem
+            label="The criteria api can also be used to load lists of entities ."
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/data/MemberRepository.java,fromLine=51,toLine=58)"/>
+  </subitem>
+    
+  </item>
+  
+  <item
+        skip="true"
+        title="MemberRegistration.java">
+     <description>
+       Let&apos;s now look at MemberRegistration, the class that allows us to create new members from the JSF page
+    </description>
+    <subitem
+            label="This bean requires transactions as it needs to write to the database. Making this an EJB gives us access to declarative transactions - much simpler than manual transaction control! "
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/service/MemberRegistration.java,fromLine=28)"/>
+  </subitem>
+  <subitem
+            label="Here we inject a JDK logger, defined in the Resources class."
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/service/MemberRegistration.java,fromLine=31)"/>
+  </subitem>
+  <subitem
+            label="An event is sent every time a member is updated. This allows other pieces of code (in this quickstart the member list is refreshed) to react to changes in the member list without any coupling to this class. "
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/service/MemberRegistration.java,fromLine=43)"/>
+  </subitem>  
+    
+  </item>
+  
+  <item
+        skip="true"
+        title="Resources.java">
+     <description>
+       Now, let's take a look at the Resources class, which provides resources such as the entity manager. CDI recommends using "resource producers", as we do in this example, to alias resources to CDI beans, allowing for a consistent style throughout our application:
+    </description>
+    <subitem
+            label="We use the 'resource producer' pattern, from CDI, to 'alias' the old fashioned @PersistenceContext injection of the entity manager to a CDI style injection. This allows us to use a consistent injection style (@Inject) throughout the application. "
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/util/Resources.java,fromLine=42)"/>
+  </subitem>
+  <subitem
+            label="We expose a JDK logger for injection. In order to save a bit more boiler plate, we automatically set the logger category as the class name! "
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/util/Resources.java,fromLine=46)"/>
+  </subitem>
+  <subitem
+            label="If you want to define your own datasource, take a look at the Administration and Configuration Guide for JBoss Enterprise Application Platform 6"
+            skip="true">
+    <command
+           required="false"
+           serialization="org.eclipse.ui.browser.openBrowser(url=https://access.redhat.com/site/documentation/JBoss_Enterprise_Application_Platform/)"/>
+  </subitem>
+  </item>
+  
+  <item
+        skip="true"
+        title="Run and deploy the application">
+     <description>
+       Right-click the project and select <b>Run As</b> &gt; <b>Run On Server</b> or click on the &quot;Click to Perform&quot; link below.
+    </description>
+    <!-- the runOnServer command is not implemented yet
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.actions.runOnServer(project=${currentProject})"/>
+  -->
+  <action
+    pluginId="org.jboss.tools.project.examples.cheatsheet"
+    class="org.jboss.tools.project.examples.cheatsheet.actions.RunOnServer"
+    param1="${currentProject}"/> 
+  </item>
+  <item
+        skip="true"
+        title="Arquillian">
+     <description>
+       If you&apos;ve been following along with the Test Driven Development craze of the past few years, 
+       you&apos;re probably getting a bit nervous by now, wondering how on earth you are going to test your application. 
+       Lucky for you, the Arquillian project is here to help!
+    <br/><br/>
+    Arquillian provides all the boiler plate for running your test inside JBoss Enterprise Application Platform 6 or JBoss AS 7, 
+    allowing you to concentrate on testing your application. 
+    In order to do that, it utilizes Shrinkwrap, a fluent API for defining packaging, 
+    to create an archive to deploy. 
+    We'll go through the testcase, and how you configure Arquillian in just a moment, 
+    but first let's run the test.
+    
+    </description>
+  </item>
+  <item
+        skip="true"
+        title="Start Arquillian tests">
+    <description>
+      Arquillian defines two modes, managed and remote. 
+      The managed mode will take care of starting and stopping the server for you, 
+      while the remote mode connects to an already running server.
+      <br/><br/>
+      The following action starts the test in the <b>remote</b> mode because you have started the server in the previous step. 
+    <br/>
+        Right-click the project, select <b>Properties&gt;Maven</b> and 
+        enter <b>arq-jbossas-remote</b> to the <b>Active Maven Profile</b> field. 
+        After that, right-click the project and select <b>Run As&gt;JUnit test</b>.
+    </description>
+    <!-- the launchJUnitTest command is not implemented yey
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.actions.launchJUnitTest(project=${currentProject}, activateProfile=arq-jbossas-remote)"/>
+  -->
+  
+  <action
+      pluginId="org.jboss.tools.project.examples.cheatsheet"
+      class="org.jboss.tools.project.examples.cheatsheet.actions.LaunchJUnitTest"
+      param1="${currentProject}" 
+        param2="arq-jbossas-remote"/> 
+  </item>
+  
+  <item
+        skip="true"
+        title="MemberRegistrationTest.java">
+    <description>
+      So far so good, the test is running. But what does the test look like?
+    </description>
+    <subitem
+            label="@RunWith(Arquillian.class) tells JUnit to hand control over to Arquillian when executing tests."
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=49)"/>
+  </subitem>
+  <subitem
+            label="The @Deployment annotation identifies the createTestArchive static method to Arquillian as the one to use to determine which resources and classes to deploy "
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=51)"/>
+  </subitem>
+  <subitem
+            label="We add just the classes needed for the test, no more "
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=55)"/>
+  </subitem>
+  <subitem
+            label="We also add persistence.xml as our test is going to use the database "
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=56)"/>
+  </subitem>
+  <subitem
+            label="Of course, we must add beans.xml to enable CDI."
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=57)"/>
+  </subitem>
+  <subitem
+            label="Finally, we add a test datasource, so that test data doesn&apos;t overwrite production data."
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=57)"/>
+  </subitem>
+  <subitem
+            label="Arquillian allows us to inject beans into the test case."
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=60,toLine=61)"/>
+  </subitem>
+  <subitem
+            label="The test method works as you would expect - creates a new member, registers them, and then verifies that the member was created "
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=56,toLine=74)"/>
+  </subitem>
+  
+  </item>
+  
+  <item
+        skip="true"
+        title="arquillian.xml">
+    <description>
+      As you can see, Arquillian has lived up to the promise - the test case is focused on what to test 
+      (the @Deployment method) and how to test (the @Test method). 
+      It&apos;s also worth noting that this isn&apos;t a simplistic unit test - this is a fully fledged integration
+       test that uses the database.
+    <br/><br/>
+    Now, let&apos;s look at how we configure Arquillian. 
+    First of all, let&apos;s take a look at <b>arquillian.xml</b> in <b>src/test/resources</b>.
+    </description>
+    <subitem
+            label="Arquillian deploys the test war to JBoss AS, and doesn't write it to disk. For debugging, it can be very useful to see exactly what is in your war, so Arquillian allows you to export the war when the tests runs "
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/resources/arquillian.xml)"/>
+  </subitem>
+  </item>
+  
+    <item
+        skip="true"
+        title="pom.xml">
+    <description>
+      Now, we need to look at how we select between containers in the pom.xml:
+    </description>
+    <subitem
+            label="The profile needs an id so we can activate from Eclipse or the command line "
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/pom.xml,fromLine=317,toLine=342)"/>
+  </subitem>
+  <subitem
+            label="Arquillian decides which container to use depending on your classpath. Here we define the remote JBoss AS container. "
+            skip="true">
+    <command
+      required="false"
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/pom.xml,fromLine=331,toLine=342)"/>
+  </subitem>
+  
+  </item>
+  <item
+        skip="true"
+        title="Arquillian project page">
+     <description>
+      And that&apos;s it! As you can see Arquillian delivers simple and true testing. 
+      You can concentrate on writing your test functionality, and run your tests in the same environment in which you will run your application.
+      <br/><br/>
+      Arquillian also offers other containers, allowing you to run your tests against Weld Embedded (super fast, but your enterprise services are mocked), GlassFish, and more.
+      <br/><br/>
+      More info on Arquillian you can find on the Arquillian project page.
+    </description>
+    <command
+           required="false"
+           serialization="org.eclipse.ui.browser.openBrowser(url=http://www.jboss.org/arquillian)"/>
+  </item>
+  
   <item
     skip="true"
     title="Create your own application ">
