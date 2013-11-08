@@ -75,6 +75,17 @@
       serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=24,toLine=47)"/>
     </subitem>
     <subitem
+          label="When you perform the previous action, the page is now open in the Visual Page Editor. The Visual Page Editor provides a live-editing experience - it allows you to make changes to the source of the HTML page and view the results in an embedded browser, all within Eclipse."
+          skip="true">
+    </subitem>
+    <subitem
+          label="You can add jQuery Mobile components to the page via the Palette. If it is not already visible, performing the current action will open it. When the Visual Page Editor is open, the palette will offer jQuery Mobile components that can be added to the page."
+          skip="true">
+       <command
+             required="false"
+             serialization="org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=org.eclipse.gef.ui.palette_view)"/>
+    </subitem>
+    <subitem
           label="The first jQuery Mobile page is the introduction page."
           skip="true">
       <command
@@ -82,11 +93,19 @@
       serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=144,toLine=193)"/>
     </subitem>
     <subitem
+          label="A jQuery Mobile page can be added to HTML page by clicking the page component in the palette. This adds a new jQuery Mobile page at the current cursor location in the editor. You can also drag and drop the page component from the palette to the HTML page."
+          skip="true">
+    </subitem>
+    <subitem
           label="We have a header that displays a button to view information about the application. Clicking the button opens a jQuery Mobile page as a dialog, displaying information about the application."
           skip="true">
       <command
       required="false"
       serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=146,toLine=149)"/>
+    </subitem>
+    <subitem
+          label="Note that headers can be added to pages by clicking the Header Bar component in the palette."
+          skip="true">
     </subitem>
     <subitem
           label="The content section contains text introducing the application features."
@@ -103,6 +122,10 @@
       serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=182,toLine=191)"/>
     </subitem>
     <subitem
+          label="Note that footers can be added to pages by clicking the Footer Bar component in the palette."
+          skip="true">
+    </subitem>
+    <subitem
           label="The next jQuery Mobile page is the one to create a new member. The header and footer is similar to the one in the introduction page."
           skip="true">
           <command
@@ -117,21 +140,25 @@
         serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=204,toLine=229)"/>
     </subitem>
     <subitem
-          label="The name is input via a HTML form text field."
+          label="Forms can be added to pages by clicking the Form component in the jQuery Mobile palette. The rest of the form can be constructed with the palette via other form components available in the palette."
+          skip="true">
+    </subitem>
+    <subitem
+          label="The name is input via a HTML form text field. Such a field can be added with the text input component."
           skip="true">
           <command
         required="false"
         serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=210,toLine=213)"/>
     </subitem>
     <subitem
-          label="The email is input through a HTML5 form input field of type email. Browser supporting this form of input will perform validation of the email keyed in by the user."
+          label="The email is input through a HTML5 form input field of type email. Browser supporting this form of input will perform validation of the email keyed in by the user. Like the name field, the email field can also be added through the jQuery Mobile palatter via the text input component. The displayed dialog will allow you to specify that the type should be an email field, among other parameters."
           skip="true">
           <command
         required="false"
         serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=214,toLine=217)"/>
     </subitem>
     <subitem
-          label="The telephone number is input through a HTML form field of type telephone number with a pattern allowing numbers of length 10 through 12. Browser supporting the telephone number as input may display an reduced keyboard with allowed characters (mobile browsers typically display such a keyboard). Browsers supporting telephone number input will also perform validation of the number keyed in by the user."
+          label="The telephone number is input through a HTML form field of type telephone number with a pattern allowing numbers of length 10 through 12. Browser supporting the telephone number as input may display an reduced keyboard with allowed characters (mobile browsers typically display such a keyboard). Browsers supporting telephone number input will also perform validation of the number keyed in by the user. And like the email field, the palette can be used to construct this field."
           skip="true">
           <command
         required="false"
