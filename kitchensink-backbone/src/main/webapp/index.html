@@ -54,8 +54,15 @@
     <!-- <script type="text/javascript" src="js/app.min.js"></script> -->
 
     <script type="text/javascript">
+    	// Detect if the browser viewport is small enough for a mobile or tablet
+    	// We shall consider both portrait and landscape modes for detection
     	if (Modernizr.mq("only all and (max-width: 800px ) and (orientation: portrait)") ||
         	Modernizr.mq("only all and (max-width: 1280px ) and (orientation: landscape)")) {
+        	// Store the result so that we can modify how the member list headers are displayed 
+    		window.loadJQM = true;
+    	}
+
+    	if(window.loadJQM) {
             // Minification - See Readme for details
             // For minification comment out this line
             $('head').append('<link rel="stylesheet" href="css/jquery.mobile-1.3.2.css"/>');
@@ -334,8 +341,7 @@
         instead add a header to each row. -->
 	<script type="text/template" id="member-Header-Row-tmpl">
     <% 
-        if (Modernizr.mq("only all and (max-width: 800px ) and (orientation: portrait)") ||
-        	Modernizr.mq("only all and (max-width: 1280px ) and (orientation: landscape)")) {
+        if (!window.loadJQM) {
     %>
 			<div class="row member">
 				<div class="col">
@@ -361,7 +367,7 @@
 
 	<script type="text/template" id="member-Body-tmpl">
     <% var addHeader = false;
-        if ( Modernizr.mq( "only all and (max-width: 640px)" ) ) {
+        if (window.loadJQM) {
             addHeader = true;
         }
     %>
