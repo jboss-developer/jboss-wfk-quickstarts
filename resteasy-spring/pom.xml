@@ -52,7 +52,7 @@
         <version.commons.logging>1.1.1</version.commons.logging>
 
         <!-- RESTEasy Version -->
-        <version.resteasy>3.2.4.RELEASE</version.resteasy>
+        <version.springframework>3.2.4.RELEASE</version.springframework>
 
         <!-- Maven Plugin Versions -->
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
@@ -111,12 +111,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${version.resteasy}</version>
+            <version>${version.springframework}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>${version.resteasy}</version>
+            <version>${version.springframework}</version>
         </dependency>
     </dependencies>
 
