@@ -1,6 +1,6 @@
 resteasy-spring: Example Using Resteasy Spring Integration
 ==========================================================
-Author: Weinan Li  
+Author: Weinan Li <l.weinan@gmail.com>, Paul Gier <pgier@redhat.com>
 Level: Beginner  
 Technologies: Resteasy, Spring  
 Summary: Basic example demonstrating how a spring application can be packaged for JBoss EAP  
@@ -11,7 +11,7 @@ Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>
 What is it?
 -----------
 
-This is a project demonstrates how package and deploy a web application which includes resteasy-spring integration
+This is a project demonstrates how to package and deploy a web application which includes resteasy-spring integration
 into Red Hat JBoss Enterprise Application Platform.
 
 
@@ -27,7 +27,6 @@ Configure Maven
 ---------------
 
 If you have not yet done so, you must [Configure Maven](../README.md#configure-maven) before testing the quickstarts.
-
 
 Start the JBoss Server
 ----------------------
