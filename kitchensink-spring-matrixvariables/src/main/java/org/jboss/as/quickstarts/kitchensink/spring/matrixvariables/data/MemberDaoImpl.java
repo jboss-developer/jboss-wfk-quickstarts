@@ -16,17 +16,18 @@
  */
 package org.jboss.as.quickstarts.kitchensink.spring.matrixvariables.data;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.metamodel.EntityType;
 
 import org.jboss.as.quickstarts.kitchensink.spring.matrixvariables.model.Member;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,15 +46,24 @@ public class MemberDaoImpl implements MemberDao {
     }
 
     public List<Member> findByNameAndEmail(String name, String email) {
-    	log.fine("findByNameAndEmail name = " + name + ", email = " + email);
+        log.fine("findByNameAndEmail name = " + name + ", email = " + email);
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Member> criteria = cb.createQuery(Member.class);
         EntityType<Member> type = em.getMetamodel().entity(Member.class);
         Root<Member> member = criteria.from(Member.class);
-        if (name != null && !name.isEmpty() && name != "")
-            criteria.where(cb.like(cb.lower(member.get(type.getDeclaredSingularAttribute("name", String.class))), "%" + name.toLowerCase() + "%"));
-        if (email != null && !email.isEmpty() && email != "")
-            criteria.where(cb.like(cb.lower(member.get(type.getDeclaredSingularAttribute("email", String.class))), "%" + email.toLowerCase() + "%"));
+        List<Predicate> predicatesList = new ArrayList<Predicate>();
+        // If the name exist create the Predicate for a LIKE comparison of the name.
+        if (name != null && !name.isEmpty()) {
+            Predicate isLikeName = cb.like(cb.lower(member.get(type.getDeclaredSingularAttribute("name", String.class))), "%" + name.toLowerCase() + "%");
+            predicatesList.add(isLikeName);
+        }
+        // If the email exist create the Predicate for a LIKE comparison of the email. 
+        if (email != null && !email.isEmpty()) {
+            Predicate isLikeEmail = cb.like(cb.lower(member.get(type.getDeclaredSingularAttribute("email", String.class))), "%" + email.toLowerCase() + "%");
+            predicatesList.add(isLikeEmail);
+        }
+        // Add the Predicates to the criteria query. A predicate is utilized for filtering the result only when it is provided. 
+        criteria.where(predicatesList.toArray(new Predicate[predicatesList.size()]));
         return em.createQuery(criteria).getResultList();
     }
 
