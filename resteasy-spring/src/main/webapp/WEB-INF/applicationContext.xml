@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
-   <bean id="simple" class="org.jboss.resteasy.test.smoke.SimpleResource"/>
-   <bean id="locating" class="org.jboss.resteasy.test.smoke.LocatingResource"/>
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <!-- Allows use of Spring annotation -->         
+    <context:annotation-config />
+
+    <!-- JAX-RS basic resource -->
+    <bean id="HelloSpringResource" class="org.jboss.as.quickstarts.resteasyspring.HelloSpringResource" />
+
+    <!-- An example bean -->
+    <bean id="greetingBean" class="org.jboss.as.quickstarts.resteasyspring.GreetingBean">
+        <constructor-arg index="0" type="java.lang.String"  value="Welcome to RESTEasy + Spring," />
+    </bean>
+
+    <!-- JAX-RS locating resource -->
+    <bean id="locating" class="org.jboss.as.quickstarts.resteasyspring.LocatingResource"/>
+
 </beans>

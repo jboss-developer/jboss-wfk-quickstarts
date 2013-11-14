@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.resteasy.test.smoke;
+package org.jboss.as.quickstarts.resteasyspring;
 
 import javax.ws.rs.Path;
 
@@ -25,9 +25,9 @@ import javax.ws.rs.Path;
 public class LocatingResource
 {
     @Path("locating")
-    public SimpleResource getLocating()
+    public HelloSpringResource getLocating()
     {
-        System.out.println("LOCATING...");
-        return new SimpleResource();
+        System.out.println("Locating Resource...");
+        return new HelloSpringResource();
     }
 }

@@ -49,7 +49,7 @@ _NOTE: The following build command assumes you have configured your Maven user s
 
         mvn clean install jboss-as:deploy integration-test
 
-4. This will deploy `target/jboss-resteasy-spring.war` to the running instance of the server. Look at the JBoss Application Server console or Server log and you should see log messages corresponding to the deployment of the message-driven beans and the JMS destinations:
+4. This will deploy `target/resteasy-spring.war` to the running instance of the server. Look at the JBoss Application Server console or Server log and you should see log messages corresponding to the deployment of the message-driven beans and the JMS destinations:
 
 TODO: add example log output
 

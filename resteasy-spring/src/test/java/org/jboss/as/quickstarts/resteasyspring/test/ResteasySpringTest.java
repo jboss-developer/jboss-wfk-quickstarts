@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.resteasy.test.jboss;
+package org.jboss.as.quickstarts.resteasyspring.test;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.NameValuePair;
@@ -26,31 +26,31 @@ import org.junit.Test;
 import org.jboss.resteasy.util.HttpResponseCodes;
 
 /**
- * @author <a href="mailto:bill@burkecentral.com">Bill Burke</a>
+ * Basic unit tests for resteasy spring integration
  */
-public class SmokeTest
+public class ResteasySpringTest
 {
     @Test
-    public void testNoDefaultsResource() throws Exception
+    public void testHelloSpringResource() throws Exception
     {
         HttpClient client = new HttpClient();
 
         {
-            GetMethod method = new GetMethod("http://localhost:8080/spring-integration-test/basic");
+            GetMethod method = new GetMethod("http://localhost:8080/resteasy-spring/basic");
             int status = client.executeMethod(method);
             Assert.assertEquals(HttpResponseCodes.SC_OK, status);
             Assert.assertEquals("basic", method.getResponseBodyAsString());
             method.releaseConnection();
         }
         {
-            PutMethod method = new PutMethod("http://localhost:8080/spring-integration-test/basic");
+            PutMethod method = new PutMethod("http://localhost:8080/resteasy-spring/basic");
             method.setRequestEntity(new StringRequestEntity("basic", "text/plain", null));
             int status = client.executeMethod(method);
             Assert.assertEquals(204, status);
             method.releaseConnection();
         }
         {
-            GetMethod method = new GetMethod("http://localhost:8080/spring-integration-test/queryParam");
+            GetMethod method = new GetMethod("http://localhost:8080/resteasy-spring/queryParam");
             NameValuePair[] params = { new NameValuePair("param", "hello world") };
             method.setQueryString(params);
             int status = client.executeMethod(method);
@@ -59,7 +59,7 @@ public class SmokeTest
             method.releaseConnection();
         }
         {
-            GetMethod method = new GetMethod("http://localhost:8080/spring-integration-test/uriParam/1234");
+            GetMethod method = new GetMethod("http://localhost:8080/resteasy-spring/uriParam/1234");
             int status = client.executeMethod(method);
             Assert.assertEquals(HttpResponseCodes.SC_OK, status);
             Assert.assertEquals("1234", method.getResponseBodyAsString());
@@ -73,21 +73,21 @@ public class SmokeTest
         HttpClient client = new HttpClient();
 
         {
-            GetMethod method = new GetMethod("http://localhost:8080/spring-integration-test/locating/basic");
+            GetMethod method = new GetMethod("http://localhost:8080/resteasy-spring/locating/basic");
             int status = client.executeMethod(method);
             Assert.assertEquals(HttpResponseCodes.SC_OK, status);
             Assert.assertEquals("basic", method.getResponseBodyAsString());
             method.releaseConnection();
         }
         {
-            PutMethod method = new PutMethod("http://localhost:8080/spring-integration-test/locating/basic");
+            PutMethod method = new PutMethod("http://localhost:8080/resteasy-spring/locating/basic");
             method.setRequestEntity(new StringRequestEntity("basic", "text/plain", null));
             int status = client.executeMethod(method);
             Assert.assertEquals(204, status);
             method.releaseConnection();
         }
         {
-            GetMethod method = new GetMethod("http://localhost:8080/spring-integration-test/locating/queryParam");
+            GetMethod method = new GetMethod("http://localhost:8080/resteasy-spring/locating/queryParam");
             NameValuePair[] params = { new NameValuePair("param", "hello world") };
             method.setQueryString(params);
             int status = client.executeMethod(method);
@@ -96,7 +96,7 @@ public class SmokeTest
             method.releaseConnection();
         }
         {
-            GetMethod method = new GetMethod("http://localhost:8080/spring-integration-test/locating/uriParam/1234");
+            GetMethod method = new GetMethod("http://localhost:8080/resteasy-spring/locating/uriParam/1234");
             int status = client.executeMethod(method);
             Assert.assertEquals(HttpResponseCodes.SC_OK, status);
             Assert.assertEquals("1234", method.getResponseBodyAsString());
@@ -104,9 +104,4 @@ public class SmokeTest
         }
     }
 
-    /*
-     * public static Test suite() throws Exception { System.out.println("***********");
-     * System.out.println(System.getProperty("jbosstest.deploy.dir")); return getDeploySetup(SmokeTest.class,
-     * "spring-integration-test.war"); }
-     */
 }

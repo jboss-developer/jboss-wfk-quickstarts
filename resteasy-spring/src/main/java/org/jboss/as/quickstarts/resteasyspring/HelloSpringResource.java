@@ -14,23 +14,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.resteasy.test.smoke;
+package org.jboss.as.quickstarts.resteasyspring;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.GET;
 import javax.ws.rs.MatrixParam;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.PUT;
 import javax.ws.rs.QueryParam;
+import org.springframework.beans.factory.annotation.Autowired;
 
-/**
- * @author <a href="mailto:bill@burkecentral.com">Bill Burke</a>
- */
 @Path("/")
-public class SimpleResource
-{
+public class HelloSpringResource {
+	
+	@Autowired
+	GreetingBean greetingBean;
+	
+    @GET  
+    @Path("hello")
+    @Produces("text/plain")
+	public Response sayHello(@QueryParam("name") String name) {
+        String greetingMsg = greetingBean.greet(name);
+        System.out.println("Sending greeing: " + greetingMsg);
+		return Response.ok(greetingMsg).build();
+	}
+
     @GET
     @Path("basic")
     @Produces("text/plain")
@@ -71,5 +82,5 @@ public class SimpleResource
     {
         return param;
     }
-
+	
 }
