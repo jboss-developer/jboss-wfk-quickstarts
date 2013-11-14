@@ -39,7 +39,7 @@ Start the JBoss Server
 
 
 Build and Deploy the Quickstart
--------------------------
+-------------------------------
 
 _NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line. See [Build and Deploy the Quickstarts](../README.md#build-and-deploy-the-quickstarts) for complete instructions and additional options._
 
@@ -49,8 +49,24 @@ _NOTE: The following build command assumes you have configured your Maven user s
 
         mvn clean install jboss-as:deploy integration-test
 
-4. This will deploy `target/resteasy-spring.war` to the running instance of the server. Look at the JBoss Application Server console or Server log and you should see log messages corresponding to the deployment of the message-driven beans and the JMS destinations:
+4. This will deploy `target/resteasy-spring.war` to the running instance of the server, and run two integration tests which verify 
+that the application is working.
 
-TODO: add example log output
+
+Access the application 
+---------------------
+
+You can also test the application by accessing the following URL: <http://localhost:8080/resteasy-spring/hello?name=yourname>. 
+
+
+Undeploy the Archive
+--------------------
+
+1. Make sure you have started the JBoss Server as described above.
+2. Open a command line and navigate to the root directory of this quickstart.
+3. When you are finished testing, type this command to undeploy the archive:
+
+        mvn jboss-as:undeploy
+
 
 
