@@ -70,9 +70,9 @@
     <subitem
           label="jQuery Mobile and other required JavaScript and CSS artifacts are added to the page in the head element."
           skip="true">
-      <command
-      required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=24,toLine=47)"/>
+       <command
+             required="false"
+             serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=24,toLine=47,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="When you perform the previous action, the page is now open in the Visual Page Editor. The Visual Page Editor provides a live-editing experience - it allows you to make changes to the source of the HTML page and view the results in an embedded browser, all within Eclipse."
@@ -90,7 +90,7 @@
           skip="true">
       <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=144,toLine=193)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=144,toLine=193,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="A jQuery Mobile page can be added to HTML page by clicking the page component in the palette. This adds a new jQuery Mobile page at the current cursor location in the editor. You can also drag and drop the page component from the palette to the HTML page."
@@ -101,7 +101,7 @@
           skip="true">
       <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=146,toLine=149)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=146,toLine=149,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="Note that headers can be added to pages by clicking the Header Bar component in the palette."
@@ -112,14 +112,14 @@
           skip="true">
       <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=152,toLine=178)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=152,toLine=178,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="And we have a footer containing a button to navigate to the Home page (the current page), and the Add member and List member pages."
           skip="true">
         <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=182,toLine=191)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=182,toLine=191,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="Note that footers can be added to pages by clicking the Footer Bar component in the palette."
@@ -130,14 +130,14 @@
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=196,toLine=243)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=196,toLine=243,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="The content section allows us to register new members via a registration form (with id &quot;reg&quot;). There should be one member already created when the application started. The form in the content section allows input of the name, email and telephone number of a member."
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=204,toLine=229)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=204,toLine=229,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="Forms can be added to pages by clicking the Form component in the jQuery Mobile palette. The rest of the form can be constructed with the palette via other form components available in the palette."
@@ -148,42 +148,42 @@
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=210,toLine=213)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=210,toLine=213,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="The email is input through a HTML5 form input field of type email. Browsers supporting this form of input will perform validation of the email keyed in by the user. Like the name field, the email field can also be added through the jQuery Mobile palatter via the text input component. The displayed dialog will allow you to specify that the type should be an email field, among other parameters."
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=214,toLine=217)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=214,toLine=217,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="The telephone number is input through a HTML form field of type telephone number with a pattern allowing numbers of length 10 through 12. Browsers supporting the telephone number as input may display an reduced keyboard with allowed characters (mobile browsers typically display such a keyboard). Browsers supporting telephone number input will also perform validation of the number keyed in by the user. And like the email field, the palette can be used to construct this field."
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=218,toLine=221)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=218,toLine=221,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="The next jQuery Mobile page is the one to display members. The header and footer is similar to the one in the introduction page."
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=246,toLine=278)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=246,toLine=278,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="The content section allows us to refresh the list of members displayed. The members are displayed in a placeholder div element with id: &quot;members&quot;."
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=255,toLine=264)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=255,toLine=264,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="The final jQuery Mobile page is the one to display information about the application. It was introduced earlier as the dialog displayed on clicking the button in the header section on all pages."
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=281,toLine=303)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=281,toLine=303,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
   </item>
   
@@ -198,35 +198,35 @@
           skip="true">
       <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=52,toLine=53)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=52,toLine=53,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="When a mobile or tablet is used, we load jQuery Mobile"
           skip="true">
       <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=56,toLine=66)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=56,toLine=66,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="Otherwise, we don't load jQuery Mobile and instead attach a desktop-specific stylesheet. When the browser finishes loading the index.html page, the information article element (with id &quot;aside&quot;) is modified to become a child element of the main section element."
           skip="true">
       <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=71,toLine=78)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=71,toLine=78,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="In all environments (mobile or not), when the browser finishes loading the index.html page, it unhides the &apos;container&apos; element and fetches the list of members to display from the server. Event handlers are also attached to handle the events when the submit button in the registration page is clicked, when the cancel button in the registration page is clicked, and when the refresh button in the member list page is clicked."
           skip="true">
       <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=80,toLine=115)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=80,toLine=115,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="We also define a utility method to convert the registration form values into a JavaScript object that can be easily passed to the server as a JSON object."
           skip="true">
         <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=117,toLine=131)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=117,toLine=131,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
   </item>
   
