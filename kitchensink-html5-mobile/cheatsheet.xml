@@ -151,14 +151,14 @@
         serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=210,toLine=213)"/>
     </subitem>
     <subitem
-          label="The email is input through a HTML5 form input field of type email. Browser supporting this form of input will perform validation of the email keyed in by the user. Like the name field, the email field can also be added through the jQuery Mobile palatter via the text input component. The displayed dialog will allow you to specify that the type should be an email field, among other parameters."
+          label="The email is input through a HTML5 form input field of type email. Browsers supporting this form of input will perform validation of the email keyed in by the user. Like the name field, the email field can also be added through the jQuery Mobile palatter via the text input component. The displayed dialog will allow you to specify that the type should be an email field, among other parameters."
           skip="true">
           <command
         required="false"
         serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=214,toLine=217)"/>
     </subitem>
     <subitem
-          label="The telephone number is input through a HTML form field of type telephone number with a pattern allowing numbers of length 10 through 12. Browser supporting the telephone number as input may display an reduced keyboard with allowed characters (mobile browsers typically display such a keyboard). Browsers supporting telephone number input will also perform validation of the number keyed in by the user. And like the email field, the palette can be used to construct this field."
+          label="The telephone number is input through a HTML form field of type telephone number with a pattern allowing numbers of length 10 through 12. Browsers supporting the telephone number as input may display an reduced keyboard with allowed characters (mobile browsers typically display such a keyboard). Browsers supporting telephone number input will also perform validation of the number keyed in by the user. And like the email field, the palette can be used to construct this field."
           skip="true">
           <command
         required="false"
@@ -512,42 +512,42 @@
             skip="true">
     <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=55)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=55,toLine=56)"/>
   </subitem>
   <subitem
             label="We also add persistence.xml as our test is going to use the database "
             skip="true">
     <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=56)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=57)"/>
   </subitem>
   <subitem
             label="Of course, we must add beans.xml to enable CDI."
             skip="true">
     <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=57)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=58)"/>
   </subitem>
   <subitem
             label="Finally, we add a test datasource, so that test data doesn&apos;t overwrite production data."
             skip="true">
     <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=57)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=59)"/>
   </subitem>
   <subitem
             label="Arquillian allows us to inject beans into the test case."
             skip="true">
     <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=60,toLine=61)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=62,toLine=63)"/>
   </subitem>
   <subitem
             label="The test method works as you would expect - creates a new member, registers them, and then verifies that the member was created "
             skip="true">
     <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=56,toLine=74)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=68,toLine=76)"/>
   </subitem>
   
   </item>
