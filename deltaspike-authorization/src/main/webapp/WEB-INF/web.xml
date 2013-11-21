@@ -25,6 +25,21 @@
         <location>/error.jsf</location>
     </error-page>
 
+	<!-- Let access favicon.ico in root anyone (even if it not exists). When 
+		you deploy application as ROOT "secure resource" constraint will restrict 
+		access to all resources in root context. Entering index, browser tries to 
+		get /favicon.ico which has restricted access. You will be redirected to login 
+		page and after successful authorization to requested /favicon.ico which does 
+		not exists. Therefore until icon is not cached you will get 404 after login 
+		without this precedence. -->
+	<security-constraint>
+		<display-name>free resource</display-name>
+		<web-resource-collection>
+			<web-resource-name>favorite icon</web-resource-name>
+			<url-pattern>/favicon.ico</url-pattern>
+		</web-resource-collection>
+	</security-constraint>
+
     <!-- Apply security to all pages -->
     <security-constraint>
         <display-name>secure resource</display-name>
