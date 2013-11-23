@@ -94,7 +94,7 @@
           skip="true">
       <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=144,toLine=193,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=144,toLine=193,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="A jQuery Mobile page can be added to HTML page by clicking the page component in the palette. This adds a new jQuery Mobile page at the current cursor location in the editor. You can also drag and drop the page component from the palette to the HTML page."
@@ -105,7 +105,7 @@
           skip="true">
       <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=146,toLine=149,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=146,toLine=149,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="Note that headers can be added to pages by clicking the Header Bar component in the palette."
@@ -116,14 +116,14 @@
           skip="true">
       <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=152,toLine=178,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=152,toLine=178,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="And we have a footer containing a button to navigate to the Home page (the current page), and the Add member and List member pages."
           skip="true">
         <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=182,toLine=191,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=182,toLine=191,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="Note that footers can be added to pages by clicking the Footer Bar component in the palette."
@@ -134,14 +134,14 @@
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=196,toLine=243,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=196,toLine=243,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="The content section allows us to register new members via a registration form (with id &quot;reg&quot;). There should be one member already created when the application starts. The form in the content section allows input of the name, email and telephone number of a member."
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=204,toLine=229,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=204,toLine=229,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="Forms can be added to pages by clicking the Form component in the jQuery Mobile palette. The rest of the form can be constructed using other form components available in the palette."
@@ -152,45 +152,45 @@
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=210,toLine=213,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=210,toLine=213,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="The member&apos;s email is input through a HTML5 form input field of type &apos;email&apos;. Browsers supporting this form of input will perform validation of the email keyed in by the user. Like the name field, the email field can also be added through the jQuery Mobile palatter via the text input component. The displayed dialog will allow you to specify that the type should be an email field, among other parameters."
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=214,toLine=217,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=214,toLine=217,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="The telephone number is input through a HTML form field of type &apos;telephone number&apos; with a pattern allowing numbers of length 10 through 12. Browsers supporting the telephone number as input may display an reduced keyboard (mobile browsers typically display such a keyboard). Browsers supporting &apos;telephone number&apos; input will also perform validation of the number keyed in by the user. And like the email field, the palette can be used to construct this field."
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=218,toLine=221,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=218,toLine=221,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="The next jQuery Mobile page is the one to display members. The header and footer is similar to the one in the introduction page."
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=246,toLine=278,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=246,toLine=278,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="The content section allows us to refresh the list of members displayed. The members are displayed in a placeholder div element with id: &quot;members&quot;."
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=255,toLine=264,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=255,toLine=264,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
           label="The final jQuery Mobile page is the one to display information about the application. It was introduced earlier as the dialog displayed when clicking the button in the header section on all pages."
           skip="true">
           <command
         required="false"
-        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=281,toLine=303,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=281,toLine=303,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
   </item>
-  
+
   <item
     skip="true"
     title="Presentation logic in index.html">
@@ -278,12 +278,48 @@
       serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/js/app.js,fromLine=68,toLine=81)"/>
     </subitem>
   </item>
+
+  <item
+        skip="true"
+        title="Setup LiveReload">
+     <description>
+      LiveReload is an open source tool that refreshes web pages open in browsers as their source is edited. Immediate and automatic web page refreshing, without the need to manually refresh, simplifies the workflow of web developers. JBoss Developer Studio provides tooling that implements LiveReload in the IDE.
+      <br/><br/>
+       Open the Servers view, right-click in it, select &quot;New&quot; and choose to create a new <b>Server</b>.
+       Select &quot;LiveReload Server&quot;, located in the &quot;Basic&quot; section, as the new server to create. Click Finish to create a new server.
+    </description>
+  </item>
+
+  <item
+        skip="true"
+        title="Using LiveReload">
+     <description>
+       We shall now explore the use of LiveReload to optimise our web development workflow.
+    </description>
+    <subitem
+          label="Once again in the Servers view, select the LiveReload Server created in the previous step, and start it."
+          skip="true">
+    </subitem>
+    <subitem
+          label="Right-click the &quot;index.html&quot; file, select the &quot;Open With&quot; entry, and choose the &quot;Web Browser via LiveReload Server&quot; option. If you're starting LiveReload for the first time, you will be prompted with a dialog. You will be asked whether you want to &quot;Inject the livereload.js script in HTML pages&quot; and to &quot;Allow Remote connections&quot;. The defaults are sufficient - click Yes to proceed. If you do not choose to inject the livereload.js script, you must use a LiveReload extension with your browser."
+          skip="true">
+          <!-- Disable this command for now. We cannot open the same file in two different editors.
+          <command
+        required="false"
+        serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,editorID=org.jboss.tools.livereload.openFileInBrowserWithLiveReload)"/>
+        -->
+    </subitem>
+    <subitem
+          label="You can make changes to the &quot;index.html&quot; page without refreshing it in the browser. All you need to do is save your changes, and the LiveReload tooling will ensure that the browser is updated. Note that we haven't written a backend service yet, so the page in the web browser will only display changes to the static content. It will not display any members, nor will it allow new members to be added. We will get LiveReload to work in the context of a running application with backend services, at a later stage in the tutorial."
+          skip="true">
+    </subitem>
+  </item>
   
   <item
         skip="true"
         title="Member.java">
      <description>
-       Next, let&apos;s take a look at the Member entity, before we look at how the application is wired together:
+       Next, let&apos;s take a look at the Member entity, before we look at how the application is wired together with the backend:
     </description>
     <subitem
             label="As usual with JPA, we define that the class is an entity by adding @Entity"
@@ -451,21 +487,15 @@
   </item>
   <item
         skip="true"
-        title="Setup LiveReload">
-     <description>
-       Open the Servers view, right-click in it, select &quot;New&quot; and choose to create a new <b>Server</b>.
-       Select &quot;LiveReload Server&quot;, located in the &quot;Basic&quot; section, as the new server to create. Click Finish to create a new server.
-    </description>
-  </item>
-  <item
-        skip="true"
-        title="Using LiveReload">
+        title="Using LiveReload with the deployed application">
      <description>
        Once again in the Servers view, select the &quot;jboss-kitchensink-html5-mobile&quot; deployment under the JBoss EAP 6 Runtime Server, and right-click on it.
-       Select the &quot;Show In&quot; entry in the menu, and open the deployed resource in a <b>Web Browser via LiveReload Server</b>. You will be prompted to &quot;Inject the livereload.js script in HTML pages&quot; and to &quot;Allow Remote connections&quot;. The defaults are sufficient - click Yes to proceed.  This launches the application in a web browser with the LiveReload scripts injected into it.
+       Select the &quot;Show In&quot; entry in the menu, and open the deployed resource in a <b>Web Browser via LiveReload Server</b>. This launches the application in a web browser with the LiveReload scripts injected into it.
        You can proceed to make changes to the <b>index.html</b> and it would immediately reflect in the opened Web Browser on saving the changes.
        <br/><br/>
-       <b>Note</b> - There is no need to refresh the web browser after you save the changes in the editor. At the same time, opening the application in this manner will allow the client-side JavaScript in <b>app.js</b> to access the <b>MemberResource</b> REST API on the server-side. You can make changes to the page without refreshing them while continuing to use the backend services deployed on JBoss EAP 6.
+       As is the case with LiveReload tooling, there is no need to refresh the web browser after you save the changes in the editor. At the same time, opening the application in this manner will allow the client-side JavaScript in <b>app.js</b> to access the <b>MemberResource</b> REST API on the server-side. You can make changes to the page without refreshing them while continuing to use the backend services deployed on JBoss EAP 6.
+       <br/><br/>
+       <b>Note:</b> In the earlier section in the tutorial, where the <b>index.html</b> file was opened via the LiveReload Server, the file was not deployed in an application running on a JBoss EAP 6 server. Hence, it could not access the backend - and member details could not displayed and new members could not be added. We have just demonstrated how to overcome that problem.
     </description>
   </item>
   <item
