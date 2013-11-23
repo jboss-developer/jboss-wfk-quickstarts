@@ -65,7 +65,7 @@
     skip="true"
     title="jQuery Mobile pages in index.html">
     <description>
-    Next, let&apos;s take a look the <b>index.html</b> file the user sees. The HTML page consists of several jQuery Mobile pages.
+    Next, let&apos;s take a look the <b>index.html</b> file that displays the page the user sees. The HTML page consists of several jQuery Mobile pages.
     </description>
     <subitem
           label="jQuery Mobile and other required JavaScript and CSS artifacts are added to the page in the head element."
@@ -79,11 +79,15 @@
           skip="true">
     </subitem>
     <subitem
-          label="You can add jQuery Mobile components to the page via the Palette. If it is not already visible, performing the current action will open it. When the Visual Page Editor is open, the palette will offer jQuery Mobile components that can be added to the page."
+          label="You can add jQuery Mobile components to the page via the Palette. When the &quot;index.html&quot; file is open in the &quot;Visual Page Editor&quot;, the palette will offer jQuery Mobile components that can be added to the page. To view the palette, perform the current action. The palette will be opened in a new tab in your workspace."
           skip="true">
        <command
              required="false"
              serialization="org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=org.eclipse.gef.ui.palette_view)"/>
+    </subitem>
+    <subitem
+          label="You could even open the palette manually. Click the &quot;Window&quot; entry in the menu bar. Select the &quot;Show View&quot; entry in it, and then choose the &quot;Other...&quot; entry. This opens a dialog displaying several other views that can be opened. Select the &quot;Palette&quot; item located under the &quot;General&quot; section; doing so will open the &quot;Palette&quot;."
+          skip="true">
     </subitem>
     <subitem
           label="The first jQuery Mobile page is the introduction page."
@@ -126,21 +130,21 @@
           skip="true">
     </subitem>
     <subitem
-          label="The next jQuery Mobile page is the one to create a new member. The header and footer is similar to the one in the introduction page."
+          label="The next jQuery Mobile page is the one that allows you to create a new member. The header and footer is similar to the one in the introduction page."
           skip="true">
           <command
         required="false"
         serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=196,toLine=243,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
-          label="The content section allows us to register new members via a registration form (with id &quot;reg&quot;). There should be one member already created when the application started. The form in the content section allows input of the name, email and telephone number of a member."
+          label="The content section allows us to register new members via a registration form (with id &quot;reg&quot;). There should be one member already created when the application starts. The form in the content section allows input of the name, email and telephone number of a member."
           skip="true">
           <command
         required="false"
         serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=204,toLine=229,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
-          label="Forms can be added to pages by clicking the Form component in the jQuery Mobile palette. The rest of the form can be constructed with the palette via other form components available in the palette."
+          label="Forms can be added to pages by clicking the Form component in the jQuery Mobile palette. The rest of the form can be constructed using other form components available in the palette."
           skip="true">
     </subitem>
     <subitem
@@ -151,14 +155,14 @@
         serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=210,toLine=213,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
-          label="The email is input through a HTML5 form input field of type email. Browsers supporting this form of input will perform validation of the email keyed in by the user. Like the name field, the email field can also be added through the jQuery Mobile palatter via the text input component. The displayed dialog will allow you to specify that the type should be an email field, among other parameters."
+          label="The member&apos;s email is input through a HTML5 form input field of type &apos;email&apos;. Browsers supporting this form of input will perform validation of the email keyed in by the user. Like the name field, the email field can also be added through the jQuery Mobile palatter via the text input component. The displayed dialog will allow you to specify that the type should be an email field, among other parameters."
           skip="true">
           <command
         required="false"
         serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=214,toLine=217,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
-          label="The telephone number is input through a HTML form field of type telephone number with a pattern allowing numbers of length 10 through 12. Browsers supporting the telephone number as input may display an reduced keyboard with allowed characters (mobile browsers typically display such a keyboard). Browsers supporting telephone number input will also perform validation of the number keyed in by the user. And like the email field, the palette can be used to construct this field."
+          label="The telephone number is input through a HTML form field of type &apos;telephone number&apos; with a pattern allowing numbers of length 10 through 12. Browsers supporting the telephone number as input may display an reduced keyboard (mobile browsers typically display such a keyboard). Browsers supporting &apos;telephone number&apos; input will also perform validation of the number keyed in by the user. And like the email field, the palette can be used to construct this field."
           skip="true">
           <command
         required="false"
@@ -179,7 +183,7 @@
         serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=255,toLine=264,,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
-          label="The final jQuery Mobile page is the one to display information about the application. It was introduced earlier as the dialog displayed on clicking the button in the header section on all pages."
+          label="The final jQuery Mobile page is the one to display information about the application. It was introduced earlier as the dialog displayed when clicking the button in the header section on all pages."
           skip="true">
           <command
         required="false"
@@ -215,7 +219,7 @@
       serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.html,fromLine=71,toLine=78,editorID=org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor)"/>
     </subitem>
     <subitem
-          label="In all environments (mobile or not), when the browser finishes loading the index.html page, it unhides the &apos;container&apos; element and fetches the list of members to display from the server. Event handlers are also attached to handle the events when the submit button in the registration page is clicked, when the cancel button in the registration page is clicked, and when the refresh button in the member list page is clicked."
+          label="In all environments (mobile or not), when the browser finishes loading the index.html page, it displays the previously hidden &apos;container&apos; element and fetches the list of members to display from the server. Event handlers are also attached to handle the events when the submit button in the registration page is clicked, when the cancel button in the registration page is clicked, and when the refresh button in the member list page is clicked."
           skip="true">
       <command
         required="false"
@@ -234,8 +238,8 @@
     skip="true"
     title="app.js">
     <description>
-    We now take a look at the core JavaScript functionality for the application referenced from JavaScript methods that were earlier defined in the index.html file.
-    This is defined in the app.js file present in the <b>src/main/webapp/js/app.js</b> file of the project.
+    We now take a look at the core JavaScript functionality for the application referenced from JavaScript methods that were earlier defined in the <b>index.html</b> file.
+    This is defined in the <b>app.js</b> file present in the <b>src/main/webapp/js/app.js</b> file of the project.
     The core functionality invokes the REST API on the server to register new members. It also updates the member list when the refresh button is clicked.  
     </description>
     <subitem
@@ -397,14 +401,14 @@
             skip="true">
     <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/util/Resources.java,fromLine=42)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/util/Resources.java,fromLine=40,toLine=42)"/>
   </subitem>
   <subitem
             label="We expose a JDK logger for injection. In order to save a bit more boiler plate, we automatically set the logger category as the class name! "
             skip="true">
     <command
       required="false"
-      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/util/Resources.java,fromLine=46)"/>
+      serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/html5_mobile/util/Resources.java,fromLine=44,toLine=47)"/>
   </subitem>
   <subitem
             label="If you want to define your own datasource, take a look at the Administration and Configuration Guide for JBoss Enterprise Application Platform 6"
@@ -419,6 +423,8 @@
         skip="true"
         title="Run and deploy the application">
      <description>
+       Before you proceed, ensure that you have setup and configured a JBoss EAP 6 server.
+       <br/><br/>
        Right-click the project and select <b>Run As</b> &gt; <b>Run On Server</b> or click on the &quot;Click to Perform&quot; link below.
     </description>
     <!-- the runOnServer command is not implemented yet
@@ -448,7 +454,7 @@
         title="Setup LiveReload">
      <description>
        Open the Servers view, right-click in it, select &quot;New&quot; and choose to create a new <b>Server</b>.
-       Select &quot;LiveReload Server&quot; as the new server to create. Click Finish to create a new server.
+       Select &quot;LiveReload Server&quot;, located in the &quot;Basic&quot; section, as the new server to create. Click Finish to create a new server.
     </description>
   </item>
   <item
@@ -456,7 +462,7 @@
         title="Using LiveReload">
      <description>
        Once again in the Servers view, select the &quot;jboss-kitchensink-html5-mobile&quot; deployment under the JBoss EAP 6 Runtime Server, and right-click on it.
-       Select the &quot;Show In&quot; entry in the menu, and open the deployed resource in a <b>Web Browser via LiveReload Server</b>. This launches the application in a web browser with the LiveReload scripts injected into it.
+       Select the &quot;Show In&quot; entry in the menu, and open the deployed resource in a <b>Web Browser via LiveReload Server</b>. You will be prompted to &quot;Inject the livereload.js script in HTML pages&quot; and to &quot;Allow Remote connections&quot;. The defaults are sufficient - click Yes to proceed.  This launches the application in a web browser with the LiveReload scripts injected into it.
        You can proceed to make changes to the <b>index.html</b> and it would immediately reflect in the opened Web Browser on saving the changes.
        <br/><br/>
        <b>Note</b> - There is no need to refresh the web browser after you save the changes in the editor. At the same time, opening the application in this manner will allow the client-side JavaScript in <b>app.js</b> to access the <b>MemberResource</b> REST API on the server-side. You can make changes to the page without refreshing them while continuing to use the backend services deployed on JBoss EAP 6.
@@ -470,7 +476,7 @@
        you&apos;re probably getting a bit nervous by now, wondering how on earth you are going to test your application. 
        Lucky for you, the Arquillian project is here to help!
     <br/><br/>
-    Arquillian provides all the boiler plate for running your test inside JBoss Enterprise Application Platform 6 or JBoss AS 7, 
+    Arquillian provides all the boiler plate for running your test inside JBoss Enterprise Application Platform 6, 
     allowing you to concentrate on testing your application. 
     In order to do that, it utilizes Shrinkwrap, a fluent API for defining packaging, 
     to create an archive to deploy. 
@@ -492,6 +498,9 @@
         Right-click the project, select <b>Properties&gt;Maven</b> and 
         enter <b>arq-jbossas-remote</b> to the <b>Active Maven Profile</b> field. 
         After that, right-click the project and select <b>Run As&gt;JUnit test</b>.
+        <br/><br/>
+        After performing this action, you should see a green bar in the <b>JUnit</b> view!
+        All three tests should have completed successfully.
     </description>
     <!-- the launchJUnitTest command is not implemented yey
     <command
@@ -527,7 +536,7 @@
       serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=51)"/>
   </subitem>
   <subitem
-            label="We add just the classes needed for the test, no more "
+            label="We add just the classes needed for the test, nothing more "
             skip="true">
     <command
       required="false"
@@ -548,7 +557,7 @@
       serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/test/java/org/jboss/as/quickstarts/html5_mobile/test/MemberRegistrationTest.java,fromLine=58)"/>
   </subitem>
   <subitem
-            label="Finally, we add a test datasource, so that test data doesn&apos;t overwrite production data."
+            label="Finally, we add a test datasource, so that our test data doesn&apos;t overwrite the production data."
             skip="true">
     <command
       required="false"
@@ -596,7 +605,9 @@
         skip="true"
         title="pom.xml">
     <description>
-      Now, we need to look at how we select between containers in the pom.xml:
+      Now, we need to look at how we select between containers in the <b>pom.xml</b>.
+      <br/><br/>
+      Note - Depending on your preferences, when you &apos;Click to perform&apos; the following steps, the pom.xml file opens by default in the &quot;Overview&quot; view. Click on the &quot;pom.xml&quot; view to see the lines of code in the file.
     </description>
     <subitem
             label="The profile needs an id so we can activate from Eclipse or the command line "
@@ -623,7 +634,7 @@
       <br/><br/>
       Arquillian also offers other containers, allowing you to run your tests against Weld Embedded (super fast, but your enterprise services are mocked), GlassFish, and more.
       <br/><br/>
-      More info on Arquillian you can find on the Arquillian project page.
+      You can find more info on Arquillian on the Arquillian project page.
     </description>
     <command
            required="false"
@@ -635,9 +646,9 @@
     title="Create your own application ">
     <description>
       What we didn&apos;t tell you about the <b>kitchensink-html5-mobile quickstart</b> is that it is generated from a Maven archetype. 
-      Using this archetype offers you the perfect opportunity to generate your own project.
+      You can use this archetype to generate your own project.
       <br/><br/>
-      In order to perform that, you should select <b>Help&gt;JBoss Central</b> and click the <b>HTML5 Project</b> wizard.
+      Simply select <b>Help&gt;JBoss Central</b> and click the <b>HTML5 Project</b> wizard.
       <br/>
       You will get a brand new project with the same functionality as <b>kitchensink-html5-mobile</b>, 
       but customized with your details.
