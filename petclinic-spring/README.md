@@ -101,7 +101,8 @@ Undeploy the Archive
 Run the Arquillian Functional Tests
 -----------------------------------
 
-This quickstart provides Arquillian functional tests as well. They are located under the directory "functional-tests". Functional tests verify that your application behaves correctly from the user's point of view - simulating clicking around the page as a normal user would do.
+This quickstart provides Arquillian functional tests as well. They are located in the functional-tests/ subdirectory under the root directory of this quickstart.
+Functional tests verify that your application behaves correctly from the user's point of view. The tests open a browser instance, simulate clicking around the page as a normal user would do, and then close the browser instance.
 
 To run these tests, you must build the main project as described above.
 
