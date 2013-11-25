@@ -105,7 +105,7 @@
                         <exclude>.clover/**</exclude>
                         <exclude>**/*.sql</exclude>
                         <exclude>**/LICENSE*</exclude>
-                        <exclude>>**/license*</exclude>
+                        <exclude>**/license*</exclude>
                         <!-- Exclude submodules -->
                         <exclude>jdg-quickstarts/**</exclude>
                         <exclude>jpp-quickstarts/**</exclude>
