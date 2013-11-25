@@ -55,7 +55,7 @@
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
-        <version.jboss.bom.wfk>2.4.0-build-5</version.jboss.bom.wfk>
+        <version.jboss.bom.wfk>2.4.0-build-6</version.jboss.bom.wfk>
         <version.jboss.bom.eap>1.0.4.Final-redhat-9</version.jboss.bom.eap>
 
 
@@ -207,6 +207,19 @@
                 <module>kitchensink-deltaspike/functional-tests</module>
                 <module>petclinic-spring/functional-tests</module>
                 <module>richfaces-validation/functional-tests</module>
+                <module>greeter-spring/functional-tests</module>
+                <module>helloworld-errai/functional-tests</module>
+                <module>helloworld-gwt/functional-tests</module>
+                <module>helloworld-html5/functional-tests</module>
+                <module>helloworld-rf/functional-tests</module>
+                <module>kitchensink-angularjs/functional-tests</module>
+                <module>kitchensink-backbone/functional-tests</module>
+                <module>kitchensink-rf/functional-tests</module>
+                <module>kitchensink-spring-asyncrequestmapping/functional-tests</module>
+                <module>kitchensink-spring-basic/functional-tests</module>
+                <module>kitchensink-spring-controlleradvice/functional-tests</module>
+                <module>kitchensink-spring-matrixvariables/functional-tests</module>
+                <module>kitchensink-spring-springmvctest/functional-tests</module>
             </modules>
         </profile>
     </profiles>

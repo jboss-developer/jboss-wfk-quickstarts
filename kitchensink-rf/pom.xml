@@ -47,7 +47,7 @@
 
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
         <version.jboss.bom.eap>1.0.4.Final-redhat-9</version.jboss.bom.eap>
-        <version.jboss.bom.wfk>2.4.0-build-5</version.jboss.bom.wfk>
+        <version.jboss.bom.wfk>2.4.0-build-6</version.jboss.bom.wfk>
         
         <!-- other plugin versions -->
         <version.surefire.plugin>2.10</version.surefire.plugin>
