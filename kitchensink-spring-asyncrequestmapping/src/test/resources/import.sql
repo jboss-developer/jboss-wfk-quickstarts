@@ -14,6 +14,7 @@
 -- See the License for the specific language governing permissions and
 -- limitations under the License.
 --
+
 -- This script initializes the database by creating tables and inserting data
 -- Use only for a proof of concept
 
