@@ -82,7 +82,7 @@ _Note: If you do not wish to configure the Maven settings, you must pass the con
 1. Locate the Maven install directory for your operating system. It is usually installed in `${user.home}/.m2/`. 
 
             For Linux or Mac:   ~/.m2/
-            For Windows: \Documents and Settings\USER_NAME\.m2\  -or-  \Users\USER_NAME\.m2\
+            For Windows: "\Documents and Settings\USER_NAME\.m2\"  -or-  "\Users\USER_NAME\.m2\"
 
 2. If you have an existing `settings.xml` file, rename it so you can restore it later.
 
@@ -98,15 +98,15 @@ _Note: If you do not wish to configure the Maven settings, you must pass the con
 4. Copy the `settings.xml` file from the root of the quickstarts directory to your Maven install directory.
  
             For Linux or Mac:  cp QUICKSTART_HOME/settings.xml  ~/.m2/settings.xml
-            For Windows: copy QUICKSTART_HOME/settings.xml \Documents and Settings\USER_NAME\.m2\settings.xml 
-                    -or- copy QUICKSTART_HOME/settings.xml \Users\USER_NAME\.m2\settings.xml
+            For Windows: copy QUICKSTART_HOME/settings.xml "\Documents and Settings\USER_NAME\.m2\settings.xml"
+                    -or- copy QUICKSTART_HOME/settings.xml "\Users\USER_NAME\.m2\settings.xml"
 
 ### Restore Your Maven Configuration When You Finish Testing the Quickstarts
 
 1. Locate the Maven install directory for your operating system. It is usually installed in `${user.home}/.m2/`. 
 
             For Linux or Mac:   ~/.m2/
-            For Windows: \Documents and Settings\USER_NAME\.m2\  -or-  \Users\USER_NAME\.m2\
+            For Windows: "\Documents and Settings\USER_NAME\.m2\"  -or-  "\Users\USER_NAME\.m2\"
 
 2. Restore the `settings.xml` file/
 
@@ -118,7 +118,7 @@ _Note: If you do not wish to configure the Maven settings, you must pass the con
 
             For Linux or Mac:  mv ~/.m2/repository-backup/ ~/.m2/repository/
             For Windows: ren "\Documents and Settings\USER_NAME\.m2\repository-backup\" repository
-                    -or- ren "\Users\USER_NAME\.m2\repository\" repository-backup
+                    -or- ren "\Users\USER_NAME\.m2\repository-backup\" repository
             
 
 ### Maven Profiles
