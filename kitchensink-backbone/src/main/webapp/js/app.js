@@ -20,10 +20,12 @@
  * Restful calls, validates return values, and populates the member table.
  * 
  * @Author: Joshua Wilson
+ * @Author: Vineet Reynolds
  */
 
 /* Builds the updated table for the member list */
-// Load the application once the DOM is ready, using `jQuery.ready`:
+// Load the application once the DOM is ready, using `jQuery.ready`.
+// We wait for the DOM ready event, since some of the views cache references to DOM elements.
 $(function() {
 	/*
 	 * Models are the heart of any JavaScript application, containing the
@@ -34,7 +36,7 @@ $(function() {
 	 */
 	// Our basic **Member** model
 	window.Member = Backbone.Model.extend({
-		//Intentionally left empty
+        //Intentionally left empty
 	});
 
 	/*
@@ -49,7 +51,7 @@ $(function() {
 	 * Documents.on("change:selected", ...)
 	 */
 	window.MemberList = Backbone.Collection.extend({
-		// Specify the base url to target the rest-easy service
+		// Specify the base url to target the REST service
 		url : 'rest/members',
 
 		// Reference to this collection's model.
@@ -57,8 +59,7 @@ $(function() {
 	});
 
 	// Create our global collection of **Members**.
-	window.Members = new MemberList;
-
+	window.Members = new MemberList();
 
 	/*
 	 * Backbone Views are almost more convention than they are code — they don't
@@ -72,12 +73,177 @@ $(function() {
 	 * displayed in the UI, it is always immediately up to date.
 	 *
 	 */
+    // Extend the Backbone.View prototype to clean up gracefully when the View is closed.
+    Backbone.View.prototype.close = function(){
+        // If an 'onClose' function is defined in the View, then we invoke it.
+        if (this.onClose){
+            this.onClose();
+        }
+        // When the view is displayed again, a new instance of it is used.
+        // New event listeners are ths added. Hence, stop delegating events for the current view.
+        // This ensures the listeners in this view are no longer triggered.
+        // We don't invoke 'this.remove()' since the View must not remove elements from DOM.
+        this.undelegateEvents();
+    };
+
+    // This Backbone View is used to display the introduction page.
+    window.IntroView = Backbone.View.extend({
+        events : {
+            // Bind the click event on the info button to the 'showInfo' method.
+            "click a[data-icon='info']" : "showInfo"
+        },
+
+        render : function() {
+            // Change to the jQuery Mobile page with id:'intro-art'.
+            // Do not change the hash, since the hashchange was already triggered before navigating to this view.
+            $.mobile.changePage( "#intro-art", { reverse: false, changeHash: false, transition: "none"} );
+        },
+
+        showInfo: function() {
+            event.preventDefault();
+
+            // Display the InfoView that is responsible for displaying the popup.
+            new window.InfoView({el:$("#info-aside")}).render();
+        }
+    });
+
+    window.InfoView = Backbone.View.extend({
+        events : {
+            "click #closePopup" : "closePopup"
+        },
+
+        render: function() {
+            $("#info-aside").popup("open");
+        },
+
+        closePopup: function() {
+            $("#info-aside").popup("close");
+        }
+    });
+
+    window.RegisterMemberView = Backbone.View.extend({
+        events : {
+            // Bind the click event on the Cancel button to the 'cancelRegistration' method.
+            "click #cancel" : "cancelRegistration",
+
+            // Bind the submit event on the Registration form to the 'registerMember' method.
+            "submit #reg" : "registerMember"
+        },
+
+        initialize: function() {
+            // Bind the 'onRegisterSuccess' method to be run in the context of the 'RegisterMemberView'.
+            // The value of 'this' in the method will be this view instead of the global object.
+            _.bindAll(this, "onRegisterSuccess");
+        },
+
+        render : function() {
+            // Change to the jQuery Mobile page with id:'register-art'.
+            $.mobile.changePage( "#register-art", { reverse: false, changeHash: false, transition: "none"} );
+            this.resetForm();
+        },
+
+        //Clear member registration and error messages on page change
+        resetForm : function(event) {
+//        	console.log("RegisterMemberView - resetForm() - start");
+            // Clear input fields
+            $('#reg')[0].reset();
+
+            // Clear existing msgs
+            $('span.invalid').remove();
+            $('span.success').remove();
+            $('#formMsgs').empty();
+        },
+
+        registerMember : function(event) {
+//        	console.log("RegisterMemberView - registerMember() - start");
+            // The event was triggered by clicking on a link.
+            // We prevent the browser from navigating to the destination.
+            event.preventDefault();
+
+            var elemName = $("#name"),
+                elemEmail = $("#email"),
+                elemPhoneNumber = $("#phoneNumber"),
+                errors = [];
+
+            // Verify if the name field is valid for the HTML5 constraints specified on it.
+            if(!elemName.get(0).checkValidity()) {
+                errors.push({$elem : elemName});
+            }
+
+            // Verify if the email field is valid for the HTML5 constraints specified on it.
+            if(!elemEmail.get(0).checkValidity()) {
+                errors.push({$elem : elemEmail});
+            }
+
+            // Verify if the phone number field is valid for the HTML5 constraints specified on it.
+            if(!elemPhoneNumber.get(0).checkValidity()) {
+                errors.push({$elem : elemPhoneNumber});
+            }
+            // Display errors if any
+            if(errors.length > 0) {
+                $.each(errors, function(idx, error) {
+                    $('<span class="invalid">' + error.$elem.get(0).validationMessage + '</span>').insertAfter(error.$elem);
+                });
+            } else {
+                var modelToAdd = {
+                    name : elemName.val(),
+                    email : elemEmail.val(),
+                    phoneNumber : elemPhoneNumber.val()
+                };
+                // Trigger a 'create' event on the Members collection, providing callbacks for success and failure.
+                window.Members.create(modelToAdd, {success:this.onRegisterSuccess, error:this.onRegisterFailure});
+            }
+        },
+
+        // Invoked when a Member was registered successfully.
+        onRegisterSuccess: function(model, response) {
+//        	console.log("RegisterMemberView - onRegisterSuccess() - start");
+            this.resetForm();
+
+            // Mark success on the registration form
+            $('#formMsgs').append($('<span class="success">Member Registered</span>'));
+        },
+
+        // Invoked when a Member was registered unsuccessfully.
+        onRegisterFailure: function(model, jqXHR) {
+//          console.log("RegisterMemberView - onRegisterFailure - ajax done");
+            //clear existing  msgs
+            $('span.success').remove();
+
+            if ((jqXHR.status === 409) || (jqXHR.status === 400)) {
+//              console.log("RegisterMemberView - onRegisterFailure - error in ajax - Validation error registering user! "
+//                		+ jqXHR.status);
+                //clear existing msgs so that when the new message is display you don't have 2 of them.
+                $('span.invalid').remove();
+                var errorMsg = $.parseJSON(jqXHR.responseText);
+
+                $.each(errorMsg, function(index, val) {
+                    $('<span class="invalid">' + val + '</span>').insertAfter($('#' + index));
+                });
+            } else {
+//	        	console.log("RegisterMemberView - onRegisterFailure - error in ajax - " +
+//	        			"jqXHR = " + jqXHR.status +
+//	        			" - textStatus = " + textStatus +
+//	        			" - errorThrown = " + errorThrown);
+                //clear existing  msgs
+                $('span.invalid').remove();
+                $('#formMsgs').append($('<span class="invalid">Unknown server error</span>'));
+            }
+        },
+
+        //Register the cancel listener
+        cancelRegistration : function(event) {
+//        	console.log("RegisterMemberView - start cancelRegistration");
+            this.resetForm();
+        }
+    });
+
+    // This Backbone View is used to display a single member in the list of all members.
 	window.MemberView = Backbone.View.extend({
 
 		// The HTML that gets created will be inserted into a parent element defined here.
 		// The default is 'div' so we don't need to list it.
-//		el : "div",
-		className : "row member body",
+		tagName : "tr",
 
 		// Cache the template function for a single item.
 		template : _.template($('#member-Body-tmpl').html()),
@@ -87,223 +253,132 @@ $(function() {
 //			console.log("MemberView - initialize() - start");
 			_.bindAll(this, 'render');
 
-			// Listen to model changes
+			// Listen to model changes and register the 'render' method as the callback
 			this.model.on('change', this.render, this);
 		},
 
 		// Re-render the contents of the member item.
 		render : function() {
 //			console.log("MemberView - render() - start");
-			$(this.el).html(this.template(this.model.toJSON()));
+            this.$el.html(this.template({member: this.model.toJSON()}));
 			return this;
-		},
-
+		}
 	});
 
-	// The Application
-	// ---------------
+    // This Backbone View is used to display the list of all members.
+    window.ListAllMembersView = Backbone.View.extend({
+        events : {
+            // Bind the click event on the Refresh Members button to the 'updateMemberTable' method.
+            "click #refreshButton" : "updateMemberTable"
+        },
 
-	// Our overall **AppView** is the top-level piece of UI.
-	window.AppView = Backbone.View.extend({
+        render : function() {
+//			console.log("ListAllMembersView - render() - start");
+            // Change to the jQuery Mobile page with id:'member-art'.
+            $.mobile.changePage( "#member-art", { reverse: false, changeHash: false, transition: "none"} );
 
-		// Instead of generating a new element, bind to the existing skeleton of
-		// the App already present in the HTML.
-		el : $("#container"),
+            // Bind the reset event on the Members collection to the addAllMembers method.
+            Members.on('reset', this.addAllMembers, this);
 
-		// By default, delegateEvents (events) is called within the View's constructor for you, so if you have a
-		//  simple events hash, all of your DOM events will always already be connected, and you will never
-		//  have to call this function yourself.
-		events : {
-			"click #refreshButtonD" : "updateMemberTable",
-			"click #refreshButtonM" : "updateMemberTable",
-			"click #cancel" : "cancelRegistration",
-			"pagebeforeshow #register-art" : "clearMessages"
-		},
+            // Display all the members
+            this.updateMemberTable();
+            return this;
+        },
 
-		// At initialization we bind to the relevant events on the `Members`
-		// collection, when items are added or changed. Kick things off by
-		// loading any preexisting members that might be saved in
-		// *localStorage*.
-		initialize : function() {
-//			console.log("AppView - initialize() - start");
-			//refer to the parent function. JS is block scoped.
-			var self = this;
-
-			Members.on('add', this.addOneMember, this);
-			Members.on('reset', this.addAllMemebers, this);
-			Members.on('all', this.render, this);
-
-			$('#members').html(self.templateHeaderRow);
-			this.updateMemberTable();
-//			Members.fetch();
-			this.submitRegistration();
-		},
-
-		// Re-rendering the App just means refreshing the statistics -- the rest
-		// of the app doesn't change.
-		render: function() {
-//			console.log("AppView - render() - start");
-		},
-
-		// Add a single member item to the list by creating a view for it, and
-		// appending its element to the `<ul>`.
-		addOneMember : function(member) {
+        addOneMember : function(member) {
 //			console.log("AppView - addOneMembers() - start");
-			var view = new MemberView({
-				model : member
-			});
+            // Create a new instance of a MemberView, designating the member instance as it's model.
+            var view = new MemberView({
+                model : member
+            });
 
-			this.$("#members").append(view.render().el);
-		},
+            // Display the new MemberView as a nested view of the current view
+            this.$("#members").append(view.render().el);
+        },
 
-		// Add all items in the **Members** collection at once.
-		addAllMemebers : function() {
+        // Add all items in the **Members** collection at once.
+        addAllMembers : function() {
 //			console.log("AppView - addAllMembers() - start");
-			Members.each(this.addOne);
-		},
+            // For every member in the Members collection, invoke the 'addOneMember' method.
+            Members.each(this.addOneMember);
 
-		//Create a template of the Header Row to be inserted in the AJAX call below.
-		templateHeaderRow : _.template($('#member-Header-Row-tmpl').html()),
+            // Update the jQuery Mobile list, since we dynamically added elements to it.
+            $( "#member-table" ).table( "refresh" );
+        },
 
-		/* Uses JAX-RS GET to retrieve current member list */
-		updateMemberTable : function () {
+        updateMemberTable : function() {
 //			console.log("AppView - Update Member - start");
-			//refer to the parent function. JS is block scoped.
-			var self = this;
-            //Remove the table or else we will have more then one.
-            $('.body').remove();
-            //Clear the Collection or it will try to load every Member again.
-    		Members.reset();
+            // Remove the elements in the table body or else we will have more then one copy of each member.
+            $( "#members" ).empty();
 
-			var jqxhr = $.ajax({
-		        url: 'rest/members',
-		        cache: false,
-		        type: "GET"
-		    }).done(function(data, textStatus, jqXHR) {
-//	            console.log("AppView - Update Member - succes on ajax call");
-	        	Members.add(data);
-    		}).fail(function(jqXHR, textStatus, errorThrown) {
-	            console.log("AppView - Update Member - error updating table -" + error.status);
-		    });
+            // Fetch the Collection. This resets the collection and adds all retrieved Members to it.
+            // This also triggers the 'reset' event on the collection.
+            // Any event listeners associated with this event are invoked.
+            Members.fetch({reset: true});
+        },
+
+        onClose : function() {
+            // Stop listening to the 'reset' event on the collection, when this view is closed.
+            Members.off("reset");
+        }
+    });
+
+	window.ViewManager = {
+        // A property to store the current view being displayed.
+		currentView : null,
+
+        // Display a Backbone View. Closes the previously displayed view gracefully.
+		showView : function (view) {
+            // Close the previous view
+			if(this.currentView != null) {
+                // Invoke the close method on the view.
+                // All views have this method, defined via the 'Backbone.View.prototype.close' method.
+				this.currentView.close();
+			}
+
+            // Display the current view
+			this.currentView = view;
+			return this.currentView.render();
+		}
+	};
+
+    // Define a Backbone Router to handle transitions from one Backbone View to another
+	window.Router = Backbone.Router.extend({
+		routes : {
+            // Bind various route fragments to methods defined in the Router.
+			"" : "showIntro",
+			"intro" : "showIntro",
+			"register" : "showRegisterMember",
+			"member" : "showAllMembers"
+		},
+		
+		initialize : function() {
+            // Start the router.
+			Backbone.history.start();
 		},
 
-        //Clear member registration and error messages on page change
-        clearMessages : function(event) {
-//        	console.log("AppView - clearMessages() - start");
-        	$('#formMsgs').empty();
-            $('span.invalid').remove();
-        },
+        // Navigate to the Intro view.
+		showIntro : function() {
+            // Bind the 'intro-art' jQuery Mobile page as the 'el' for the Backbone View.
+			var introView = new IntroView({ el: "#intro-art"});
+			ViewManager.showView(introView);
+		},
 
-        /**
-         * Attempts to register a new member using a JAX-RS POST.  The callbacks the refresh the member table, or
-         * process JAX-RS response codes to update the validation errors.
-         */
-        submitRegistration : function(event) {
-//        	console.log("AppView - submitRegistration - start");
-        	//refer to the parent function. JS is block scoped.
-        	var outerSelf = this;
-        	
-            
+        // Navigate to the Register Member view.
+		showRegisterMember: function() {
+            // Bind the 'register-art' jQuery Mobile page as the 'el' for the Backbone View.
+			var registerMemberView = new RegisterMemberView({ el: "#register-art"});
+			ViewManager.showView(registerMemberView);
+		},
 
-        	$("form#reg").submit(function(event) {
-//        		console.log("AppView - submitRegistration - submit event - started");
-        		var self = outerSelf;
-        		event.preventDefault();
-    		    //Transform the form fields into JSON.
-    			var memberData = JSON.stringify(self.$("form#reg").serializeObject());
-                
-    		    /** The jQuery XMLHttpRequest (jqXHR) object returned by $.ajax() as of jQuery 1.5 is a superset of
-    		     *   the browser's native XMLHttpRequest object. For example, it contains responseText and responseXML
-    		     *   properties, as well as a getResponseHeader() method. When the transport mechanism is something
-    		     *   other than XMLHttpRequest (for example, a script tag for a JSONP request) the jqXHR object
-    		     *   simulates native XHR functionality where possible.
-    		     *
-    		     *  The jqXHR objects returned by $.ajax() as of jQuery 1.5 implement the Promise interface, giving
-    		     *   them all the properties, methods, and behavior of a Promise (see Deferred object for more
-    		     *   information). These methods take one or more function arguments that are called when the
-    		     *   $.ajax() request terminates. This allows you to assign multiple callbacks on a single request,
-    		     *   and even to assign callbacks after the request may have completed. (If the request is already
-    		     *   complete, the callback is fired immediately.)
-    		     */
-    			var jqxhr = $.ajax({
-    		        url: 'rest/members',
-    		        contentType: "application/json",
-    		        dataType: "json",
-    		        data: memberData,
-    		        type: "POST"
-    		    }).done(function(data, textStatus, jqXHR) {
-//		            console.log("AppView - submitRegistration - ajax done");
-	    			//clear existing msgs
-	    		    $('span.invalid').remove();
-	    		    $('span.success').remove();
-		            //clear input fields
-		            $('#reg')[0].reset();
-
-		            //mark success on the registration form
-		            $('#formMsgs').append($('<span class="success">Member Registered</span>'));
-
-		            //There is no need to clear the Collection or the 'table' as this add() will add to the existing
-		            // Collection which will invoke the View and add to the 'table'.
-		        	Members.add(data);
-//		            console.log("AppView - submitRegistration - ajax done - after Members.add call");
-        		}).fail(function(jqXHR, textStatus, errorThrown) {
-	    			//clear existing  msgs
-	    		    $('span.success').remove();
-
-		            if ((jqXHR.status === 409) || (jqXHR.status === 400)) {
-//		                console.log("AppView - submitRegistration - error in ajax - Validation error registering user! "
-//		                		+ jqXHR.status);
-		                //clear existing msgs so that when the new message is display you don't have 2 of them.
-		                $('span.invalid').remove();
-		                var errorMsg = $.parseJSON(jqXHR.responseText);
-
-		                $.each(errorMsg, function(index, val) {
-		                    $('<span class="invalid">' + val + '</span>').insertAfter($('#' + index));
-		                });
-		            } else if (jqXHR.status === 200) {
-		            	//It should not reach this error as long as the Server method returns data.
-//			            console.log("AppView - submitRegistration - ajax error on 200 with error message: "
-//			            		+ errorThrown.message);
-//			            console.log("AppView - submitRegistration - ajax error because the REST service doesn't return" +
-//			            		"any data and this app expects data.  Fix the REST app.");
-			            //clear existing  msgs
-			            $('span.invalid').remove();
-			            //clear input fields
-			            $('#reg')[0].reset();
-			            //Clear the Collection or it will try to load every Member again.
-			            Members.reset();
-			            self.updateMemberTable();
-//			            console.log("AppView - submitRegistration - ajax error on 200 - after updateMemberTable() call");
-		            } else {
-//			        	console.log("AppView - submitRegistration - error in ajax - " +
-//			        			"jqXHR = " + jqXHR.status +
-//			        			" - textStatus = " + textStatus +
-//			        			" - errorThrown = " + errorThrown);
-			        	//clear existing  msgs
-			        	$('span.invalid').remove();
-		                $('#formMsgs').append($('<span class="invalid">Unknown server error</span>'));
-		            }
-    		    });
-        	});
-        },
-
-
-
-        //Register the cancel listener
-        cancelRegistration : function(event) {
-//        	console.log("AppView - start cancelRegistration");
-        	//clear input fields
-            $('#reg')[0].reset();
-
-            //clear existing msgs
-            $('span.invalid').remove();
-            $('span.success').remove();
-        }
-
+        // Navigate to display all the Members.
+		showAllMembers: function() {
+            // Bind the 'member-art' jQuery Mobile page as the 'el' for the Backbone View.
+			var listMembersView = new ListAllMembersView({ el: "#member-art"});
+			window.ViewManager.showView(listMembersView);
+		}
 	});
 
-	// Finally, we kick things off by creating the **App**.
-	window.App = new AppView;
-
+    // Finally, let's start the application.
+    window.App = new window.Router();
 });
-
