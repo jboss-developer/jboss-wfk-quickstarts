@@ -84,14 +84,15 @@
 	            <!-- Header -->
 	            <div data-role="header" class="header">
 	                <h3>Backbone Quickstart</h3>
-	                <a href="#info-aside" data-icon="info" class="ui-btn-right" data-iconpos="notext" data-rel="popup"></a>
+	                <a href="#info-aside" data-icon="info" class="ui-btn-right" data-iconpos="notext" data-rel="popup">About</a>
 	            </div>
 	            <!-- /Header -->
 	
 	            <div data-role="content">
 	                <p>You have successfully deployed a Java EE 6 web application.</p>
 	                <p>This quickstart demonstrates the use of various Mobile, HTML5, CSS3 and JavaScript techniques.</p>
-	                <ul id="features">
+
+                    <ul id="features">
 	                    <li class="feature">Pure HTML client</li>
 	                    <li class="feature">Backbone.js MVC</li>
 	                    <li class="feature">JAX-RS GET &amp; POST end points</li>
@@ -213,6 +214,17 @@
                         </tr>
                         </thead>
                         <tbody id="members">
+                        <!-- This is where the list of members gets populated by the templates. This row is only
+                            here as an example of the code that will be inserted.
+                        <tr>
+                            <th>0</td>
+                            <td>John Smith</td>
+                            <td>john.smith@mailinator.com</td>
+                            <td><a href="tel:2125551212" class="ui-link">Call</a> or <a href="sms:2125551212" class="ui-link">SMS</a> 2125551212</td>
+                            <td><a href="http://html5-jdf.rhcloud.com/rest/members/0" rel="external" target="_blank" class="resturl ui-link">JSON</a></td>
+                            <td><a href="#" data-theme="c" data-role="button" data-inline="true" data-icon="plus">Save</a></td>
+                        </tr>
+                        -->
                         </tbody>
                     </table>
                     <div class="member-foot">
@@ -241,7 +253,7 @@
         <th><%=member.id%></td>
         <td><%=member.name%></td>
         <td><a href="mailto:<%=member.email%>" class="ui-link"><%=member.email%></a></td>
-        <td><a href="tel:<%=member.phoneNumber%>" class="ui-link"><%=member.phoneNumber%></a></td>
+        <td><a href="tel:<%=member.phoneNumber%>" class="ui-link">Call</a> or <a href="sms:<%=member.phoneNumber%>" class="ui-link">SMS</a> <%=member.phoneNumber%></td>
         <td><a href="rest/members/<%=member.id%>" rel="external" target="_blank" class="resturl ui-link">JSON</a></td>
 	</script>
 
