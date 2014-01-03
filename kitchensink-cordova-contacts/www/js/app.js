@@ -36,8 +36,7 @@ $(function() {
 	 */
 	// Our basic **Member** model
 	window.Member = Backbone.Model.extend({
-		// Specify the base url to target the rest-easy service
-		url : 'http://html5-jdf.rhcloud.com/rest/members'
+        //Intentionally left empty
 	});
 
 	/*
@@ -105,8 +104,26 @@ $(function() {
         },
 
         showInfo: function() {
-            // Display the 'info-aside' element as a jQuery Mobile popup.
+            event.preventDefault();
+
+            // Display the InfoView that is responsible for displaying the popup.
+            new window.InfoView({el:$("#info-aside")}).render();
+        }
+    });
+
+    window.InfoView = Backbone.View.extend({
+        events : {
+            "click #closePopup" : "closePopup"
+        },
+
+        render: function() {
+            // Display the info-aside element as a popup
             $("#info-aside").popup("open");
+        },
+
+        closePopup: function() {
+            // Close the popup
+            $("#info-aside").popup("close");
         }
     });
 
@@ -173,13 +190,13 @@ $(function() {
                     $('<span class="invalid">' + error.$elem.get(0).validationMessage + '</span>').insertAfter(error.$elem);
                 });
             } else {
-                var formValues = {
+                var modelToAdd = {
                     name : elemName.val(),
                     email : elemEmail.val(),
                     phoneNumber : elemPhoneNumber.val()
-                }
+                };
                 // Trigger a 'create' event on the Members collection, providing callbacks for success and failure.
-                window.Members.create(formValues, {success:this.onRegisterSuccess, error:this.onRegisterFailure});
+                window.Members.create(modelToAdd, {success:this.onRegisterSuccess, error:this.onRegisterFailure});
             }
         },
 
@@ -398,7 +415,7 @@ $(function() {
 
 		// The HTML that gets created will be inserted into a parent element defined here.
 		// The default is 'div' so we don't need to list it.
-		tagName : "li",
+		tagName : "tr",
 
 		// Cache the template function for a single item.
 		template : _.template($('#member-Body-tmpl').html()),
@@ -415,7 +432,7 @@ $(function() {
 		// Re-render the contents of the member item.
 		render : function() {
 //			console.log("MemberView - render() - start");
-			this.$el.html(this.template(this.model.toJSON()));
+			this.$el.html(this.template({member: this.model.toJSON()}));
 			return this;
 		},
 
@@ -447,9 +464,9 @@ $(function() {
 		// onSaveSuccess: Callback invoked when the contact was saved.
 		onSaveSuccess: function(contact) {
 //			console.log("MemberView - onSaveSuccess() - start");
-			navigator.notification.alert("The contact was saved.", function(){}, "Success");
             // Beep to notify the user, since this modifies the contact database on the device.
-			navigator.notification.beep(1);
+            navigator.notification.beep(1);
+			navigator.notification.alert("The contact was saved.", function(){}, "Success");
 		},
 
 		// onSaveError: Callback invoked when some error occurred during save.
@@ -496,8 +513,8 @@ $(function() {
             // For every member in the Members collection, invoke the 'addOneMember' method.
             Members.each(this.addOneMember);
 
-            // Update the jQuery Mobile list, since we dynamically added elements to it.
-            $("#members").listview("refresh");
+            // Update the jQuery Mobile table, since we dynamically added elements to it.
+            $( "#member-table" ).table( "refresh" );
 
             // Create the buttons in the list, since the markup was added dynamically.
             $("#members a[data-role='button']").button();
@@ -505,8 +522,8 @@ $(function() {
 
         updateMemberTable : function() {
 //			console.log("AppView - Update Member - start");
-            // Remove the elements in the list or else we will have more then one copy of each member.
-            $('#members li').remove();
+            // Remove the elements in the table body or else we will have more then one copy of each member.
+            $( "#members" ).empty();
 
             // Fetch the Collection. This resets the collection and adds all retrieved Members to it.
             // This also triggers the 'reset' event on the collection.
@@ -553,7 +570,6 @@ $(function() {
 		initialize : function() {
             // Start the router.
 			Backbone.history.start();
-			this.showIntro();
 		},
 
         // Navigate to the Intro view.

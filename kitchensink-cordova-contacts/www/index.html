@@ -27,10 +27,9 @@
     <!-- Shared styles -->
     <link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css"/>
     <link rel="stylesheet" href="css/screen.css"/>
-    <link rel="stylesheet" href="css/m.screen.css"/>
 
     <!-- Set viewport scaling and zoom features -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<script type="text/javascript" src="js/libs/jquery-1.9.1.js"></script>
 	<script type="text/javascript">
@@ -86,26 +85,14 @@
 	            <!-- Header -->
 	            <div data-role="header" class="header">
 	                <h3>Backbone Quickstart</h3>
-	                <a href="#info-aside" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext" data-rel="popup"></a>
+	                <a href="#info-aside" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext" data-rel="popup">About</a>
 	            </div>
 	            <!-- /Header -->
 	
 	            <div data-role="content">
 	                <p>You have successfully deployed a Java EE 6 web application.</p>
 	                <p>This quickstart demonstrates the use of various Mobile, HTML5, CSS3 and JavaScript techniques.</p>
-	                <div class="highlights">
-	                    <ul>
-	                        <li>HTML5 using a Backbone.js MVC</li>
-	                        <li>HTML5 Client using JAX-RS REST end points</li>
-	                    </ul>
-	                </div>
-	                <div class="highlights">
-	                    <ul>
-	                        <li>jQuery Mobile Integration</li>
-	                        <li>QUnit testing for JavaScript validation</li>
-	                    </ul>
-	                </div>
-	
+
 	                <ul id="features">
 	                    <li class="feature">Pure HTML client</li>
 	                    <li class="feature">Backbone.js MVC</li>
@@ -120,16 +107,15 @@
 	            </div>
 	
 	            <!-- Footer -->
-	            <div class="footer" data-role="footer" data-position="fixed">
-	                <div class="footer_left">
-	                    <a href="#intro" data-role="button" data-icon="home">Home</a>
-	                </div>
-	                <div class="footer_right">
-	                    <span class="footer_txt">Member:</span>
-	                    <a href="#register" data-role="button" data-inline="true" data-icon="plus">Add</a>
-	                    <a href="#member" data-role="button" data-inline="true" data-icon="grid">List</a>
-	                </div>
-	            </div>
+                <div data-role="footer" data-tap-toggle="false" data-position="fixed">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#intro" data-icon="home">Home</a></li>
+                            <li><a href="#register" data-icon="plus">Add a Member</a></li>
+                            <li><a href="#member" data-icon="grid">List Members</a></li>
+                        </ul>
+                    </div>
+                </div>
 	            <!-- /Footer -->
 
 				<!-- New HTML5 aside tag -->
@@ -179,40 +165,37 @@
 	                <form name="reg" id="reg" data-ajax="false">
 	                    <fieldset>
 	                        <legend>Register a member:</legend>
-	                        <div>
+	                        <div data-role="fieldcontain">
 	                            <label for="name">Name:</label>
 	                            <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>
 	                        </div>
-	                        <div>
+	                        <div data-role="fieldcontain">
 	                            <label for="email">Email:</label>
 	                            <input type="email" name="email" id="email" placeholder="Your Email" required/>
 	                        </div>
-	                        <div>
+	                        <div data-role="fieldcontain">
 	                            <label for="phoneNumber">Phone #:</label>
 	                            <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{10,12}" placeholder="Your Phone #" required/>
-                                <!-- The pattern below is for the format 555-123-4567. -->
-                                <!-- <input type="tel" name="phoneNumber" id="phoneNumber" pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="Your Phone #" required/> -->
 	                        </div>
 	                        <div id="formMsgs"></div>
-	                        <div data-role="controlgroup" data-type="horizontal">
-	                            <input type="submit" id="register" value="Register"/>
-	                            <input type="button" name="cancel" id="cancel" value="Cancel"/>
-	                        </div>
+                            <div class="ui-grid-a app-responsive">
+                                <div class="ui-block-a"><input type="submit" id="register" value="Register"/></div>
+                                <div class="ui-block-b"><input type="button" name="cancel" id="cancel" value="Reset"/></div>
+                            </div>
 	                    </fieldset>
 	                </form>
 	            </div>
 	
 	            <!-- Footer -->
-	            <div class="footer" data-role="footer" data-position="fixed">
-	                <div class="footer_left">
-	                    <a href="#intro" data-role="button" data-icon="home">Home</a>
-	                </div>
-	                <div class="footer_right">
-	                    <span class="footer_txt">Member:</span>
-	                    <a href="#register" data-role="button" data-inline="true" data-icon="plus">Add</a>
-	                    <a href="#member" data-role="button" data-inline="true" data-icon="grid">List</a>
-	                </div>
-	            </div>
+                <div data-role="footer" data-tap-toggle="false" data-position="fixed">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#intro" data-icon="home">Home</a></li>
+                            <li><a href="#register" data-icon="plus">Add a Member</a></li>
+                            <li><a href="#member" data-icon="grid">List Members</a></li>
+                        </ul>
+                    </div>
+                </div>
 	            <!-- /Footer -->
 	        </article>
 	
@@ -223,42 +206,51 @@
 	                <h3>Backbone Quickstart</h3>
 	            </div>
 	            <!-- /Header -->
-	            <h2>Current Members</h2>
-	
+
 	            <div data-role="content">
 	                <button id="refreshButton" data-role="button" data-inline="true" data-icon="refresh">Refresh Members</button>
-	                <ul id="members" data-role="listview" data-theme="c" data-inset="true">
-		    			<!-- This is where the list of members gets populated by the templates. This list item is only 
-		    					here as an example of the code that will be inserted.
-		    			<li>
-							<h2>Name</h2>
-							<p class="ui-li-aside"><strong>Id: </strong></p>
-							<p>Email: </p>
-							<p>Phone #: </p>
-							<p>REST URL: <a href="http://html5-jdf.rhcloud.com/rest/members/" rel="external" target="_blank" class="resturl ui-link">JSON</a></p>
-							<p><a href="#" data-theme="c" data-role="button" data-inline="true" data-icon="plus">Save</a></p>
-						</li>
-		    			-->
-	                </ul>
+                    <table data-role="table" id="member-table" data-mode="reflow" class="app-responsive table-stroke">
+                        <thead>
+                        <tr>
+                            <th data-priority="1">Id</th>
+                            <th data-priority="persist">Name</th>
+                            <th data-priority="2">Email</th>
+                            <th data-priority="3">Phone #</th>
+                            <th data-priority="4">REST URL</th>
+                            <th data-priority="5"></th>
+                        </tr>
+                        </thead>
+                        <tbody id="members">
+                        <!-- This is where the list of members gets populated by the templates. This row is only
+                            here as an example of the code that will be inserted.
+                        <tr>
+                            <th>0</td>
+                            <td>John Smith</td>
+                            <td>john.smith@mailinator.com</td>
+                            <td><a href="tel:2125551212" class="ui-link">Call</a> or <a href="sms:2125551212" class="ui-link">SMS</a> 2125551212</td>
+                            <td><a href="http://html5-jdf.rhcloud.com/rest/members/0" rel="external" target="_blank" class="resturl ui-link">JSON</a></td>
+                            <td><a href="#" data-theme="c" data-role="button" data-inline="true" data-icon="plus">Save</a></td>
+                        </tr>
+                        -->
+                        </tbody>
+                    </table>
 	                <div class="member-foot">
 	                    <!-- Sets the JAX-RS URLs to retrieve all members either as XML or JSON data.-->
 	                    REST URL for all members:
 	                    <a href="http://html5-jdf.rhcloud.com/rest/members" target="_blank" rel="external">JSON</a>
-	                    <button id="refreshButtonD">Refresh Members</button>
 	                </div>
 	            </div>
-	
+
 	            <!-- Footer -->
-	            <div class="footer" data-role="footer" data-position="fixed">
-	                <div class="footer_left">
-	                    <a href="#intro" data-role="button" data-icon="home">Home</a>
-	                </div>
-	                <div class="footer_right">
-	                    <span class="footer_txt">Member:</span>
-	                    <a href="#register" data-role="button" data-inline="true" data-icon="plus">Add</a>
-	                    <a href="#member" data-role="button" data-inline="true" data-icon="grid">List</a>
-	                </div>
-	            </div>
+                <div data-role="footer" data-tap-toggle="false" data-position="fixed">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#intro" data-icon="home">Home</a></li>
+                            <li><a href="#register" data-icon="plus">Add a Member</a></li>
+                            <li><a href="#member" data-icon="grid">List Members</a></li>
+                        </ul>
+                    </div>
+                </div>
 	            <!-- /Footer -->
 	        </article>
 
@@ -317,12 +309,12 @@
 	</div>
     
 	<script type="text/template" id="member-Body-tmpl">
-		<h2><%=name%></h2>
-		<p class="ui-li-aside"><strong>Id: <%=id%></strong></p>
-		<p>Email: <%=email%></p>
-		<p>Phone #: <%=phoneNumber%></p>
-		<p>REST URL: <a href="http://html5-jdf.rhcloud.com/rest/members/<%=id%>" rel="external" target="_blank" class="resturl ui-link">JSON</a></p>
-		<p><a href="#" data-theme="c" data-role="button" data-inline="true" data-icon="plus">Save</a></p>
+        <th><%=member.id%></td>
+        <td><%=member.name%></td>
+        <td><a href="mailto:<%=member.email%>" class="ui-link"><%=member.email%></a></td>
+        <td><a href="tel:<%=member.phoneNumber%>" class="ui-link">Call</a> or <a href="sms:<%=member.phoneNumber%>" class="ui-link">SMS</a> <%=member.phoneNumber%></td>
+        <td><a href="http://html5-jdf.rhcloud.com/rest/members/<%=member.id%>" rel="external" target="_blank" class="resturl ui-link">JSON</a></td>
+        <td><a href="#" data-theme="c" data-role="button" data-inline="true" data-icon="plus">Save</a></td>
 	</script>
 
 	<script type="text/template" id="contact-List-tmpl">
