@@ -177,6 +177,7 @@
                 <module>petclinic-spring</module>
                 <module>richfaces-validation</module>
                 <module>shrinkwrap-resolver</module>
+                <module>spring-booking-mvc</module>
             </modules>
         </profile>
         <profile>
