@@ -41,6 +41,29 @@ a:hover {
     text-decoration: underline;
 }
 
+legend {
+    color: #111111;
+    font-weight: bold;
+}
+
+article > div[data-role="content"] {
+    /* Center the content */
+    margin: 0 auto;
+}
+
+article .wrap {
+    /* Set a background and border for the content to set it apart */
+    background: #cccccc;
+    border: 1px solid #aaaaaa;
+    border-radius: 8px;
+    /* Set padding so the edges are flush */
+    padding: 1em;
+    /* Set shadow */
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow:    4px 4px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow:         4px 4px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
 .mobileicon {
     float: right;
     padding: 0 10px 0 10px;
@@ -162,8 +185,8 @@ span.success {
     float:none;
 }
 
-/* preset breakpoint to switch to stacked grid styles and responsive tables below 28em (448px) */
-@media all and (min-width: 28em) {
+/* preset breakpoint to switch to stacked grid styles and responsive tables below 40em (640px) */
+@media all and (min-width: 40em) {
     .app-responsive .ui-block-a,
     .app-responsive .ui-block-b,
     .app-responsive .ui-block-c,
@@ -189,9 +212,38 @@ span.success {
         display: none;
     }
 
-    /* Add padding on larger displays */
-    div[data-role="content"] {
-        padding-right: 15%;
-        padding-left: 15%;
+}
+
+/* Set a larger max-width and add more padding as the display size increases. */
+@media all and (min-width: 40em) {
+    article > div[data-role="content"] {
+        /* Set a max-width */
+        max-width: 38em;
+    }
+    article .wrap {
+        /* Adding padding */
+        padding: 1em;
+    }
+}
+
+@media all and (min-width: 50em) {
+    article > div[data-role="content"] {
+        /* Set a max-width */
+        max-width: 46em;
+    }
+    article .wrap {
+        /* Adding padding */
+        padding: 2em;
+    }
+}
+
+@media all and (min-width: 60em) {
+    article > div[data-role="content"] {
+        /* Set a max-width */
+        max-width: 54em;
+    }
+    article .wrap {
+        /* Adding padding */
+        padding: 3em;
     }
 }

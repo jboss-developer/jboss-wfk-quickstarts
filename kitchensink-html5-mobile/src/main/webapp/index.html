@@ -128,20 +128,22 @@
                 <!-- /Header -->
 
                 <div data-role="content">
-                    <img src="img/aerogear_icon_64px.png" class="mobileicon"/>
-                    <p>You have successfully deployed a Java EE 6 web application.</p>
-                    <p>This quickstart demonstrates the use of various Mobile, HTML5, CSS3 and JavaScript techniques.</p>
+                    <div class="wrap">
+                        <img src="img/aerogear_icon_64px.png" class="mobileicon"/>
+                        <p>You have successfully deployed a Java EE 6 web application.</p>
+                        <p>This quickstart demonstrates the use of various Mobile, HTML5, CSS3 and JavaScript techniques.</p>
 
-                    <ul id="features">
-                        <li class="feature">Pure HTML client</li>
-                        <li class="feature">JAX-RS GET &amp; POST end points</li>
-                        <li class="feature">HTML5 based page structure</li>
-                        <li class="feature">HTML5 form element &amp; validation</li>
-                        <li class="feature">CSS3 selectors used for styling</li>
-                        <li class="feature">JAX-RS validation handling</li>
-                        <li class="feature">jQuery Mobile integration</li>
-                        <li class="feature">QUnit test suite to validate JavaScript</li>
-                    </ul>
+                        <ul id="features">
+                            <li class="feature">Pure HTML client</li>
+                            <li class="feature">JAX-RS GET &amp; POST end points</li>
+                            <li class="feature">HTML5 based page structure</li>
+                            <li class="feature">HTML5 form element &amp; validation</li>
+                            <li class="feature">CSS3 selectors used for styling</li>
+                            <li class="feature">JAX-RS validation handling</li>
+                            <li class="feature">jQuery Mobile integration</li>
+                            <li class="feature">QUnit test suite to validate JavaScript</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Footer -->
@@ -192,30 +194,31 @@
                 <!-- /Header -->
 
                 <div data-role="content">
-
-                    <!-- For now mapping bean validation constraints from server side model is a manual task -->
-                    <form name="reg" id="reg" data-ajax="false">
-                        <fieldset>
-                            <legend>Register a member:</legend>
-                            <div data-role="fieldcontain">
-                                <label for="name">Name:</label>
-                                <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>
-                            </div>
-                            <div data-role="fieldcontain">
-                                <label for="email">Email:</label>
-                                <input type="email" name="email" id="email" placeholder="Your Email" required/>
-                            </div>
-                            <div data-role="fieldcontain">
-                                <label for="phoneNumber">Phone #:</label>
-                                <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{10,12}" placeholder="Your Phone #" required/>
-                            </div>
-                            <div id="formMsgs"></div>
-                            <div class="ui-grid-a app-responsive">
-                                <div class="ui-block-a"><input type="submit" id="register" value="Register"/></div>
-                                <div class="ui-block-b"><input type="button" name="cancel" id="cancel" value="Reset"/></div>
-                            </div>
-                        </fieldset>
-                    </form>
+                    <div class="wrap">
+                        <!-- For now mapping bean validation constraints from server side model is a manual task -->
+                        <form name="reg" id="reg" data-ajax="false">
+                            <fieldset>
+                                <legend>Register a member:</legend>
+                                <div data-role="fieldcontain">
+                                    <label for="name">Name:</label>
+                                    <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>
+                                </div>
+                                <div data-role="fieldcontain">
+                                    <label for="email">Email:</label>
+                                    <input type="email" name="email" id="email" placeholder="Your Email" required/>
+                                </div>
+                                <div data-role="fieldcontain">
+                                    <label for="phoneNumber">Phone #:</label>
+                                    <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{10,12}" placeholder="Your Phone #" required/>
+                                </div>
+                                <div id="formMsgs"></div>
+                                <div class="ui-grid-a app-responsive">
+                                    <div class="ui-block-a"><input type="submit" id="register" value="Register"/></div>
+                                    <div class="ui-block-b"><input type="button" name="cancel" id="cancel" value="Reset"/></div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
                 </div>
 
                 <!-- Footer -->
@@ -240,24 +243,26 @@
                 <!-- /Header -->
 
                 <div data-role="content">
-                    <button id="refreshButton" data-role="button" data-inline="true" data-icon="refresh">Refresh Members</button>
-                    <table data-role="table" id="member-table" data-mode="reflow" class="app-responsive table-stroke">
-                        <thead>
-                            <tr>
-                                <th data-priority="1">Id</th>
-                                <th data-priority="persist">Name</th>
-                                <th data-priority="2">Email</th>
-                                <th data-priority="3">Phone #</th>
-                                <th data-priority="4">REST URL</th>
-                            </tr>
-                        </thead>
-                        <tbody id="members">
-                        </tbody>
-                    </table>
-                    <div class="member-foot">
-                        <!-- Sets the JAX-RS URLs to retrieve all members either as XML or JSON data.-->
-                        REST URL for all members:
-                        <a href="rest/members" target="_blank" rel="external">JSON</a>
+                    <div class="wrap">
+                        <button id="refreshButton" data-role="button" data-inline="true" data-icon="refresh">Refresh Members</button>
+                        <table data-role="table" id="member-table" data-mode="reflow" class="app-responsive table-stroke">
+                            <thead>
+                                <tr>
+                                    <th data-priority="1">Id</th>
+                                    <th data-priority="persist">Name</th>
+                                    <th data-priority="2">Email</th>
+                                    <th data-priority="3">Phone #</th>
+                                    <th data-priority="4">REST URL</th>
+                                </tr>
+                            </thead>
+                            <tbody id="members">
+                            </tbody>
+                        </table>
+                        <div class="member-foot">
+                            <!-- Sets the JAX-RS URLs to retrieve all members either as XML or JSON data.-->
+                            REST URL for all members:
+                            <a href="rest/members" target="_blank" rel="external">JSON</a>
+                        </div>
                     </div>
                 </div>
 
