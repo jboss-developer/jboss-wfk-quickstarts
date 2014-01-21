@@ -1,6 +1,6 @@
 kitchensink-angularjs-bootstrap: Shows how to use AngularJS and Twitter Bootstrap with JAX-RS and Java EE on JBoss
 ========================
-Author: Pete Muir
+Author: Vineet Reynolds
 Level: Intermediate
 Technologies: AngularJS, CDI, JPA, EJB, JPA, JAX-RS, BV
 Summary: An example that incorporates multiple technologies
