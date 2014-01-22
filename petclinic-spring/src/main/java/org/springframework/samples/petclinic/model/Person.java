@@ -15,14 +15,14 @@
  */
 package org.springframework.samples.petclinic.model;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  * Simple JavaBean domain object representing an person.
- * 
+ *
  * @author Ken Krebs
  */
 @MappedSuperclass
@@ -51,5 +51,6 @@ public class Person extends BaseEntity {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
 
 }

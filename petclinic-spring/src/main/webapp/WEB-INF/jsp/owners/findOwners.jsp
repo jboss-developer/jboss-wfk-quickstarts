@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!--
     Copyright 2002-2013 the original author or authors.
 
@@ -13,7 +14,6 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<!DOCTYPE html>
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>

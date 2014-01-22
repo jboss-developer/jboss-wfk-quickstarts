@@ -15,19 +15,25 @@
  */
 package org.springframework.samples.petclinic.web;
 
+import java.util.Collection;
+import java.util.Map;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.service.ClinicService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.validation.Valid;
-import java.util.Collection;
 
 /**
  * @author Juergen Hoeller
@@ -41,6 +47,7 @@ public class OwnerController {
 
     private final ClinicService clinicService;
 
+
     @Autowired
     public OwnerController(ClinicService clinicService) {
         this.clinicService = clinicService;
@@ -52,9 +59,9 @@ public class OwnerController {
     }
 
     @RequestMapping(value = "/owners/new", method = RequestMethod.GET)
-    public String initCreationForm(Model model) {
+    public String initCreationForm(Map<String, Object> model) {
         Owner owner = new Owner();
-        model.addAttribute(owner);
+        model.put("owner", owner);
         return "owners/createOrUpdateOwnerForm";
     }
 
@@ -70,13 +77,13 @@ public class OwnerController {
     }
 
     @RequestMapping(value = "/owners/find", method = RequestMethod.GET)
-    public String initFindForm(Model model) {
-        model.addAttribute("owner", new Owner());
+    public String initFindForm(Map<String, Object> model) {
+        model.put("owner", new Owner());
         return "owners/findOwners";
     }
 
     @RequestMapping(value = "/owners", method = RequestMethod.GET)
-    public String processFindForm(Owner owner, BindingResult result, Model model) {
+    public String processFindForm(Owner owner, BindingResult result, Map<String, Object> model) {
 
         // allow parameterless GET request for /owners to return all records
         if (owner.getLastName() == null) {
@@ -92,7 +99,7 @@ public class OwnerController {
         }
         if (results.size() > 1) {
             // multiple owners found
-            model.addAttribute("selections", results);
+            model.put("selections", results);
             return "owners/ownersList";
         } else {
             // 1 owner found
@@ -121,7 +128,7 @@ public class OwnerController {
 
     /**
      * Custom handler for displaying an owner.
-     * 
+     *
      * @param ownerId the ID of the owner to display
      * @return a ModelMap with the model attributes for the view
      */

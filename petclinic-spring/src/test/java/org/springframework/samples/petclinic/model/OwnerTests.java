@@ -15,15 +15,15 @@
  */
 package org.springframework.samples.petclinic.model;
 
-import org.junit.Test;
-import org.springframework.transaction.annotation.Transactional;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
+import org.junit.Test;
+import org.springframework.transaction.annotation.Transactional;
+
 /**
  * JUnit test for the {@link Owner} class.
- * 
+ *
  * @author Ken Krebs
  */
 public class OwnerTests {

@@ -15,18 +15,19 @@
  */
 package org.springframework.samples.petclinic.repository.jpa;
 
-import org.springframework.samples.petclinic.repository.VetRepository;
-import org.springframework.samples.petclinic.model.Vet;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.stereotype.Repository;
+import java.util.Collection;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.Collection;
+
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.samples.petclinic.model.Vet;
+import org.springframework.samples.petclinic.repository.VetRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * JPA implementation of the {@link VetRepository} interface.
- * 
+ *
  * @author Mike Keith
  * @author Rod Johnson
  * @author Sam Brannen
@@ -38,6 +39,7 @@ public class JpaVetRepositoryImpl implements VetRepository {
 
     @PersistenceContext
     private EntityManager em;
+
 
     @Override
     @Cacheable(value = "vets")

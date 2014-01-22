@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!--
     Copyright 2002-2013 the original author or authors.
 
@@ -13,7 +14,6 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<!DOCTYPE html>
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -29,11 +29,11 @@
 <div class="container">
     <jsp:include page="../fragments/bodyHeader.jsp"/>
     <h2>Owners</h2>
-
-    <datatables:table id="owners" data="${selections}" cdn="true" row="owner" theme="bootstrap2"
+    
+    <datatables:table id="owners" data="${selections}" cdn="true" row="owner" theme="bootstrap2" 
                       cssClass="table table-striped" paginate="false" info="false" export="pdf">
         <datatables:column title="Name" cssStyle="width: 150px;" display="html">
-            <spring:url value="owners/{ownerId}.html" var="ownerUrl">
+            <spring:url value="/owners/{ownerId}.html" var="ownerUrl">
                 <spring:param name="ownerId" value="${owner.id}"/>
             </spring:url>
             <a href="${fn:escapeXml(ownerUrl)}"><c:out value="${owner.firstName} ${owner.lastName}"/></a>
@@ -49,9 +49,9 @@
                 <c:out value="${pet.name}"/>
             </c:forEach>
         </datatables:column>
-        <datatables:export type="pdf" cssClass="btn btn-small"/>
+        <datatables:export type="pdf" cssClass="btn btn-small" />
     </datatables:table>
-
+    
     <jsp:include page="../fragments/footer.jsp"/>
 
 </div>
