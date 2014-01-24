@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2013 the original author or authors.
+ * Copyright 2002-2014 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,31 +15,31 @@
  */
 package org.springframework.webflow.samples.booking;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.webflow.core.FlowException;
 import org.springframework.webflow.execution.FlowExecutionOutcome;
 import org.springframework.webflow.execution.repository.NoSuchFlowExecutionException;
 import org.springframework.webflow.mvc.servlet.AbstractFlowHandler;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 public class BookingFlowHandler extends AbstractFlowHandler {
 
-    private static final String DEFAULT_URL = "/hotels/search";
+	private static final String DEFAULT_URL = "/hotels/search";
 
-    @Override
-    public String handleExecutionOutcome(FlowExecutionOutcome outcome, HttpServletRequest request,
-                                         HttpServletResponse response) {
-        return DEFAULT_URL;
-    }
+	@Override
+	public String handleExecutionOutcome(FlowExecutionOutcome outcome, HttpServletRequest request,
+										 HttpServletResponse response) {
+		return DEFAULT_URL;
+	}
 
-    @Override
-    public String handleException(FlowException e, HttpServletRequest request, HttpServletResponse response) {
-        if (e instanceof NoSuchFlowExecutionException) {
-            return DEFAULT_URL;
-        } else {
-            throw e;
-        }
-    }
+	@Override
+	public String handleException(FlowException e, HttpServletRequest request, HttpServletResponse response) {
+		if (e instanceof NoSuchFlowExecutionException) {
+			return DEFAULT_URL;
+		} else {
+			throw e;
+		}
+	}
 
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2013 the original author or authors.
+ * Copyright 2002-2014 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,71 +26,71 @@ import org.springframework.webflow.test.execution.AbstractXmlFlowExecutionTests;
 
 public class BookingFlowExecutionTests extends AbstractXmlFlowExecutionTests {
 
-    private BookingService bookingService;
+	private BookingService bookingService;
 
-    protected void setUp() {
-        bookingService = EasyMock.createMock(BookingService.class);
-    }
+	protected void setUp() {
+		bookingService = EasyMock.createMock(BookingService.class);
+	}
 
-    @Override
-    protected FlowDefinitionResource getResource(FlowDefinitionResourceFactory resourceFactory) {
-        return resourceFactory.createFileResource("src/main/webapp/WEB-INF/hotels/booking/booking-flow.xml");
-    }
+	@Override
+	protected FlowDefinitionResource getResource(FlowDefinitionResourceFactory resourceFactory) {
+		return resourceFactory.createFileResource("src/main/webapp/WEB-INF/hotels/booking/booking-flow.xml");
+	}
 
-    @Override
-    protected void configureFlowBuilderContext(MockFlowBuilderContext builderContext) {
-        builderContext.registerBean("bookingService", bookingService);
-    }
+	@Override
+	protected void configureFlowBuilderContext(MockFlowBuilderContext builderContext) {
+		builderContext.registerBean("bookingService", bookingService);
+	}
 
-    public void testStartBookingFlow() {
-        Booking booking = createTestBooking();
+	public void testStartBookingFlow() {
+		Booking booking = createTestBooking();
 
-        EasyMock.expect(bookingService.createBooking(1L, "keith")).andReturn(booking);
+		EasyMock.expect(bookingService.createBooking(1L, "keith")).andReturn(booking);
 
-        EasyMock.replay(bookingService);
+		EasyMock.replay(bookingService);
 
-        MutableAttributeMap input = new LocalAttributeMap();
-        input.put("hotelId", "1");
-        MockExternalContext context = new MockExternalContext();
-        context.setCurrentUser("keith");
-        startFlow(input, context);
+		MutableAttributeMap input = new LocalAttributeMap();
+		input.put("hotelId", "1");
+		MockExternalContext context = new MockExternalContext();
+		context.setCurrentUser("keith");
+		startFlow(input, context);
 
-        assertCurrentStateEquals("enterBookingDetails");
-        assertResponseWrittenEquals("enterBookingDetails", context);
-        assertTrue(getRequiredFlowAttribute("booking") instanceof Booking);
+		assertCurrentStateEquals("enterBookingDetails");
+		assertResponseWrittenEquals("enterBookingDetails", context);
+		assertTrue(getRequiredFlowAttribute("booking") instanceof Booking);
 
-        EasyMock.verify(bookingService);
-    }
+		EasyMock.verify(bookingService);
+	}
 
-    public void testEnterBookingDetails_Proceed() {
-        setCurrentState("enterBookingDetails");
-        getFlowScope().put("booking", createTestBooking());
+	public void testEnterBookingDetails_Proceed() {
+		setCurrentState("enterBookingDetails");
+		getFlowScope().put("booking", createTestBooking());
 
-        MockExternalContext context = new MockExternalContext();
-        context.setEventId("proceed");
-        resumeFlow(context);
+		MockExternalContext context = new MockExternalContext();
+		context.setEventId("proceed");
+		resumeFlow(context);
 
-        assertCurrentStateEquals("reviewBooking");
-        assertResponseWrittenEquals("reviewBooking", context);
-    }
+		assertCurrentStateEquals("reviewBooking");
+		assertResponseWrittenEquals("reviewBooking", context);
+	}
 
-    public void testReviewBooking_Confirm() {
-        setCurrentState("reviewBooking");
-        getFlowScope().put("booking", createTestBooking());
-        MockExternalContext context = new MockExternalContext();
-        context.setEventId("confirm");
-        resumeFlow(context);
-        assertFlowExecutionEnded();
-        assertFlowExecutionOutcomeEquals("bookingConfirmed");
-    }
+	public void testReviewBooking_Confirm() {
+		setCurrentState("reviewBooking");
+		getFlowScope().put("booking", createTestBooking());
+		MockExternalContext context = new MockExternalContext();
+		context.setEventId("confirm");
+		resumeFlow(context);
+		assertFlowExecutionEnded();
+		assertFlowExecutionOutcomeEquals("bookingConfirmed");
+	}
 
-    private Booking createTestBooking() {
-        Hotel hotel = new Hotel();
-        hotel.setId(1L);
-        hotel.setName("Jameson Inn");
-        User user = new User("keith", "pass", "Keith Donald");
-        Booking booking = new Booking(hotel, user);
-        return booking;
-    }
+	private Booking createTestBooking() {
+		Hotel hotel = new Hotel();
+		hotel.setId(1L);
+		hotel.setName("Jameson Inn");
+		User user = new User("keith", "pass", "Keith Donald");
+		Booking booking = new Booking(hotel, user);
+		return booking;
+	}
 
 }

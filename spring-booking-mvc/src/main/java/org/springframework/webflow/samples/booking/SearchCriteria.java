@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2013 the original author or authors.
+ * Copyright 2002-2014 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,44 +28,44 @@ import java.io.Serializable;
  */
 public class SearchCriteria implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * The user-provided search criteria for finding Hotels.
-     */
-    private String searchString;
+	/**
+	 * The user-provided search criteria for finding Hotels.
+	 */
+	private String searchString;
 
-    /**
-     * The maximum page size of the Hotel result list
-     */
-    private int pageSize;
+	/**
+	 * The maximum page size of the Hotel result list
+	 */
+	private int pageSize;
 
-    /**
-     * The current page of the Hotel result list.
-     */
-    private int page;
+	/**
+	 * The current page of the Hotel result list.
+	 */
+	private int page;
 
-    public String getSearchString() {
-        return searchString;
-    }
+	public String getSearchString() {
+		return searchString;
+	}
 
-    public void setSearchString(String searchString) {
-        this.searchString = searchString;
-    }
+	public void setSearchString(String searchString) {
+		this.searchString = searchString;
+	}
 
-    public int getPageSize() {
-        return pageSize;
-    }
+	public int getPageSize() {
+		return pageSize;
+	}
 
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
-    }
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
 
-    public int getPage() {
-        return page;
-    }
+	public int getPage() {
+		return page;
+	}
 
-    public void setPage(int page) {
-        this.page = page;
-    }
+	public void setPage(int page) {
+		this.page = page;
+	}
 }

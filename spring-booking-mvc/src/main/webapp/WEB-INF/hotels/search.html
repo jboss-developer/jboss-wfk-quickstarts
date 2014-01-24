@@ -1,55 +1,42 @@
 <!DOCTYPE html>
-<!--
-Copyright 2002-2013 the original author or authors.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
--->
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
       xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
       lang="en">
 
 <head>
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!-- This <head> section is only used for static prototyping purposes. At runtime, -->
-    <!-- Tiles will only use the body fragment defined with tiles:fragment="content",  -->
+    <!-- Tiles will only use the body fragment defined with tiles:fragment="content",  --> 
     <!-- as specified at the corresponding views.xml file.                             -->
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
     <title>Spring Travel: Spring MVC and Web Flow Reference Application</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
-    <link rel="stylesheet" type="text/css" media="screen, projection"
-          href="../../styles/blueprint/screen.css"/>
-
-    <link rel="stylesheet" type="text/css" media="print"
-          href="../../styles/blueprint/print.css"/>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <link rel="stylesheet" type="text/css" media="screen, projection" 
+          href="../../styles/blueprint/screen.css" />
+    
+    <link rel="stylesheet" type="text/css" media="print" 
+          href="../../styles/blueprint/print.css" />
+    
     <!--[if lt IE 8]>
-    <link rel="stylesheet" type="text/css" media="screen, projection"
-          href="../../styles/blueprint/ie.css"/>
+        <link rel="stylesheet" type="text/css" media="screen, projection"
+              href="../../styles/blueprint/ie.css" />
     <![endif]-->
+    
+    <link rel="stylesheet" type="text/css" media="screen" 
+          href="../../styles/booking.css" />
 
-    <link rel="stylesheet" type="text/css" media="screen"
-          href="../../styles/booking.css"/>
-
-
+    
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
     <!-- Some styles and scripts are served from spring-js-resources-{ver}.jar at -->
     <!-- runtime. Therefore not available for static prototyping. See the         -->
     <!-- layouts/standard.html template file for detail.                          -->
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
-
+    
 </head>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -61,14 +48,16 @@ limitations under the License.
 <body tiles:fragment="content">
 
 
+
 <div tiles:include="searchForm">
-    A search form will go here. See it at <a href="searchForm.html">searchForm.html</a>.
+   A search form will go here. See it at <a href="searchForm.html">searchForm.html</a>. 
 </div>
 
 <div tiles:include="bookingsTable">
-    A table with the current hotel bookings will go here.
-    See it at <a href="bookingsTable.html">bookingsTable.html</a>.
+   A table with the current hotel bookings will go here. 
+   See it at <a href="bookingsTable.html">bookingsTable.html</a>. 
 </div>
+
 
 
 </body>

@@ -1,4 +1,4 @@
-/* --------------------------------------------------------------
+/* -------------------------------------------------------------- 
 
    print.css
    * Gives you some sensible styles for printing pages.
@@ -10,90 +10,71 @@
 -------------------------------------------------------------- */
 
 body {
-    line-height: 1.5;
-    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-    color: #000;
-    background: none;
-    font-size: 10pt;
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color:#000;
+  background: none;
+  font-size: 10pt;
 }
+
 
 /* Layout
 -------------------------------------------------------------- */
 
 .container {
-    background: none;
+  background: none;
 }
 
-hr {
-    background: #ccc;
-    color: #ccc;
-    width: 100%;
-    height: 2px;
-    margin: 2em 0;
-    padding: 0;
-    border: none;
+hr { 
+  background:#ccc; 
+  color:#ccc;
+  width:100%;
+  height:2px;
+  margin:2em 0;
+  padding:0;
+  border:none;
 }
-
 hr.space {
-    background: #fff;
-    color: #fff;
-    visibility: hidden;
+  background: #fff;
+  color: #fff;
+  visibility: hidden;
 }
+
 
 /* Text
 -------------------------------------------------------------- */
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
-}
+h1,h2,h3,h4,h5,h6 { font-family: "Helvetica Neue", Arial, "Lucida Grande", sans-serif; }
+code { font:.9em "Courier New", Monaco, Courier, monospace; } 
 
-code {
-    font: .9em "Courier New", Monaco, Courier, monospace;
-}
-
-a img {
-    border: none;
-}
-
-p img.top {
-    margin-top: 0;
-}
+a img { border:none; }
+p img.top { margin-top: 0; }
 
 blockquote {
-    margin: 1.5em;
-    padding: 1em;
-    font-style: italic;
-    font-size: .9em;
+  margin:1.5em;
+  padding:1em;
+  font-style:italic;
+  font-size:.9em;
 }
 
-.small {
-    font-size: .9em;
-}
+.small  { font-size: .9em; }
+.large  { font-size: 1.1em; }
+.quiet  { color: #999; }
+.hide   { display:none; }
 
-.large {
-    font-size: 1.1em;
-}
-
-.quiet {
-    color: #999;
-}
-
-.hide {
-    display: none;
-}
 
 /* Links
 -------------------------------------------------------------- */
 
 a:link, a:visited {
-    background: transparent;
-    font-weight: 700;
-    text-decoration: underline;
+  background: transparent;
+  font-weight:700;
+  text-decoration: underline;
 }
 
 a:link:after, a:visited:after {
-    content: " (" attr(href) ")";
-    font-size: 90%;
+  content: " (" attr(href) ")";
+  font-size: 90%;
 }
 
 /* If you're having trouble printing relative links, uncomment and customize this:
