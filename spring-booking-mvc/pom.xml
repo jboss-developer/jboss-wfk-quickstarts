@@ -15,25 +15,26 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jboss.quickstarts.wfk</groupId>
     <artifactId>jboss-spring-booking-mvc</artifactId>
     <version>2.4.0-build-SNAPSHOT</version>
-    <packaging>war</packaging>
+
     <name>JBoss WFK Quickstart: spring-booking-mvc</name>
+    <description>JBoss WFK Quickstart: Booking</description>
+    <packaging>war</packaging>
+
+    <url>http://jboss.org/jbossas</url>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <distribution>repo</distribution>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+        </license>
+    </licenses>
 
     <properties>
-        <version.slf4j>1.7.5</version.slf4j>
-        <version.thymeleaf>2.0.15</version.thymeleaf>
-        <version.thymeleaf.extras.conditionalcomments>2.0.0</version.thymeleaf.extras.conditionalcomments>
-        <version.thymeleaf.extras.tiles2>2.0.0</version.thymeleaf.extras.tiles2>
-        <version.thymeleaf.extras.springsecurity3>2.0.0</version.thymeleaf.extras.springsecurity3>
-        <version.tiles>2.2.2</version.tiles>
-        <version.log4j>1.2.16</version.log4j>
-        <version.hsqldb>2.2.9</version.hsqldb>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- JBoss dependency versions -->
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
@@ -42,14 +43,12 @@
         <version.jboss.bom.wfk>2.4.0-build-5</version.jboss.bom.wfk>
         <version.jboss.bom.eap>1.0.4.Final-redhat-9</version.jboss.bom.eap>
 
-        <!-- maven-compiler-plugin -->
-        <maven.compiler.target>1.6</maven.compiler.target>
-        <maven.compiler.source>1.6</maven.compiler.source>
+        <!-- Generic properties -->
+        <java.version>1.6</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <version.maven.surefire>2.4.3</version.maven.surefire>
-        <version.maven.compiler>2.4</version.maven.compiler>
-
-        <!-- Third Party Spring dependencies -->
+        <!-- Java EE -->
         <version.standard.taglibs>1.1.2</version.standard.taglibs>
         <version.commons.logging>1.1.1</version.commons.logging>
         <version.cglib>2.2</version.cglib>
@@ -60,6 +59,26 @@
         <version.joda.time>2.2</version.joda.time>
         <version.servlet.api>2.5</version.servlet.api>
         <version.jaxb.api>2.1</version.jaxb.api>
+
+        <!-- Third Party Spring dependencies -->
+        <thymeleaf-version>2.0.15</thymeleaf-version>
+        <thymeleaf-extras-tiles2-version>2.0.0</thymeleaf-extras-tiles2-version>
+        <thymeleaf-extras-springsecurity3-version>2.0.0</thymeleaf-extras-springsecurity3-version>
+        <thymeleaf-extras-conditionalcomments-version>2.0.0</thymeleaf-extras-conditionalcomments-version>
+        <tiles-version>2.2.2</tiles-version>
+
+        <!-- Database -->
+        <version.hsqldb>2.2.9</version.hsqldb>
+
+        <!-- Logging dependencies -->
+        <slf4j-version>1.7.5</slf4j-version>
+        <version.log4j>1.2.16</version.log4j>
+
+        <!-- maven-compiler-plugin -->
+        <maven.compiler.target>1.6</maven.compiler.target>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <version.maven.surefire>2.4.3</version.maven.surefire>
+        <version.maven.compiler>2.4</version.maven.compiler>
     </properties>
 
     <dependencyManagement>
@@ -143,17 +162,17 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>${version.slf4j}</version>
+                <version>${slf4j-version}</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>jcl-over-slf4j</artifactId>
-                <version>${version.slf4j}</version>
+                <version>${slf4j-version}</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
-                <version>${version.slf4j}</version>
+                <version>${slf4j-version}</version>
                 <scope>runtime</scope>
             </dependency>
 
@@ -175,12 +194,12 @@
             <dependency>
                 <groupId>org.thymeleaf</groupId>
                 <artifactId>thymeleaf</artifactId>
-                <version>${version.thymeleaf}</version>
+                <version>${thymeleaf-version}</version>
             </dependency>
             <dependency>
                 <groupId>org.thymeleaf</groupId>
                 <artifactId>thymeleaf-spring3</artifactId>
-                <version>${version.thymeleaf}</version>
+                <version>${thymeleaf-version}</version>
             </dependency>
             <dependency>
                 <groupId>org.thymeleaf.extras</groupId>
@@ -195,7 +214,7 @@
             <dependency>
                 <groupId>org.thymeleaf.extras</groupId>
                 <artifactId>thymeleaf-extras-conditionalcomments</artifactId>
-                <version>${version.thymeleaf.extras.conditionalcomments}</version>
+                <version>${thymeleaf-extras-tiles2-version}</version>
             </dependency>
 
             <dependency>

@@ -25,21 +25,21 @@ import org.springframework.webflow.mvc.servlet.AbstractFlowHandler;
 
 public class BookingFlowHandler extends AbstractFlowHandler {
 
-	private static final String DEFAULT_URL = "/hotels/search";
+    private static final String DEFAULT_URL = "/hotels/search";
 
-	@Override
-	public String handleExecutionOutcome(FlowExecutionOutcome outcome, HttpServletRequest request,
-										 HttpServletResponse response) {
-		return DEFAULT_URL;
-	}
+    @Override
+    public String handleExecutionOutcome(FlowExecutionOutcome outcome, HttpServletRequest request,
+	    HttpServletResponse response) {
+	return DEFAULT_URL;
+    }
 
-	@Override
-	public String handleException(FlowException e, HttpServletRequest request, HttpServletResponse response) {
-		if (e instanceof NoSuchFlowExecutionException) {
-			return DEFAULT_URL;
-		} else {
-			throw e;
-		}
+    @Override
+    public String handleException(FlowException e, HttpServletRequest request, HttpServletResponse response) {
+	if (e instanceof NoSuchFlowExecutionException) {
+	    return DEFAULT_URL;
+	} else {
+	    throw e;
 	}
+    }
 
 }
