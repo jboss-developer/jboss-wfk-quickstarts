@@ -1,8 +1,8 @@
-petclinic-spring: PetClinic Example using Spring 3.1
+spring-petclinic: PetClinic Example using Spring 3.2
 ======================================================
 Author: Ken Krebs, Juergen Hoeller, Rob Harrop, Costin Leau, Sam Brannen, Scott Andrews
 Level: Advanced
-Technologies: JPA 2.0, Junit, JMX, Spring MVC Annotations, Spring Data, JSP, webjars, and Dandellion
+Technologies: JPA 2.0, Junit, JMX, Spring MVC Annotations, AOP, Spring Data, JSP, webjars, and Dandellion
 Summary: An example that incorporates multiple technologies in Red Hat JBoss Enterprise Application Platform 6.1 or later.
 Target Product: WFK
 Product Versions: EAP 6.1, EAP 6.2, WFK 2.4
