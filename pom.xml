@@ -112,7 +112,7 @@
                         <exclude>picketlink-quickstarts/**</exclude>
                         <exclude>richfaces-quickstarts/**</exclude>
                         <!-- Exclude specific Quickstarts -->
-                        <exclude>petclinic-spring/**</exclude>
+                        <exclude>spring-petclinic/**</exclude>
                         <!-- Javascrip Libraries -->
                         <exclude>**/jquery*</exclude>
                         <exclude>**/angular*</exclude>
@@ -174,7 +174,7 @@
                 <module>kitchensink-spring-controlleradvice</module>
                 <module>kitchensink-spring-matrixvariables</module>
                 <module>kitchensink-spring-springmvctest</module>
-                <module>petclinic-spring</module>
+                <module>spring-petclinic</module>
                 <module>richfaces-validation</module>
                 <module>shrinkwrap-resolver</module>
             </modules>
@@ -205,7 +205,7 @@
                 <module>deltaspike-helloworld-jms/functional-tests</module>
                 <module>deltaspike-projectstage/functional-tests</module>
                 <module>kitchensink-deltaspike/functional-tests</module>
-                <module>petclinic-spring/functional-tests</module>
+                <module>spring-petclinic/functional-tests</module>
                 <module>richfaces-validation/functional-tests</module>
                 <module>greeter-spring/functional-tests</module>
                 <module>helloworld-errai/functional-tests</module>
