@@ -174,8 +174,8 @@
                 <module>kitchensink-spring-controlleradvice</module>
                 <module>kitchensink-spring-matrixvariables</module>
                 <module>kitchensink-spring-springmvctest</module>
-                <module>petclinic-spring</module>
                 <module>richfaces-validation</module>
+                <module>spring-petclinic</module>
                 <module>shrinkwrap-resolver</module>
             </modules>
         </profile>
