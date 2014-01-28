@@ -39,7 +39,7 @@
 		<jboss.maven.plugin.version>7.4.Final</jboss.maven.plugin.version>
 
 		<!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
-		<jboss.bom.wfk.version>2.4.0-build-5</jboss.bom.wfk.version>
+		<jboss.bom.wfk.version>2.5.0-build-1</jboss.bom.wfk.version>
 		<jboss.bom.eap.version>1.0.4.Final-redhat-9</jboss.bom.eap.version>
 
 		<!-- Generic properties -->
@@ -48,11 +48,13 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<!-- Spring -->
-		<spring-data-jpa.version>1.3.2.RELEASE</spring-data-jpa.version>
+		<spring-data-jpa.version>1.4.3.RELEASE</spring-data-jpa.version>
+
 
 		<!-- Java EE / Java SE dependencies -->
 		<jsp.version>2.2</jsp.version>
 		<jstl.version>1.2</jstl.version>
+		<tomcat.servlet.version>7.0.30</tomcat.servlet.version>
 		<servlet.version>2.5</servlet.version>
 		<javax.el.version>2.2</javax.el.version>
 		<jaxb.api.version>2.2.7</jaxb.api.version>
@@ -66,12 +68,12 @@
 		<hibernate-validator.version>4.3.1.Final</hibernate-validator.version>
 
 		<!-- Database access -->
-		<tomcat-jdbc.version>7.0.41</tomcat-jdbc.version>
+		<tomcat-jdbc.version>7.0.42</tomcat-jdbc.version>
 		<ehcache.version>2.6.6</ehcache.version>
-		<hsqldb.version>2.2.9</hsqldb.version>
+		<hsqldb.version>2.3.1</hsqldb.version>
 
 		<!-- AOP -->
-		<aspectj.version>1.7.3</aspectj.version>
+		<aspectj.version>1.7.4</aspectj.version>
 
 		<!-- Logging -->
 		<logback.version>1.0.13</logback.version>
@@ -87,14 +89,15 @@
 		<!-- Dates -->
 		<jodatime-hibernate.version>1.3</jodatime-hibernate.version>
 		<jodatime-jsptags.version>1.1.1</jodatime-jsptags.version>
-		<jodatime.version>2.2</jodatime.version>
+		<jodatime.version>2.3</jodatime.version>
 		<jadira-usertype-core.version>3.1.0.CR8</jadira-usertype-core.version>
+
 
 		<!-- Web dependencies -->
 		<webjars-bootstrap.version>2.3.0</webjars-bootstrap.version>
 		<webjars-jquery-ui.version>1.9.2</webjars-jquery-ui.version>
 		<webjars-jquery.version>1.9.0</webjars-jquery.version>
-		<dandelion.datatables.version>0.8.14</dandelion.datatables.version>
+		<dandelion.datatables.version>0.9.3</dandelion.datatables.version>
 
 		<mysql.version>5.1.22</mysql.version>
 
@@ -103,12 +106,12 @@
 		<tomcat.maven.version>2.0</tomcat.maven.version>
 		<maven.eclipse.wtp.version>2.0</maven.eclipse.wtp.version>
 		<maven.eclipse.version>2.9</maven.eclipse.version>
-		<war.plugin.version>2.1.1</war.plugin.version>
+		<war.plugin.version>2.3</war.plugin.version>
 		<maven.surefire.version>2.13</maven.surefire.version>
 
 		<!-- maven-compiler-plugin -->
-		<maven.compiler.target>1.6</maven.compiler.target>
 		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
 
 	</properties>
 
@@ -117,11 +120,10 @@
 			<groupId>org.jadira.usertype</groupId>
 			<artifactId>usertype.core</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.servlet</groupId>
+            <artifactId>jboss-servlet-api_3.0_spec</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
@@ -148,6 +150,12 @@
 		<dependency>
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>jstl-impl</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
@@ -535,7 +543,7 @@
 			<!-- <dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
-				<version>${mysql.version.version}</version>
+				<version>${mysql.version}</version>
 			</dependency> -->
 			<dependency>
 				<groupId>org.hsqldb</groupId>
@@ -624,18 +632,18 @@
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-entitymanager</artifactId>
-				<version>${hibernate.version.version}</version>
+				<version>${hibernate.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-validator</artifactId>
-				<version>${hibernate-validator.version.version}</version>
+				<version>${hibernate-validator.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-ehcache</artifactId>
-				<version>${hibernate.version.version}</version>
+				<version>${hibernate.version}</version>
 			</dependency>
 
 			<dependency>
