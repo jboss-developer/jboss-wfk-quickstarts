@@ -40,7 +40,6 @@
 
 		<!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
 		<jboss.bom.wfk.version>2.5.0-SNAPSHOT</jboss.bom.wfk.version>
-<!-- 		<jboss.bom.wfk.version>2.4.0-build-5</jboss.bom.wfk.version> -->
 		<jboss.bom.eap.version>1.0.4.Final-redhat-9</jboss.bom.eap.version>
 
 		<!-- Generic properties -->

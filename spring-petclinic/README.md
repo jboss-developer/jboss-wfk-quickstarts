@@ -1,14 +1,14 @@
-spring-petclinic: PetClinic Example using Spring 3.2
+spring-petclinic: PetClinic Example using Spring 3.2  
 ======================================================
-Author: Ken Krebs, Juergen Hoeller, Rob Harrop, Costin Leau, Sam Brannen, Scott Andrews
-Level: Advanced
-Technologies: JPA 2.0, Junit, JMX, Spring MVC Annotations, AOP, Spring Data, JSP, webjars, and Dandellion
-Summary: An example that incorporates multiple technologies in Red Hat JBoss Enterprise Application Platform 6.1 or later.
-Target Product: WFK
-Product Versions: EAP 6.1, EAP 6.2, WFK 2.4
-Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
+Author: Ken Krebs, Juergen Hoeller, Rob Harrop, Costin Leau, Sam Brannen, Scott Andrews  
+Level: Advanced  
+Technologies: JPA 2.0, Junit, JMX, Spring MVC Annotations, AOP, Spring Data, JSP, webjars, and Dandellion  
+Summary: An example that incorporates multiple technologies in Red Hat JBoss Enterprise Application Platform 6.1 or later.  
+Target Product: WFK  
+Product Versions: EAP 6.1, EAP 6.2, WFK 2.4  
+Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
 
-What is it?
+What is it?  
 -----------
 _This quickstart shows how to run the [Spring PetClinic](<http://static.springsource.org/docs/petclinic.html>) Application in JBoss Enterprise Application Platform and Wildfly. The only modification needed to get the Spring PetClinic to work is the addtion of the `webapp/WEB-INF/jboss-deployment-structure.xml` file. This file specifies which modules to include or exclude when building the application. In this case, we exclude Hibernate libraries since the application uses Spring Data JPA. Additionally, this is only required when using the spring-data-jpa profile, see `webapp/WEB-INF/web.xml`._
 
@@ -39,20 +39,20 @@ _Note that the sample configurations for JDBC, JPA, and Spring Data JPA configur
 a BasicDataSource from the Apache Commons DBCP project for connection
 pooling. See `datasource-config.xml`._
 
-System requirements
+System requirements  
 -------------------
 
 The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.4.
 
 All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
-Configure Maven
+Configure Maven  
 ---------------
 
 If you have not yet done so, you must [Configure Maven](../README.md#mavenconfiguration) before testing the quickstarts.
 
 
-Start the JBoss Server
+Start the JBoss Server  
 -------------------------
 
 1. Open a command line and navigate to the root of the JBoss server directory.
