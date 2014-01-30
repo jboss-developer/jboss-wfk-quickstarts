@@ -1,6 +1,6 @@
 /*
  * JBoss, Home of Professional Open Source
- * Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+ * Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
  * contributors by the @authors tag. See the copyright.txt in the
  * distribution for a full listing of individual contributors.
  *
@@ -25,28 +25,28 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.PUT;
 import javax.ws.rs.QueryParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Path("/")
 public class HelloSpringResource {
-	
-	@Autowired
-	GreetingBean greetingBean;
-	
+    
+    @Autowired
+    GreetingBean greetingBean;
+    
     @GET  
     @Path("hello")
     @Produces("text/plain")
-	public Response sayHello(@QueryParam("name") String name) {
+    public Response sayHello(@QueryParam("name") String name) {
         String greetingMsg = greetingBean.greet(name);
         System.out.println("Sending greeing: " + greetingMsg);
-		return Response.ok(greetingMsg).build();
-	}
+        return Response.ok(greetingMsg).build();
+    }
 
     @GET
     @Path("basic")
     @Produces("text/plain")
-    public String getBasic()
-    {
+    public String getBasic() {
         System.out.println("getBasic()");
         return "basic";
     }
@@ -54,33 +54,29 @@ public class HelloSpringResource {
     @PUT
     @Path("basic")
     @Consumes("text/plain")
-    public void putBasic(String body)
-    {
+    public void putBasic(String body) {
         System.out.println(body);
     }
 
     @GET
     @Path("queryParam")
     @Produces("text/plain")
-    public String getQueryParam(@QueryParam("param") String param)
-    {
+    public String getQueryParam(@QueryParam("param") String param) {
         return param;
     }
 
     @GET
     @Path("matrixParam")
     @Produces("text/plain")
-    public String getMatrixParam(@MatrixParam("param") String param)
-    {
+    public String getMatrixParam(@MatrixParam("param") String param) {
         return param;
     }
 
     @GET
     @Path("uriParam/{param}")
     @Produces("text/plain")
-    public int getUriParam(@PathParam("param") int param)
-    {
+    public int getUriParam(@PathParam("param") int param) {
         return param;
     }
-	
+    
 }

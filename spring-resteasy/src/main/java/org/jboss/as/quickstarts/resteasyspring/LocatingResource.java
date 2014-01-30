@@ -1,6 +1,6 @@
 /*
  * JBoss, Home of Professional Open Source
- * Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+ * Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
  * contributors by the @authors tag. See the copyright.txt in the
  * distribution for a full listing of individual contributors.
  *
@@ -22,11 +22,10 @@ import javax.ws.rs.Path;
  * @author <a href="mailto:bill@burkecentral.com">Bill Burke</a>
  */
 @Path("/")
-public class LocatingResource
-{
+public class LocatingResource {
+    
     @Path("locating")
-    public HelloSpringResource getLocating()
-    {
+    public HelloSpringResource getLocating() {
         System.out.println("Locating Resource...");
         return new HelloSpringResource();
     }
