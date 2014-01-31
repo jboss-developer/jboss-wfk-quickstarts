@@ -160,7 +160,6 @@
                 <module>deltaspike-partialbean-basic</module>
                 <module>deltaspike-partialbean-advanced</module>
                 <module>deltaspike-projectstage</module>
-                <module>greeter-spring</module>
                 <module>helloworld-errai</module>
                 <module>helloworld-gwt</module>
                 <module>helloworld-html5</module>
@@ -170,13 +169,15 @@
                 <module>kitchensink-deltaspike</module>
                 <module>kitchensink-html5-mobile</module>
                 <module>kitchensink-rf</module>
-                <module>kitchensink-spring-asyncrequestmapping</module>
-                <module>kitchensink-spring-basic</module>
-                <module>kitchensink-spring-controlleradvice</module>
-                <module>kitchensink-spring-matrixvariables</module>
-                <module>kitchensink-spring-springmvctest</module>
                 <module>richfaces-validation</module>
+                <module>spring-greeter</module>
+                <module>spring-kitchensink-asyncrequestmapping</module>
+                <module>spring-kitchensink-basic</module>
+                <module>spring-kitchensink-controlleradvice</module>
+                <module>spring-kitchensink-matrixvariables</module>
+                <module>spring-kitchensink-springmvctest</module>
                 <module>spring-petclinic</module>
+                <module>spring-resteasy</module>
                 <module>shrinkwrap-resolver</module>
             </modules>
         </profile>
@@ -206,9 +207,7 @@
                 <module>deltaspike-helloworld-jms/functional-tests</module>
                 <module>deltaspike-projectstage/functional-tests</module>
                 <module>kitchensink-deltaspike/functional-tests</module>
-                <module>petclinic-spring/functional-tests</module>
                 <module>richfaces-validation/functional-tests</module>
-                <module>greeter-spring/functional-tests</module>
                 <module>helloworld-errai/functional-tests</module>
                 <module>helloworld-gwt/functional-tests</module>
                 <module>helloworld-html5/functional-tests</module>
@@ -216,11 +215,13 @@
                 <module>kitchensink-angularjs/functional-tests</module>
                 <module>kitchensink-backbone/functional-tests</module>
                 <module>kitchensink-rf/functional-tests</module>
-                <module>kitchensink-spring-asyncrequestmapping/functional-tests</module>
-                <module>kitchensink-spring-basic/functional-tests</module>
-                <module>kitchensink-spring-controlleradvice/functional-tests</module>
-                <module>kitchensink-spring-matrixvariables/functional-tests</module>
-                <module>kitchensink-spring-springmvctest/functional-tests</module>
+                <module>spring-greeter/functional-tests</module>
+                <module>spring-kitchensink-asyncrequestmapping/functional-tests</module>
+                <module>spring-kitchensink-basic/functional-tests</module>
+                <module>spring-kitchensink-controlleradvice/functional-tests</module>
+                <module>spring-kitchensink-matrixvariables/functional-tests</module>
+                <module>spring-kitchensink-springmvctest/functional-tests</module>
+                <module>spring-petclinic/functional-tests</module>
             </modules>
         </profile>
     </profiles>
