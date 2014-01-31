@@ -1,6 +1,6 @@
 /*
  * JBoss, Home of Professional Open Source
- * Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+ * Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
  * contributors by the @authors tag. See the copyright.txt in the
  * distribution for a full listing of individual contributors.
  *
@@ -16,26 +16,24 @@
  */
 package org.jboss.as.quickstarts.resteasyspring;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 /**
- * Basic hellow world bean with greeting message
+ * Basic hello world bean with greeting message
  * 
  */
 public class GreetingBean {
 
-	private String greeting;
-	
-	private final String DEFAULT_NAME = "I'm sorry I don't know your name";
+    private String greeting;
+    
+    private final String DEFAULT_NAME = "I'm sorry I don't know your name";
 
-	public GreetingBean(String greeting) {
-		this.greeting = greeting;
-	}
+    public GreetingBean(String greeting) {
+        this.greeting = greeting;
+    }
 
-	public String greet(String name) {
-	    if (name == null) {
-	        name = DEFAULT_NAME;
-	    }
-		return greeting + " " + name + ".";
-	}
+    public String greet(String name) {
+        if (name == null) {
+            name = DEFAULT_NAME;
+        }
+        return greeting + " " + name + ".";
+    }
 }

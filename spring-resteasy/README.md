@@ -1,18 +1,18 @@
-resteasy-spring: Example Using Resteasy Spring Integration
+spring-resteasy: Example Using Resteasy Spring Integration
 ==========================================================
-Author: Weinan Li <l.weinan@gmail.com>, Paul Gier <pgier@redhat.com>
+Author: Weinan Li <l.weinan@gmail.com>, Paul Gier <pgier@redhat.com>  
 Level: Beginner  
 Technologies: Resteasy, Spring  
 Summary: Basic example demonstrating how a spring application can be packaged for JBoss EAP  
-Target Product: EAP  
-Product Versions: EAP 6.2  
-Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>  
+Target Product: WFK  
+Product Versions: EAP 6.2, WFK 2.5  
+Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
 
 What is it?
 -----------
 
-This is a project demonstrates how to package and deploy a web application which includes resteasy-spring integration
-into Red Hat JBoss Enterprise Application Platform.
+This project demonstrates how to package and deploy a web application, which includes resteasy-spring integration, into 
+Red Hat JBoss Enterprise Application Platform.
 
 
 System requirements
@@ -47,16 +47,32 @@ _NOTE: The following build command assumes you have configured your Maven user s
 2. Open a command line and navigate to the root directory of this quickstart.
 3. Type this command to build and deploy the archive:
 
-        mvn clean install jboss-as:deploy integration-test
+        mvn clean package jboss-as:deploy integration-test
+4. This deploys the `target/jboss-spring-resteasy.war` to the running instance of the server and runs two integration tests that verify the application works. You should see the following output:
+   
+        -------------------------------------------------------
+         T E S T S
+        -------------------------------------------------------
+        Running org.jboss.as.quickstarts.resteasyspring.test.ResteasySpringTest
+        Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.211 sec
 
-4. This will deploy `target/resteasy-spring.war` to the running instance of the server, and run two integration tests which verify 
-that the application is working.
+        Results :
 
+        Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+        [INFO] ------------------------------------------------------------------------
+        [INFO] BUILD SUCCESS
+        [INFO] ------------------------------------------------------------------------
+
+   _Note:_ If you prefer to use the `mvn install` command to run the integration tests, you must deploy the application first. For example:
+
+        mvn clean package jboss-as:deploy
+        mvn install
 
 Access the application 
 ---------------------
 
-You can also test the application by accessing the following URL: <http://localhost:8080/resteasy-spring/hello?name=yourname>. 
+You can also test the application by accessing the following URL: <http://localhost:8080/jboss-spring-resteasy/hello?name=yourname>. 
 
 
 Undeploy the Archive
@@ -67,6 +83,3 @@ Undeploy the Archive
 3. When you are finished testing, type this command to undeploy the archive:
 
         mvn jboss-as:undeploy
-
-
-
