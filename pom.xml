@@ -179,6 +179,7 @@
                 <module>spring-petclinic</module>
                 <module>spring-resteasy</module>
                 <module>shrinkwrap-resolver</module>
+                <module>spring-booking-mvc</module>
             </modules>
         </profile>
         <profile>
