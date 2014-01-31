@@ -1,6 +1,6 @@
 /*
  * JBoss, Home of Professional Open Source
- * Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+ * Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
  * contributors by the @authors tag. See the copyright.txt in the
  * distribution for a full listing of individual contributors.
  *
@@ -36,21 +36,21 @@ public class ResteasySpringTest
         HttpClient client = new HttpClient();
 
         {
-            GetMethod method = new GetMethod("http://localhost:8080/resteasy-spring/basic");
+            GetMethod method = new GetMethod("http://localhost:8080/jboss-spring-resteasy/basic");
             int status = client.executeMethod(method);
             Assert.assertEquals(HttpResponseCodes.SC_OK, status);
             Assert.assertEquals("basic", method.getResponseBodyAsString());
             method.releaseConnection();
         }
         {
-            PutMethod method = new PutMethod("http://localhost:8080/resteasy-spring/basic");
+            PutMethod method = new PutMethod("http://localhost:8080/jboss-spring-resteasy/basic");
             method.setRequestEntity(new StringRequestEntity("basic", "text/plain", null));
             int status = client.executeMethod(method);
             Assert.assertEquals(204, status);
             method.releaseConnection();
         }
         {
-            GetMethod method = new GetMethod("http://localhost:8080/resteasy-spring/queryParam");
+            GetMethod method = new GetMethod("http://localhost:8080/jboss-spring-resteasy/queryParam");
             NameValuePair[] params = { new NameValuePair("param", "hello world") };
             method.setQueryString(params);
             int status = client.executeMethod(method);
@@ -59,7 +59,7 @@ public class ResteasySpringTest
             method.releaseConnection();
         }
         {
-            GetMethod method = new GetMethod("http://localhost:8080/resteasy-spring/uriParam/1234");
+            GetMethod method = new GetMethod("http://localhost:8080/jboss-spring-resteasy/uriParam/1234");
             int status = client.executeMethod(method);
             Assert.assertEquals(HttpResponseCodes.SC_OK, status);
             Assert.assertEquals("1234", method.getResponseBodyAsString());
@@ -73,21 +73,21 @@ public class ResteasySpringTest
         HttpClient client = new HttpClient();
 
         {
-            GetMethod method = new GetMethod("http://localhost:8080/resteasy-spring/locating/basic");
+            GetMethod method = new GetMethod("http://localhost:8080/jboss-spring-resteasy/locating/basic");
             int status = client.executeMethod(method);
             Assert.assertEquals(HttpResponseCodes.SC_OK, status);
             Assert.assertEquals("basic", method.getResponseBodyAsString());
             method.releaseConnection();
         }
         {
-            PutMethod method = new PutMethod("http://localhost:8080/resteasy-spring/locating/basic");
+            PutMethod method = new PutMethod("http://localhost:8080/jboss-spring-resteasy/locating/basic");
             method.setRequestEntity(new StringRequestEntity("basic", "text/plain", null));
             int status = client.executeMethod(method);
             Assert.assertEquals(204, status);
             method.releaseConnection();
         }
         {
-            GetMethod method = new GetMethod("http://localhost:8080/resteasy-spring/locating/queryParam");
+            GetMethod method = new GetMethod("http://localhost:8080/jboss-spring-resteasy/locating/queryParam");
             NameValuePair[] params = { new NameValuePair("param", "hello world") };
             method.setQueryString(params);
             int status = client.executeMethod(method);
@@ -96,7 +96,7 @@ public class ResteasySpringTest
             method.releaseConnection();
         }
         {
-            GetMethod method = new GetMethod("http://localhost:8080/resteasy-spring/locating/uriParam/1234");
+            GetMethod method = new GetMethod("http://localhost:8080/jboss-spring-resteasy/locating/uriParam/1234");
             int status = client.executeMethod(method);
             Assert.assertEquals(HttpResponseCodes.SC_OK, status);
             Assert.assertEquals("1234", method.getResponseBodyAsString());

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
     JBoss, Home of Professional Open Source
-    Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+    Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
     contributors by the @authors tag. See the copyright.txt in the
     distribution for a full listing of individual contributors.
 
@@ -19,14 +19,16 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.jboss.quickstarts.eap</groupId>
-    <artifactId>resteasy-spring</artifactId>
-    <version>6.2.0-redhat-SNAPSHOT</version>
+    <groupId>org.jboss.quickstarts.wfk</groupId>
+    <artifactId>jboss-spring-resteasy</artifactId>
+    <version>2.4.0-build-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>JBoss EAP Quickstart: resteasy-spring</name>
-    <description>JBoss EAP Quickstart: Resteasy Spring Demonstrates the use of a JAX-RS RestEasy client</description>
+    <name>JBoss WFK Quickstart: spring-resteasy</name>
+    <description>JBoss WFK Quickstart: Resteasy Spring Demonstrates the use of a JAX-RS RestEasy client</description>
+    
     <url>http://jboss.org/jbossas</url>
+    
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -46,18 +48,23 @@
         
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
         <version.jboss.bom.eap>6.2.0.GA</version.jboss.bom.eap>
+        
+<!--         AT the moment this app does NOT work with Spring 4, so we are keeping it on Spring 3.2.x. I believe there is
+             a bug in the Spring code.  Further testing is needed. -->
+        <version.jboss.bom.wfk>2.4.0-build-5</version.jboss.bom.wfk>
 
         <!-- Other dependency versions -->
-        <version.org.apache.httpcomponents>4.1.4</version.org.apache.httpcomponents>
+<!--         <version.org.apache.httpcomponents>4.1.4</version.org.apache.httpcomponents> -->
+        <version.org.apache.httpcomponents>3.1</version.org.apache.httpcomponents>
         <version.commons.logging>1.1.1</version.commons.logging>
 
         <!-- RESTEasy Version -->
-        <version.springframework>3.2.4.RELEASE</version.springframework>
+<!--         <version.springframework>3.2.4.RELEASE</version.springframework> -->
 
         <!-- Maven Plugin Versions -->
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
         <version.surefire.plugin>2.10</version.surefire.plugin>
-        <version.war.plugin>2.1.1</version.war.plugin>
+<!--         <version.war.plugin>2.1.1</version.war.plugin> -->
 
         <!-- maven-compiler-plugin settings -->
         <maven.compiler.source>1.6</maven.compiler.source>
@@ -68,17 +75,24 @@
         <dependencies>
             <dependency>
                 <groupId>org.jboss.bom.eap</groupId>
-                <artifactId>jboss-javaee-6.0-with-tools</artifactId>
-                <version>${version.jboss.bom.eap}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.bom.eap</groupId>
                 <artifactId>jboss-javaee-6.0-with-resteasy</artifactId>
                 <version>${version.jboss.bom.eap}</version>
                 <scope>import</scope>
                 <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.bom.wfk</groupId>
+                <artifactId>jboss-javaee-6.0-with-spring</artifactId>
+                <version>${version.jboss.bom.wfk}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.bom.wfk</groupId>
+                <artifactId>jboss-javaee-6.0-with-tools</artifactId>
+                <version>${version.jboss.bom.wfk}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>commons-logging</groupId>
@@ -133,18 +147,16 @@
         <dependency>
             <groupId>commons-httpclient</groupId>
             <artifactId>commons-httpclient</artifactId>
-            <version>3.1</version>
+            <version>${version.org.apache.httpcomponents}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${version.springframework}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>${version.springframework}</version>
         </dependency>
     </dependencies>
 

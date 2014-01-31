@@ -1,18 +1,18 @@
-resteasy-spring: Example Using Resteasy Spring Integration
+spring-resteasy: Example Using Resteasy Spring Integration
 ==========================================================
-Author: Weinan Li <l.weinan@gmail.com>, Paul Gier <pgier@redhat.com>
+Author: Weinan Li <l.weinan@gmail.com>, Paul Gier <pgier@redhat.com>  
 Level: Beginner  
 Technologies: Resteasy, Spring  
 Summary: Basic example demonstrating how a spring application can be packaged for JBoss EAP  
-Target Product: EAP  
-Product Versions: EAP 6.2  
-Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>  
+Target Product: WFK  
+Product Versions: EAP 6.2, WFK 2.5  
+Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
 
 What is it?
 -----------
 
-This is a project demonstrates how to package and deploy a web application which includes resteasy-spring integration
-into Red Hat JBoss Enterprise Application Platform.
+This project demonstrates how to package and deploy a web application, which includes resteasy-spring integration, into 
+Red Hat JBoss Enterprise Application Platform.
 
 
 System requirements
@@ -49,14 +49,14 @@ _NOTE: The following build command assumes you have configured your Maven user s
 
         mvn clean install jboss-as:deploy integration-test
 
-4. This will deploy `target/resteasy-spring.war` to the running instance of the server, and run two integration tests which verify 
+4. This will deploy `target/jboss-spring-resteasy.war` to the running instance of the server, and run two integration tests which verify 
 that the application is working.
 
 
 Access the application 
 ---------------------
 
-You can also test the application by accessing the following URL: <http://localhost:8080/resteasy-spring/hello?name=yourname>. 
+You can also test the application by accessing the following URL: <http://localhost:8080/jboss-spring-resteasy/hello?name=yourname>. 
 
 
 Undeploy the Archive
@@ -67,6 +67,3 @@ Undeploy the Archive
 3. When you are finished testing, type this command to undeploy the archive:
 
         mvn jboss-as:undeploy
-
-
-
