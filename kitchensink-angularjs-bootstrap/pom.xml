@@ -20,7 +20,7 @@
 
     <groupId>org.jboss.quickstarts.wfk</groupId>
     <artifactId>jboss-kitchensink-angularjs-bootstrap</artifactId>
-    <version>2.4.0-build-SNAPSHOT</version>
+    <version>2.5.0-build-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>JBoss WFK Quickstart: kitchensink-angularjs-bootstrap</name>
     <description>A starter Java EE 6 webapp project for use on JBoss EAP 6, generated from the jboss-javaee6-webapp archetype, using AngularJS for the view and Twitter Bootstrap for styling</description>
@@ -78,7 +78,7 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.jboss.bom</groupId>
+                <groupId>org.jboss.bom.eap</groupId>
                 <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
                 <version>${version.jboss.bom.eap}</version>
                 <type>pom</type>
