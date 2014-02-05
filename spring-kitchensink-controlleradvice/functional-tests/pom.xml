@@ -21,7 +21,7 @@
 
     <groupId>org.jboss.as.quickstarts.wfk</groupId>
     <artifactId>jboss-spring-kitchensink-controlleradvice-test-webdriver</artifactId>
-    <version>2.4.0-build-SNAPSHOT</version>
+    <version>2.5.0-build-SNAPSHOT</version>
     <name>JBoss AS Quickstarts: Kitchensink test via WebDriver with Arquillian</name>
     <description>This project tests a starter Java EE 6 webapp project for use on JBoss AS 7 / EAP 6 by WebDriver</description>
 
@@ -45,7 +45,7 @@
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 
         <!-- Define the version of the JBoss BOMs we want to import. The JBoss BOMs specify tested stacks. -->
-        <version.jboss.bom.wfk>2.4.0-build-5</version.jboss.bom.wfk>
+        <version.jboss.bom.wfk>2.5.0-build-2</version.jboss.bom.wfk>
 
         <!-- other plugin versions -->
         <version.surefire.plugin>2.10</version.surefire.plugin>
