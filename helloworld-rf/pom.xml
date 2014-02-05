@@ -51,7 +51,7 @@
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.source>1.6</maven.compiler.source>
     
-        <version.jboss.bom.wfk>2.5.0-build-1</version.jboss.bom.wfk>
+        <version.jboss.bom.wfk>2.5.0-build-2</version.jboss.bom.wfk>
     </properties>
 
     <dependencyManagement>
