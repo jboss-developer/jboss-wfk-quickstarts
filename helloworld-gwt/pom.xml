@@ -48,8 +48,6 @@
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
         <version.jboss.bom.wfk>2.5.0-build-2</version.jboss.bom.wfk>
 
-        <version.jboss.spec.javaee.6.0>3.0.2.Final-redhat-4</version.jboss.spec.javaee.6.0>
-
         <!-- other plugin versions -->
         <version.org.codehaus.mojo.gwt.maven.plugin>2.5.1</version.org.codehaus.mojo.gwt.maven.plugin>
         <version.war.plugin>2.1.1</version.war.plugin>
@@ -61,24 +59,13 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- Define the version of JBoss' Java EE 6 APIs we want to import. 
-              Any dependencies from org.jboss.spec will have their version defined by this 
-              BOM -->
              <!-- JBoss distributes a complete set of Java EE 6 APIs including a 
                Bill of Materials (BOM). A BOM specifies the versions of a "stack" (or a 
                collection) of artifacts. We use this here so that we always get the correct 
                versions of artifacts. Here we use the jboss-javaee-web-6.0 stack (you can 
-               read this as the JBoss stack of the Java EE Web Profile 6 APIs), and we use 
-               version 2.0.0.Beta1 which is the latest release of the stack. You can actually 
-               use this stack with any version of JBoss that implements Java EE 6, not 
+               read this as the JBoss stack of the Java EE Web Profile 6 APIs). 
+               You can actually use this stack with any version of JBoss that implements Java EE 6, not 
                just JBoss EAP 6! -->
-            <dependency>
-                <groupId>org.jboss.spec</groupId>
-                <artifactId>jboss-javaee-6.0</artifactId>
-                <version>${version.jboss.spec.javaee.6.0}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
             <dependency>
                 <groupId>org.jboss.bom.wfk</groupId>
                 <artifactId>jboss-javaee-6.0-with-errai</artifactId>
