@@ -14,6 +14,8 @@ What is it?
 This project demonstrates how to package and deploy a web application, which includes resteasy-spring integration, into 
 Red Hat JBoss Enterprise Application Platform.
 
+Currently the resteasy-spring.jar is using Spring 3.0.3, as such this quickstart needs to run on some version of Spring 3.x.
+
 
 System requirements
 -------------------
@@ -47,9 +49,18 @@ _NOTE: The following build command assumes you have configured your Maven user s
 2. Open a command line and navigate to the root directory of this quickstart.
 3. Type this command to build and deploy the archive:
 
-        mvn clean package jboss-as:deploy integration-test
+        mvn clean package jboss-as:deploy
+        
+4. This deploys the `target/jboss-spring-resteasy.war` to the running instance of the server.
+
+
 4. This deploys the `target/jboss-spring-resteasy.war` to the running instance of the server and runs two integration tests that verify the application works. You should see the following output:
    
+   _Note:_ If you prefer to use the `mvn install` command to run the integration tests, you must deploy the application first. For example:
+
+        mvn clean package jboss-as:deploy
+        mvn install -Prest-test
+
         -------------------------------------------------------
          T E S T S
         -------------------------------------------------------
@@ -64,10 +75,6 @@ _NOTE: The following build command assumes you have configured your Maven user s
         [INFO] BUILD SUCCESS
         [INFO] ------------------------------------------------------------------------
 
-   _Note:_ If you prefer to use the `mvn install` command to run the integration tests, you must deploy the application first. For example:
-
-        mvn clean package jboss-as:deploy
-        mvn install
 
 Access the application 
 ---------------------
