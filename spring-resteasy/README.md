@@ -43,7 +43,9 @@ Start the JBoss Server
 Build and Deploy the Quickstart
 -------------------------------
 
-_NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line. See [Build and Deploy the Quickstarts](../README.md#build-and-deploy-the-quickstarts) for complete instructions and additional options._
+_NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include 
+Maven setting arguments on the command line. See [Build and Deploy the Quickstarts](../README.md#build-and-deploy-the-quickstarts) 
+for complete instructions and additional options._
 
 1. Make sure you have started the JBoss Server as described above.
 2. Open a command line and navigate to the root directory of this quickstart.
@@ -54,12 +56,22 @@ _NOTE: The following build command assumes you have configured your Maven user s
 4. This deploys the `target/jboss-spring-resteasy.war` to the running instance of the server.
 
 
-4. This deploys the `target/jboss-spring-resteasy.war` to the running instance of the server and runs two integration tests that verify the application works. You should see the following output:
-   
-   _Note:_ If you prefer to use the `mvn install` command to run the integration tests, you must deploy the application first. For example:
+Build, Deploy, and Test the Quickstart
+-------------------------------
+
+_NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include 
+Maven setting arguments on the command line. See [Build and Deploy the Quickstarts](../README.md#build-and-deploy-the-quickstarts) 
+for complete instructions and additional options._
+
+1. Make sure you have started the JBoss Server as described above.
+2. Open a command line and navigate to the root directory of this quickstart.
+3. Type these commands to build, deploy, and test the archive:
 
         mvn clean package jboss-as:deploy
         mvn install -Prest-test
+
+4. This deploys the `target/jboss-spring-resteasy.war` to the running instance of the server and runs two integration tests that verify the application works. You should see the following output:
+   
 
         -------------------------------------------------------
          T E S T S
