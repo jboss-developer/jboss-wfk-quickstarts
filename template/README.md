@@ -6,7 +6,7 @@ Technologies: (list technologies used here)
 Summary: (a brief description of the quickstart to appear in the table )
 Prerequisites: (list any quickstarts that must be deployed prior to running this one)
 Target Product: (EAP, WFK, JDG, etc.)
-Product Versions: (EAP 6.1, EAP 6.2, WFK 2.4, etc.)
+Product Versions: (EAP 6.1, EAP 6.2, WFK 2.5, etc.)
 Source: (The URL for the repository that is the source of record for this quickstart)
 
 
@@ -33,7 +33,7 @@ System requirements
 Contributor: For example: 
 
 
-The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the  Red Hat JBoss Web Framework Kit (WFK) 2.4.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the  Red Hat JBoss Web Framework Kit (WFK) 2.5.
 
 All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
