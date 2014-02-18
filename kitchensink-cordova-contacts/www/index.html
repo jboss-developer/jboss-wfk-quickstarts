@@ -67,6 +67,13 @@
 		$.when(deviceReadyDeferred, jqmReadyDeferred, appStartDeferred).done(doInit);
 		
 		function deviceReady() {
+	        // Detect if iOS 7 or higher and disable overlaying the status bar
+	        if(window.device.platform.toLowerCase() == "ios" &&
+	            parseFloat(window.device.version) >= 7.0) {
+	            StatusBar.overlaysWebView(false);
+	            StatusBar.styleDefault();
+	            StatusBar.backgroundColorByHexString("#81B9EF");
+	        }
             // Mark the Deferred object as resolved.
 		    deviceReadyDeferred.resolve();
 		}

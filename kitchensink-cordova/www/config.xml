@@ -9,7 +9,7 @@
 		event.
 	</description>
 
-	<author href="http://aerogear.org/" email="aerogear-dev@lists.jboss.org">
+	<author href="http://jboss.org/jdf" email="jdf-users@lists.jboss.org">
 		JBoss by Red Hat
 	</author>
 
@@ -26,6 +26,13 @@
 		<param name="android-package"
 			value="org.apache.cordova.networkinformation.NetworkManager" />
 		<param name="ios-package" value="CDVConnection" />
+	</feature>
+	<feature name="Device">
+		<param name="android-package" value="org.apache.cordova.device.Device" />
+		<param name="ios-package" value="CDVDevice" />
+	</feature>
+	<feature name="StatusBar">
+		<param name="ios-package" value="CDVStatusBar" />
 	</feature>
 
 </widget>
