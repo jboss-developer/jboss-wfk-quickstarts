@@ -160,6 +160,7 @@
                 <module>helloworld-html5</module>
                 <module>helloworld-rf</module>
                 <module>kitchensink-angularjs</module>
+                <module>kitchensink-angularjs-bootstrap</module>
                 <module>kitchensink-backbone</module>
                 <module>kitchensink-deltaspike</module>
                 <module>kitchensink-html5-mobile</module>
@@ -185,6 +186,7 @@
             </activation>
             <modules>
                 <module>kitchensink-cordova</module>
+                <module>kitchensink-cordova-contacts</module>
             </modules>
         </profile>
         <profile>
@@ -208,6 +210,7 @@
                 <module>helloworld-html5/functional-tests</module>
                 <module>helloworld-rf/functional-tests</module>
                 <module>kitchensink-angularjs/functional-tests</module>
+                <module>kitchensink-angularjs-bootstrap/functional-tests</module>
                 <module>kitchensink-backbone/functional-tests</module>
                 <module>kitchensink-rf/functional-tests</module>
                 <module>spring-greeter/functional-tests</module>
