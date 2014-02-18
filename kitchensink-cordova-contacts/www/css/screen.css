@@ -153,6 +153,10 @@ span.success {
     background-image: linear-gradient( #EEE, #DDD);
 }
 
+.ui-header {
+	border-top: 1px solid #81B9EF
+}
+
 .app-responsive .ui-block-a,
 .app-responsive .ui-block-b,
 .app-responsive .ui-block-c,

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0"
-	id="org.jboss.quickstarts.wfk.kitchensinkcordova" version="2.0.0">
-	<name>kitchensink-cordova</name>
+	id="org.jboss.quickstarts.wfk.kitchensinkcordovacontacts" version="2.0.0">
+	<name>kitchensink-cordova-contacts</name>
 
 	<description>
-		A sample Apache Cordova application that responds to the
-		deviceready
-		event.
+		A sample Apache Cordova application that utilizes the Cordova Contacts API
+		to search for contacts on the device or to save contacts to it.
 	</description>
 
-	<author href="http://aerogear.org/" email="aerogear-dev@lists.jboss.org">
+	<author href="http://www.jboss.org/jdf/" email="jdf-users@lists.jboss.org">
 		JBoss by Red Hat
 	</author>
 
@@ -22,12 +21,12 @@
 	<feature name="App">
 		<param name="android-package" value="org.apache.cordova.App" />
 	</feature>
-	
+
 	<feature name="Contacts">
 		<param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
 		<param name="ios-package" value="CDVContacts" />
 	</feature>
-	
+
 	<feature name="Notification">
 		<param name="android-package" value="org.apache.cordova.dialogs.Notification" />
 		<param name="ios-package" value="CDVNotification" />
@@ -36,6 +35,13 @@
 		<param name="android-package" value="org.apache.cordova.vibration.Vibration" />
 		<param name="ios-package" value="CDVVibration" />
 	</feature>
-	
+	<feature name="StatusBar">
+		<param name="ios-package" value="CDVStatusBar" />
+	</feature>
+	<feature name="Device">
+		<param name="android-package" value="org.apache.cordova.device.Device" />
+		<param name="ios-package" value="CDVDevice" />
+	</feature>
+
 
 </widget>
