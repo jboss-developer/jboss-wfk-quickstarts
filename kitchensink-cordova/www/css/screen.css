@@ -157,6 +157,11 @@ span.success {
 	border-top: 1px solid #81B9EF
 }
 
+.ui-header .ui-title {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 .app-responsive .ui-block-a,
 .app-responsive .ui-block-b,
 .app-responsive .ui-block-c,
