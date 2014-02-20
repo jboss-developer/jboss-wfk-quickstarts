@@ -153,8 +153,15 @@ span.success {
     background-image: linear-gradient( #EEE, #DDD);
 }
 
+/* Set the top margin color of headers to not display a border next to the status bar on iOS7 */
 .ui-header {
 	border-top: 1px solid #81B9EF
+}
+
+/* Decrease margins applied on headers */
+.ui-header .ui-title {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .app-responsive .ui-block-a,
@@ -167,7 +174,7 @@ span.success {
 }
 
 /* preset breakpoint to switch to stacked grid styles and responsive tables below 28em (448px) */
-@media all and (min-width: 35em) {
+@media all and (min-width: 28em) {
     .app-responsive .ui-block-a,
     .app-responsive .ui-block-b,
     .app-responsive .ui-block-c,

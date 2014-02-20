@@ -90,7 +90,7 @@
 
 	        <article id="intro-art" data-role="page" data-theme="a">
 	            <!-- Header -->
-	            <div data-role="header" class="header">
+	            <div data-role="header" class="header" data-position="fixed">
 	                <h3>Backbone Quickstart</h3>
 	                <a href="#info-aside" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext" data-rel="popup">About</a>
 	            </div>
@@ -157,7 +157,7 @@
 	        <!-- New HTML5 article tag -->
 	        <article id="register-art" data-role="page" data-theme="a">
 	            <!-- Header -->
-	            <div data-role="header" class="header">
+	            <div data-role="header" class="header" data-position="fixed">
 	                <h3>Backbone Quickstart</h3>
 	            </div>
 	            <!-- /Header -->
@@ -165,7 +165,7 @@
 	            <div data-role="content">
 
 	            	<div>
-						<a href="#contact" data-role="button" data-icon="search">Search for members on device</a>
+						<a href="#contact" data-role="button" data-inline="true" data-icon="search">Search for contacts on device</a>
 					</div>
 	
 	                <!-- For now mapping bean validation constraints from server side model is a manual task -->
@@ -264,7 +264,7 @@
             <!-- New HTML5 article tag -->
 			<article data-role="page" id="contact-art" data-theme="a">
 				<!-- Header -->
-                <div data-role="header">
+                <div data-role="header" class="header" data-position="fixed">
                     <h3>Search for a contact</h3>
                 </div>
                 <!-- /Header -->
@@ -272,7 +272,7 @@
 				<div data-role="content">
 					<div class="ui-grid-solo">
 						<div class="ui-block-a">
-							<p>Enter a name, telephone or email of a contact on your device.</p>
+							<p>Search for a contact by name, telephone or email. Then, select the details to copy.</p>
 						</div>
 						<div class="ui-block-a">
 							<ul id="contactsSearch" data-role="listview" data-inset="true" data-filter="true" data-filter-reveal="true" data-filter-placeholder="name, telephone or email">
@@ -301,15 +301,14 @@
 							</form>
 						</div>
 					</div>
-				</div>
-				
-				<div class="footer ui-grid-a" data-role="footer" data-position="fixed">
-	                <div class="ui-block-a">
-	                    <a id="cancel-search" href="#register" data-role="button" data-icon="back">Cancel</a>
-	                </div>
-	                <div class="ui-block-b">
-	                    <a id="copy-contact" href="#register" data-role="button" data-icon="plus">Copy contact info</a>
-	                </div>
+                    <div class="ui-grid-a app-responsive">
+                        <div class="ui-block-a">
+                            <a id="cancel-search" href="#register" data-role="button" data-icon="back">Cancel</a>
+                        </div>
+                        <div class="ui-block-b">
+                            <a id="copy-contact" href="#register" data-role="button" data-icon="plus">Copy contact</a>
+                        </div>
+                    </div>
 				</div>
 			</article>
 	    </section>
