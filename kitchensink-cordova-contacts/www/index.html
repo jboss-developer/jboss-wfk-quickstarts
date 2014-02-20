@@ -328,7 +328,11 @@
 		<% _.each( contacts, function ( contact, id ) { %>
 			<li>
 				<a id="populate-form-<%= id %>" data-id="<%= id %>" href="#">
+                    <% if(contact.displayName) { %>
 					<h2><%=contact.displayName%></h2>
+                    <% } else if(contact.name.formatted) { %>
+                    <h2><%=contact.name.formatted%></h2>
+                    <% } %>
 				</a>
 			</li>
 		<% }); %>
@@ -336,7 +340,11 @@
 
 	<script type="text/template" id="contact-Details-tmpl">
     	<li data-role="fieldcontain">
+            <% if(contact.displayName) { %>
     		<h2 id="display-name"><%= contact.displayName %></h2>
+            <% } else if(contact.name.formatted) { %>
+            <h2 id="display-name"><%= contact.name.formatted %></h2>
+            <% } %>
     	</li>
         <li data-role="fieldcontain">
             <label for="select-choice-email" class="select">Choose email:</label>
