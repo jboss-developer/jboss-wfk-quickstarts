@@ -681,7 +681,7 @@
 				<version>${maven.compiler.version}</version>
 				<configuration>
 					<compilerArguments>
-						<Xlint />
+						<Xlint/>
 					</compilerArguments>
 					<verbose>true</verbose>
 					<source>${maven.compiler.source}</source>
