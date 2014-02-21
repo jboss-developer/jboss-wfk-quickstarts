@@ -198,6 +198,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <modules>
+                <module>contacts-mobile-basic/functional-tests</module>
                 <module>deltaspike-authorization/functional-tests</module>
                 <module>deltaspike-beanmanagerprovider/functional-tests</module>
                 <module>deltaspike-exception-handling/functional-tests</module>

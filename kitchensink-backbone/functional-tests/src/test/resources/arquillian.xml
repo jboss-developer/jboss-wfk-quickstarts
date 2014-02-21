@@ -39,9 +39,6 @@
         <!--
         <property name="firefox_binary">/path/to/firefox/binary</property>
         -->
-
-        <!-- JDF-544 workaround -->
-        <property name="dimensions">1300x700</property>
     </extension>
 
 </arquillian>
