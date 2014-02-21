@@ -244,7 +244,7 @@
 	                <div class="member-foot">
 	                    <!-- Sets the JAX-RS URLs to retrieve all members either as XML or JSON data.-->
 	                    REST URL for all members:
-	                    <a href="http://html5-jdf.rhcloud.com/rest/members" target="_blank" rel="external">JSON</a>
+	                    <a href="#json">JSON</a>
 	                </div>
 	            </div>
 
@@ -311,6 +311,20 @@
                     </div>
 				</div>
 			</article>
+
+            <!-- New HTML5 article tag -->
+            <article id="json-art" data-role="page" data-theme="a">
+                <!-- Header -->
+                <div data-role="header" class="header" data-position="fixed">
+                    <h3>Backbone Quickstart</h3>
+                    <a href="#" data-icon="back" data-mini="true" data-rel="back" title="Go back">Back</a>
+                </div>
+                <!-- /Header -->
+
+                <div data-role="content">
+
+                </div>
+            </article>
 	    </section>
 	</div>
     
@@ -319,7 +333,7 @@
         <td><%=member.name%></td>
         <td><a href="mailto:<%=member.email%>" class="ui-link"><%=member.email%></a></td>
         <td><a href="tel:<%=member.phoneNumber%>" class="ui-link">Call</a> or <a href="sms:<%=member.phoneNumber%>" class="ui-link">SMS</a> <%=member.phoneNumber%></td>
-        <td><a href="http://html5-jdf.rhcloud.com/rest/members/<%=member.id%>" rel="external" target="_blank" class="resturl ui-link">JSON</a></td>
+        <td><a href="#json/<%=member.id%>" class="resturl ui-link">JSON</a></td>
         <td><a href="#" data-theme="c" data-role="button" data-inline="true" data-icon="plus">Save</a></td>
 	</script>
 

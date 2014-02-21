@@ -74,6 +74,11 @@
 	            updateConnectionType();
 	        });
 
+            $("#json-all-members").click(function(event) {
+                $.mobile.navigate( "#json-art" );
+                showJSON();
+            });
+
 	        //Show device info on member registration page
 	        document.addEventListener("deviceready", function() {
 		        // Detect if iOS 7 or higher and disable overlaying the status bar
@@ -265,7 +270,7 @@
                     <div class="member-foot">
                         <!-- Sets the JAX-RS URLs to retrieve all members as JSON data.-->
                         REST URL for all members: 
-                        <a href="http://html5-jdf.rhcloud.com/rest/members" target="_blank" rel="external">JSON</a>
+                        <a id="json-all-members" href="#">JSON</a>
                     </div>
                 </div>
 
@@ -281,6 +286,20 @@
                 </div>
                 <!-- /Footer -->
             </article>
+
+            <!-- New HTML5 article tag -->
+            <article id="json-art" data-role="page" data-theme="a">
+                <!-- Header -->
+                <div data-role="header" class="header" data-position="fixed">
+                    <h3>HTML5 Quickstart</h3>
+                    <a href="#" data-icon="back" data-mini="true" data-rel="back" title="Go back">Back</a>
+                </div>
+                <!-- /Header -->
+
+                <div data-role="content">
+
+                </div>
+            </article>
         </section>
     </div>
     <script type="text/template" id="member-tmpl">
@@ -290,7 +309,7 @@
                 <td><%=member.name%></td>
                 <td><a href="mailto:<%=member.email%>" class="ui-link"><%=member.email%></a></td>
                 <td><a href="tel:<%=member.phoneNumber%>" class="ui-link"><%=member.phoneNumber%></a></td>
-                <td><a href="rest/members/<%=member.id%>" rel="external" target="_blank" class="resturl ui-link">JSON</a></td>
+                <td><a data-member-id="<%=member.id%>" href="#" class="resturl ui-link">JSON</a></td>
         </tr>
         <% }); %>
     </script>

@@ -46,6 +46,14 @@ a:hover {
     padding: 0 10px 0 10px;
 }
 
+embed {
+    width: 90%;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    padding: 10px;
+    margin: 0;
+}
+
 /* Header and footer styles */
 
 .header_logo{

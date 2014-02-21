@@ -31,6 +31,11 @@ function updateMemberTable() {
         cache: false,
         success: function(data) {
             $( "#members" ).empty().append(buildMemberRows(data));
+            $("#members a.resturl").click(function(event) {
+                $.mobile.navigate( "#json-art" );
+                var memberId = $(event.delegateTarget).data("member-id");
+                showJSON( memberId );
+            });
             $( "#member-table" ).table( "refresh" );
         },
         error: function(error) {
@@ -81,4 +86,15 @@ function registerMember(memberData) {
             }
         }
     });
+}
+
+/* Adds an iframe with source set to the /rest/members collection or an individual element in it */
+function showJSON(memberId) {
+    var $content = $("#json-art div[data-role='content']");
+    $content.empty();
+    var url = "http://html5-jdf.rhcloud.com/rest/members/";
+    if(memberId != null) {
+        url += memberId;
+    }
+    $content.append("<embed src='" + url + "' type='application/json'></embed>");
 }
