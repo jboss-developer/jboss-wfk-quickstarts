@@ -48,10 +48,10 @@ a:hover {
 
 embed {
     width: 90%;
-    word-wrap: break-word;
-    white-space: pre-wrap;
     padding: 10px;
     margin: 0;
+    min-height: 400px;
+    overflow: scroll;
 }
 
 /* Header and footer styles */
