@@ -34,7 +34,6 @@ import java.io.File;
 import java.net.URL;
 
 import static org.jboss.arquillian.graphene.Graphene.guardAjax;
-import static org.jboss.arquillian.graphene.Graphene.waitModel;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -99,7 +98,6 @@ public class HelloworldErraiTest {
     @Test
     public void sayHelloTest() {
         browser.get(contextPath.toString());
-        waitModel().until("Input field should be present").element(input).is().present();
         input.clear();
         input.sendKeys(NAME);
 

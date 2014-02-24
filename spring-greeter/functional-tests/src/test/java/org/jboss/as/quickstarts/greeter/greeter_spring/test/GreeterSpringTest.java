@@ -24,7 +24,6 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -34,7 +33,6 @@ import java.io.File;
 import java.net.URL;
 
 import static org.jboss.arquillian.graphene.Graphene.guardHttp;
-import static org.jboss.arquillian.graphene.Graphene.waitModel;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -156,17 +154,9 @@ public class GreeterSpringTest {
         return ShrinkWrap.createFromZipFile(WebArchive.class, new File(DEPLOYMENT_WAR));
     }
 
-    /**
-     * Helper method which opens the main page for us.
-     */
-    @Before
-    public void open() {
-        browser.get(contextPath.toString());
-    }
-
     @Test
     public void existingUserTest() {
-        waitModel(browser).until("Username input field should be present").element(userNameInput).is().present();
+        browser.get(contextPath.toString());
         userNameInput.sendKeys(EXISTING_USERNAME);
         guardHttp(greetButton).click();
         assertTrue(message.getText().contains(EXISTING_FISRT_NAME + " " + EXISTING_LAST_NAME));
@@ -174,7 +164,7 @@ public class GreeterSpringTest {
 
     @Test
     public void nonExistentUserTest() {
-        waitModel(browser).until("Username input field should be present").element(userNameInput).is().present();
+        browser.get(contextPath.toString());
         userNameInput.sendKeys("notauser");
         guardHttp(greetButton).click();
         assertTrue(message.getText().contains(NO_SUCH_USER_MESSAGE));
@@ -182,7 +172,7 @@ public class GreeterSpringTest {
 
     @Test
     public void createUserTest() {
-        waitModel(browser).until("New user link should be present").element(newUserLink).is().present();
+        browser.get(contextPath.toString());
         guardHttp(newUserLink).click();
 
         newUserUsername.sendKeys(NEW_USERNAME);
@@ -190,8 +180,7 @@ public class GreeterSpringTest {
         newUserLastname.sendKeys(NEW_LAST_NAME);
         guardHttp(addUserButton).click();
 
-        open();
-        waitModel(browser).until("New user link should be present").element(newUserLink).is().present();
+        browser.get(contextPath.toString());
         userNameInput.sendKeys(NEW_USERNAME);
         guardHttp(greetButton).click();
         assertTrue(message.getText().contains(NEW_FISRT_NAME + " " + NEW_LAST_NAME));

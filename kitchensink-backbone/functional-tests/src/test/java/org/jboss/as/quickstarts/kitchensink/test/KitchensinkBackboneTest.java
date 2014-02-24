@@ -19,23 +19,24 @@ package org.jboss.as.quickstarts.kitchensink.test;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.drone.api.annotation.Drone;
+import org.jboss.arquillian.graphene.condition.element.WebElementConditionFactory;
 import org.jboss.arquillian.graphene.findby.FindByJQuery;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
 import org.jboss.arquillian.test.api.ArquillianResource;
-import org.jboss.as.quickstarts.kitchensink.test.page.MembersTablePageFragment;
-import org.jboss.as.quickstarts.kitchensink.test.page.NavigationPageFragment;
-import org.jboss.as.quickstarts.kitchensink.test.page.RegistrationFormPageFragment;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.net.URL;
+import java.util.List;
 
-import static org.junit.Assert.*;
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
+import static org.jboss.arquillian.graphene.Graphene.*;
 
 /**
  * Kitchensink Backbone quickstart functional test
@@ -45,24 +46,6 @@ import static org.junit.Assert.*;
 @RunAsClient
 @RunWith(Arquillian.class)
 public class KitchensinkBackboneTest {
-
-    /**
-     * Locator for registration form page fragment
-     */
-    @FindBy(id = "reg")
-    RegistrationFormPageFragment form;
-
-    /**
-     * Locator for members table page fragment
-     */
-    @FindBy(id = "members")
-    MembersTablePageFragment table;
-
-    /**
-     * Locator for navigation panel page fragment
-     */
-    @FindByJQuery("[data-role='navbar']:visible")
-    NavigationPageFragment navigation;
 
     /**
      * Injects browser to our test.
@@ -86,6 +69,59 @@ public class KitchensinkBackboneTest {
         return Deployments.kitchensink();
     }
 
+    /**
+     * Locator for name field
+     */
+    @FindBy(id = "name")
+    WebElement nameField;
+
+    /**
+     * Locator for email field
+     */
+    @FindBy(id = "email")
+    WebElement emailField;
+
+    /**
+     * Locator for phone number field
+     */
+    @FindBy(id = "phoneNumber")
+    WebElement phoneField;
+
+    /**
+     * Locator for registration button
+     */
+    @FindBy(id = "register")
+    WebElement registerButton;
+
+    /**
+     * Locator for registration success message
+     */
+    @FindByJQuery("div#formMsgs span.success")
+    WebElement registeredMessageSuccess;
+
+    /**
+     * Locator for members table
+     */
+    @FindBy(id = "members")
+    WebElement tableMembers;
+
+    /**
+     * Locator for rows of the members table
+     */
+    @FindByJQuery("#members .member:contains('JSON')")
+    List<WebElement> tableMembersRows;
+
+    /**
+     * Locator for columns of the first row of the members table
+     */
+    @FindByJQuery("#members .member:contains('JSON'):last div.data")
+    List<WebElement> tableMembersRowColumns;
+
+    /**
+     * Locator for name field validation message
+     */
+    @FindBy(css = "#name ~ .invalid")
+    private WebElement nameErrorMessage;
 
     /**
      * Name of the member to register in the right format.
@@ -108,9 +144,14 @@ public class KitchensinkBackboneTest {
     private static final String EMAIL_FORMAT_OK = "john@doe.com";
 
     /**
-     * E-mail of the member to register in the bad format.
+     * E-mail of the member to register in the bad format - #1.
      */
-    private static final String EMAIL_FORMAT_BAD = "joe";
+    private static final String EMAIL_FORMAT_BAD_1 = "joe";
+
+    /**
+     * E-mail of the member to register in the bad format - #2.
+     */
+    private static final String EMAIL_FORMAT_BAD_2 = "john@doe.com ";
 
     /**
      * Phone number of the member to register in the right format.
@@ -133,73 +174,109 @@ public class KitchensinkBackboneTest {
      */
     private static final String PHONE_FORMAT_BAD_TOO_SHORT = "123456789";
 
-    @Before
-    public void loadPage() {
-        browser.get(contextPath.toString());
-        navigation.waitUntilPresent();
-    }
-
     @Test
     @InSequence(1)
     public void testEmptyRegistration() {
-        navigation.openRegistrationPage();
-        form.register(new Member("", "", ""), false);
-        assertFalse("Member should not be registered", form.isRegistrationMessagePresent());
+        browser.get(contextPath.toString());
+        registerButton.click();
+        assertTrue(new WebElementConditionFactory(registeredMessageSuccess).not().isPresent().apply(browser));
     }
 
     @Test
     @InSequence(2)
     public void testRegistrationWithBadNameFormat() {
-        navigation.openRegistrationPage();
-        form.register(new Member(NAME_FORMAT_BAD, EMAIL_FORMAT_OK, PHONE_FORMAT_OK), true);
-        assertFalse(form.nameValidationMessage().isEmpty());
-        assertFalse("Member should not be registered", form.isRegistrationMessagePresent());
+        browser.get(contextPath.toString());
+        setInputFields(NAME_FORMAT_BAD, EMAIL_FORMAT_OK, PHONE_FORMAT_OK);
+        guardAjax(registerButton).click();
+        assertTrue(nameErrorMessage.isDisplayed());
+        assertTrue(new WebElementConditionFactory(registeredMessageSuccess).not().isPresent().apply(browser));
+        assertEquals("Member should not be registered", 1, tableMembersRows.size());
 
-        navigation.openRegistrationPage();
-        form.register(new Member(NAME_FORMAT_TOO_LONG, EMAIL_FORMAT_OK, PHONE_FORMAT_OK), true);
-        assertFalse(form.nameValidationMessage().isEmpty());
-        assertFalse("Member should not be registered", form.isRegistrationMessagePresent());
+        browser.get(contextPath.toString());
+        setInputFields(NAME_FORMAT_TOO_LONG, EMAIL_FORMAT_OK, PHONE_FORMAT_OK);
+        guardAjax(registerButton).click();
+        assertTrue(nameErrorMessage.isDisplayed());
+        assertTrue(new WebElementConditionFactory(registeredMessageSuccess).not().isPresent().apply(browser));
+        assertEquals("Member should not be registered", 1, tableMembersRows.size());
     }
 
     @Test
     @InSequence(3)
     public void testRegistrationWithBadEmailFormat() {
-        navigation.openRegistrationPage();
-        form.register(new Member(NAME_FORMAT_OK, EMAIL_FORMAT_BAD, PHONE_FORMAT_OK), false);
-        assertFalse("Member should not be registered", form.isRegistrationMessagePresent());
+        browser.get(contextPath.toString());
+        setInputFields(NAME_FORMAT_OK, EMAIL_FORMAT_BAD_1, PHONE_FORMAT_OK);
+        guardNoRequest(registerButton).click();
+        assertTrue(new WebElementConditionFactory(registeredMessageSuccess).not().isPresent().apply(browser));
+        assertEquals("Member should not be registered", 1, tableMembersRows.size());
+
+        browser.get(contextPath.toString());
+        setInputFields(NAME_FORMAT_OK, EMAIL_FORMAT_BAD_2, PHONE_FORMAT_OK);
+        guardNoRequest(registerButton).click();
+        assertTrue(new WebElementConditionFactory(registeredMessageSuccess).not().isPresent().apply(browser));
+        assertEquals("Member should not be registered", 1, tableMembersRows.size());
     }
 
     @Test
     @InSequence(4)
     public void testRegistrationWithBadPhoneFormat() {
         // phone number with illegal characters in it
-        navigation.openRegistrationPage();
-        form.register(new Member(NAME_FORMAT_OK, EMAIL_FORMAT_OK, PHONE_FORMAT_BAD_ILLEGAL_CHARS), false);
-        assertFalse("Member should not be registered", form.isRegistrationMessagePresent());
+        browser.get(contextPath.toString());
+        setInputFields(NAME_FORMAT_OK, EMAIL_FORMAT_OK,
+                PHONE_FORMAT_BAD_ILLEGAL_CHARS);
+        guardNoRequest(registerButton).click();
+        assertTrue(new WebElementConditionFactory(registeredMessageSuccess).not().isPresent().apply(browser));
+        assertEquals("Member should not be registered", 1, tableMembersRows.size());
 
         // phone too short
-        navigation.openRegistrationPage();
-        form.register(new Member(NAME_FORMAT_OK, EMAIL_FORMAT_OK, PHONE_FORMAT_BAD_TOO_SHORT), false);
-        assertFalse("Member should not be registered", form.isRegistrationMessagePresent());
+        browser.get(contextPath.toString());
+        setInputFields(NAME_FORMAT_OK, EMAIL_FORMAT_OK,
+                PHONE_FORMAT_BAD_TOO_SHORT);
+        guardNoRequest(registerButton).click();
+        assertTrue(new WebElementConditionFactory(registeredMessageSuccess).not().isPresent().apply(browser));
+        assertEquals("Member should not be registered", 1, tableMembersRows.size());
 
         // phone too long
-        navigation.openRegistrationPage();
-        form.register(new Member(NAME_FORMAT_OK, EMAIL_FORMAT_OK, PHONE_FORMAT_BAD_TOO_LONG), false);
-        assertFalse("Member should not be registered", form.isRegistrationMessagePresent());
+        browser.get(contextPath.toString());
+        setInputFields(NAME_FORMAT_OK, EMAIL_FORMAT_OK,
+                PHONE_FORMAT_BAD_TOO_LONG);
+        guardNoRequest(registerButton).click();
+        assertTrue(new WebElementConditionFactory(registeredMessageSuccess).not().isPresent().apply(browser));
+        assertEquals("Member should not be registered", 1, tableMembersRows.size());
     }
 
     @Test
     @InSequence(5)
     public void testRegularRegistration() {
-        navigation.openRegistrationPage();
-        Member newMember = new Member(NAME_FORMAT_OK, EMAIL_FORMAT_OK, PHONE_FORMAT_OK);
-        form.register(newMember, true);
-        assertTrue("Member should be registered", form.isRegistrationMessagePresent());
+        browser.get(contextPath.toString());
+        setInputFields(NAME_FORMAT_OK, EMAIL_FORMAT_OK, PHONE_FORMAT_OK);
+        registerButton.click();
 
-        navigation.openMemberListPage();
-        table.waitForNewMember(newMember);
-        assertEquals(2, table.getMemberCount());
-        assertEquals(newMember, table.getLatestMember());
+        waitModel().until().element(registeredMessageSuccess).is().visible();
+
+        assertTrue(registeredMessageSuccess.isDisplayed());
+
+        assertEquals(2, tableMembersRows.size());
+        assertEquals(5, tableMembersRowColumns.size());
+
+        assertTrue((tableMembersRowColumns.get(1)).getText().equals(NAME_FORMAT_OK));
+        assertTrue((tableMembersRowColumns.get(2)).getText().equals(EMAIL_FORMAT_OK));
+        assertTrue((tableMembersRowColumns.get(3)).getText().equals(PHONE_FORMAT_OK));
+    }
+
+    /**
+     * This helper method sets values into the according input fields.
+     *
+     * @param name  name to set into the name input field
+     * @param email email to set into the email input field
+     * @param phone phone to set into the phone input field
+     */
+    private void setInputFields(String name, String email, String phone) {
+        nameField.clear();
+        nameField.sendKeys(name);
+        emailField.clear();
+        emailField.sendKeys(email);
+        phoneField.clear();
+        phoneField.sendKeys(phone);
     }
 
 }
