@@ -25,7 +25,7 @@
     <name>JBoss WFK Quickstart: kitchensink-rf</name>
     <description>JBoss WFK Quickstart: Based on the kitchensink quickstart but adds RichFaces</description>
 
-    <url>http://jboss.org/jbossas</url>
+    <url>http://jboss.org/richfaces</url>
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -47,8 +47,10 @@
 
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
         <version.jboss.bom.eap>6.2.0.GA</version.jboss.bom.eap>
-        <version.jboss.bom.wfk>2.5.0-build-2</version.jboss.bom.wfk>
-        
+        <version.jboss.bom.wfk>2.5.0-build-4</version.jboss.bom.wfk>
+ 
+        <version.richfaces>4.3.5.Final</version.richfaces>
+
         <!-- other plugin versions -->
         <version.surefire.plugin>2.10</version.surefire.plugin>
         <version.war.plugin>2.1.1</version.war.plugin>
@@ -57,7 +59,6 @@
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.source>1.6</maven.compiler.source>
     </properties>
-
 
     <dependencyManagement>
         <dependencies>
@@ -98,9 +99,9 @@
     <dependencies>
 
         <!-- First declare the APIs we depend on and need for compilation.
-            All of them are provided by JBoss EAP 6 -->
+            All of them are provided by JBoss EAP -->
 
-        <!-- Import the CDI API, we use provided scope as the API is included in JBoss EAP 6 -->
+        <!-- Import the CDI API, we use provided scope as the API is included in JBoss EAP -->
         <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
@@ -108,28 +109,28 @@
         </dependency>
 
         <!-- Import the Common Annotations API (JSR-250), we use provided
-            scope as the API is included in JBoss EAP 6 -->
+            scope as the API is included in JBoss EAP -->
         <dependency>
             <groupId>org.jboss.spec.javax.annotation</groupId>
             <artifactId>jboss-annotations-api_1.1_spec</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss EAP 6 -->
+        <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss EAP -->
         <dependency>
             <groupId>org.jboss.spec.javax.ws.rs</groupId>
             <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the JPA API, we use provided scope as the API is included in JBoss EAP 6 -->
+        <!-- Import the JPA API, we use provided scope as the API is included in JBoss EAP -->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.0-api</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the EJB API, we use provided scope as the API is included in JBoss EAP 6 -->
+        <!-- Import the EJB API, we use provided scope as the API is included in JBoss EAP -->
         <dependency>
             <groupId>org.jboss.spec.javax.ejb</groupId>
             <artifactId>jboss-ejb-api_3.1_spec</artifactId>
@@ -138,7 +139,7 @@
 
         <!-- JSR-303 (Bean Validation) Implementation -->
         <!-- Provides portable constraints such as @Email -->
-        <!-- Hibernate Validator is shipped in JBoss EAP 6 -->
+        <!-- Hibernate Validator is shipped in JBoss EAP -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
@@ -151,14 +152,14 @@
             </exclusions>
         </dependency>
 
-        <!-- Import the JSF API, we use provided scope as the API is included in JBoss EAP 6 -->
+        <!-- Import the JSF API, we use provided scope as the API is included in JBoss EAP -->
         <dependency>
             <groupId>org.jboss.spec.javax.faces</groupId>
             <artifactId>jboss-jsf-api_2.1_spec</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the Servlet API, we use provided scope as the API is included in JBoss EAP 6 -->
+        <!-- Import the Servlet API, we use provided scope as the API is included in JBoss EAP -->
         <dependency>
             <groupId>org.jboss.spec.javax.servlet</groupId>
             <artifactId>jboss-servlet-api_3.0_spec</artifactId>
