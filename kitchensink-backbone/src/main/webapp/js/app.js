@@ -328,7 +328,7 @@ $(function() {
             // Fetch the Collection. This resets the collection and adds all retrieved Members to it.
             // This also triggers the 'reset' event on the collection.
             // Any event listeners associated with this event are invoked.
-            Members.fetch({reset: true});
+            Members.fetch({reset: true, cache: false});
         },
 
         onClose : function() {
