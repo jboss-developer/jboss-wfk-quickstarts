@@ -199,6 +199,9 @@ span.success {
     .app-responsive thead th {
         display: table-cell;
         margin: 0;
+        white-space: pre-wrap;
+        word-break: break-all;
+        word-break: break-word;
     }
     /* Hide the labels in each cell */
     .app-responsive td .ui-table-cell-label,
@@ -208,7 +211,7 @@ span.success {
 
     /* Add padding on larger displays */
     div[data-role="content"] {
-        padding-right: 15%;
-        padding-left: 15%;
+        padding-right: 5%;
+        padding-left: 5%;
     }
 }
