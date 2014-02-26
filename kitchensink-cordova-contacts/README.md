@@ -11,12 +11,16 @@ Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
 What is it?
 -----------
 
-This project serves as an example of the HTML5 [kitchensink](https://github.com/jboss-developer/jboss-wfk-quickstarts/tree/master/kitchensink-html5-mobile) quickstart converted to a hybrid [Apache Cordova](http://cordova.apache.org/) application. It demonstrates the use of the Cordova Contacts API and extends the kitchensink example to do so.
+This project serves as an example of the HTML5 [kitchensink](https://github.com/jboss-developer/jboss-wfk-quickstarts/tree/master/kitchensink-backbone) quickstart converted to a hybrid [Apache Cordova](http://cordova.apache.org/) application. It demonstrates the use of the Cordova Contacts API and extends the kitchensink example to do so.
 
-What does this mean? Basically, this takes our [HTML5 + REST](https://community.jboss.org/wiki/HTML5RESTApplications) / [jQuery Mobile](http://jquerymobile.com/) web application and converts it to a native application for both iOS and Android. 
+What does this mean? Basically, this takes our [HTML5 + REST](http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/wfk-quickstarts/kitchensink-backbone/) / [jQuery Mobile](http://jquerymobile.com/) web application and converts it to a native application for both iOS and Android.
 
-These concepts can be applied to the conversion of most HTML5/JS based web apps by just replacing the specific paths described in this article with paths that match your environment. If you have an existing Web Application based on HTML5 + REST, use the following guide to convert it to a hybrid application with Apache Cordova: [Converting a Mobile HTML5 + REST Web App to a Hybrid App with Apache Cordova](http://aerogear.org/docs/guides/HTML5ToHybridWithCordova/)
+These concepts can be applied to the conversion of most HTML5/JS based web apps by just replacing the specific paths described in this article with paths that match your environment.  The existing web application is also enhanced with Cordova plugins to utilize device features through JavaScript APIs. This example uses the following plugins:
 
+- the Device plugin to describe the device hardware and software,
+- the Dialogs and Vibration plugins to alert users of events through visible, audible or tactile notifications,
+- the Statusbar plugin to manipulate the statusbar on iOS devices, and
+- the Contacts plugin to access and modify the contacts stored on the device.
 
 
 Available Hybrid Applications
