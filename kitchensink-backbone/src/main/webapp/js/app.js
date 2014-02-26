@@ -98,7 +98,7 @@ $(function() {
             $.mobile.changePage( "#intro-art", { reverse: false, changeHash: false, transition: "none"} );
         },
 
-        showInfo: function() {
+        showInfo: function(event) {
             event.preventDefault();
 
             // Display the InfoView that is responsible for displaying the popup.
@@ -159,25 +159,40 @@ $(function() {
             // We prevent the browser from navigating to the destination.
             event.preventDefault();
 
-            var elemName = $("#name"),
+            var regForm = $("#reg"),
+                elemName = $("#name"),
                 elemEmail = $("#email"),
                 elemPhoneNumber = $("#phoneNumber"),
                 errors = [];
 
-            // Verify if the name field is valid for the HTML5 constraints specified on it.
-            if(!elemName.get(0).checkValidity()) {
-                errors.push({$elem : elemName});
+            /*
+             * Some browsers like MSIE9 do not support the HTML5 Form Validation API. Check support for the API.
+             * If not available, skip client-side validation and defer to the server to perform it.
+             */
+            if (regForm.get(0).checkValidity) {
+
+                // Verify if the name field is valid for the HTML5 constraints specified on it.
+                if (!elemName.get(0).checkValidity()) {
+                    errors.push({
+                        $elem : elemName
+                    });
+                }
+
+                // Verify if the email field is valid for the HTML5 constraints specified on it.
+                if (!elemEmail.get(0).checkValidity()) {
+                    errors.push({
+                        $elem : elemEmail
+                    });
+                }
+
+                // Verify if the phone number field is valid for the HTML5 constraints specified on it.
+                if (!elemPhoneNumber.get(0).checkValidity()) {
+                    errors.push({
+                        $elem : elemPhoneNumber
+                    });
+                }
             }
 
-            // Verify if the email field is valid for the HTML5 constraints specified on it.
-            if(!elemEmail.get(0).checkValidity()) {
-                errors.push({$elem : elemEmail});
-            }
-
-            // Verify if the phone number field is valid for the HTML5 constraints specified on it.
-            if(!elemPhoneNumber.get(0).checkValidity()) {
-                errors.push({$elem : elemPhoneNumber});
-            }
             // Display errors if any
             if(errors.length > 0) {
                 $.each(errors, function(idx, error) {
@@ -313,7 +328,7 @@ $(function() {
             // Fetch the Collection. This resets the collection and adds all retrieved Members to it.
             // This also triggers the 'reset' event on the collection.
             // Any event listeners associated with this event are invoked.
-            Members.fetch({reset: true});
+            Members.fetch({reset: true, cache: false});
         },
 
         onClose : function() {
