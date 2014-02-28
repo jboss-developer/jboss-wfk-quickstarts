@@ -537,6 +537,30 @@ $(function() {
         }
     });
 
+    window.JsonView = Backbone.View.extend({
+        initialize : function(options) {
+            this.memberId = options.memberId;
+        },
+
+        render: function() {
+            // Change to the jQuery Mobile page with id:'json-art'.
+            $.mobile.changePage( "#json-art", { reverse: false, changeHash: false, transition: "none"} );
+            this.showJSON();
+            return this;
+        },
+
+        /* Adds an iframe with source set to the /rest/members collection or an individual element in it */
+        showJSON : function() {
+            var $content = $("#json-art div[data-role='content']");
+            $content.empty();
+            var url = "http://html5-jdf.rhcloud.com/rest/members/";
+            if(this.memberId != null) {
+                url += this.memberId;
+            }
+            $content.append("<embed src='" + url + "' type='application/json'></embed>");
+        }
+    });
+
 	window.ViewManager = {
         // A property to store the current view being displayed.
 		currentView : null,
@@ -564,7 +588,8 @@ $(function() {
 			"intro" : "showIntro",
 			"register" : "showRegisterMember",
 			"member" : "showAllMembers",
-			"contact" : "showContactSearch"
+			"contact" : "showContactSearch",
+            "json(/:memberId)" : "showJson"
 		},
 		
 		initialize : function() {
@@ -599,7 +624,14 @@ $(function() {
             // Bind the 'contact-art' jQuery Mobile page as the 'el' for the Backbone View.
 			var contactSearchView = new ContactSearchView({ el: "#contact-art"});
 			window.ViewManager.showView(contactSearchView);
-		}
+		},
+
+        // Navigate to the show Json view.
+        showJson : function(memberId) {
+            // Bind the 'json-art' jQuery Mobile page as the 'el' for the Backbone View.
+            var jsonView = new JsonView({el: "#json-art", memberId: memberId});
+            window.ViewManager.showView(jsonView);
+        }
 	});
 
     // Mark the jQuery Deferred as resolved.

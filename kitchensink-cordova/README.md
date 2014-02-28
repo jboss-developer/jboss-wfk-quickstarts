@@ -1,21 +1,25 @@
 kitchensink-cordova: Example Mobile Applications Using Hybrid HTML5 + REST with Apache Cordova
 ===============================================================================================
-Author: Kris Borchers
-Level: Intermediate
-Technologies: HTML5, REST, Apache Cordova
-Summary: Based on kitchensink, but uses hybrid HTML5 running as a native application on mobiles
-Target Product: WFK
-Product Versions: EAP 6.1, EAP 6.2, WFK 2.5
-Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
+Author: Kris Borchers  
+Level: Intermediate  
+Technologies: HTML5, REST, Apache Cordova  
+Summary: Based on kitchensink, but uses hybrid HTML5 running as a native application on mobiles  
+Target Product: WFK  
+Product Versions: EAP 6.1, EAP 6.2, WFK 2.5  
+Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
 
 What is it?
 -----------
 
 This project serves as an example of the HTML5 [kitchensink](https://github.com/jboss-developer/jboss-wfk-quickstarts/tree/master/kitchensink-html5-mobile) quickstart converted to a hybrid [Apache Cordova](http://cordova.apache.org/) application.
 
-What does this mean? Basically, this takes our [HTML5 + REST](https://community.jboss.org/wiki/HTML5RESTApplications) / [jQuery Mobile](http://jquerymobile.com/) web application and converts it to a native application for both iOS and Android. 
+What does this mean? Basically, this takes our [HTML5 + REST](http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/wfk-quickstarts/kitchensink-html5-mobile/) / [jQuery Mobile](http://jquerymobile.com/) web application and converts it to a native application for both iOS and Android.
 
-These concepts can be applied to the conversion of most HTML5/JS based web apps by just replacing the specific paths described in this article with paths that match your environment. If you have an existing Web Application based on HTML5 + REST, use the following guide to convert it to a hybrid application with Apache Cordova: [Converting a Mobile HTML5 + REST Web App to a Hybrid App with Apache Cordova](http://aerogear.org/docs/guides/HTML5ToHybridWithCordova/)
+These concepts can be applied to the conversion of most HTML5/JS based web apps by just replacing the specific paths described in this article with paths that match your environment. The existing web application is also enhanced with Cordova plugins to utilize device features through JavaScript APIs. This example uses the following plugins:
+
+- the Device plugin to describe the device hardware and software,
+- the network-information plugin to obtain information about the internet connectivity and the cellular and wifi connection on the device, and
+- the Statusbar plugin to manipulate the statusbar on iOS devices.
 
 
 
@@ -55,7 +59,7 @@ First we need to import the existing code to JBDS
 4. Click the `Finish` button to start the project import.
 
 
-### Deploy and Access the application 
+### Deploy and Access the application
 
 1. Select your project in JBDS.
 2. Click on `Run`, then `Run As` and `Run on iOS Simulator`.
@@ -70,7 +74,7 @@ Kitchensink Apache Cordova Android Example
 
 ### What is it?
 
-This application is built upon the HTML5 kitchensink quickstart, which was converted to an Apache Cordova based Hybrid Mobile application. Basically, this takes our HTML5 + REST / jQuery Mobile based web application and converts it to a native application for Android. 
+This application is built upon the HTML5 kitchensink quickstart, which was converted to an Apache Cordova based Hybrid Mobile application. Basically, this takes our HTML5 + REST / jQuery Mobile based web application and converts it to a native application for Android.
 
 ### System requirements
 
@@ -86,7 +90,7 @@ First we need to import the existing code to JBDS
 4. Click the `Finish` button to start the project import.
 
 
-### Deploy and Access the application 
+### Deploy and Access the application
 
 1. Select your project in JBDS.
 2. Click on `Run`, then `Run As` and `Run on Android Emulator`.

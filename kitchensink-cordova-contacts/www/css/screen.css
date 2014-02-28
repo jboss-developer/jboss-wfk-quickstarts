@@ -42,8 +42,15 @@ a:hover {
 }
 
 .mobileicon {
-    float: right;
-    padding: 0 10px 0 10px;
+    padding: 10px;
+}
+
+embed {
+    width: 90%;
+    padding: 10px;
+    margin: 0;
+    min-height: 400px;
+    overflow: scroll;
 }
 
 /* Header and footer styles */
@@ -153,8 +160,15 @@ span.success {
     background-image: linear-gradient( #EEE, #DDD);
 }
 
+/* Set the top margin color of headers to not display a border next to the status bar on iOS7 */
 .ui-header {
 	border-top: 1px solid #81B9EF
+}
+
+/* Decrease margins applied on headers */
+.ui-header .ui-title {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .app-responsive .ui-block-a,
@@ -167,7 +181,7 @@ span.success {
 }
 
 /* preset breakpoint to switch to stacked grid styles and responsive tables below 28em (448px) */
-@media all and (min-width: 35em) {
+@media all and (min-width: 28em) {
     .app-responsive .ui-block-a,
     .app-responsive .ui-block-b,
     .app-responsive .ui-block-c,
@@ -186,6 +200,9 @@ span.success {
     .app-responsive thead th {
         display: table-cell;
         margin: 0;
+        white-space: pre-wrap;
+        word-break: break-all;
+        word-break: break-word;
     }
     /* Hide the labels in each cell */
     .app-responsive td .ui-table-cell-label,
@@ -195,7 +212,7 @@ span.success {
 
     /* Add padding on larger displays */
     div[data-role="content"] {
-        padding-right: 15%;
-        padding-left: 15%;
+        padding-right: 5%;
+        padding-left: 5%;
     }
 }

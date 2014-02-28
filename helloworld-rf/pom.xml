@@ -45,22 +45,27 @@
 
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 
+        <version.jboss.spec.javaee.6.0>3.0.2.Final-redhat-4</version.jboss.spec.javaee.6.0>
+
+        <version.richfaces>4.3.5.Final</version.richfaces>
+
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.source>1.6</maven.compiler.source>
     
-        <version.jboss.bom.wfk>2.5.0-build-2</version.jboss.bom.wfk>
+        <!--Automatically created property by QSTools for
+        org.jboss.bom.wfk:jboss-javaee-6.0-with-richfaces BOM-->
+        <version.jboss.bom.wfk>2.5.0-build-4</version.jboss.bom.wfk>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- JBoss distributes a complete set of Java EE 6 APIs including
-                a Bill of Materials (BOM). A BOM specifies the versions of a "stack" (or
-                a collection) of artifacts. We use here extended Richfaces BOM with
-                the JBoss stack of the Java EE 6 APIs. You can actually
-                use this stack with any version of JBoss that implements Java EE 6, not
-                just JBoss EAP 6! 
-                RichFaces BOM specifies the versions of artifacts required for using RichFaces in your project. -->
+            <!-- Define the version of JBoss' Java EE 6 APIs we want to import.
+                Any dependencies from org.jboss.spec will have their version defined by this
+                BOM -->
+            
+            <!-- Similarly to the JBoss Java EE 6 BOM above, the RichFaces BOM specifies the
+                versions of artifacts required for using RichFaces in your project. -->
             <dependency>
                 <groupId>org.jboss.bom.wfk</groupId>
                 <artifactId>jboss-javaee-6.0-with-richfaces</artifactId>
@@ -74,7 +79,7 @@
 
     <dependencies>
 
-        <!-- Import the CDI API, we use provided scope as the API is included in JBoss EAP 6 -->
+        <!-- Import the CDI API, we use provided scope as the API is included in JBoss EAP -->
         <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
@@ -82,14 +87,14 @@
         </dependency>
 
         <!-- Import the Common Annotations API (JSR-250), we use provided scope
-            as the API is included in JBoss EAP 6 -->
+            as the API is included in JBoss EAP -->
         <dependency>
             <groupId>org.jboss.spec.javax.annotation</groupId>
             <artifactId>jboss-annotations-api_1.1_spec</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the JSF API, we use provided scope as the API is included in JBoss EAP 6 -->
+        <!-- Import the JSF API, we use provided scope as the API is included in JBoss EAP -->
         <dependency>
             <groupId>org.jboss.spec.javax.faces</groupId>
             <artifactId>jboss-jsf-api_2.1_spec</artifactId>

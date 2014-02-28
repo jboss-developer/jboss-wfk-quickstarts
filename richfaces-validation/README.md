@@ -6,7 +6,7 @@ Technologies: RichFaces
 Summary: Demonstrates RichFaces and bean validation  
 Target Product: WFK  
 Product Versions: EAP 6.1, EAP 6.2, WFK 2.5  
-Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
+Source: <https://github.com/richfaces/as-quickstarts>  
 
 What is it?
 -----------
@@ -38,7 +38,7 @@ This quickstart also includes tests for all Bean Validation constraints for the 
 System requirements
 -------------------
 
-The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the  Red Hat JBoss Web Framework Kit (WFK) 2.5.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.2 or later with the  Red Hat JBoss Web Framework Kit (WFK) 2.5.
 
 All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
@@ -126,7 +126,7 @@ If you are interested in more details, check `target/surefire-reports` directory
     ...
     [timestamp] INFO [org.jboss.as.server] (management-handler-threads - 1) JBAS018558: Undeployed "test.war
 	 
-
+	 
 Run the Arquillian Functional Tests
 -----------------------------------
 

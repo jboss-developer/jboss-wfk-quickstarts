@@ -65,10 +65,10 @@ Configure Maven
 If you have not yet done so, you must [Configure Maven](../README.md#configure-maven) before testing the quickstarts.
 
 
-Start the JBoss Server
+Start the JBoss EAP Server
 -----------------------
 
-1. Open a command line and navigate to the root of the JBoss server directory.
+1. Open a command line and navigate to the root of the JBoss EAP directory.
 2. The following shows the command line to start the server with the default profile:
 
         For Linux:   JBOSS_HOME/bin/standalone.sh
@@ -85,7 +85,7 @@ Start the JBoss Server
 Build and Deploy the Quickstart
 -------------------------------
 
-1. Make sure you have started the JBoss Server as described above.
+1. Make sure you have started the JBoss EAP server as described above.
 2. Open a command line and navigate to the root directory of this quickstart.
 3. Type this command to build and deploy the archive:
 
@@ -145,11 +145,36 @@ FAQ
 Undeploy the Archive
 --------------------
 
-1. Make sure you have started the JBoss Server as described above.
+1. Make sure you have started the JBoss EAP server as described above.
 2. Open a command line and navigate to the root directory of this quickstart.
 3. When you are finished testing, type this command to undeploy the archive:
 
         mvn jboss-as:undeploy
+
+
+Run the Arquillian Functional Tests
+-----------------------------------
+
+This quickstart provides Arquillian functional tests. They are located under the directory "functional-tests". Functional tests verify that your application behaves correctly from the user's point of view - simulating clicking around the page as a normal user would do.
+
+To run these tests, you must build the main project as described above.
+
+1. Open a command line and navigate to the root directory of this quickstart.
+2. Build the quickstart WAR using the following command:
+
+        mvn clean package
+
+3. Navigate to the functional-tests/ directory in this quickstart.
+4. If you have a running instance of the JBoss EAP server, as described above, run the remote tests by typing the following command:
+
+        mvn clean verify -Parq-jbossas-remote
+
+5. If you prefer to run the functional tests using managed instance of the JBoss EAP server, meaning the tests will start the server for you, type the following command:
+
+_NOTE: For this to work, Arquillian needs to know the location of the JBoss EAP server. This can be declared through the `JBOSS_HOME` environment variable or the `jbossHome` property in `arquillian.xml`. See [Run the Arquillian Tests](../README.md#run-the-arquillian-tests) for complete instructions and additional options._
+
+        mvn clean verify -Parq-jbossas-managed
+
 
 
 Run the Quickstart in JBoss Developer Studio or Eclipse
