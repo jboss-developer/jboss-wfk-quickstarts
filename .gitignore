@@ -7,9 +7,6 @@ MANIFEST.MF
 bin
 .openshift
 /helloworld-jsp
-README.html
-CONTRIBUTING.html
-RELEASE_PROCEDURE.html
 .errai
 helloworld-gwt/src/main/gwt-unitCache
 helloworld-gwt/src/main/webapp/HelloWorldApp
