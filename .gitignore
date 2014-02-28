@@ -6,8 +6,6 @@ target
 MANIFEST.MF
 bin
 .openshift
-*/.gitignore
-.gitkeep
 /helloworld-jsp
 README.html
 CONTRIBUTING.html

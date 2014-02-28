@@ -44,8 +44,10 @@
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
-        <version.jboss.bom.wfk>2.5.0-build-2</version.jboss.bom.wfk>
         <version.jboss.bom.eap>6.2.0.GA</version.jboss.bom.eap>
+        <version.jboss.bom.wfk>2.5.0-build-4</version.jboss.bom.wfk>
+
+        <version.richfaces>4.3.5.Final</version.richfaces>
 
         <!-- other plugin versions -->
         <version.surefire.plugin>2.10</version.surefire.plugin>
@@ -93,16 +95,16 @@
     <dependencies>
 
         <!-- First declare the APIs we depend on and need for compilation.
-            All of them are provided by JBoss EAP 6 -->
+            All of them are provided by JBoss EAP -->
 
-        <!-- Import the CDI API, we use provided scope as the API is included in JBoss EAP 6 -->
+        <!-- Import the CDI API, we use provided scope as the API is included in JBoss EAP -->
         <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the JPA API, we use provided scope as the API is included in JBoss EAP 6 -->
+        <!-- Import the JPA API, we use provided scope as the API is included in JBoss EAP -->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.0-api</artifactId>
@@ -111,7 +113,7 @@
 
         <!-- JSR-303 (Bean Validation) Implementation -->
         <!-- Provides portable constraints such as @Email -->
-        <!-- Hibernate Validator is shipped in JBoss EAP 6 -->
+        <!-- Hibernate Validator is shipped in JBoss EAP -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
@@ -124,7 +126,7 @@
             </exclusions>
         </dependency>
 
-        <!-- Import the JSF API, we use provided scope as the API is included in JBoss EAP 6 -->
+        <!-- Import the JSF API, we use provided scope as the API is included in JBoss EAP -->
         <dependency>
             <groupId>org.jboss.spec.javax.faces</groupId>
             <artifactId>jboss-jsf-api_2.1_spec</artifactId>
@@ -189,7 +191,7 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${version.surefire.plugin}</version>
                 </plugin>
-                <!-- The JBoss AS plugin deploys your war to a local JBoss AS container -->
+                <!-- The JBoss AS plugin deploys your war to a local JBoss container -->
                 <!-- To use, set the JBOSS_HOME environment variable and run:
                     mvn package jboss-as:deploy -->
                 <plugin>
@@ -237,8 +239,8 @@
         <profile>
 
             <!-- An optional Arquillian testing profile that executes tests
-                in your JBoss AS instance -->
-            <!-- This profile will start a new JBoss AS instance, and execute the
+                in your JBoss instance -->
+            <!-- This profile will start a new JBoss instance, and execute the
                 test, shutting it down when done -->
             <!-- Run with: mvn clean test -Parq-jbossas-managed -->
             <id>arq-jbossas-managed</id>
@@ -253,7 +255,7 @@
 
         <profile>
             <!-- An optional Arquillian testing profile that executes tests
-                in a remote JBoss AS instance -->
+                in a remote JBoss instance -->
             <!-- Run with: mvn clean test -Parq-jbossas-remote -->
             <id>arq-jbossas-remote</id>
             <dependencies>

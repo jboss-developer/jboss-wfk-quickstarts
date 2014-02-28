@@ -6,12 +6,12 @@ Technologies: CDI, JSF, JPA, EJB, JPA, JAX-RS, BV, RichFaces
 Summary: The canonical JSF kitchensink quickstart implemented with JSF and RichFaces  
 Target Product: WFK  
 Product Versions: EAP 6.1, EAP 6.2, WFK 2.5  
-Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
+Source: <https://github.com/richfaces/jdf-quickstarts>  
 
 What is it?
 -----------
 
-This is your project! It is a sample, deployable Maven 3 project to help you get your foot in the door developing with Java EE 6 on Red Hat JBoss Enterprise Application Platform 6.1 or later.
+This is your project! It is a sample, deployable Maven 3 project to help you get your foot in the door developing with Java EE 6 on Red Hat JBoss Enterprise Application Platform 6.2 or later.
 
 This project is setup to allow you to create a compliant Java EE 6 application using JSF 2.0 with RichFaces 4, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to introduce you to database access in enterprise Java.
 
@@ -34,7 +34,7 @@ The kitchensink quickstart is built using Vanilla JSF for its front end.  With t
 System requirements
 -------------------
 
-The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.5. 
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.2 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.5. 
 
 All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later, and the RichFaces library.
 

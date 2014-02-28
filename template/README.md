@@ -1,13 +1,13 @@
 QUICKSTART_NAME: Brief Description of the Quickstart
 ======================================================
-Author: YOUR_NAME and optional CONTACT_INFO
-Level: [one of the following: Beginner, Intermediate, or Advanced]
-Technologies: (list technologies used here)
-Summary: (a brief description of the quickstart to appear in the table )
-Prerequisites: (list any quickstarts that must be deployed prior to running this one)
-Target Product: (EAP, WFK, JDG, etc.)
-Product Versions: (EAP 6.1, EAP 6.2, WFK 2.5, etc.)
-Source: (The URL for the repository that is the source of record for this quickstart)
+Author: YOUR_NAME and optional CONTACT_INFO  
+Level: [one of the following: Beginner, Intermediate, or Advanced]  
+Technologies: (list technologies used here)  
+Summary: (a brief description of the quickstart to appear in the table )  
+Prerequisites: (list any quickstarts that must be deployed prior to running this one)  
+Target Product: (EAP, WFK, JDG, etc.)  
+Product Versions: (EAP 6.1, EAP 6.2, WFK 2.5, etc.)  
+Source: (The URL for the repository that is the source of record for this quickstart)  
 
 
 _This file is meant to serve as a template or guideline for your own quickstart README.md file. Be sure to replace QUICKSTART_NAME and YOUR_NAME, with the appropriate values._
@@ -62,16 +62,16 @@ Contributor: If your quickstart requires any additional components, decribe how 
  * This quickstart uses Byteman to help demonstrate crash recovery. Instructions to install and configure Byteman can be found here: [Install and Configure Byteman](../README.md#install-and-configure-byteman)
 
 
-Start the JBoss Server
+Start the JBoss EAP Server
 -------------------------
 
 Contributor: Does this quickstart require one or more running servers? If so, you must show how to start the server. If you start the server in one of the following 3 ways, you can simply copy the instructions in the README file located in the root folder of the quickstart directory:
 
- * Start the Default JBoss Server
+ * Start the Default JBoss EAP Server
 
- * Start the JBoss Server with the Full Profile
+ * Start the JBoss EAP Server with the Full Profile
 
- * Start the JBoss Server with Custom Options. You will need to provide the argument string to pass on the command line, for example: 
+ * Start the JBoss EAP Server with Custom Options. You will need to provide the argument string to pass on the command line, for example: 
 
       `--server-config=../../docs/examples/configs/standalone-xts.xml`
 
@@ -85,7 +85,7 @@ Contributor: If the quickstart is built and deployed using the standard Maven co
 
 _NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line. See [Build and Deploy the Quickstarts](../README.md#build-and-deploy-the-quickstarts) for complete instructions and additional options._
 
-1. Make sure you have started the JBoss Server as described above.
+1. Make sure you have started the JBoss EAP server as described above.
 2. Open a command line and navigate to the root directory of this quickstart.
 3. Type this command to build and deploy the archive:
 
@@ -122,7 +122,7 @@ Undeploy the Archive
 
 Contributor: For example: 
 
-1. Make sure you have started the JBoss Server as described above.
+1. Make sure you have started the JBoss EAP server as described above.
 2. Open a command line and navigate to the root directory of this quickstart.
 3. When you are finished testing, type this command to undeploy the archive:
 
@@ -138,7 +138,7 @@ This quickstart provides Arquillian tests. By default, these tests are configure
 
 _NOTE: The following commands assume you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line. See [Run the Arquillian Tests](../README.md#run-the-arquillian-tests) for complete instructions and additional options._
 
-1. Make sure you have started the JBoss Server as described above.
+1. Make sure you have started the JBoss EAP server as described above.
 2. Open a command line and navigate to the root directory of this quickstart.
 3. Type the following command to run the test goal with the following profile activated:
 

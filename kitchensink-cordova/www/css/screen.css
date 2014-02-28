@@ -42,8 +42,15 @@ a:hover {
 }
 
 .mobileicon {
-    float: right;
-    padding: 0 10px 0 10px;
+    padding: 10px;
+}
+
+embed {
+    width: 90%;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    padding: 10px;
+    margin: 0;
 }
 
 /* Header and footer styles */
@@ -157,6 +164,11 @@ span.success {
 	border-top: 1px solid #81B9EF
 }
 
+.ui-header .ui-title {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 .app-responsive .ui-block-a,
 .app-responsive .ui-block-b,
 .app-responsive .ui-block-c,
@@ -186,6 +198,9 @@ span.success {
     .app-responsive thead th {
         display: table-cell;
         margin: 0;
+        white-space: pre-wrap;
+        word-break: break-all;
+        word-break: break-word;
     }
     /* Hide the labels in each cell */
     .app-responsive td .ui-table-cell-label,
@@ -195,7 +210,7 @@ span.success {
 
     /* Add padding on larger displays */
     div[data-role="content"] {
-        padding-right: 15%;
-        padding-left: 15%;
+        padding-right: 5%;
+        padding-left: 5%;
     }
 }
