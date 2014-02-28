@@ -55,7 +55,7 @@
     
         <!--Automatically created property by QSTools for
         org.jboss.bom.wfk:jboss-javaee-6.0-with-richfaces BOM-->
-        <version.jboss.bom.wfk>2.5.0-build-4</version.jboss.bom.wfk>
+        <version.jboss.bom.wfk>2.5.0-redhat-1</version.jboss.bom.wfk>
     </properties>
 
     <dependencyManagement>
