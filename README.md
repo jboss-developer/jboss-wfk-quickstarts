@@ -139,48 +139,48 @@ Run the Quickstarts
 
 The root folder of each individual quickstart contains a README file with specific details on how to build and run the example. In most cases you do the following:
 
-* [Start the JBoss server](#start-the-jboss-server)
+* [Start the JBoss EAP server](#start-the-jboss-eap-server)
 * [Build and deploy the quickstarts](#build-and-deploy-the-quickstarts)
 
 
-### Start the JBoss Server
+### Start the JBoss EAP Server
 
 Before you deploy a quickstart, in most cases you need a running JBoss EAP server. A few of the Arquillian tests do not require a running server. This will be noted in the README for that quickstart. 
 
-The JBoss server can be started a few different ways.
+The JBoss EAP server can be started a few different ways.
 
-* [Start the Default JBoss Server](#start-the-default-jboss-server): This is the default configuration. It defines minimal subsystems and services.
-* [Start the JBoss Server with the _full_ profile](#start-the-jboss-server-with-the-full-profile): This profile configures many of the commonly used subsystems and services.
-* [Start the JBoss Server with a custom configuration](#start-the-jboss-server-with-custom-configuration-options): Custom configuration parameters can be specified on the command line when starting the server.
+* [Start the Default JBoss EAP Server](#start-the-default-jboss-eap-server): This is the default configuration. It defines minimal subsystems and services.
+* [Start the JBoss EAP Server with the _full_ profile](#start-the-jboss-eap-server-with-the-full-profile): This profile configures many of the commonly used subsystems and services.
+* [Start the JBoss EAP Server with a custom configuration](#start-the-jboss-eap-server-with-custom-configuration-options): Custom configuration parameters can be specified on the command line when starting the server.
 
 The README for each quickstart will specify which configuration is required to run the example.
 
-#### Start the Default JBoss Server
+#### Start the Default JBoss EAP Server
 
 To start JBoss EAP:
 
-1. Open a command line and navigate to the root of the JBoss server directory.
-2. The following shows the command line to start the JBoss server:
+1. Open a command line and navigate to the root of the JBoss EAP directory.
+2. The following shows the command line to start the JBoss EAP server:
 
         For Linux:   JBOSS_HOME/bin/standalone.sh
         For Windows: JBOSS_HOME\bin\standalone.bat
 
-#### Start the JBoss Server with the Full Profile
+#### Start the JBoss EAP Server with the Full Profile
 
 To start JBoss EAP with the Full Profile:
 
-1. Open a command line and navigate to the root of the JBoss server directory.
-2. The following shows the command line to start the JBoss server with the full profile:
+1. Open a command line and navigate to the root of the JBoss EAP directory.
+2. The following shows the command line to start the JBoss EAP server with the full profile:
 
         For Linux:   JBOSS_HOME/bin/standalone.sh -c standalone-full.xml
         For Windows: JBOSS_HOME\bin\standalone.bat -c standalone-full.xml
 
-#### Start the JBoss Server with Custom Configuration Options
+#### Start the JBoss EAP Server with Custom Configuration Options
 
 To start JBoss EAP with custom configuration options:
 
-1. Open a command line and navigate to the root of the JBoss server directory.
-2. The following shows the command line to start the JBoss server. Replace the CUSTOM_OPTIONS with the custom optional parameters specified in the quickstart.
+1. Open a command line and navigate to the root of the JBoss EAP directory.
+2. The following shows the command line to start the JBoss EAP server. Replace the CUSTOM_OPTIONS with the custom optional parameters specified in the quickstart.
 
         For Linux:   JBOSS_HOME/bin/standalone.sh CUSTOM_OPTIONS
         For Windows: JBOSS_HOME\bin\standalone.bat CUSTOM_OPTIONS
@@ -200,7 +200,7 @@ In some cases, you may want to build the application to test for compile errors 
 
 #### Build and Deploy the Quickstart Archive
 
-1. Make sure you [start the JBoss server](#start-the-jboss-server) as described in the README.
+1. Make sure you [start the JBoss EAP server](#start-the-jboss-eap-server) as described in the README.
 2. Open a command line and navigate to the root directory of the quickstart you want to run.
 3. Use this command to build and deploy the archive:
 
@@ -219,7 +219,7 @@ You can verify the quickstarts build using one command. However, quickstarts tha
 
 To build the quickstarts:
 
-1. Do not start the JBoss server.
+1. Do not start the JBoss EAP server.
 2. Open a command line and navigate to the root directory of the quickstarts.
 3. Use this command to build the quickstarts that do not have complex dependencies:
 
@@ -238,7 +238,7 @@ To undeploy the quickstarts from the root of the quickstart folder, you must pas
 
 You can undeploy quickstarts using the following procedure:
 
-1. Start the JBoss server.
+1. Start the JBoss EAP server.
 2. Open a command line and navigate to the root directory of the quickstarts.
 3. Use this command to undeploy any deployed quickstarts:
 
@@ -256,8 +256,8 @@ You can either start the server yourself or let Arquillian manage its lifecycle 
 
 
 1. Test the quickstart on a remote server
-    * Arquillian's remote container adapter expects a JBoss server instance to be already started prior to the test execution. You must [Start the JBoss server](#start-the-jboss-server) as described in the quickstart README file.
-    * If you need to run the tests on a JBoss server running on a machine other than localhost, you can configure this, along with other options, in the `src/test/resources/arquillian.xml` file using the following properties:
+    * Arquillian's remote container adapter expects a JBoss EAP server instance to be already started prior to the test execution. You must [Start the JBoss EAP server](#start-the-jboss-eap-server) as described in the quickstart README file.
+    * If you need to run the tests on a JBoss EAP server running on a machine other than localhost, you can configure this, along with other options, in the `src/test/resources/arquillian.xml` file using the following properties:
         
             <container qualifier="jboss" default="true">
                 <configuration>
@@ -272,7 +272,7 @@ You can either start the server yourself or let Arquillian manage its lifecycle 
             mvn clean test -Parq-jbossas-remote     
 2. Test the quickstart on a managed server
 
-    Arquillian's managed container adapter requires that your server is not running as it will start the container for you. However, you must first let it know where to find the JBoss server directory. The simplest way to do this is to set the `JBOSS_HOME` environment variable to the full path to your JBoss server directory. Alternatively, you can set the path in the `jbossHome` property in the Arquillian configuration file.
+    Arquillian's managed container adapter requires that your server is not running as it will start the container for you. However, you must first let it know where to find the JBoss EAP directory. The simplest way to do this is to set the `JBOSS_HOME` environment variable to the full path to your JBoss EAP directory. Alternatively, you can set the path in the `jbossHome` property in the Arquillian configuration file.
     * Open the `src/test/resources/arquillian.xml` file located in the quickstart directory.
     * Find the configuration for the JBoss container. It should look like this:
 
