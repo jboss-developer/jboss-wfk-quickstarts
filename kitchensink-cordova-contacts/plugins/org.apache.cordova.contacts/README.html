@@ -1,0 +1,13 @@
+<!DOCTYPE html><html><head><title>README</title><link href="http://www.jboss.org/jdf/stylesheets/documentation.css" rel="stylesheet"></link><link href="http://www.jboss.org/jdf/stylesheets/pygments.css" rel="stylesheet"></link></head><body>
+<h2><a id="cordovaplugincontacts" class="anchor" href="#cordovaplugincontacts"><span class="anchor-icon"></span></a>cordova-plugin-contacts</h2>
+
+<p>To install this plugin, follow the <a href="http://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-line%20Interface">Command-line Interface Guide</a>.</p>
+
+<p>If you are not using the Cordova Command-line Interface, follow <a href="http://cordova.apache.org/docs/en/edge/plugin_ref_plugman.md.html">Using Plugman to Manage Plugins</a>.</p>
+
+<h2><a id="using-contacts-in-firefox-os" class="anchor" href="#using-contacts-in-firefox-os"><span class="anchor-icon"></span></a>Using Contacts in Firefox OS</h2>
+
+<p>Edit manifest.webapp and add permissions field as described in <a href="https://developer.mozilla.org/en-US/Apps/Developing/Manifest#permissions">Manifest Docs</a>.
+There is also a need to change the webapp type to &ldquo;privileged&rdquo;  - <a href="https://developer.mozilla.org/en-US/Apps/Developing/Manifest#type">Manifest Docs</a>.
+All privileged apps enforce <a href="https://developer.mozilla.org/en-US/Apps/CSP">Content Security Policy</a> which forbids inline script. Initialize your application in another way.</p>
+</body></html>
