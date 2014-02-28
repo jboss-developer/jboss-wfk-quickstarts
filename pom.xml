@@ -155,7 +155,6 @@
                 <module>deltaspike-partialbean-basic</module>
                 <module>deltaspike-partialbean-advanced</module>
                 <module>deltaspike-projectstage</module>
-                <module>helloworld-errai</module>
                 <module>helloworld-gwt</module>
                 <module>helloworld-html5</module>
                 <module>helloworld-rf</module>
@@ -206,7 +205,6 @@
                 <module>deltaspike-projectstage/functional-tests</module>
                 <module>kitchensink-deltaspike/functional-tests</module>
                 <module>richfaces-validation/functional-tests</module>
-                <module>helloworld-errai/functional-tests</module>
                 <module>helloworld-gwt/functional-tests</module>
                 <module>helloworld-html5/functional-tests</module>
                 <module>helloworld-rf/functional-tests</module>
