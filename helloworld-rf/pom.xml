@@ -61,11 +61,8 @@
     <dependencyManagement>
         <dependencies>
             <!-- Define the version of JBoss' Java EE 6 APIs we want to import.
-                Any dependencies from org.jboss.spec will have their version defined by this
-                BOM -->
-            
-            <!-- Similarly to the JBoss Java EE 6 BOM above, the RichFaces BOM specifies the
-                versions of artifacts required for using RichFaces in your project. -->
+                The RichFaces BOM specifies the versions of artifacts required 
+                for using RichFaces in your project. -->
             <dependency>
                 <groupId>org.jboss.bom.wfk</groupId>
                 <artifactId>jboss-javaee-6.0-with-richfaces</artifactId>
