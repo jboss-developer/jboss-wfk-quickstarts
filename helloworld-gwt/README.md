@@ -76,7 +76,7 @@ Run the Application in GWT Dev Mode
 GWT Dev Mode provides an edit-save-refresh development experience. If you plan to modify this demo, we recommend you start the application in Dev Mode so you don't have to repackage the entire application every time you change it.
 
 1. Deploy the WAR file and start the JBoss EAP server as described above.
-2. Open a command line and navigate to the helloworld-errai quickstart directory
+2. Open a command line and navigate to the helloworld-gwt quickstart directory
 3. Execute the following command:
 
         mvn gwt:run
