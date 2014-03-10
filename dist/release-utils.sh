@@ -96,7 +96,7 @@ markdown_to_html()
    subdirs=`find . -maxdepth 1 -type d ! -iname ".*" ! -iname "template" | sort`
    for subdir in $subdirs
    do
-      readmes=`find $subdir -iname readme.md`
+      readmes=`find $subdir -maxdepth 1 -iname readme.md`
       for readme in $readmes
       do
          echo "Processing $readme"
