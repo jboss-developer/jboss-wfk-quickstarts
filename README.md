@@ -36,6 +36,8 @@ Some quickstarts are designed to enhance or extend other quickstarts. These are 
 
 Quickstarts with tutorials in the [Get Started Developing Applications](http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/ "Get Started Developing Applications") are noted with two asterisks ( ** ) following the quickstart name. 
 
+_Note:_ The quickstart README files use the replaceable value `EAP_HOME` to denote the path to the JBoss EAP 6 installation. When you encounter this value in a README file, be sure to replace it with the actual path to your JBoss EAP 6 installation. The 'JBOSS_HOME' environment variable, which is used in scripts, continues to work as it has in the past.
+
 [TOC-quickstart]
 
 Suggested Approach to the Quickstarts
@@ -162,8 +164,8 @@ To start JBoss EAP:
 1. Open a command line and navigate to the root of the JBoss EAP directory.
 2. The following shows the command line to start the JBoss EAP server:
 
-        For Linux:   JBOSS_HOME/bin/standalone.sh
-        For Windows: JBOSS_HOME\bin\standalone.bat
+        For Linux:   EAP_HOME/bin/standalone.sh
+        For Windows: EAP_HOME\bin\standalone.bat
 
 #### Start the JBoss EAP Server with the Full Profile
 
@@ -172,8 +174,8 @@ To start JBoss EAP with the Full Profile:
 1. Open a command line and navigate to the root of the JBoss EAP directory.
 2. The following shows the command line to start the JBoss EAP server with the full profile:
 
-        For Linux:   JBOSS_HOME/bin/standalone.sh -c standalone-full.xml
-        For Windows: JBOSS_HOME\bin\standalone.bat -c standalone-full.xml
+        For Linux:   EAP_HOME/bin/standalone.sh -c standalone-full.xml
+        For Windows: EAP_HOME\bin\standalone.bat -c standalone-full.xml
 
 #### Start the JBoss EAP Server with Custom Configuration Options
 
@@ -182,8 +184,8 @@ To start JBoss EAP with custom configuration options:
 1. Open a command line and navigate to the root of the JBoss EAP directory.
 2. The following shows the command line to start the JBoss EAP server. Replace the CUSTOM_OPTIONS with the custom optional parameters specified in the quickstart.
 
-        For Linux:   JBOSS_HOME/bin/standalone.sh CUSTOM_OPTIONS
-        For Windows: JBOSS_HOME\bin\standalone.bat CUSTOM_OPTIONS
+        For Linux:   EAP_HOME/bin/standalone.sh CUSTOM_OPTIONS
+        For Windows: EAP_HOME\bin\standalone.bat CUSTOM_OPTIONS
            
 ### Build and Deploy the Quickstarts
 
@@ -407,7 +409,7 @@ The following components are needed for only a small subset of the quickstarts. 
 
 By default, JBoss EAP is now distributed with security enabled for the management interfaces. 
 A few of the quickstarts use these management interfaces and require that you create a management or application user to access the running application. 
-An `add-user` script is provided in the `JBOSS_HOME/bin` directory for that purpose. 
+An `add-user` script is provided in the `EAP_HOME/bin` directory for that purpose. 
 You can run the script interactively or you can pass arguments on the command line.
 
 The following procedures describe how to add a user with the appropriate permissions to run the quickstarts that depend on them.
@@ -420,8 +422,8 @@ You can choose to run the script interactively or you can pass arguments on the 
 1. Open a command line.
 2. Type the command for your operating system
 
-        For Linux:   JBOSS_HOME/bin/add-user.sh
-        For Windows: JBOSS_HOME\bin\add-user.bat
+        For Linux:   EAP_HOME/bin/add-user.sh
+        For Windows: EAP_HOME\bin\add-user.bat
 3. You should see the following response:
 
         What type of user do you wish to add? 
@@ -450,8 +452,8 @@ If you prefer, you can create the management user non-interactively by passing e
 
 For example, to add the Management User `admin` in the default `ManagementRealm` realm with password `adminPass1!`, type the following:
 
-        For Linux:   JBOSS_HOME/bin/add-user.sh -u 'admin' -p 'adminPass1!'
-        For Windows: JBOSS_HOME\bin\add-user.bat -u 'admin' -p 'adminPass1!'
+        For Linux:   EAP_HOME/bin/add-user.sh -u 'admin' -p 'adminPass1!'
+        For Windows: EAP_HOME\bin\add-user.bat -u 'admin' -p 'adminPass1!'
 
 #### Add an Application User
 
@@ -462,8 +464,8 @@ You can choose to run the script interactively or you can pass arguments on the 
 1. Open a command line
 2. Type the command for your operating system
 
-        For Linux:   JBOSS_HOME/bin/add-user.sh
-        For Windows: JBOSS_HOME\bin\add-user.bat
+        For Linux:   EAP_HOME/bin/add-user.sh
+        For Windows: EAP_HOME\bin\add-user.bat
 3. You should see the following response:
 
         What type of user do you wish to add? 
@@ -491,7 +493,7 @@ If you prefer, you can create the application user non-interactively by passing 
 
 For example, to add the Application User `quickstartUser` in the `ApplicationRealm` realm with password `quickstartPwd1!` in group `guest`, type the following:
 
-        For Linux:   JBOSS_HOME/bin/add-user.sh -a -u 'quickstartUser' -p 'quickstartPwd1!' -g 'guest'
-        For Windows: JBOSS_HOME\bin\add-user.bat  -a -u 'quickstartUser' -p 'quickstartPwd1!' -g 'guest'
+        For Linux:   EAP_HOME/bin/add-user.sh -a -u 'quickstartUser' -p 'quickstartPwd1!' -g 'guest'
+        For Windows: EAP_HOME\bin\add-user.bat  -a -u 'quickstartUser' -p 'quickstartPwd1!' -g 'guest'
 
 
