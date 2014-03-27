@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.quickstarts.wfk.rest;
+package org.jboss.quickstarts.wfk.contact;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -41,19 +41,19 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.jboss.quickstarts.wfk.data.MemberRepository;
-import org.jboss.quickstarts.wfk.model.Member;
-import org.jboss.quickstarts.wfk.service.MemberRegistration;
 import org.jboss.quickstarts.wfk.util.ConvertDate;
 
 /**
  * JAX-RS Example
  * <p/>
- * This class produces a RESTful service to read/write the contents of the members table.
+ * This class produces a RESTful service to read/write the contents of the contacts table.
+ * 
+ * @author Joshua Wilson
+ *
  */
-@Path("/members")
+@Path("/contacts")
 @Stateless
-public class MemberService {
+public class ContactService {
     @Inject
     private Logger log;
 
@@ -61,41 +61,52 @@ public class MemberService {
     private Validator validator;
 
     @Inject
-    private MemberRepository repository;
+    private ContactDAO dao;
 
-    @Inject
-    MemberRegistration registration;
-
+    /**
+     * Search for and return all the Contacts.  They are sorted alphabetically by name.
+     * 
+     * @return List of Contacts
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Member> listAllMembers() {
-        return repository.findAllOrderedByName();
-    }
-
-    @GET
-    @Path("/{id:[0-9][0-9]*}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response lookupMemberById(@PathParam("id") long id) {
-        Member member = repository.findById(id);
-        if (member == null) {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-        log.info("findById " + id + ": found Member = " + member.getFirstName() + " " + member.getLastName() + " " + member.getEmail() + " " + member.getPhoneNumber() + " "
-                + member.getBirthDate() + " " + member.getId());
-        
-        return Response.ok(member).build();
+    public List<Contact> listAllContacts() {
+        return dao.findAllOrderedByName();
     }
 
     /**
-     * Creates a new member from the values provided. Performs validation, and will return a JAX-RS response with either 200 ok,
+     * Search for just one Contact by it's ID.
+     * 
+     * @param ID of the Contact
+     * @return Response
+     */
+    @GET
+    @Path("/{id:[0-9][0-9]*}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response lookupContactById(@PathParam("id") long id) {
+        Contact contact = dao.findById(id);
+        if (contact == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        log.info("findById " + id + ": found Contact = " + contact.getFirstName() + " " + contact.getLastName() + " " + contact.getEmail() + " " + contact.getPhoneNumber() + " "
+                + contact.getBirthDate() + " " + contact.getId());
+        
+        return Response.ok(contact).build();
+    }
+
+    /**
+     * Creates a new contact from the values provided. Performs validation, and will return a JAX-RS response with either 200 ok,
      * or with a map of fields, and related errors.
+     * 
+     * @param Contact
+     * @return Response
      */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createMember(Member member) {
-        log.info("createMember started. Member = " + member.getFirstName() + " " + member.getLastName() + " " + member.getEmail() + " " + member.getPhoneNumber() + " "
-            + member.getBirthDate() + " " + member.getId());
+    public Response createContact(Contact contact) {
+        log.info("createContact started. Contact = " + contact.getFirstName() + " " + contact.getLastName() + " " + contact.getEmail() + " " + contact.getPhoneNumber() + " "
+            + contact.getBirthDate() + " " + contact.getId());
         Response.ResponseBuilder builder = null;
 
         /*
@@ -111,20 +122,20 @@ public class MemberService {
          * 
          * If a more robust database were used this would not be a problem. Please keep this in mind if you use this code base. 
          */
-        member.setBirthDate(ConvertDate.localToGMT(member.getBirthDate()));
+        contact.setBirthDate(ConvertDate.localToGMT(contact.getBirthDate()));
 
         try {
-            // Validates member using bean validation
-            validateMember(member);
+            // Validates contact using bean validation
+            validateContact(contact);
 
-            // Go add the new Member.
-            registration.create(member);
+            // Go add the new Contact.
+            dao.create(contact);
 
             // Create an "ok" response
-            builder = Response.ok().entity(member);
+            builder = Response.ok().entity(contact);
 
-            log.info("createMember completed. Member = " + member.getFirstName() + " " + member.getLastName() + " " + member.getEmail() + " " + member.getPhoneNumber() + " "
-                + member.getBirthDate() + " " + member.getId());
+            log.info("createContact completed. Contact = " + contact.getFirstName() + " " + contact.getLastName() + " " + contact.getEmail() + " " + contact.getPhoneNumber() + " "
+                + contact.getBirthDate() + " " + contact.getId());
         } catch (ConstraintViolationException ce) {
             log.info("ConstraintViolationException - " + ce.toString());
             // Handle bean validation issues
@@ -147,15 +158,18 @@ public class MemberService {
     }
 
     /**
-     * Updates a member with the ID provided in the Member. Performs validation, and will return a JAX-RS response with either 200 ok,
+     * Updates a contact with the ID provided in the Contact. Performs validation, and will return a JAX-RS response with either 200 ok,
      * or with a map of fields, and related errors.
+     * 
+     * @param Contact
+     * @return Response
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateMember(Member member) {
-        log.info("updateMember started. Member = " + member.getFirstName() + " " + member.getLastName() + " " + member.getEmail() + " " + member.getPhoneNumber() + " "
-            + member.getBirthDate() + " " + member.getId());
+    public Response updateContact(Contact contact) {
+        log.info("updateContact started. Contact = " + contact.getFirstName() + " " + contact.getLastName() + " " + contact.getEmail() + " " + contact.getPhoneNumber() + " "
+            + contact.getBirthDate() + " " + contact.getId());
         Response.ResponseBuilder builder = null;
         
         /*
@@ -171,20 +185,20 @@ public class MemberService {
          * 
          * If a more robust database were used this would not be a problem. Please keep this in mind if you use this code base. 
          */
-        member.setBirthDate(ConvertDate.localToGMT(member.getBirthDate()));
+        contact.setBirthDate(ConvertDate.localToGMT(contact.getBirthDate()));
         
         try {
-            // Validates member using bean validation.
-            validateMember(member);
+            // Validates contact using bean validation.
+            validateContact(contact);
 
-            // Apply the changes the Member.
-            registration.update(member);
+            // Apply the changes the Contact.
+            dao.update(contact);
 
             // Create an "ok" response.
-            builder = Response.ok().entity(member);
+            builder = Response.ok().entity(contact);
 
-            log.info("updateMember completed. Member = " + member.getFirstName() + " " + member.getLastName() + " " + member.getEmail() + " " + member.getPhoneNumber() + " "
-                + member.getBirthDate() + " " + member.getId());
+            log.info("updateContact completed. Contact = " + contact.getFirstName() + " " + contact.getLastName() + " " + contact.getEmail() + " " + contact.getPhoneNumber() + " "
+                + contact.getBirthDate() + " " + contact.getId());
         } catch (ConstraintViolationException ce) {
             log.info("ConstraintViolationException - " + ce.toString());
             // Handle bean validation issues
@@ -195,7 +209,7 @@ public class MemberService {
             Map<String, String> responseObj = new HashMap<String, String>();
             responseObj.put("email", "That email is already used, please use a unique email");
             responseObj.put("error", "This is where errors are displayed that are not related to a specific field");
-            responseObj.put("anotherError", "You can find this error message in /src/main/java/org/jboss/quickstarts/wfk/rest/MemberService.java line 167.");
+            responseObj.put("anotherError", "You can find this error message in /src/main/java/org/jboss/quickstarts/wfk/rest/ContactService.java line 167.");
             builder = Response.status(Response.Status.CONFLICT).entity(responseObj);
         } catch (Exception e) {
             log.info("Exception - " + e.toString());
@@ -209,28 +223,31 @@ public class MemberService {
     }
 
     /**
-     * Deletes a member using the ID provided. If the ID is not present then nothing can be deleted, and will return a 
+     * Deletes a contact using the ID provided. If the ID is not present then nothing can be deleted, and will return a 
      * JAX-RS response with either 200 OK or with a map of fields, and related errors.
+     * 
+     * @param Contact
+     * @return Response
      */
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response deleteMember(Member member) {
-        log.info("deleteMember started. Member = " + member.getFirstName() + " " + member.getLastName() + " " + member.getEmail() + " " + member.getPhoneNumber() + " "
-            + member.getBirthDate() + " " + member.getId());
+    public Response deleteContact(Contact contact) {
+        log.info("deleteContact started. Contact = " + contact.getFirstName() + " " + contact.getLastName() + " " + contact.getEmail() + " " + contact.getPhoneNumber() + " "
+            + contact.getBirthDate() + " " + contact.getId());
         Response.ResponseBuilder builder = null;
 
         try {
-            if (member.getId() != null) {
-                registration.delete(member);
+            if (contact.getId() != null) {
+                dao.delete(contact);
             } else {
-                log.info("MemberService - deleteMember - No ID was found so can't Delete.");
+                log.info("ContactService - deleteContact - No ID was found so can't Delete.");
             }
 
             // Create an "ok" response
-            builder = Response.ok().entity(member);
-            log.info("deleteMember completed. Member = " + member.getFirstName() + " " + member.getLastName() + " " + member.getEmail() + " " + member.getPhoneNumber() + " "
-                + member.getBirthDate() + " " + member.getId());
+            builder = Response.ok().entity(contact);
+            log.info("deleteContact completed. Contact = " + contact.getFirstName() + " " + contact.getLastName() + " " + contact.getEmail() + " " + contact.getPhoneNumber() + " "
+                + contact.getBirthDate() + " " + contact.getId());
         } catch (Exception e) {
             log.info("Exception - " + e.toString());
             // Handle generic exceptions
@@ -244,28 +261,28 @@ public class MemberService {
 
     /**
      * <p>
-     * Validates the given Member variable and throws validation exceptions based on the type of error. If the error is standard
+     * Validates the given Contact variable and throws validation exceptions based on the type of error. If the error is standard
      * bean validation errors then it will throw a ConstraintValidationException with the set of the constraints violated.
      * </p>
      * <p>
-     * If the error is caused because an existing member with the same email is registered it throws a regular validation
+     * If the error is caused because an existing contact with the same email is registered it throws a regular validation
      * exception so that it can be interpreted separately.
      * </p>
      * 
-     * @param member Member to be validated
+     * @param contact Contact to be validated
      * @throws ConstraintViolationException If Bean Validation errors exist
-     * @throws ValidationException If member with the same email already exists
+     * @throws ValidationException If contact with the same email already exists
      */
-    private void validateMember(Member member) throws ConstraintViolationException, ValidationException {
+    private void validateContact(Contact contact) throws ConstraintViolationException, ValidationException {
         // Create a bean validator and check for issues.
-        Set<ConstraintViolation<Member>> violations = validator.validate(member);
+        Set<ConstraintViolation<Contact>> violations = validator.validate(contact);
 
         if (!violations.isEmpty()) {
             throw new ConstraintViolationException(new HashSet<ConstraintViolation<?>>(violations));
         }
 
         // Check the uniqueness of the email address
-        if (emailAlreadyExists(member.getEmail(), member.getId())) {
+        if (emailAlreadyExists(contact.getEmail(), contact.getId())) {
             throw new ValidationException("Unique Email Violation");
         }
     }
@@ -290,8 +307,8 @@ public class MemberService {
     }
 
     /**
-     * Checks if a member with the same email address is already registered. This is the only way to easily capture the
-     * "@UniqueConstraint(columnNames = "email")" constraint from the Member class.
+     * Checks if a contact with the same email address is already registered. This is the only way to easily capture the
+     * "@UniqueConstraint(columnNames = "email")" constraint from the Contact class.
      * 
      * Since Update will being using an email that is already in the database we need to make sure that it is the email
      * from the record being updated.  
@@ -301,24 +318,24 @@ public class MemberService {
      * @return True if the email already exists, and false otherwise
      */
     public boolean emailAlreadyExists(String email, Long id) {
-        Member member = null;
-        Member memberWithID = null;
+        Contact contact = null;
+        Contact contactWithID = null;
         try {
-            member = repository.findByEmail(email);
+            contact = dao.findByEmail(email);
         } catch (NoResultException e) {
             // ignore
         }
 
-        if (member != null && id != null) {
+        if (contact != null && id != null) {
             try {
-                memberWithID = repository.findById(id);
-                if (memberWithID.getEmail().equals(email)) {
-                    member = null;
+                contactWithID = dao.findById(id);
+                if (contactWithID.getEmail().equals(email)) {
+                    contact = null;
                 }
             } catch (NoResultException e) {
                 // ignore
             }
         }
-        return member != null;
+        return contact != null;
     }
 }
