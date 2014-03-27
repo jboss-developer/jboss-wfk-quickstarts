@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.quickstarts.wfk.test;
+package org.jboss.quickstarts.wfk.contact.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -29,38 +29,37 @@ import javax.ws.rs.core.Response;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
-import org.jboss.quickstarts.wfk.data.MemberRepository;
-import org.jboss.quickstarts.wfk.rest.MemberService;
-import org.jboss.quickstarts.wfk.service.MemberRegistration;
+import org.jboss.quickstarts.wfk.contact.Contact;
+import org.jboss.quickstarts.wfk.contact.ContactDAO;
+import org.jboss.quickstarts.wfk.contact.ContactService;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.jboss.quickstarts.wfk.model.Member;
 import org.jboss.quickstarts.wfk.util.ConvertDate;
 import org.jboss.quickstarts.wfk.util.Resources;
 
 /**
- * Uses Arquilian to test the JAX-RS processing class for member registration.
+ * Uses Arquilian to test the JAX-RS processing class for contact registration.
  * 
  * @author balunasj
  */
 @RunWith(Arquillian.class)
-public class MemberRegistrationTest {
+public class ContactRegistrationTest {
 	
     @Deployment
     public static Archive<?> createTestArchive() {
         return ShrinkWrap
             .create(WebArchive.class, "test.war")
-            .addClasses(Member.class, MemberService.class, MemberRepository.class, MemberRegistration.class,
+            .addClasses(Contact.class, ContactService.class, ContactDAO.class, 
                 ConvertDate.class, Resources.class).addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
             .addAsWebInfResource("arquillian-ds.xml").addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
     @Inject
-    MemberService memberRegistration;
+    ContactService contactService;
     
     @Inject
     Logger log;
@@ -71,25 +70,25 @@ public class MemberRegistrationTest {
     @Test
     @InSequence(1)
     public void testRegister() throws Exception {
-        Member member = createMemberInstance("Jack", "Doe", "jack@mailinator.com", "2125551234", date);
-        Response response = memberRegistration.createMember(member);
+        Contact contact = createContactInstance("Jack", "Doe", "jack@mailinator.com", "2125551234", date);
+        Response response = contactService.createContact(contact);
 
         assertEquals("Unexpected response status", 200, response.getStatus());
-        log.info(" New member was persisted and returned status " + response.getStatus());
+        log.info(" New contact was persisted and returned status " + response.getStatus());
     }
 
     @SuppressWarnings("unchecked")
     @Test
     @InSequence(2)
     public void testInvalidRegister() throws Exception {
-        Member member = createMemberInstance("", "", "", "", date);
-        Response response = memberRegistration.createMember(member);
+        Contact contact = createContactInstance("", "", "", "", date);
+        Response response = contactService.createContact(contact);
 
         assertEquals("Unexpected response status", 400, response.getStatus());
         assertNotNull("response.getEntity() should not be null", response.getEntity());
         assertEquals("Unexpected response.getEntity(). It contains " + response.getEntity(), 3,
             ((Map<String, String>) response.getEntity()).size());
-        log.info("Invalid member register attempt failed with return code " + response.getStatus());
+        log.info("Invalid contact register attempt failed with return code " + response.getStatus());
     }
 
     @SuppressWarnings("unchecked")
@@ -97,27 +96,27 @@ public class MemberRegistrationTest {
     @InSequence(3)
     public void testDuplicateEmail() throws Exception {
         // Register an initial user
-        Member member = createMemberInstance("Jane", "Doe", "jane@mailinator.com", "2125551234", date);
-        memberRegistration.createMember(member);
+        Contact contact = createContactInstance("Jane", "Doe", "jane@mailinator.com", "2125551234", date);
+        contactService.createContact(contact);
 
         // Register a different user with the same email
-        Member anotherMember = createMemberInstance("John", "Doe", "jane@mailinator.com", "2133551234", date);
-        Response response = memberRegistration.createMember(anotherMember);
+        Contact anotherContact = createContactInstance("John", "Doe", "jane@mailinator.com", "2133551234", date);
+        Response response = contactService.createContact(anotherContact);
 
         assertEquals("Unexpected response status", 409, response.getStatus());
         assertNotNull("response.getEntity() should not be null", response.getEntity());
         assertEquals("Unexpected response.getEntity(). It contains" + response.getEntity(), 1,
             ((Map<String, String>) response.getEntity()).size());
-        log.info("Duplicate member register attempt failed with return code " + response.getStatus());
+        log.info("Duplicate contact register attempt failed with return code " + response.getStatus());
     }
 
-    private Member createMemberInstance(String firstName, String lastName, String email, String phone, Date birthDate) {
-        Member member = new Member();
-        member.setFirstName(firstName);
-        member.setLastName(lastName);
-        member.setEmail(email);
-        member.setPhoneNumber(phone);
-        member.setBirthDate(birthDate);
-        return member;
+    private Contact createContactInstance(String firstName, String lastName, String email, String phone, Date birthDate) {
+        Contact contact = new Contact();
+        contact.setFirstName(firstName);
+        contact.setLastName(lastName);
+        contact.setEmail(email);
+        contact.setPhoneNumber(phone);
+        contact.setBirthDate(birthDate);
+        return contact;
     }
 }

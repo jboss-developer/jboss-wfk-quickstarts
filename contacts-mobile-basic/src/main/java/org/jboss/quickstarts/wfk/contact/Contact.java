@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.quickstarts.wfk.model;
+package org.jboss.quickstarts.wfk.contact;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -35,10 +35,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
+/**
+ * This is a Domain Object.   
+ * 
+ * @author Joshua Wilson
+ *
+ */
+
 @Entity
 @XmlRootElement
-@Table(name = "Member_contacts", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
-public class Member implements Serializable {
+@Table(name = "Contact", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+public class Contact implements Serializable {
     /** Default value included to remove warning. Remove or modify at will. **/
     private static final long serialVersionUID = 1L;
 
