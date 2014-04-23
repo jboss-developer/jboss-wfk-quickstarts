@@ -217,13 +217,13 @@ The command to undeploy the quickstart is simply:
 ### Verify the Quickstarts Build with One Command
 -------------------------------------------------
 
-You can verify the quickstarts build using one command. However, quickstarts that have complex dependencies must be skipped. For example, the _jax-rs-client_ quickstart is a RESTEasy client that depends on the deployment of the _helloworld-rs_ quickstart. As noted above, the root `pom.xml` file defines a `complex-dependencies` profile to exclude these quickstarts from the root build process. 
+You can verify the quickstarts build using one command.
 
 To build the quickstarts:
 
 1. Do not start the JBoss EAP server.
 2. Open a command line and navigate to the root directory of the quickstarts.
-3. Use this command to build the quickstarts that do not have complex dependencies:
+3. Use this command to build the quickstarts:
 
             mvn clean install
 
