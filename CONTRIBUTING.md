@@ -159,7 +159,7 @@ Setup your environment
 
 The quickstart README.md files are converted to HTML using markdown. We recommend using redcarpet, as that is what github uses, but you can use any markdown tool really.
 
-There are two scripts, `dist/github-flaoured-markdown.rb`, that will convert an indivdual file, and `dist/release-utils.sh -m`, that will convert all the files.
+There are two scripts, `dist/github-flavored-markdown.rb`, that will convert an individual file, and `dist/release-utils.sh -m`, that will convert all the files.
 
 To setup the environment you need to follow these steps.
 
@@ -175,7 +175,7 @@ To setup the environment you need to follow these steps.
 
 3. Install Python Eggs
 
-    You'll need python eggs installed, which often isn't available on OS installs of python. Google to find out how to install it
+    You'll need python eggs installed, which often isn't available on OS installs of python. Try to read and use [setuptools installation-instructions](https://pypi.python.org/pypi/setuptools#installation-instructions)
 
 4. Install pygments
 

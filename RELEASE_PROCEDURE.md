@@ -4,15 +4,9 @@ Quickstarts Release Procedure
 Testing the quickstarts
 -----------------------
 
-  Most of the quickstarts require JBoss Enterprise Application Platform be run in standalone mode, some require the "standalone-full" profile, and some may require other quickstarts to be deployed. Profiles are used in the root POM to separate out these groups, allowing you to test the quickstarts easily. For example, to run those that require only standalone mode:
+   Profiles are used in the root POM to separate out these groups, allowing you to test the quickstarts easily. For example, to run those that require only started Server:
 
       mvn clean install jboss-as:deploy jboss-as:undeploy -Parq-jbossas-remote 
-
-  Or, to run those only those quickstarts that require the full profile
-
-      mvn clean install jboss-as:deploy jboss-as:undeploy -Parq-jbossas-remote -P-requires-full
-
-  And so on.
 
 Quickstarts in other repositories
 ---------------------------------
