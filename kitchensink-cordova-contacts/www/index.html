@@ -25,7 +25,7 @@
     <link rel="apple-touch-icon" href="res/icon/cordova_48.png"/>
 
     <!-- Shared styles -->
-    <link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css"/>
     <link rel="stylesheet" href="css/screen.css"/>
 
     <!-- Set viewport scaling and zoom features -->
@@ -54,7 +54,7 @@
 			}
 		);
 	</script>
-	<script type="text/javascript" src="js/libs/jquery.mobile-1.3.2.js"></script>
+	<script type="text/javascript" src="js/libs/jquery.mobile-1.4.2.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="js/libs/lodash-2.4.1.js"></script>
 	<script type="text/javascript" src="js/libs/backbone-1.1.2.js"></script>
@@ -88,7 +88,7 @@
 	<div id="container">
 	    <section>
 
-	        <article id="intro-art" data-role="page" data-theme="a">
+	        <article id="intro-art" data-role="page">
 	            <!-- Header -->
 	            <div data-role="header" class="header" data-position="fixed">
 	                <h3>Backbone Quickstart</h3>
@@ -127,10 +127,10 @@
 	            <!-- /Footer -->
 
 				<!-- New HTML5 aside tag -->
-		        <aside id="info-aside" data-role="popup" data-theme="a">
+		        <aside id="info-aside" data-role="popup">
 		            <!-- Header -->
 		            <div data-role="header">
-		            	 <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+		            	 <a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
 		                <h3>Find out more</h3>
 		            </div>
 		            <!-- /Header -->
@@ -155,7 +155,7 @@
 	        </article>
 	
 	        <!-- New HTML5 article tag -->
-	        <article id="register-art" data-role="page" data-theme="a">
+	        <article id="register-art" data-role="page">
 	            <!-- Header -->
 	            <div data-role="header" class="header" data-position="fixed">
 	                <h3>Backbone Quickstart</h3>
@@ -207,7 +207,7 @@
 	        </article>
 	
 	        <!-- New HTML5 article tag -->
-	        <article id="member-art" data-role="page" data-theme="a">
+	        <article id="member-art" data-role="page">
 	            <!-- Header -->
 	            <div data-role="header" class="header" data-position="fixed">
 	                <h3>Backbone Quickstart</h3>
@@ -233,10 +233,10 @@
                         <tr>
                             <th>0</td>
                             <td>John Smith</td>
-                            <td>john.smith@mailinator.com</td>
+                            <td><a href="mailto:john.smith@mailinator.com" class="ui-link">john.smith@mailinator.com</a></td>
                             <td><a href="tel:2125551212" class="ui-link">Call</a> or <a href="sms:2125551212" class="ui-link">SMS</a> 2125551212</td>
-                            <td><a href="http://html5-jdf.rhcloud.com/rest/members/0" rel="external" target="_blank" class="resturl ui-link">JSON</a></td>
-                            <td><a href="#" data-theme="c" data-role="button" data-inline="true" data-icon="plus">Save</a></td>
+                            <td><a href="#json/0" class="resturl ui-link">JSON</a></td>
+                            <td><a href="#" data-role="button" data-inline="true" data-icon="plus">Save</a></td>
                         </tr>
                         -->
                         </tbody>
@@ -262,7 +262,7 @@
 	        </article>
 
             <!-- New HTML5 article tag -->
-			<article data-role="page" id="contact-art" data-theme="a">
+			<article data-role="page" id="contact-art">
 				<!-- Header -->
                 <div data-role="header" class="header" data-position="fixed">
                     <h3>Search for a contact</h3>
@@ -280,7 +280,7 @@
 						</div>
 						<div class="ui-block-a">
 							<form>
-							    <ul id="contact-details" data-theme="c" data-role="listview" data-inset="true">
+							    <ul id="contact-details" data-role="listview" data-inset="true">
 							    	<!-- This is where the details of a Contact gets populated by the templates. This is only here as an example of the code that will be inserted.
 							    	
 							    	<li data-role="fieldcontain">
@@ -288,12 +288,12 @@
 							    	</li>
 							        <li data-role="fieldcontain">
 							            <label for="select-choice-email" class="select">Choose email:</label>
-							            <select name="select-choice-email" id="select-choice-email" data-theme="c" disabled>
+							            <select name="select-choice-email" id="select-choice-email" disabled>
 							            </select>
 							        </li>
 							        <li data-role="fieldcontain">
 							            <label for="select-choice-phone" class="select">Choose phone number:</label>
-							            <select name="select-choice-phone" id="select-choice-phone" data-theme="c" disabled>
+							            <select name="select-choice-phone" id="select-choice-phone" disabled>
 							            </select>
 							        </li>
 							        -->
@@ -313,7 +313,7 @@
 			</article>
 
             <!-- New HTML5 article tag -->
-            <article id="json-art" data-role="page" data-theme="a">
+            <article id="json-art" data-role="page">
                 <!-- Header -->
                 <div data-role="header" class="header" data-position="fixed">
                     <h3>Backbone Quickstart</h3>
@@ -334,7 +334,7 @@
         <td><a href="mailto:<%=member.email%>" class="ui-link"><%=member.email%></a></td>
         <td><a href="tel:<%=member.phoneNumber%>" class="ui-link">Call</a> or <a href="sms:<%=member.phoneNumber%>" class="ui-link">SMS</a> <%=member.phoneNumber%></td>
         <td><a href="#json/<%=member.id%>" class="resturl ui-link">JSON</a></td>
-        <td><a href="#" data-theme="c" data-role="button" data-inline="true" data-icon="plus">Save</a></td>
+        <td><a href="#" data-role="button" data-inline="true" data-icon="plus">Save</a></td>
 	</script>
 
 	<script type="text/template" id="contact-List-tmpl">
@@ -362,12 +362,12 @@
         <li data-role="fieldcontain">
             <label for="select-choice-email" class="select">Choose email:</label>
         	<% if( contact.emails && contact.emails.length > 0 ) { %>
-        		<select name="select-choice-email" id="select-choice-email" data-theme="c">
+        		<select name="select-choice-email" id="select-choice-email">
         	<%	_.each( contact.emails , function(email) { %>
         			<option value="<%= email.value %>"><%= email.value %></option>
     		<% 	}); %>
     		<% } else { %>
-    			<select name="select-choice-email" id="select-choice-email" data-theme="c" disabled>
+    			<select name="select-choice-email" id="select-choice-email" disabled>
     			</select>
 			<% } %>
             </select>
@@ -375,13 +375,13 @@
         <li data-role="fieldcontain">
             <label for="select-choice-phone" class="select">Choose phone number:</label>
         	<% if( contact.phoneNumbers && contact.phoneNumbers. length > 0 ) { %>
-        		<select name="select-choice-phone" id="select-choice-phone" data-theme="c">
+        		<select name="select-choice-phone" id="select-choice-phone">
         	<%	_.each( contact.phoneNumbers , function(phoneNumber) { %>
         			<option value="<%= phoneNumber.value %>"><%= phoneNumber.value %></option>
     		<% 	}); %>
     			</select>
     		<% } else { %>
-    			<select name="select-choice-phone" id="select-choice-phone" data-theme="c" disabled>
+    			<select name="select-choice-phone" id="select-choice-phone" disabled>
     			</select>
 			<% } %>
             </select>
