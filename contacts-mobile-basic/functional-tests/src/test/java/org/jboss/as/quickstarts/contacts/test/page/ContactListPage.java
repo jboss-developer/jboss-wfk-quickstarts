@@ -43,7 +43,9 @@ public class ContactListPage {
     @FindByJQuery("[data-role='header'] a[href='#contacts-list-page']:visible")
     private WebElement showListButton;
 
-    @FindByJQuery("[role='search']")
+//    @FindByJQuery("[data-type='search']")
+//    @FindByJQuery("#filter-form-list-page")
+    @FindByJQuery(".ui-filterable:eq(0)")
     private WebElement filterInput;
 
     public void editContact(String name) {
