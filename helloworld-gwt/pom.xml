@@ -46,10 +46,11 @@
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
-        <version.jboss.bom.wfk>2.5.0-build-2</version.jboss.bom.wfk>
+        <version.org.jboss.spec.jboss.javaee.6.0>3.0.2.Final-redhat-7</version.org.jboss.spec.jboss.javaee.6.0>
+        <version.com.google.gwt>2.6.1</version.com.google.gwt>
 
         <!-- other plugin versions -->
-        <version.org.codehaus.mojo.gwt.maven.plugin>2.5.1</version.org.codehaus.mojo.gwt.maven.plugin>
+        <version.org.codehaus.mojo.gwt.maven.plugin>2.6.1</version.org.codehaus.mojo.gwt.maven.plugin>
         <version.war.plugin>2.1.1</version.war.plugin>
 
         <!-- maven-compiler-plugin -->
@@ -66,13 +67,20 @@
                read this as the JBoss stack of the Java EE Web Profile 6 APIs). 
                You can actually use this stack with any version of JBoss that implements Java EE 6, not 
                just JBoss EAP 6! -->
-            <dependency>
-                <groupId>org.jboss.bom.wfk</groupId>
-                <artifactId>jboss-javaee-6.0-with-errai</artifactId>
-                <version>${version.jboss.bom.wfk}</version>
+             <dependency>
+                <groupId>org.jboss.spec</groupId>
+                <artifactId>jboss-javaee-6.0</artifactId>
+                <version>${version.org.jboss.spec.jboss.javaee.6.0}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
+             </dependency>
+
+             <!-- Google Web Toolkit (GWT) -->
+             <dependency>
+                <groupId>com.google.gwt</groupId>
+                <artifactId>gwt-user</artifactId>
+                <version>${version.com.google.gwt}</version>
+             </dependency>
         </dependencies>
     </dependencyManagement>
 
