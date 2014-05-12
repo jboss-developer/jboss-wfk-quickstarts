@@ -89,13 +89,13 @@ $(function() {
     window.IntroView = Backbone.View.extend({
         events : {
             // Bind the click event on the info button to the 'showInfo' method.
-            "click a[data-icon='info']" : "showInfo"
+            "click a.ui-icon-info" : "showInfo"
         },
 
         render : function() {
             // Change to the jQuery Mobile page with id:'intro-art'.
             // Do not change the hash, since the hashchange was already triggered before navigating to this view.
-            $.mobile.changePage( "#intro-art", { reverse: false, changeHash: false, transition: "none"} );
+            $.mobile.pageContainer.pagecontainer("change", "#intro-art", { reverse: false, changeHash: false, transition: "none"});
         },
 
         showInfo: function(event) {
@@ -137,7 +137,7 @@ $(function() {
 
         render : function() {
             // Change to the jQuery Mobile page with id:'register-art'.
-            $.mobile.changePage( "#register-art", { reverse: false, changeHash: false, transition: "none"} );
+            $.mobile.pageContainer.pagecontainer("change", "#register-art", { reverse: false, changeHash: false, transition: "none"});
             this.resetForm();
         },
 
@@ -289,7 +289,7 @@ $(function() {
         render : function() {
 //			console.log("ListAllMembersView - render() - start");
             // Change to the jQuery Mobile page with id:'member-art'.
-            $.mobile.changePage( "#member-art", { reverse: false, changeHash: false, transition: "none"} );
+            $.mobile.pageContainer.pagecontainer("change", "#member-art", { reverse: false, changeHash: false, transition: "none"});
 
             // Bind the reset event on the Members collection to the addAllMembers method.
             Members.on('reset', this.addAllMembers, this);
