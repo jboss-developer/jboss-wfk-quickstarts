@@ -47,10 +47,10 @@
 
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
         <version.org.jboss.spec.jboss.javaee.6.0>3.0.2.Final-redhat-7</version.org.jboss.spec.jboss.javaee.6.0>
-        <version.com.google.gwt>2.5.1</version.com.google.gwt>
+        <version.com.google.gwt>2.6.1</version.com.google.gwt>
 
         <!-- other plugin versions -->
-        <version.org.codehaus.mojo.gwt.maven.plugin>2.5.1</version.org.codehaus.mojo.gwt.maven.plugin>
+        <version.org.codehaus.mojo.gwt.maven.plugin>2.6.1</version.org.codehaus.mojo.gwt.maven.plugin>
         <version.war.plugin>2.1.1</version.war.plugin>
 
         <!-- maven-compiler-plugin -->
