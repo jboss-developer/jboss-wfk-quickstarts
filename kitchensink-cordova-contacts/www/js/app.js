@@ -94,13 +94,13 @@ $(function() {
     window.IntroView = Backbone.View.extend({
         events : {
             // Bind the click event on the info button to the 'showInfo' method.
-            "click a[data-icon='info']" : "showInfo"
+            "click a.ui-icon-info" : "showInfo"
         },
 
         render : function() {
             // Change to the jQuery Mobile page with id:'intro-art'.
             // Do not change the hash, since the hashchange was already triggered before navigating to this view.
-            $.mobile.changePage( "#intro-art", { reverse: false, changeHash: false, transition: "none"} );
+            $.mobile.pageContainer.pagecontainer("change", "#intro-art", { reverse: false, changeHash: false, transition: "none"});
         },
 
         showInfo: function() {
@@ -144,7 +144,7 @@ $(function() {
 
         render : function() {
             // Change to the jQuery Mobile page with id:'register-art'.
-            $.mobile.changePage( "#register-art", { reverse: false, changeHash: false, transition: "none"} );
+            $.mobile.pageContainer.pagecontainer("change", "#register-art", { reverse: false, changeHash: false, transition: "none"});
             this.resetForm();
         },
 
@@ -268,8 +268,8 @@ $(function() {
             // Bind the click event on the Copy Contact button to the 'copyContact' method.
             "click #copy-contact" : "copyContact",
 
-            // Bind the 'listviewbeforefilter' event on the Contacts list to the 'searchContactForm' method.
-            "listviewbeforefilter #contactsSearch" : "searchContactForm",
+            // Bind the 'filterablebeforefilter' event on the Contacts list to the 'searchContactForm' method.
+            "filterablebeforefilter #contactsSearch" : "searchContactForm",
 
             // Bind the click event on the contact list elements to the 'populateContactFields' method.
             "click [id^='populate-form-']" : "populateContactFields"
@@ -277,7 +277,7 @@ $(function() {
 
         render : function() {
             // Change to the jQuery Mobile page with id:'contact-art'.
-            $.mobile.changePage( "#contact-art", { reverse: false, changeHash: false, transition: "none"} );
+            $.mobile.pageContainer.pagecontainer("change", "#contact-art", { reverse: false, changeHash: false, transition: "none"});
 
             // Reset the page by clearing the search form, and removing any previously displayed contacts.
             this.resetPage();
@@ -327,8 +327,8 @@ $(function() {
         // Invoked when the user has input a value into the filter to search contacts.
         foundContact: function(contacts) {
             var $ul = $( "#contactsSearch" ),
-                // Obtain a reference to the ContactSearchView instance
-                self = window.callbackObj;
+            // Obtain a reference to the ContactSearchView instance
+            self = window.callbackObj;
             self.foundContacts = contacts;
 
             // Update the jQuery Mobile list widget with the search results.
@@ -486,7 +486,7 @@ $(function() {
         render : function() {
 //			console.log("ListAllMembersView - render() - start");
             // Change to the jQuery Mobile page with id:'member-art'.
-            $.mobile.changePage( "#member-art", { reverse: false, changeHash: false, transition: "none"} );
+            $.mobile.pageContainer.pagecontainer("change", "#member-art", { reverse: false, changeHash: false, transition: "none"});
 
             // Bind the reset event on the Members collection to the addAllMembers method.
             Members.on('reset', this.addAllMembers, this);
@@ -544,7 +544,7 @@ $(function() {
 
         render: function() {
             // Change to the jQuery Mobile page with id:'json-art'.
-            $.mobile.changePage( "#json-art", { reverse: false, changeHash: false, transition: "none"} );
+            $.mobile.pageContainer.pagecontainer("change", "#json-art", { reverse: false, changeHash: false, transition: "none"});
             this.showJSON();
             return this;
         },

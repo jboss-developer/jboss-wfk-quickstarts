@@ -41,6 +41,25 @@ a:hover {
     text-decoration: underline;
 }
 
+legend {
+    color: #111111;
+    font-weight: bold;
+}
+
+article > div.ui-content {
+    /* Center the content */
+    margin: 0 auto;
+}
+
+article .wrap {
+    /* Set a background and border for the content to set it apart */
+    background: #cccccc;
+    border: 1px solid #aaaaaa;
+    border-radius: 8px;
+    /* Set padding so the edges are flush */
+    padding: 1em;
+}
+
 .mobileicon {
     padding: 10px;
 }
@@ -107,8 +126,8 @@ span.success {
     float:none;
 }
 
-/* preset breakpoint to switch to stacked grid styles and responsive tables below 28em (448px) */
-@media all and (min-width: 28em) {
+/* preset breakpoint to switch to stacked grid styles and responsive tables below 40em (640px) */
+@media all and (min-width: 40em) {
     .app-responsive .ui-block-a,
     .app-responsive .ui-block-b,
     .app-responsive .ui-block-c,
@@ -127,9 +146,6 @@ span.success {
     .app-responsive thead th {
         display: table-cell;
         margin: 0;
-        white-space: pre-wrap;
-        word-break: break-all;
-        word-break: break-word;
     }
     /* Hide the labels in each cell */
     .app-responsive td .ui-table-cell-label,
@@ -137,9 +153,42 @@ span.success {
         display: none;
     }
 
-    /* Add padding on larger displays */
-    div[data-role="content"] {
-        padding-right: 5%;
-        padding-left: 5%;
+}
+
+/* Set a larger max-width and add more padding as the display size increases. */
+@media all and (min-width: 40em) {
+    article > div.ui-content {
+        /* Set a max-width */
+        max-width: 38em;
     }
+    article .wrap {
+        /* Adding padding */
+        padding: 1em;
+    }
+}
+
+@media all and (min-width: 50em) {
+    article > div.ui-content {
+        /* Set a max-width */
+        max-width: 46em;
+    }
+    article .wrap {
+        /* Adding padding */
+        padding: 2em;
+    }
+}
+
+@media all and (min-width: 60em) {
+    article > div.ui-content {
+        /* Set a max-width */
+        max-width: 54em;
+    }
+    article .wrap {
+        /* Adding padding */
+        padding: 3em;
+    }
+}
+
+.ui-grid-solo .ui-input-search {
+    margin: 0 0.25em;
 }
