@@ -311,6 +311,7 @@
         </div>
     </div>
     
+    <!-- Log in page. -->
     <div data-role="page" id="signin-page" class="ui-page-theme-a" >
         <div data-role="header" data-position="fixed" >
             <h1>Welcome to JBoss Contacts Mobile Application</h1>
@@ -326,7 +327,7 @@
                     <input name="password" id="signin-form-input-password" class="name" data-clear-btn="true" value="" placeholder="Enter your password." type="password"/>
                 </div>
                 <input id="submit-signin-btn" data-inline="true" type="submit" value="Sign In" />
-                <input id="submit-go-signup-btn" data-inline="true" type="button" value="Sign Up" onclick="$.mobile.changePage('#signup-page');"/>
+                <a href="#signup-page" id="submit-go-signup-btn" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Sign Up</a>
             </form>
         </div>
     </div>
@@ -389,7 +390,7 @@
         </div>
     </div>
 
-    <!-- This is for the signup page. -->
+    <!-- Log out page. -->
     <div data-role="page" id="logout-page" class="ui-page-theme-a" >
         <div data-role="header" data-position="fixed" >
             <h1>See you soon!</h1>
@@ -419,7 +420,7 @@
         </div>
     </div>
 
-    <!-- An role assignment dialog. -->
+    <!-- A role assignment dialog. -->
     <div data-role="page" data-dialog="true" id="role-assignment-dialog" class="ui-page-theme-a" >
         <div data-role="header">
             <h1>Role Assignment</h1>

@@ -39,74 +39,64 @@ CONTACTS.security.restListUsersEndpoint = CONTACTS.security.restSecurityEndpoint
 CONTACTS.security.restListRolesEndpoint = CONTACTS.security.restSecurityEndpoint + 'role';
 CONTACTS.security.restAssignRoleEndpoint = CONTACTS.security.restSecurityEndpoint + 'role/assign';
 
-$(document).ready(function() {
+/**
+ * It is recommended to bind to this event instead of DOM ready() because this will work regardless of whether 
+ * the page is loaded directly or if the content is pulled into another page as part of the Ajax navigation system.
+ * 
+ * The first thing you learn in jQuery is to call code inside the $(document).ready() function so everything 
+ * will execute as soon as the DOM is loaded. However, in jQuery Mobile, Ajax is used to load the contents of 
+ * each page into the DOM as you navigate, and the DOM ready handler only executes for the first page. 
+ * To execute code whenever a new page is loaded and created, you can bind to the pagecreate event. 
+ * 
+ * 
+ * These functions perform the Log out and Role Assignments.
+ * 
+ * @author Pedro Igor, Joshua Wilson
+ */
+$( document ).on( "pagecreate", function(mainEvent) {
     //Initialize the vars in the beginning so that you will always have access to them.
     var getCurrentTime = CONTACTS.util.getCurrentTime,
         restSecurityEndpoint = CONTACTS.security.restSecurityEndpoint;
 
-    // Register a handler to be called when Ajax requests complete with an error. Whenever an Ajax request completes 
-	// with an error, jQuery triggers the ajaxError event. Any and all handlers that have been registered with the 
-	// .ajaxError() method are executed at this time. Note: This handler is not called for cross-domain script and 
-	// cross-domain JSONP requests. - from the jQuery docs
-	$(document).ajaxError(function( event, jqXHR, settings, errorThrown ) {
-		// Whenever there is an AJAX event the authentication and authorization is verified. If the user is denied, then
-		// the system will return an error instead of data. This is a 'universal' error catcher for those denials.
-        if (jqXHR.status == 403) {
-        	// Authorization denied. (Do not permissions)
-            $( "body" ).pagecontainer( "change", "#access-denied-dialog", { transition: "pop" });
-            console.log(getCurrentTime() + " [js/security.js] (document.ajaxError) - error in ajax" +
-                    " - jqXHR = " + jqXHR.status +
-                    ", errorThrown = " + errorThrown +
-                    ", responseText = " + jqXHR.responseText);
-            console.log(getCurrentTime() + " [js/security.js] (document.ajaxError) - error in ajax - Event Object ->");
-            console.dir(event);
-            console.log(getCurrentTime() + " [js/security.js] (document.ajaxError) - error in ajax - Settings Object ->");
-    		console.dir(settings);
-        } else if (jqXHR.status == 401) {
-        	// Authentication denied. (Not logged in)
-            $( "body" ).pagecontainer( "change", "#signin-page");
-            console.log(getCurrentTime() + " [js/security.js] (document.ajaxError) - error in ajax" +
-            		" - jqXHR = " + jqXHR.status +
-            		", errorThrown = " + errorThrown +
-            		", responseText = " + jqXHR.responseText);
-            console.log(getCurrentTime() + " [js/security.js] (document.ajaxError) - error in ajax - Event Object ->");
-            console.dir(event);
-            console.log(getCurrentTime() + " [js/security.js] (document.ajaxError) - error in ajax - Settings Object ->");
-            console.dir(settings);
-        }
-    });
-
-    //Initialize all the AJAX form events.
-    var initSecurity = function () {
-    	console.log(getCurrentTime() + " [js/security.js] (initSecurity) - start");
-        //Fetches the initial member data
-        CONTACTS.security.submitSignIn();
-        CONTACTS.security.submitSignUp();
-        CONTACTS.security.submitAssignRole();
-        console.log(getCurrentTime() + " [js/security.js] (initSecurity) - end");
-    };
-
+    /* 
+     * The "pagebeforeshow" event will delay this function until everything is set up.
+     * 
+     * Because of the interesting jQM loading architecture, multiple event triggering is a constant problem. 
+     * The "e.handled" if statement used here and elsewhere is meant to keep jQM from running this code multiple 
+     * times for one display. 
+     */
+    // Log out
     $('#logout-page').on( "pagebeforeshow", function(e) {
-    	console.log(getCurrentTime() + " [js/security.js] (#logout-page -> on pagebeforeshow) - start");
-        var jqxhr = $.ajax({
-            url: CONTACTS.security.restLogoutEndpoint,
-            type: "POST"
-        }).done(function(data, textStatus, jqXHR) {
-            $( "body" ).pagecontainer( "change", '#signin-page');
-        }).fail(function(jqXHR, textStatus, errorThrown) {
-            alert(errorThrown);
-            console.log(getCurrentTime() + " [js/security.js] (#logout-page -> on pagebeforeshow) - error in ajax" +
-            		" - jqXHR = " + jqXHR.status +
-            		", errorThrown = " + errorThrown +
-            		", responseText = " + jqXHR.responseText);
-        });
-        console.log(getCurrentTime() + " [js/security.js] (#logout-page -> on pagebeforeshow) - end");
+    	if(e.handled !== true) {
+	    	console.log(getCurrentTime() + " [js/security.js] (#logout-page -> on pagebeforeshow) - start");
+	        
+	    	var jqxhr = $.ajax({
+	            url: restSecurityEndpoint + 'logout',
+	            type: "POST"
+	        }).done(function(data, textStatus, jqXHR) {
+	        	console.log(getCurrentTime() + " [js/security.js] (#logout-page -> on pagebeforeshow) - Successfully logged out");
+	        	
+	        	// Once you have successfully logged out, redirect them to the log in page.
+	            $( "body" ).pagecontainer( "change", '#signin-page');
+	        }).fail(function(jqXHR, textStatus, errorThrown) {
+	            alert(errorThrown);
+	            console.log(getCurrentTime() + " [js/security.js] (#logout-page -> on pagebeforeshow) - error in ajax" +
+	            		" - jqXHR = " + jqXHR.status +
+	            		", errorThrown = " + errorThrown +
+	            		", responseText = " + jqXHR.responseText);
+	        });
+	        
+	        e.handled = true;
+	        console.log(getCurrentTime() + " [js/security.js] (#logout-page -> on pagebeforeshow) - end");
+    	}
     });
 
+    // Role Assignment
     $('#role-assignment-page').on( "pagebeforeshow", function(e) {
-    	console.log(getCurrentTime() + " [js/security.js] (#role-assignment-page -> on pagebeforeshow) - start");
         if(e.handled !== true) {
-            $('#role-assignment-users-select')
+        	console.log(getCurrentTime() + " [js/security.js] (#role-assignment-page -> on pagebeforeshow) - start");
+            
+        	$('#role-assignment-users-select')
                 .find('option')
                 .remove()
                 .end()
@@ -153,10 +143,64 @@ $(document).ready(function() {
                         ", errorThrown = " + errorThrown +
                         ", responseText = " + jqXHR.responseText);
             });
+            
             e.handled = true;
+            console.log(getCurrentTime() + " [js/security.js] (#role-assignment-page -> on pagebeforeshow) - end");
         }
-        console.log(getCurrentTime() + " [js/security.js] (#role-assignment-page -> on pagebeforeshow) - end");
     });
+});
+
+/**
+ * The regural jQuery AJAX functions go here.  We do all the jQuery Mobile security work in the section above this.
+ * 
+ * @author Pedro Igor, Joshua Wilson
+ */
+$(document).ready(function() {
+    //Initialize the vars in the beginning so that you will always have access to them.
+    var getCurrentTime = CONTACTS.util.getCurrentTime,
+        restSecurityEndpoint = CONTACTS.security.restSecurityEndpoint;
+
+    // Register a handler to be called when Ajax requests complete with an error. Whenever an Ajax request completes 
+	// with an error, jQuery triggers the ajaxError event. Any and all handlers that have been registered with the 
+	// .ajaxError() method are executed at this time. Note: This handler is not called for cross-domain script and 
+	// cross-domain JSONP requests. - from the jQuery docs
+	$(document).ajaxError(function( event, jqXHR, settings, errorThrown ) {
+		// Whenever there is an AJAX event the authentication and authorization is verified. If the user is denied, then
+		// the system will return an error instead of data. This is a 'universal' error catcher for those denials.
+        if (jqXHR.status == 403) {
+        	// Authorization denied. (Do not permissions)
+            $( "body" ).pagecontainer( "change", "#access-denied-dialog", { transition: "pop" });
+            console.log(getCurrentTime() + " [js/security.js] (document.ajaxError) - error in ajax" +
+                    " - jqXHR = " + jqXHR.status +
+                    ", errorThrown = " + errorThrown +
+                    ", responseText = " + jqXHR.responseText);
+            console.log(getCurrentTime() + " [js/security.js] (document.ajaxError) - error in ajax - Event Object ->");
+            console.dir(event);
+            console.log(getCurrentTime() + " [js/security.js] (document.ajaxError) - error in ajax - Settings Object ->");
+    		console.dir(settings);
+        } else if (jqXHR.status == 401) {
+        	// Authentication denied. (Not logged in)
+            $( "body" ).pagecontainer( "change", "#signin-page");
+            console.log(getCurrentTime() + " [js/security.js] (document.ajaxError) - error in ajax" +
+            		" - jqXHR = " + jqXHR.status +
+            		", errorThrown = " + errorThrown +
+            		", responseText = " + jqXHR.responseText);
+            console.log(getCurrentTime() + " [js/security.js] (document.ajaxError) - error in ajax - Event Object ->");
+            console.dir(event);
+            console.log(getCurrentTime() + " [js/security.js] (document.ajaxError) - error in ajax - Settings Object ->");
+            console.dir(settings);
+        }
+    });
+
+    //Initialize all the AJAX form events.
+    var initSecurity = function () {
+    	console.log(getCurrentTime() + " [js/security.js] (initSecurity) - start");
+        //Fetches the initial member data
+        CONTACTS.security.submitSignIn();
+        CONTACTS.security.submitSignUp();
+        CONTACTS.security.submitAssignRole();
+        console.log(getCurrentTime() + " [js/security.js] (initSecurity) - end");
+    };
 
     /**
      * Attempts to sign up using a JAX-RS POST.
