@@ -31,57 +31,57 @@ $( document ).on( "pagecreate", function(mainEvent) {
     console.log(getCurrentTime() + " [js/theming.js] (document -> pagecreate) - start");
     
     // Dynamically set the theme based on the option selected in the popup. 
-    $('#theme-button-a').click(function() {
+    $("#theme-button-a").click(function() {
     	console.log(getCurrentTime() + " [js/theming.js] (#theme-button-a -> click) - start");
-        theme = 'a';
+        theme = "a";
         changeTheme();
         console.log(getCurrentTime() + " [js/theming.js] (#theme-button-a -> click) - end");
     });
     
     // Dynamically set the theme based on the option selected in the popup. 
-    $('#theme-button-b').click(function() {
+    $("#theme-button-b").click(function() {
     	console.log(getCurrentTime() + " [js/theming.js] (#theme-button-b -> click) - start");
-    	theme = 'b';
+    	theme = "b";
     	changeTheme();
     	console.log(getCurrentTime() + " [js/theming.js] (#theme-button-b -> click) - end");
     });
     
     // Dynamically set the theme based on the option selected in the popup. 
-    $('#theme-button-c').click(function() {
+    $("#theme-button-c").click(function() {
     	console.log(getCurrentTime() + " [js/theming.js] (#theme-button-c -> click) - start");
-    	theme = 'c';
+    	theme = "c";
     	changeTheme();
     	console.log(getCurrentTime() + " [js/theming.js] (#theme-button-c -> click) - end");
     });
     
     // Dynamically set the theme based on the option selected in the popup. 
-    $('#theme-button-d').click(function() {
+    $("#theme-button-d").click(function() {
     	console.log(getCurrentTime() + " [js/theming.js] (#theme-button-d -> click) - start");
-    	theme = 'd';
+    	theme = "d";
     	changeTheme();
     	console.log(getCurrentTime() + " [js/theming.js] (#theme-button-d -> click) - end");
     });
     
     // Dynamically set the theme based on the option selected in the popup. 
-    $('#theme-button-e').click(function() {
+    $("#theme-button-e").click(function() {
     	console.log(getCurrentTime() + " [js/theming.js] (#theme-button-e -> click) - start");
-    	theme = 'e';
+    	theme = "e";
     	changeTheme();
     	console.log(getCurrentTime() + " [js/theming.js] (#theme-button-e -> click) - end");
     });
     
     // Dynamically set the theme based on the option selected in the popup. 
-    $('#theme-button-f').click(function() {
+    $("#theme-button-f").click(function() {
     	console.log(getCurrentTime() + " [js/theming.js] (#theme-button-f -> click) - start");
-    	theme = 'f';
+    	theme = "f";
     	changeTheme();
     	console.log(getCurrentTime() + " [js/theming.js] (#theme-button-f -> click) - end");
     });
     
     // Dynamically set the theme based on the option selected in the popup. 
-    $('#theme-button-g').click(function() {
+    $("#theme-button-g").click(function() {
     	console.log(getCurrentTime() + " [js/theming.js] (#theme-button-g -> click) - start");
-    	theme = 'g';
+    	theme = "g";
     	changeTheme();
     	console.log(getCurrentTime() + " [js/theming.js] (#theme-button-g -> click) - end");
     });
@@ -90,15 +90,15 @@ $( document ).on( "pagecreate", function(mainEvent) {
     	console.log(getCurrentTime() + " [js/theming.js] (changeTheme) - theme = " + theme);
     	
     	// Keep the submit buttons in the alternate theme for contrast.
-    	if (theme !== 'a') {
-    		$('.ui-btn-b').removeClass('ui-btn-b').addClass('ui-btn-a');
+    	if (theme !== "a") {
+    		$(".ui-btn-b").removeClass("ui-btn-b").addClass("ui-btn-a");
     	} else {
-    		$('.ui-btn-a').removeClass('ui-btn-a').addClass('ui-btn-b');
+    		$(".ui-btn-a").removeClass("ui-btn-a").addClass("ui-btn-b");
     	}
     	
     	// Go through all the Pages and remove whatever they they currently have and apply the selected theme.
-        $('[data-role="page"]').removeClass('ui-page-theme-a ui-page-theme-b ui-page-theme-c ui-page-theme-d ui-page-theme-e')
-                               .addClass('ui-page-theme-' + theme);
+        $("[data-role='page']").removeClass("ui-page-theme-a ui-page-theme-b ui-page-theme-c ui-page-theme-d ui-page-theme-e")
+                               .addClass("ui-page-theme-" + theme);
     }
     
     

@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-CONTACTS.namespace('CONTACTS.submissions.submitCreate');
-CONTACTS.namespace('CONTACTS.submissions.submitUpdate');
-CONTACTS.namespace('CONTACTS.submissions.deleteContact');
+CONTACTS.namespace("CONTACTS.submissions.submitCreate");
+CONTACTS.namespace("CONTACTS.submissions.submitUpdate");
+CONTACTS.namespace("CONTACTS.submissions.deleteContact");
 
 /**
  * Listen for and handle the Create, Update, and Delete actions of the app.
@@ -42,9 +42,9 @@ $(document).ready(function() {
                 if (!o[this.name].push) {
                     o[this.name] = [o[this.name]];
                 }
-                o[this.name].push(this.value || '');
+                o[this.name].push(this.value || "");
             } else {
-                o[this.name] = this.value || '';
+                o[this.name] = this.value || "";
             }
         });
         return o;
@@ -91,7 +91,7 @@ $(document).ready(function() {
                  * to the form in the HTML.  Then we manually change the page when the form is successfully submitted. 
                  * Since we are manually changing the page we avoid this issue altogether.  
                  */ 
-//                $('#contacts-list-page').remove();
+//                $("#contacts-list-page").remove();
                 
                 // Transform the form fields into JSON.
                 // Must pull from the specific form so that we get the right data in case another form has data in it.
@@ -127,17 +127,17 @@ $(document).ready(function() {
                     CONTACTS.validation.formEmail = null;
                     
                     // Clear the form or else the next time you go to add a contact the last one will still be there.
-                    $('#contacts-add-form')[0].reset();
+                    $("#contacts-add-form")[0].reset();
                     
                     // Remove errors display as a part of the validation system.
-                    $('.invalid').remove();
+                    $(".invalid").remove();
                     
                     // Because we turned off the automatic page transition to catch server side error we need to do it ourselves.
                     $("body").pagecontainer("change", "#contacts-list-page");
                     
                 }).fail(function(jqXHR, textStatus, errorThrown) {
                     // Remove any errors that are not a part of the validation system.
-                    $('.invalid').remove();
+                    $(".invalid").remove();
                     
                     // Check for server side validation errors.  This should catch the email uniqueness validation.
                     if ((jqXHR.status === 409) || (jqXHR.status === 400)) {
@@ -157,10 +157,10 @@ $(document).ready(function() {
                         
                         // We only want to set this flag if there is actual email error.
                         $.each(errorMsg, function(index, val) {
-                            if (index === 'email'){
+                            if (index === "email"){
                                 // Get the contact email and set it for comparison in the form validation.
                                 $.each(contact, function(index, val){
-                                    // This will look for an element with the name of 'email' and pull it's value.
+                                    // This will look for an element with the name of "email" and pull it's value.
                                     if (val.name == "email"){
                                         CONTACTS.validation.formEmail = val.value;
                                         return false;
@@ -230,7 +230,7 @@ $(document).ready(function() {
                  * There is a bug in the jQM that causes the list of results on the main page to be blank the first 
                  * time you submit a form.  After the first time the list display correctly. This is caused when 
                  * the first div gets removed by jQM and added back. This creates a problem for the very first time.
-                 * That is because jQM does not apply the listener to 'getContacts()' to the new page because there are 
+                 * That is because jQM does not apply the listener to "getContacts()" to the new page because there are 
                  * 2 versions of the first div in the DOM at one time.  So if we remove the div early it acts like it
                  * does every time after the first.  It gets the listener applied and it will fired at the right time.
                  * 
@@ -238,11 +238,11 @@ $(document).ready(function() {
                  * 
                  * UDPATE: After we figured out what the cause was, we implemented a fix for the validation process that 
                  * fixed this problem as a side effect.  In order to display errors that are sent back from the server
-                 * side validation we need to keep the form from transitioning.  We do that by adding 'data-ajax="false"'
+                 * side validation we need to keep the form from transitioning.  We do that by adding "data-ajax="false""
                  * to the form in the HTML.  Then we manually change the page when the form is successfully submitted. 
                  * Since we are manually changing the page we avoid this issue altogether.  
                  */ 
-//                $('#contacts-list-page').remove();
+//                $("#contacts-list-page").remove();
 
                 // Obtain the contact ID, to use in constructing the REST URI.
                 var contactId = $("#contacts-edit-input-id").val();
@@ -281,14 +281,14 @@ $(document).ready(function() {
                     CONTACTS.validation.formEmail = null;
                     
                     // Remove errors display as a part of the validation system.
-                    $('.invalid').remove();
+                    $(".invalid").remove();
                     
                     // Because we turned off the automatic page transition to catch server side error we need to do it ourselves.
                     $("body").pagecontainer("change", "#contacts-list-page");
                     
                 }).fail(function(jqXHR, textStatus, errorThrown) {
                     // Remove any errors that are not a part of the validation system.
-                    $('.invalid').remove();
+                    $(".invalid").remove();
                     
                     // Check for server side validation errors.  This should catch the email uniqueness validation.
                     if ((jqXHR.status === 409) || (jqXHR.status === 400)) {
@@ -308,10 +308,10 @@ $(document).ready(function() {
                         
                         // We only want to set this flag if there is actual email error.
                         $.each(errorMsg, function(index, val) {
-                            if (index === 'email'){
+                            if (index === "email"){
                                 // Get the contact email and set it for comparison in the form validation.
                                 $.each(contact, function(index, val){
-                                    // This will look for an element with the name of 'email' and pull it's value.
+                                    // This will look for an element with the name of "email" and pull it's value.
                                     if (val.name == "email"){
                                         CONTACTS.validation.formEmail = val.value;
                                         return false;
@@ -401,11 +401,11 @@ $(document).ready(function() {
                 CONTACTS.validation.editContactsFormValidator.resetForm();
                 
                 // Remove errors display as a part of the validation system.
-                $('.invalid').remove();
+                $(".invalid").remove();
                 
             }).fail(function(jqXHR, textStatus, errorThrown) {
                 // Remove any errors that are not a part of the validation system.
-                $('.invalid').remove();
+                $(".invalid").remove();
                 
                 console.log(getCurrentTime() + " [js/submissions.js] (deleteContact) - error in ajax" +
                         " - jqXHR = " + jqXHR.status +

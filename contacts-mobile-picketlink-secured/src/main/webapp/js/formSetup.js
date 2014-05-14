@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 
-CONTACTS.namespace('CONTACTS.validation.displayServerSideErrors');
-CONTACTS.namespace('CONTACTS.validation.validateName');
-CONTACTS.namespace('CONTACTS.validation.formEmail');
-CONTACTS.namespace('CONTACTS.validation.validateEmailUniqueness');
-CONTACTS.namespace('CONTACTS.validation.addContactsFormValidator');
-CONTACTS.namespace('CONTACTS.validation.editContactsFormValidator');
+CONTACTS.namespace("CONTACTS.validation.displayServerSideErrors");
+CONTACTS.namespace("CONTACTS.validation.validateName");
+CONTACTS.namespace("CONTACTS.validation.formEmail");
+CONTACTS.namespace("CONTACTS.validation.validateEmailUniqueness");
+CONTACTS.namespace("CONTACTS.validation.addContactsFormValidator");
+CONTACTS.namespace("CONTACTS.validation.editContactsFormValidator");
 
 /**
  * Configure the HTML forms to hide the standard form buttons (they will be displayed in the footer). And to set up 
@@ -40,13 +40,13 @@ $( document ).on( "pagecreate", function(mainEvent) {
      */
     
     // Hide the actual form buttons so that we can use proxy buttons in the footer.
-    $('#contacts-add-page').on( "pagebeforeshow", function(e) {
+    $("#contacts-add-page").on( "pagebeforeshow", function(e) {
         if(e.handled !== true) {
             console.log(getCurrentTime() + " [js/formSetup.js] (#contacts-add-page -> pagebeforeshow) - start");
             
-            $('#submit-add-btn').parent().hide();
-            $('#clear-add-btn').parent().hide();
-            $('#cancel-add-btn').parent().hide();
+            $("#submit-add-btn").parent().hide();
+            $("#clear-add-btn").parent().hide();
+            $("#cancel-add-btn").parent().hide();
             
             e.handled = true;
             console.log(getCurrentTime() + " [js/formSetup.js] (#contacts-add-page -> pagebeforeshow) - end");
@@ -56,13 +56,13 @@ $( document ).on( "pagecreate", function(mainEvent) {
     });
 
     // Hide the actual form buttons so that we can use proxy buttons in the footer.
-    $('#contacts-edit-page').on( "pagebeforeshow", function(e) {
+    $("#contacts-edit-page").on( "pagebeforeshow", function(e) {
         if(e.handled !== true) {
             console.log(getCurrentTime() + " [js/formSetup.js] (#contacts-edit-page -> pagebeforeshow) - start");
             
-            $('#submit-edit-btn').parent().hide();
-            $('#clear-edit-btn').parent().hide();
-            $('#cancel-edit-btn').parent().hide();
+            $("#submit-edit-btn").parent().hide();
+            $("#clear-edit-btn").parent().hide();
+            $("#cancel-edit-btn").parent().hide();
             
             e.handled = true;
             console.log(getCurrentTime() + " [js/formSetup.js] (#contacts-edit-page -> pagebeforeshow) - end");
@@ -72,7 +72,7 @@ $( document ).on( "pagecreate", function(mainEvent) {
     // The Clear button will remove data and validation marks but leave you in the form.
     // The Cancel button will clear the form and return you to the main page.
     //   The Cancel button has a link on it and that is what differentiates them. Otherwise they both need to clear the form.
-    $('#clear-add-btn, #cancel-add-btn').on("click", function(e) {
+    $("#clear-add-btn, #cancel-add-btn").on("click", function(e) {
         if(e.handled !== true) {
             console.log(getCurrentTime() + " [js/formSetup.js] (#clear-add-btn, #cancel-add-btn -> on click) - start");
             
@@ -85,7 +85,7 @@ $( document ).on( "pagecreate", function(mainEvent) {
             }
             
             // Remove any errors that are not a part of the validation system.
-            $('.invalid').remove();
+            $(".invalid").remove();
             
             e.handled = true;
             console.log(getCurrentTime() + " [js/formSetup.js] (#clear-add-btn, #cancel-add-btn -> on click) - end");
@@ -93,18 +93,18 @@ $( document ).on( "pagecreate", function(mainEvent) {
     });
     
     // This Clear button will remove unsaved changes and validation marks while leaving you in the form.
-    $('#clear-edit-btn').on("click", function(e) {
+    $("#clear-edit-btn").on("click", function(e) {
         if(e.handled !== true) {
             console.log(getCurrentTime() + " [js/formSetup.js] (#clear-edit-btn -> on click) - start");
             
             // Get the contact ID before we wipe the form. 
-            var contactID = $('input#contacts-edit-input-id').attr('value');
+            var contactID = $("input#contacts-edit-input-id").attr("value");
             
             // Remove errors display as a part of the validation system. 
             CONTACTS.validation.editContactsFormValidator.resetForm();
             
             // Remove any errors that are not a part of the validation system.
-            $('.invalid').remove();
+            $(".invalid").remove();
             
             // Since we are only "clearing" the form we need to put back the original data.
             CONTACTS.app.getContactById(contactID);
@@ -115,7 +115,7 @@ $( document ).on( "pagecreate", function(mainEvent) {
     });
     
     // This Cancel button will clear the form and return you to the main page.
-    $('#cancel-edit-btn').on("click", function(e) {
+    $("#cancel-edit-btn").on("click", function(e) {
         if(e.handled !== true) {
             console.log(getCurrentTime() + " [js/formSetup.js] (#cancel-edit-btn -> on click) - start");
             
@@ -127,7 +127,7 @@ $( document ).on( "pagecreate", function(mainEvent) {
             CONTACTS.validation.formEmail = null;
             
             // Remove any errors that are not a part of the validation system.
-            $('.invalid').remove();
+            $(".invalid").remove();
             
             e.handled = true;
             console.log(getCurrentTime() + " [js/formSetup.js] (#cancel-edit-btn -> on click) - end");

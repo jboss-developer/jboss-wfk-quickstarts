@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 
-CONTACTS.namespace('CONTACTS.util.getCurrentDate');
-CONTACTS.namespace('CONTACTS.util.getCurrentTime');
-CONTACTS.namespace('CONTACTS.util.getCurrentDateTime');
-CONTACTS.namespace('CONTACTS.util.convertMillisToDate');
-CONTACTS.namespace('CONTACTS.util.convertDateStringToOffsetUTC');
-CONTACTS.namespace('CONTACTS.util.convertDateStringToOffsetUTC');
+CONTACTS.namespace("CONTACTS.util.getCurrentDate");
+CONTACTS.namespace("CONTACTS.util.getCurrentTime");
+CONTACTS.namespace("CONTACTS.util.getCurrentDateTime");
+CONTACTS.namespace("CONTACTS.util.convertMillisToDate");
+CONTACTS.namespace("CONTACTS.util.convertDateStringToOffsetUTC");
+CONTACTS.namespace("CONTACTS.util.convertDateStringToOffsetUTC");
 
 /**
  * Abstract away generic functions that are used by all.
@@ -32,9 +32,9 @@ CONTACTS.util.getCurrentDate = function() {
     var month = d.getMonth()+1;
     var day = d.getDate();
 
-    var output = d.getFullYear() + '-' +
-        (month<10 ? '0' : '') + month + '-' +
-        (day<10 ? '0' : '') + day;
+    var output = d.getFullYear() + "-" +
+        (month<10 ? "0" : "") + month + "-" +
+        (day<10 ? "0" : "") + day;
     
     return output;
 };
@@ -46,16 +46,16 @@ CONTACTS.util.getCurrentTime = function() {
     var sec = d.getSeconds();
     var millisec = d.getMilliseconds();
     
-    var output = (hour<10 ? '0' : '') + hour + ":" + 
-                 (min<10 ? '0' : '') + min + ":" + 
-                 (sec<10 ? '0' : '') + sec + "," + 
-                 (millisec<10 ? '0' : (millisec<100 ? '0' : '')) + millisec;
+    var output = (hour<10 ? "0" : "") + hour + ":" + 
+                 (min<10 ? "0" : "") + min + ":" + 
+                 (sec<10 ? "0" : "") + sec + "," + 
+                 (millisec<10 ? "0" : (millisec<100 ? "0" : "")) + millisec;
     
     return output;
 };
 
 CONTACTS.util.getCurrentDateTime = function() {
-    var output = CONTACTS.util.getCurrentDate() + ' ' + CONTACTS.util.getCurrentTime();
+    var output = CONTACTS.util.getCurrentDate() + " " + CONTACTS.util.getCurrentTime();
     return output;
 };
 
@@ -72,9 +72,9 @@ CONTACTS.util.convertMillisToDate = function(milliseconds) {
     var day = d.getDate();
 
     // Create a String of the date but add in zeros where needed so that month and day take up 2 fields.
-    var output = d.getFullYear() + '-' +
-        (month<10 ? '0' : '') + month + '-' +
-        (day<10 ? '0' : '') + day;
+    var output = d.getFullYear() + "-" +
+        (month<10 ? "0" : "") + month + "-" +
+        (day<10 ? "0" : "") + day;
     
     return output;
 };

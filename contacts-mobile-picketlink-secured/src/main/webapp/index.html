@@ -71,10 +71,10 @@
             <ul data-role="listview" id="contacts-list-page-menu-panel-listview">
                 <li><a href="#contacts-add-page">Add Contact</a></li>
                 <li><a href="#contacts-detail-list-page">Detailed List</a></li>
-                <li><a href="#about-page">About</a></li>
-                <li id="role-assignment-menu"><a href="#role-assignment-page">Role Assignment</a></li>
-                <li><a href="#logout-page">Logout</a></li>
+                <li class="role-assignment-menu"><a href="#role-assignment-page">Role Assignment</a></li>
                 <li><a href="#contacts-theming-dialog" data-rel="popup" data-position-to="window">Themes</a></li>
+                <li><a href="#about-page">About</a></li>
+                <li><a href="#logout-page">Logout</a></li>
             </ul>
         </div>
         <div data-role="header" data-position="fixed" >
@@ -112,6 +112,7 @@
             <ul data-role="listview" id="contacts-detail-list-page-menu-panel-listview">
                 <li><a href="#contacts-add-page">Add Contact</a></li>
                 <li><a href="#contacts-list-page">List view</a></li>
+                <li class="role-assignment-menu"><a href="#role-assignment-page">Role Assignment</a></li>
                 <li><a href="#about-page">About</a></li>
                 <li><a href="#logout-page">Logout</a></li>
             </ul>
@@ -362,8 +363,8 @@
 
     <!-- This is for the role assignment page. -->
     <div data-role="page" id="role-assignment-page" class="ui-page-theme-a" >
-        <div data-role="panel" id="contacts-list-page-menu-panel">
-            <ul data-role="listview" id="contacts-list-page-menu-panel-listview">
+        <div data-role="panel" id="role-assignment-page-menu-panel">
+            <ul data-role="listview" id="role-assignment-page-menu-panel-listview">
                 <li><a href="#contacts-add-page">Add Contact</a></li>
                 <li><a href="#contacts-list-page">List view</a></li>
                 <li><a href="#about-page">About</a></li>
@@ -371,9 +372,10 @@
             </ul>
         </div>
         <div data-role="header" data-position="fixed" >
-            <a href="#contacts-list-page-menu-panel" id="contacts-list-page-menu-button" data-role="button" data-icon="bars" data-iconpos="notext" data-mini="true" data-inline="true">Menu</a>
+            <a href="#role-assignment-page-menu-panel" id="role-assignment-page-menu-button" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-notext ui-mini ui-btn-inline">Menu</a>
             <h1>Role Assignment</h1>
-            <a href="#contacts-detail-list-page" id="contacts-detail-list-page-button" data-role="button" data-icon="arrow-d" data-iconpos="right" data-mini="true" data-inline="true">Details</a>
+            <a href="#contacts-list-page" id="contacts-list-role-assignment-page-button" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-d ui-btn-icon-right ui-mini ui-btn-inline">List</a>
+            
         </div>
         <div role="main" class="ui-content">
             <form name="role-assignment-form" id="role-assignment-form" class="contact_info" method="post" data-ajax="false">
@@ -416,7 +418,7 @@
         </div>
         <div data-role="content">
             <h3>Please, try again.</h3>
-            <a href="#signin-page" id="signin-page" data-transition="pop" data-role="button" data-inline="true">Ok</a>
+            <a href="#signin-page" id="invalid-credentials-dialog-ok-btn" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Ok</a>
         </div>
     </div>
 
@@ -427,6 +429,7 @@
         </div>
         <div data-role="content">
             <h3>Role successfuly assigned to user.</h3>
+            <a href="#contacts-list-page" id="role-assignment-dialog-ok-btn" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Ok</a>
         </div>
     </div>
 </body>

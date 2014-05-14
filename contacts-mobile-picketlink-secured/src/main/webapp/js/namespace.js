@@ -46,7 +46,7 @@
 var CONTACTS = CONTACTS || {};
 
 CONTACTS.namespace = function (ns_string) {
-    var parts = ns_string.split('.'),
+    var parts = ns_string.split("."),
         parent = CONTACTS,
         i;
     

@@ -15,14 +15,14 @@
  * limitations under the License.
  */
 
-CONTACTS.namespace('CONTACTS.app.getContacts');
-CONTACTS.namespace('CONTACTS.app.buildContactList');
-CONTACTS.namespace('CONTACTS.app.getContactById');
-CONTACTS.namespace('CONTACTS.app.buildContactDetail');
-CONTACTS.namespace('CONTACTS.app.restEndpoint');
+CONTACTS.namespace("CONTACTS.app.getContacts");
+CONTACTS.namespace("CONTACTS.app.buildContactList");
+CONTACTS.namespace("CONTACTS.app.getContactById");
+CONTACTS.namespace("CONTACTS.app.buildContactDetail");
+CONTACTS.namespace("CONTACTS.app.restEndpoint");
 
 //Set this variable for all Contacts REST APIs base URL.
-CONTACTS.app.restEndpoint = 'rest/contacts';
+CONTACTS.app.restEndpoint = "rest/contacts";
 
 /**
  * It is recommended to bind to this event instead of DOM ready() because this will work regardless of whether 
@@ -54,20 +54,20 @@ $( document ).on( "pagecreate", function(mainEvent) {
      * The "e.handled" if statement used here and elsewhere is meant to keep jQM from running this code multiple 
      * times for one display. 
      */
-    $('#contacts-list-page').on( "pagebeforeshow", function(e) {
+    $("#contacts-list-page").on( "pagebeforeshow", function(e) {
         if(e.handled !== true) {
             console.log(getCurrentTime() + " [js/app.js] (#contacts-list-page -> pagebeforeshow) - start");
             
             // Fetches the initial Contact data.
             CONTACTS.app.getContacts();
 
-            // here we hide the 'Role Assignment' menu item for non admin users.
-            if (currentUser) {
-                $('#user-name-page-message').text(currentUser.account.loginName);
-                if (!currentUser.admin) {
-                    $("#role-assignment-menu").addClass('ui-screen-hidden');
+            // Here we hide the "Role Assignment" menu item for non admin users.
+            if (CONTACTS.security.currentUser) {
+                $("#user-name-page-message").text(CONTACTS.security.currentUser.account.loginName);
+                if (!CONTACTS.security.currentUser.admin) {
+                    $(".role-assignment-menu").addClass("ui-screen-hidden");
                 } else {
-                    $("#role-assignment-menu").removeClass('ui-screen-hidden');
+                    $(".role-assignment-menu").removeClass("ui-screen-hidden");
                 }
             }
             
@@ -76,7 +76,7 @@ $( document ).on( "pagecreate", function(mainEvent) {
         }
     });
     
-    // This is called on 'pagebeforeshow' above and by the CONTACTS.submissions
+    // This is called on "pagebeforeshow" above and by the CONTACTS.submissions
     // Uses JAX-RS GET to retrieve current contact list. 
     CONTACTS.app.getContacts = function () {
         console.log(getCurrentTime() + " [js/app.js] (getContacts) - start");
@@ -130,37 +130,37 @@ $( document ).on( "pagecreate", function(mainEvent) {
         });
         
         // Start with a clean list element otherwise we would have repeats.
-        $('#contacts-display-listview').empty();
+        $("#contacts-display-listview").empty();
         
         // Check if it is already initialized or not, refresh the list in case it is initialized otherwise trigger create.
-        if ( $('#contacts-display-listview').hasClass('ui-listview')) {
+        if ( $("#contacts-display-listview").hasClass("ui-listview")) {
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-listview - hasClass ui-listview) - append.listview - start");
-            $('#contacts-display-listview').append(contactList).listview("refresh", true);
+            $("#contacts-display-listview").append(contactList).listview("refresh", true);
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-listview - hasClass ui-listview) - append.listview - end");
         } 
         else {
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-listview - !hasClass ui-listview) - append.enhanceWithin - start");
-            $('#contacts-display-listview').append(contactList).enhanceWithin();
+            $("#contacts-display-listview").append(contactList).enhanceWithin();
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-listview - !hasClass ui-listview) - append.enhanceWithin - end");
         }        
         
         // Start with a clean list element otherwise we would have repeats.
-        $('#contacts-display-detail-listview').empty();
+        $("#contacts-display-detail-listview").empty();
         
         // check if it is already initialized or not, refresh the list in case it is initialized otherwise trigger create
-        if ( $('#contacts-display-detail-listview').hasClass('ui-listview')) {
+        if ( $("#contacts-display-detail-listview").hasClass("ui-listview")) {
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-detail-listview - hasClass ui-listview) - append.listview - start");
-            $('#contacts-display-detail-listview').append(contactDetailList).listview("refresh", true);
+            $("#contacts-display-detail-listview").append(contactDetailList).listview("refresh", true);
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-detail-listview - hasClass ui-listview) - append.listview - end");
         } 
         else {
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-detail-listview - !hasClass ui-listview) - append.enhanceWithin - start");
-            $('#contacts-display-detail-listview').append(contactDetailList).enhanceWithin();
+            $("#contacts-display-detail-listview").append(contactDetailList).enhanceWithin();
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-detail-listview - !hasClass ui-listview) - append.enhanceWithin - end");
         }        
         
         // Attach onclick event to each row of the contact list that will open up the contact info to be edited.
-        $('.contacts-list-item').on("click", function(event){
+        $(".contacts-list-item").on("click", function(event){
             if(event.handled !== true) {
                 console.log(getCurrentTime() + " [js/app.js] (.contacts-display-listview -> on click) - start");
                 
@@ -172,7 +172,7 @@ $( document ).on( "pagecreate", function(mainEvent) {
         });
         
         // Attach onclick event to each row of the contact list detailed page that will open up the contact info to be edited.
-        $('li.contacts-detail-list-item').on("click", function(event){
+        $("li.contacts-detail-list-item").on("click", function(event){
             if(event.handled !== true) {
                 console.log(getCurrentTime() + " [js/app.js] (li.contacts-display-listview -> on click) - start");
                 
@@ -219,12 +219,12 @@ $( document ).on( "pagecreate", function(mainEvent) {
         console.log(getCurrentTime() + " [js/app.js] (buildContactDetail) - start");
         
         // Put each field value in the text input on the page.
-        $('#contacts-edit-input-firstName').val(contact.firstName);
-        $('#contacts-edit-input-lastName').val(contact.lastName);
-        $('#contacts-edit-input-tel').val(contact.phoneNumber);
-        $('#contacts-edit-input-email').val(contact.email);
-        $('#contacts-edit-input-date').val(contact.birthDate);
-        $('#contacts-edit-input-id').val(contact.id);
+        $("#contacts-edit-input-firstName").val(contact.firstName);
+        $("#contacts-edit-input-lastName").val(contact.lastName);
+        $("#contacts-edit-input-tel").val(contact.phoneNumber);
+        $("#contacts-edit-input-email").val(contact.email);
+        $("#contacts-edit-input-date").val(contact.birthDate);
+        $("#contacts-edit-input-id").val(contact.id);
         
         console.log(getCurrentTime() + " [js/app.js] (buildContactDetail) - end");
         // Add in a line to visually see when we are done.

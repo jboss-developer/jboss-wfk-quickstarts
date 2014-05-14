@@ -15,13 +15,13 @@
  * limitations under the License.
  */
 
-CONTACTS.namespace('CONTACTS.validation.displayServerSideErrors');
-CONTACTS.namespace('CONTACTS.validation.validateName');
-CONTACTS.namespace('CONTACTS.validation.formEmail');
-CONTACTS.namespace('CONTACTS.validation.validateEmailUniqueness');
-CONTACTS.namespace('CONTACTS.validation.runFormValidators');
-CONTACTS.namespace('CONTACTS.validation.addContactsFormValidator');
-CONTACTS.namespace('CONTACTS.validation.editContactsFormValidator');
+CONTACTS.namespace("CONTACTS.validation.displayServerSideErrors");
+CONTACTS.namespace("CONTACTS.validation.validateName");
+CONTACTS.namespace("CONTACTS.validation.formEmail");
+CONTACTS.namespace("CONTACTS.validation.validateEmailUniqueness");
+CONTACTS.namespace("CONTACTS.validation.runFormValidators");
+CONTACTS.namespace("CONTACTS.validation.addContactsFormValidator");
+CONTACTS.namespace("CONTACTS.validation.editContactsFormValidator");
 
 /**
  * jQuery Mobile and moblie devices do not currently support HTML5 form validation.  Therefore, basic things like 
@@ -58,12 +58,12 @@ $(document).ready(function() {
     CONTACTS.validation.displayServerSideErrors = function (pageID, errorMsg) {
         var validator = $( pageID ).validate();
         
-        // Look at each error 'key' and determine where to display the message.
+        // Look at each error "key" and determine where to display the message.
         $.each(errorMsg, function(index, val) {
-            // Look for a form input with the 'key' from the error.
+            // Look for a form input with the "key" from the error.
             var inputElementExist = $(pageID + " input[name='" + index + "']");
             // If the form input exists then apply the error message to that input, if not display it at the top of the form.
-            if (inputElementExist.length == 1) {
+            if (inputElementExist.length === 1) {
                 // Build singular errorMsg object.
                 var errorObj = {};
                 errorObj[index] = val;
@@ -71,13 +71,13 @@ $(document).ready(function() {
                 validator.showErrors(errorObj);
             } else {
                 // Display the error message at the top of the form.
-                $('<div class="invalid">' + val + '</div>').prependTo($(pageID));
+                $("<div class='invalid'>" + val + "</div>").prependTo($(pageID));
             }
         });
     };
     
-    // Add a 'max' attribute to the Birth Date fields to set the maximum allowed date to today.
-    $('.birthDate').attr('max', function() {
+    // Add a "max" attribute to the Birth Date fields to set the maximum allowed date to today.
+    $(".birthDate").attr("max", function() {
         return CONTACTS.util.getCurrentDate();
     });
 
@@ -97,14 +97,14 @@ $(document).ready(function() {
             var date = new Date(y, m - 1, d);
             // Check to see if the new date matches the original date.  If something like Feb 31 was used originally, 
             // it will automatically get converted to Mar 02.  These dates would not match. 
-            return (date.getFullYear() == y && date.getMonth() + 1 == m && date.getDate() == d);
+            return (date.getFullYear() === y && date.getMonth() + 1 === m && date.getDate() === d);
         } else {
             // The date passed into the regex did not get parsed.
             return false;
         }
     };
     
-    // Create a custom method for the Validator to check if a 'birth date' is formatted correctly.
+    // Create a custom method for the Validator to check if a "birth date" is formatted correctly.
     $.validator.addMethod("birthdate", function(value, element) {
         return this.optional(element) || CONTACTS.validation.validateBirthDate(value);
     }, "Only valid date formats like yyyy-mm-dd. (hint: There are only 12 months and at most 31 days.)");
@@ -117,7 +117,7 @@ $(document).ready(function() {
         return parseName.test(name);
     };
     
-    // Create a custom method for the Validator to check if a 'name' is formatted correctly.
+    // Create a custom method for the Validator to check if a "name" is formatted correctly.
     $.validator.addMethod("personName", function(value, element) {
         return this.optional(element) || CONTACTS.validation.validateName(value);
     }, "Please use a name without numbers or specials.");
@@ -144,10 +144,10 @@ $(document).ready(function() {
      *  We need a way to make apply the form validation in cases where the forms don't exist yet, like the unit tests.
      */ 
     CONTACTS.validation.runFormValidators = function() {
-        // Set up the validator for the 'add' form.
+        // Set up the validator for the "add" form.
         // NOTE: I tried setting it up to use the form class but then it only applied the validation to the first form.
         //       It appears that the plugin only works when it is givin only 1 form at a time. 
-        CONTACTS.validation.addContactsFormValidator = $('#contacts-add-form').validate({
+        CONTACTS.validation.addContactsFormValidator = $("#contacts-add-form").validate({
             rules: {
                 firstName: {
                     required: true,
@@ -202,11 +202,11 @@ $(document).ready(function() {
         }); 
         
         /**
-         * Set up the validator for the 'edit' form.
+         * Set up the validator for the "edit" form.
          * NOTE: I tried setting it up to use the form class but then it only applied the validation to the first form.
          *       It appears that the plugin only works when it is givin only 1 form at a time. 
          */
-        CONTACTS.validation.editContactsFormValidator = $('#contacts-edit-form').validate({
+        CONTACTS.validation.editContactsFormValidator = $("#contacts-edit-form").validate({
             rules: {
                 firstName: {
                     required: true,
@@ -261,11 +261,11 @@ $(document).ready(function() {
         });
 
         /**
-         * Set up the validator for the 'signup' form.
+         * Set up the validator for the "signup" form.
          * NOTE: I tried setting it up to use the form class but then it only applied the validation to the first form.
          *       It appears that the plugin only works when it is givin only 1 form at a time.
          */
-        CONTACTS.validation.signUpFormValidator = $('#signup-form').validate({
+        CONTACTS.validation.signUpFormValidator = $("#signup-form").validate({
             rules: {
                 firstName: {
                     required: true,
@@ -281,6 +281,7 @@ $(document).ready(function() {
                 },
                 userName: {
                     required: true,
+                    email: true
                 },
                 password: {
                     required: true
@@ -293,7 +294,7 @@ $(document).ready(function() {
                 lastName: {
                     required: "Please specify a last name."
                 },
-                email: {
+                userName: {
                     required: "Please enter an e-mail.",
                     email: "The email address must be in the format of name@company.domain."
                 },
@@ -304,11 +305,11 @@ $(document).ready(function() {
         });
 
         /**
-         * Set up the validator for the 'signin' form.
+         * Set up the validator for the "signin" form.
          * NOTE: I tried setting it up to use the form class but then it only applied the validation to the first form.
          *       It appears that the plugin only works when it is givin only 1 form at a time.
          */
-        CONTACTS.validation.signInFormValidator = $('#signin-form').validate({
+        CONTACTS.validation.signInFormValidator = $("#signin-form").validate({
             rules: {
                 loginName: {
                     required: true
@@ -328,11 +329,11 @@ $(document).ready(function() {
         });
 
         /**
-         * Set up the validator for the 'signin' form.
+         * Set up the validator for the "signin" form.
          * NOTE: I tried setting it up to use the form class but then it only applied the validation to the first form.
          *       It appears that the plugin only works when it is givin only 1 form at a time.
          */
-        CONTACTS.validation.assignRoleFormValidator = $('#role-assignment-form').validate({
+        CONTACTS.validation.assignRoleFormValidator = $("#role-assignment-form").validate({
             rules: {
                 userName: {
                     required: true

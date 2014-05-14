@@ -82,7 +82,7 @@ public class UserService {
     }
 
     /**
-     * <p>A simple class representing an user from a client perspective. It will usually be returned by the server with all user information, using JSON.</p>
+     * <p>A simple class representing a user from a client perspective. It will usually be returned by the server with all user information, using JSON.</p>
      */
     public static class AuthenticatedUser {
 
