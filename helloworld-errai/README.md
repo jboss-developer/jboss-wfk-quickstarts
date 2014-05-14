@@ -5,7 +5,7 @@ Level: Beginner
 Technologies: Errai, JAX-RS, GWT  
 Summary: Helloworld using the Errai framework  
 Target Product: WFK  
-Product Versions: EAP 6.1, EAP 6.2, WFK 2.5  
+Product Versions: EAP 6.1, EAP 6.2, WFK 2.6  
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
 
 What is it?

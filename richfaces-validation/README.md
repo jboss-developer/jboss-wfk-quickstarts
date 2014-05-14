@@ -5,7 +5,7 @@ Level: Beginner
 Technologies: RichFaces  
 Summary: Demonstrates RichFaces and bean validation  
 Target Product: WFK  
-Product Versions: EAP 6.1, EAP 6.2, WFK 2.5  
+Product Versions: EAP 6.1, EAP 6.2, WFK 2.6  
 Source: <https://github.com/richfaces/as-quickstarts>  
 
 What is it?

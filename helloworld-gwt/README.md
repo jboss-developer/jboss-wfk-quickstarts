@@ -5,7 +5,7 @@ Level: Beginner
 Technologies: GWT  
 Summary: Demonstrates the use of CDI 1.0 and JAX-RS with a GWT front-end client  
 Target Product: WFK  
-Product Versions: EAP 6.1, EAP 6.2, WFK 2.5  
+Product Versions: EAP 6.1, EAP 6.2, WFK 2.6  
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
 
 What is it?
