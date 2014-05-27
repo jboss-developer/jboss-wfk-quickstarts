@@ -410,7 +410,7 @@ $(function() {
 
 		events : {
             // Bind the click event on the Save button to the 'saveContact' method.
-			"click a[data-icon='plus']" : "saveContact"
+			"click a.ui-icon-plus" : "saveContact"
 		},
 
 		// The HTML that gets created will be inserted into a parent element defined here.
