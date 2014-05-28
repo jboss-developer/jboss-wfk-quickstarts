@@ -5,7 +5,7 @@ Level: Intermediate
 Technologies: HTML5, REST, Apache Cordova  
 Summary: Based on kitchensink, but uses hybrid HTML5 running as a native application on mobiles  
 Target Product: WFK  
-Product Versions: EAP 6.1, EAP 6.2, WFK 2.5  
+Product Versions: EAP 6.1, EAP 6.2, WFK 2.6  
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
 
 What is it?

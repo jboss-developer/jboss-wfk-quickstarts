@@ -5,7 +5,7 @@ Level: Intermediate
 Technologies: CDI, JSF, JPA, EJB, JPA, JAX-RS, BV, RichFaces  
 Summary: The canonical JSF kitchensink quickstart implemented with JSF and RichFaces  
 Target Product: WFK  
-Product Versions: EAP 6.1, EAP 6.2, WFK 2.5  
+Product Versions: EAP 6.1, EAP 6.2, WFK 2.6  
 Source: <https://github.com/richfaces/jdf-quickstarts>  
 
 What is it?

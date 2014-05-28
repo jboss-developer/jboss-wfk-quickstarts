@@ -1,0 +1,546 @@
+<!DOCTYPE html><html><head><title>README</title><link href="http://www.jboss.org/jdf/stylesheets/documentation.css" rel="stylesheet"></link><link href="http://www.jboss.org/jdf/stylesheets/pygments.css" rel="stylesheet"></link></head><body>
+<h1><a id="red-hat-jboss-web-framework-kit-wfk-quickstarts" class="anchor" href="#red-hat-jboss-web-framework-kit-wfk-quickstarts"><span class="anchor-icon"></span></a>Red Hat JBoss Web Framework Kit (WFK) Quickstarts</h1>
+
+<p>Summary: The quickstarts demonstrate Java EE 6 and a few additional technologies from the JBoss stack. They provide small, specific, working examples that can be used as a reference for your own project.</p>
+
+<h2><a id="introduction" class="anchor" href="#introduction"><span class="anchor-icon"></span></a>Introduction</h2>
+
+<p>These quickstarts run on Red Hat JBoss Enterprise Application Platform 6.1 or later with the Red Hat JBoss Web Framework Kit. We recommend using the JBoss EAP ZIP file. This version uses the correct dependencies and ensures you test and compile against your runtime environment. </p>
+
+<p>Be sure to read this entire document before you attempt to work with the quickstarts. It contains the following information:</p>
+
+<ul>
+<li><p><a href="#available-quickstarts">Available Quickstarts</a>: List of the available quickstarts and details about each one.</p></li>
+<li><p><a href="#suggested-approach-to-the-quickstarts">Suggested Approach to the Quickstarts</a>: A suggested approach on how to work with the quickstarts.</p></li>
+<li><p><a href="#system-requirements">System Requirements</a>: List of software required to run the quickstarts.</p></li>
+<li><p><a href="#configure-maven">Configure Maven</a>: How to configure the Maven repository for use by the quickstarts.</p></li>
+<li><p><a href="#run-the-quickstarts">Run the Quickstarts</a>: General instructions for building, deploying, and running the quickstarts.</p></li>
+<li><p><a href="#run-the-arquillian-tests">Run the Arquillian Tests</a>: How to run the Arquillian tests provided by some of the quickstarts.</p></li>
+<li><p><a href="#build-and-deploy-the-quickstart-to-openshift">Build and Deploy the Quickstart - to OpenShift</a>: Deploy the application to OpenShift</p></li>
+<li><p><a href="#optional-components">Optional Components</a>: How to install and configure optional components required by some of the quickstarts.</p></li>
+</ul>
+
+<h2><a id="available-quickstarts" class="anchor" href="#available-quickstarts"><span class="anchor-icon"></span></a>Available Quickstarts</h2>
+
+<p>The following is a list of the currently available quickstarts. The table lists each quickstart name, the technologies it demonstrates, gives a brief description of the quickstart, and the level of experience required to set it up. For more detailed information about a quickstart, click on the quickstart name.</p>
+
+<p>Some quickstarts are designed to enhance or extend other quickstarts. These are noted in the <strong>Prerequisites</strong> column. If a quickstart lists prerequisites, those must be installed or deployed before working with the quickstart.</p>
+
+<p>Quickstarts with tutorials in the <a href="http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/" title="Get Started Developing Applications">Get Started Developing Applications</a> are noted with two asterisks ( ** ) following the quickstart name. </p>
+
+<p><em>Note:</em> The quickstart README files use the replaceable value <code>EAP_HOME</code> to denote the path to the JBoss EAP 6 installation. When you encounter this value in a README file, be sure to replace it with the actual path to your JBoss EAP 6 installation. The &lsquo;JBOSS_HOME&rsquo; environment variable, which is used in scripts, continues to work as it has in the past.</p>
+
+<table><thead><tr><th align='left'><strong>Quickstart Name</strong></th><th align='left'><strong>Demonstrated Technologies</strong></th><th align='left'><strong>Description</strong></th><th align='left'><strong>Experience Level Required</strong></th><th align='left'><strong>Prerequisites</strong></th></tr></thead><tbody><tr><td align='left'><a href='cdi-add-interceptor-binding/README.html' title='cdi-add-interceptor-binding'>cdi-add-interceptor-binding</td><td align='left'>  DeltaSpike, CDI</td><td align='left'>Creating a basic CDI extension to automatically add an interceptor binding</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='contacts-mobile-basic/README.html' title='contacts-mobile-basic'>contacts-mobile-basic</td><td align='left'>  HTML5,  JavaScript,  REST,  jQuery, jQuery Mobile</td><td align='left'>A basic example of CRUD operations in a mobile only website.</td><td align='left'>Beginner</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='deltaspike-authorization/README.html' title='deltaspike-authorization'>deltaspike-authorization</td><td align='left'>  CDI,  Deltaspike, JSF</td><td align='left'>Demonstrate the creation of a custom authorization example using @SecurityBindingType from DeltaSpike</td><td align='left'>Beginner</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='deltaspike-beanbuilder/README.html' title='deltaspike-beanbuilder'>deltaspike-beanbuilder</td><td align='left'>  DeltaSpike, CDI</td><td align='left'>Shows how to create new beans using DeltaSpike utilities.</td><td align='left'>Advanced</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='deltaspike-beanmanagerprovider/README.html' title='deltaspike-beanmanagerprovider'>deltaspike-beanmanagerprovider</td><td align='left'>  Deltaspike,  JPA,  JSF, CDI</td><td align='left'>Shows how to use DeltaSpike BeanManagerProvider to access CDI in a EntityListener</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='deltaspike-deactivatable/README.html' title='deltaspike-deactivatable'>deltaspike-deactivatable</td><td align='left'>  DeltaSpike, CDI</td><td align='left'>Demonstrate usage of Deactivatable.</td><td align='left'>Beginner</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='deltaspike-exception-handling/README.html' title='deltaspike-exception-handling'>deltaspike-exception-handling</td><td align='left'>  DeltaSpike,  JSF, CDI</td><td align='left'>Exception being handled by different handlers and purpose</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='deltaspike-helloworld-jms/README.html' title='deltaspike-helloworld-jms'>deltaspike-helloworld-jms</td><td align='left'>  CDI,  DeltaSpike, JMS</td><td align='left'>Demonstrates a JMS client using DeltaSpike configuration properties</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='deltaspike-partialbean-advanced/README.html' title='deltaspike-partialbean-advanced'>deltaspike-partialbean-advanced</td><td align='left'>  DeltaSpike, CDI</td><td align='left'>Demonstrates a partial bean providing a dynamic implementation of a generic Entity Query service</td><td align='left'>Advanced</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='deltaspike-partialbean-basic/README.html' title='deltaspike-partialbean-basic'>deltaspike-partialbean-basic</td><td align='left'>  DeltaSpike, CDI</td><td align='left'>Demonstrates a class providing a dynamic implementation of a DeltaSpike Partial Bean</td><td align='left'>Advanced</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='deltaspike-projectstage/README.html' title='deltaspike-projectstage'>deltaspike-projectstage</td><td align='left'>  CDI,  Deltaspike, JSF</td><td align='left'>Demonstrate usage of DeltaSpike project stage and shows usage of a conditional @Exclude</td><td align='left'>Beginner</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='helloworld-errai/README.html' title='helloworld-errai'>helloworld-errai</td><td align='left'>  GWT,  JAX-RS, Errai</td><td align='left'>Helloworld using the Errai framework</td><td align='left'>Beginner</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='helloworld-gwt/README.html' title='helloworld-gwt'>helloworld-gwt</td><td align='left'> GWT</td><td align='left'>Demonstrates the use of CDI 1.0 and JAX-RS with a GWT front-end client</td><td align='left'>Beginner</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='helloworld-html5/README.html' title='helloworld-html5'>helloworld-html5</td><td align='left'>  HTML5,  JAX-RS, CDI</td><td align='left'>Basic HTML5 |Demonstrates the use of CDI 1.0 and JAX-RS using the HTML5 architecture and RESTful services on the backend</td><td align='left'>Beginner</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='helloworld-rf/README.html' title='helloworld-rf'>helloworld-rf</td><td align='left'>  JSF,  RichFaces, CDI</td><td align='left'>Similar to the helloworld quickstart, but with a JSF and RichFaces front end</td><td align='left'>Beginner</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='kitchensink-angularjs/README.html' title='kitchensink-angularjs'>kitchensink-angularjs</td><td align='left'>  BV,  CDI,  EJB,  JAX-RS,  JPA,  JPA, AngularJS</td><td align='left'>An example that incorporates multiple technologies</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='kitchensink-angularjs-bootstrap/README.html' title='kitchensink-angularjs-bootstrap'>kitchensink-angularjs-bootstrap</td><td align='left'>  BV,  CDI,  EJB,  JAX-RS,  JPA,  JPA, AngularJS</td><td align='left'>An example that incorporates multiple technologies</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='kitchensink-backbone/README.html' title='kitchensink-backbone'>kitchensink-backbone</td><td align='left'>  BV,  CDI,  EJB,  JAX-RS,  JPA,  JPA, Backbone</td><td align='left'>An example of Backbone.js integrated with jQuery, REST, and a Java back-end running on JBoss.</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='kitchensink-cordova/README.html' title='kitchensink-cordova'>kitchensink-cordova</td><td align='left'>  Apache Cordova,  REST, HTML5</td><td align='left'>Based on kitchensink, but uses hybrid HTML5 running as a native application on mobiles</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='kitchensink-cordova-contacts/README.html' title='kitchensink-cordova-contacts'>kitchensink-cordova-contacts</td><td align='left'>  Apache Cordova,  REST, HTML5</td><td align='left'>Based on kitchensink, but uses hybrid HTML5 running as a native application on mobiles</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='kitchensink-deltaspike/README.html' title='kitchensink-deltaspike'>kitchensink-deltaspike</td><td align='left'>  BV,  DeltaSpike,  JAX-RS,  JPA,  JPA,  JSF, CDI</td><td align='left'>A version of kitchensink that uses DeltaSpike @Transactional</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='kitchensink-html5-mobile/README.html' title='kitchensink-html5-mobile'>kitchensink-html5-mobile</td><td align='left'>  HTML5,  REST, CDI</td><td align='left'>Based on kitchensink, but uses HTML5, making it suitable for mobile and tablet computers</td><td align='left'>Beginner</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='kitchensink-rf/README.html' title='kitchensink-rf'>kitchensink-rf</td><td align='left'>  BV,  EJB,  JAX-RS,  JPA,  JPA,  JSF,  RichFaces, CDI</td><td align='left'>The canonical JSF kitchensink quickstart implemented with JSF and RichFaces</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='richfaces-validation/README.html' title='richfaces-validation'>richfaces-validation</td><td align='left'> RichFaces</td><td align='left'>Demonstrates RichFaces and bean validation</td><td align='left'>Beginner</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='shrinkwrap-resolver/README.html' title='shrinkwrap-resolver'>shrinkwrap-resolver</td><td align='left'>  Arquillian,  Shrinkwrap, CDI</td><td align='left'>Demonstrate usage of some Shrinkwrap resolver use cases</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='spring-greeter/README.html' title='spring-greeter'>spring-greeter</td><td align='left'>  JSP,  and JPA 2.0, Spring MVC</td><td align='left'>Demonstrates the use of JPA 2.0 and JSP in Red Hat JBoss Enterprise Application Platform 6.1 or later.</td><td align='left'>Beginner</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='spring-kitchensink-asyncrequestmapping/README.html' title='spring-kitchensink-asyncrequestmapping'>spring-kitchensink-asyncrequestmapping</td><td align='left'>  JPA,  JSON,  JUnit,  Spring, JSP</td><td align='left'>An example that incorporates multiple technologies</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='spring-kitchensink-basic/README.html' title='spring-kitchensink-basic'>spring-kitchensink-basic</td><td align='left'>  JPA,  JSON,  JUnit,  Spring, JSP</td><td align='left'>An example that incorporates multiple technologies</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='spring-kitchensink-controlleradvice/README.html' title='spring-kitchensink-controlleradvice'>spring-kitchensink-controlleradvice</td><td align='left'>  JPA,  JSON,  JUnit,  Spring, JSP</td><td align='left'>An example that incorporates multiple technologies</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='spring-kitchensink-matrixvariables/README.html' title='spring-kitchensink-matrixvariables'>spring-kitchensink-matrixvariables</td><td align='left'>  JPA,  JSON,  JUnit,  Spring, JSP</td><td align='left'>An example that incorporates multiple technologies</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='spring-kitchensink-springmvctest/README.html' title='spring-kitchensink-springmvctest'>spring-kitchensink-springmvctest</td><td align='left'>  JPA,  JSON,  JUnit,  Spring, JSP</td><td align='left'>An example that incorporates multiple technologies</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='spring-petclinic/README.html' title='spring-petclinic'>spring-petclinic</td><td align='left'>  AOP,  JMX,  JSP,  Junit,  Spring Data,  Spring MVC Annotations,  and Dandellion,  webjars, JPA 2.0</td><td align='left'>An example that incorporates multiple technologies in Red Hat JBoss Enterprise Application Platform 6.1 or later.</td><td align='left'>Advanced</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='spring-resteasy/README.html' title='spring-resteasy'>spring-resteasy</td><td align='left'>  Spring, Resteasy</td><td align='left'>Basic example demonstrating how a spring application can be packaged for JBoss EAP</td><td align='left'>Beginner</td><td align='left'> </td></tr>
+</table></table>
+
+<h2><a id="suggested-approach-to-the-quickstarts" class="anchor" href="#suggested-approach-to-the-quickstarts"><span class="anchor-icon"></span></a>Suggested Approach to the Quickstarts</h2>
+
+<p>We suggest you approach the quickstarts as follows:</p>
+
+<ul>
+<li>Regardless of your level of expertise, we suggest you start with the <strong>helloworld-html5</strong> quickstart. It is the simplest example and is an easy way to prove your server is configured and started correctly.</li>
+<li>If you are a beginner or new to JBoss, start with the quickstarts labeled <strong>Beginner</strong>, then try those marked as <strong>Intermediate</strong>. When you are comfortable with those, move on to the <strong>Advanced</strong> quickstarts.</li>
+<li>Some quickstarts are based upon other quickstarts but have expanded capabilities and functionality. If a prerequisite quickstart is listed, be sure to deploy and test it before looking at the expanded version.</li>
+</ul>
+
+<h2><a id="system-requirements" class="anchor" href="#system-requirements"><span class="anchor-icon"></span></a>System Requirements</h2>
+
+<p>The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the  Red Hat JBoss Web Framework Kit (WFK) 2.5.</p>
+
+<p>To run these quickstarts with the provided build scripts, you need the following:</p>
+
+<ol>
+<li><p>Java 1.6, to run JBoss AS and Maven. You can choose from the following:</p>
+
+<ul>
+<li>OpenJDK</li>
+<li>Oracle Java SE</li>
+<li>Oracle JRockit</li>
+</ul></li>
+<li><p>Maven 3.0.0 or later, to build and deploy the examples</p>
+
+<ul>
+<li>If you have not yet installed Maven, see the <a href="http://maven.apache.org/guides/getting-started/index.html">Maven Getting Started Guide</a> for details.</li>
+<li><p>If you have installed Maven, you can check the version by typing the following in a command line:</p>
+<div class="highlight"><pre><span class="n">mvn</span> <span class="o">--</span><span class="n">version</span> 
+</pre></div></li>
+</ul></li>
+<li><p>The JBoss EAP distribution ZIP.</p>
+
+<ul>
+<li>For information on how to install and run JBoss, refer to the product documentation.</li>
+</ul></li>
+<li><p>You can also use <a href="#use-jboss-developer-studio-or-eclipse-to-run-the-quickstarts">JBoss Developer Studio or Eclipse</a> to run the quickstarts. </p></li>
+</ol>
+
+<h2><a id="configure-maven" class="anchor" href="#configure-maven"><span class="anchor-icon"></span></a>Configure Maven</h2>
+
+<h3><a id="configure-maven-to-build-and-deploy-the-quickstarts" class="anchor" href="#configure-maven-to-build-and-deploy-the-quickstarts"><span class="anchor-icon"></span></a>Configure Maven to Build and Deploy the Quickstarts</h3>
+
+<p>The quickstarts use artifacts located in the JBoss GA and Early Access repositories. You must configure Maven to use these repositories before you build and deploy the quickstarts. </p>
+
+<p><em>Note: These instructions assume you are working with a released version of the quickstarts. If you are working with the quickstarts located in the GitHub master branch, follow the instructions located in the <a href="CONTRIBUTING.html#configure-maven">Contributing Guide</a>.</em></p>
+
+<ol>
+<li><p>Locate the Maven install directory for your operating system. It is usually installed in <code>${user.home}/.m2/</code>. </p>
+<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span> <span class="n">or</span> <span class="n">Mac</span><span class="o">:</span>   <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span>
+    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="s">&quot;\Documents and Settings\USER_NAME\.m2</span><span class="se">\&quot;</span><span class="s">  -or-  &quot;</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">USER_NAME</span><span class="err">\</span><span class="p">.</span><span class="n">m2</span><span class="err">\</span><span class="s">&quot;</span>
+</pre></div></li>
+<li><p>If you have an existing <code>settings.xml</code> file, rename it so you can restore it later.</p>
+<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span> <span class="n">or</span> <span class="n">Mac</span><span class="o">:</span>  <span class="n">mv</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">settings</span><span class="p">.</span><span class="n">xml</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">settings</span><span class="o">-</span><span class="n">backup</span><span class="p">.</span><span class="n">xml</span>
+    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">ren</span> <span class="s">&quot;\Documents and Settings\USER_NAME\.m2\settings.xml&quot;</span> <span class="n">settings</span><span class="o">-</span><span class="n">backup</span><span class="p">.</span><span class="n">xml</span>
+            <span class="o">-</span><span class="n">or</span><span class="o">-</span> <span class="n">ren</span> <span class="s">&quot;\Users\USER_NAME\.m2\settings.xml&quot;</span> <span class="n">settings</span><span class="o">-</span><span class="n">backup</span><span class="p">.</span><span class="n">xml</span>
+</pre></div></li>
+<li><p>If you have an existing <code>repository/</code> directory, rename it so you can restore it later. For example</p>
+<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span> <span class="n">or</span> <span class="n">Mac</span><span class="o">:</span>  <span class="n">mv</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">repository</span><span class="o">/</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">repository</span><span class="o">-</span><span class="n">backup</span><span class="o">/</span>
+    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">ren</span> <span class="s">&quot;\Documents and Settings\USER_NAME\.m2</span><span class="se">\r</span><span class="s">epository</span><span class="se">\&quot;</span><span class="s"> repository-backup</span>
+            <span class="o">-</span><span class="n">or</span><span class="o">-</span> <span class="n">ren</span> <span class="s">&quot;\Users\USER_NAME\.m2</span><span class="se">\r</span><span class="s">epository</span><span class="se">\&quot;</span><span class="s"> repository-backup</span>
+</pre></div></li>
+<li><p>Copy the <code>settings.xml</code> file from the root of the quickstarts directory to your Maven install directory.</p>
+<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span> <span class="n">or</span> <span class="n">Mac</span><span class="o">:</span>  <span class="n">cp</span> <span class="n">QUICKSTART_HOME</span><span class="o">/</span><span class="n">settings</span><span class="p">.</span><span class="n">xml</span>  <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">settings</span><span class="p">.</span><span class="n">xml</span>
+    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">copy</span> <span class="n">QUICKSTART_HOME</span><span class="o">/</span><span class="n">settings</span><span class="p">.</span><span class="n">xml</span> <span class="s">&quot;\Documents and Settings\USER_NAME\.m2\settings.xml&quot;</span>
+            <span class="o">-</span><span class="n">or</span><span class="o">-</span> <span class="n">copy</span> <span class="n">QUICKSTART_HOME</span><span class="o">/</span><span class="n">settings</span><span class="p">.</span><span class="n">xml</span> <span class="s">&quot;\Users\USER_NAME\.m2\settings.xml&quot;</span>
+</pre></div></li>
+</ol>
+
+<p><em>Note:</em> If you do not wish to configure the Maven settings, you must pass the configuration setting on every Maven command as follows: <code>-s QUICKSTART_HOME/settings.xml</code></p>
+
+<h3><a id="restore-your-maven-configuration-when-you-finish-testing-the-quickstarts" class="anchor" href="#restore-your-maven-configuration-when-you-finish-testing-the-quickstarts"><span class="anchor-icon"></span></a>Restore Your Maven Configuration When You Finish Testing the Quickstarts</h3>
+
+<ol>
+<li><p>Locate the Maven install directory for your operating system. It is usually installed in <code>${user.home}/.m2/</code>. </p>
+<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span> <span class="n">or</span> <span class="n">Mac</span><span class="o">:</span>   <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span>
+    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="s">&quot;\Documents and Settings\USER_NAME\.m2</span><span class="se">\&quot;</span><span class="s">  -or-  &quot;</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">USER_NAME</span><span class="err">\</span><span class="p">.</span><span class="n">m2</span><span class="err">\</span><span class="s">&quot;</span>
+</pre></div></li>
+<li><p>Restore the <code>settings.xml</code> file/</p>
+<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span> <span class="n">or</span> <span class="n">Mac</span><span class="o">:</span>  <span class="n">mv</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">settings</span><span class="o">-</span><span class="n">backup</span><span class="p">.</span><span class="n">xml</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">settings</span><span class="p">.</span><span class="n">xml</span>
+    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">ren</span> <span class="s">&quot;\Documents and Settings\USER_NAME\.m2\settings-backup.xml&quot;</span> <span class="n">settings</span><span class="p">.</span><span class="n">xml</span>
+            <span class="o">-</span><span class="n">or</span><span class="o">-</span> <span class="n">ren</span> <span class="s">&quot;\Users\USER_NAME\.m2\settings-backup.xml&quot;</span> <span class="n">settings</span><span class="p">.</span><span class="n">xml</span>
+</pre></div></li>
+<li><p>Restore the <code>repository/</code> directory</p>
+<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span> <span class="n">or</span> <span class="n">Mac</span><span class="o">:</span>  <span class="n">mv</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">repository</span><span class="o">-</span><span class="n">backup</span><span class="o">/</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">repository</span><span class="o">/</span>
+    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">ren</span> <span class="s">&quot;\Documents and Settings\USER_NAME\.m2</span><span class="se">\r</span><span class="s">epository-backup</span><span class="se">\&quot;</span><span class="s"> repository</span>
+            <span class="o">-</span><span class="n">or</span><span class="o">-</span> <span class="n">ren</span> <span class="s">&quot;\Users\USER_NAME\.m2</span><span class="se">\r</span><span class="s">epository-backup</span><span class="se">\&quot;</span><span class="s"> repository</span>
+</pre></div></li>
+</ol>
+
+<h3><a id="maven-profiles" class="anchor" href="#maven-profiles"><span class="anchor-icon"></span></a>Maven Profiles</h3>
+
+<p>Profiles are used by Maven to customize the build environment. The <code>pom.xml</code> in the root of the quickstart directory defines the following profiles:</p>
+
+<ul>
+<li>The <code>default</code> profile defines the list of modules or quickstarts that require nothing but JBoss Enterprise Application Platform.</li>
+<li>The <code>non-maven</code> profile lists quickstarts that do not require Maven, for example, quickstarts that use other Frameworks or technologies.</li>
+<li>The <code>functional-tests</code> profile lists quickstarts that provide functional tests.</li>
+</ul>
+
+<h2><a id="run-the-quickstarts" class="anchor" href="#run-the-quickstarts"><span class="anchor-icon"></span></a>Run the Quickstarts</h2>
+
+<p>The root folder of each individual quickstart contains a README file with specific details on how to build and run the example. In most cases you do the following:</p>
+
+<ul>
+<li><a href="#start-the-jboss-eap-server">Start the JBoss EAP server</a></li>
+<li><a href="#build-and-deploy-the-quickstarts">Build and deploy the quickstarts</a></li>
+</ul>
+
+<h3><a id="start-the-jboss-eap-server" class="anchor" href="#start-the-jboss-eap-server"><span class="anchor-icon"></span></a>Start the JBoss EAP Server</h3>
+
+<p>Before you deploy a quickstart, in most cases you need a running JBoss EAP server. A few of the Arquillian tests do not require a running server. This will be noted in the README for that quickstart. </p>
+
+<p>The JBoss EAP server can be started a few different ways.</p>
+
+<ul>
+<li><a href="#start-the-default-jboss-eap-server">Start the Default JBoss EAP Server</a>: This is the default configuration. It defines minimal subsystems and services.</li>
+<li><a href="#start-the-jboss-eap-server-with-the-full-profile">Start the JBoss EAP Server with the <em>full</em> profile</a>: This profile configures many of the commonly used subsystems and services.</li>
+<li><a href="#start-the-jboss-eap-server-with-custom-configuration-options">Start the JBoss EAP Server with a custom configuration</a>: Custom configuration parameters can be specified on the command line when starting the server.</li>
+</ul>
+
+<p>The README for each quickstart will specify which configuration is required to run the example.</p>
+
+<h4><a id="start-the-default-jboss-eap-server" class="anchor" href="#start-the-default-jboss-eap-server"><span class="anchor-icon"></span></a>Start the Default JBoss EAP Server</h4>
+
+<p>To start JBoss EAP:</p>
+
+<ol>
+<li>Open a command line and navigate to the root of the JBoss EAP directory.</li>
+<li><p>The following shows the command line to start the JBoss EAP server:</p>
+<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">EAP_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">standalone</span><span class="p">.</span><span class="n">sh</span>
+<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">EAP_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">standalone</span><span class="p">.</span><span class="n">bat</span>
+</pre></div></li>
+</ol>
+
+<h4><a id="start-the-jboss-eap-server-with-the-full-profile" class="anchor" href="#start-the-jboss-eap-server-with-the-full-profile"><span class="anchor-icon"></span></a>Start the JBoss EAP Server with the Full Profile</h4>
+
+<p>To start JBoss EAP with the Full Profile:</p>
+
+<ol>
+<li>Open a command line and navigate to the root of the JBoss EAP directory.</li>
+<li><p>The following shows the command line to start the JBoss EAP server with the full profile:</p>
+<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">EAP_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">standalone</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">c</span> <span class="n">standalone</span><span class="o">-</span><span class="n">full</span><span class="p">.</span><span class="n">xml</span>
+<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">EAP_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">standalone</span><span class="p">.</span><span class="n">bat</span> <span class="o">-</span><span class="n">c</span> <span class="n">standalone</span><span class="o">-</span><span class="n">full</span><span class="p">.</span><span class="n">xml</span>
+</pre></div></li>
+</ol>
+
+<h4><a id="start-the-jboss-eap-server-with-custom-configuration-options" class="anchor" href="#start-the-jboss-eap-server-with-custom-configuration-options"><span class="anchor-icon"></span></a>Start the JBoss EAP Server with Custom Configuration Options</h4>
+
+<p>To start JBoss EAP with custom configuration options:</p>
+
+<ol>
+<li>Open a command line and navigate to the root of the JBoss EAP directory.</li>
+<li><p>The following shows the command line to start the JBoss EAP server. Replace the CUSTOM_OPTIONS with the custom optional parameters specified in the quickstart.</p>
+<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">EAP_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">standalone</span><span class="p">.</span><span class="n">sh</span> <span class="n">CUSTOM_OPTIONS</span>
+<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">EAP_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">standalone</span><span class="p">.</span><span class="n">bat</span> <span class="n">CUSTOM_OPTIONS</span>
+</pre></div></li>
+</ol>
+
+<h3><a id="build-and-deploy-the-quickstarts" class="anchor" href="#build-and-deploy-the-quickstarts"><span class="anchor-icon"></span></a>Build and Deploy the Quickstarts</h3>
+
+<p>See the README file in each individual quickstart folder for specific details and information on how to run and access the example.</p>
+
+<h4><a id="build-the-quickstart-archive" class="anchor" href="#build-the-quickstart-archive"><span class="anchor-icon"></span></a>Build the Quickstart Archive</h4>
+
+<p>In some cases, you may want to build the application to test for compile errors or view the contents of the archive. </p>
+
+<ol>
+<li>Open a command line and navigate to the root directory of the quickstart you want to build.</li>
+<li><p>Use this command if you only want to build the archive, but not deploy it:</p>
+<div class="highlight"><pre>    <span class="n">mvn</span> <span class="n">clean</span> <span class="n">package</span>
+</pre></div></li>
+</ol>
+
+<h4><a id="build-and-deploy-the-quickstart-archive" class="anchor" href="#build-and-deploy-the-quickstart-archive"><span class="anchor-icon"></span></a>Build and Deploy the Quickstart Archive</h4>
+
+<ol>
+<li>Make sure you <a href="#start-the-jboss-eap-server">start the JBoss EAP server</a> as described in the README.</li>
+<li>Open a command line and navigate to the root directory of the quickstart you want to run.</li>
+<li><p>Use this command to build and deploy the archive:</p>
+<div class="highlight"><pre>    <span class="n">mvn</span> <span class="n">clean</span> <span class="n">package</span> <span class="n">jboss</span><span class="o">-</span><span class="n">as</span><span class="o">:</span><span class="n">deploy</span>
+</pre></div></li>
+</ol>
+
+<h4><a id="undeploy-an-archive" class="anchor" href="#undeploy-an-archive"><span class="anchor-icon"></span></a>Undeploy an Archive</h4>
+
+<p>The command to undeploy the quickstart is simply: </p>
+<div class="highlight"><pre>    <span class="n">mvn</span> <span class="n">jboss</span><span class="o">-</span><span class="n">as</span><span class="o">:</span><span class="n">undeploy</span>
+</pre></div>
+<h3><a id="verify-the-quickstarts-build-with-one-command" class="anchor" href="#verify-the-quickstarts-build-with-one-command"><span class="anchor-icon"></span></a>Verify the Quickstarts Build with One Command</h3>
+
+<hr/>
+
+<p>You can verify the quickstarts build using one command.</p>
+
+<p>To build the quickstarts:</p>
+
+<ol>
+<li>Do not start the JBoss EAP server.</li>
+<li>Open a command line and navigate to the root directory of the quickstarts.</li>
+<li><p>Use this command to build the quickstarts:</p>
+<div class="highlight"><pre>    <span class="n">mvn</span> <span class="n">clean</span> <span class="n">install</span>
+</pre></div></li>
+</ol>
+
+<p><em>Note</em>: If you see a <code>java.lang.OutOfMemoryError: PermGen space</code> error when you run this command, increase the memory by typing the following command for your operating system, then try the above command again.</p>
+<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">export</span> <span class="n">MAVEN_OPTS</span><span class="o">=</span><span class="s">&quot;-Xmx512m -XX:MaxPermSize=128m&quot;</span>
+    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">SET</span> <span class="n">MAVEN_OPTS</span><span class="o">=</span><span class="s">&quot;-Xmx512m -XX:MaxPermSize=128m&quot;</span>
+</pre></div>
+<h3><a id="undeploy-the-deployed-quickstarts-with-one-command" class="anchor" href="#undeploy-the-deployed-quickstarts-with-one-command"><span class="anchor-icon"></span></a>Undeploy the Deployed Quickstarts with One Command</h3>
+
+<hr/>
+
+<p>To undeploy the quickstarts from the root of the quickstart folder, you must pass the argument <code>-fae</code> (fail at end) on the command line. This allows the command to continue past quickstarts that fail due to complex dependencies and quickstarts that only have Arquillian tests and do not deploy archives to the server.</p>
+
+<p>You can undeploy quickstarts using the following procedure:</p>
+
+<ol>
+<li>Start the JBoss EAP server.</li>
+<li>Open a command line and navigate to the root directory of the quickstarts.</li>
+<li><p>Use this command to undeploy any deployed quickstarts:</p>
+<div class="highlight"><pre>    <span class="n">mvn</span> <span class="n">jboss</span><span class="o">-</span><span class="n">as</span><span class="o">:</span><span class="n">undeploy</span> <span class="o">-</span><span class="n">fae</span>
+</pre></div></li>
+</ol>
+
+<p>To undeploy any quickstarts that fail due to complex dependencies, follow the undeploy procedure described in the quickstart&rsquo;s README file.</p>
+
+<h3><a id="run-the-arquillian-tests" class="anchor" href="#run-the-arquillian-tests"><span class="anchor-icon"></span></a>Run the Arquillian Tests</h3>
+
+<hr/>
+
+<p>Some of the quickstarts provide Arquillian tests. By default, these tests are configured to be skipped, as Arquillian tests an application on a real server, not just in a mocked environment.</p>
+
+<p>You can either start the server yourself or let Arquillian manage its lifecycle during the testing. The individual quickstart README should tell you what to expect in the console output and the server log when you run the test.</p>
+
+<ol>
+<li><p>Test the quickstart on a remote server</p>
+
+<ul>
+<li>Arquillian&rsquo;s remote container adapter expects a JBoss EAP server instance to be already started prior to the test execution. You must <a href="#start-the-jboss-eap-server">Start the JBoss EAP server</a> as described in the quickstart README file.</li>
+<li><p>If you need to run the tests on a JBoss EAP server running on a machine other than localhost, you can configure this, along with other options, in the <code>src/test/resources/arquillian.xml</code> file using the following properties:</p>
+<div class="highlight"><pre><span class="nt">&lt;container</span> <span class="na">qualifier=</span><span class="s">&quot;jboss&quot;</span> <span class="na">default=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;managementAddress&quot;</span><span class="nt">&gt;</span>myhost.example.com<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;managementPort&quot;</span><span class="nt">&gt;</span>9999<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span><span class="nt">&gt;</span>customAdminUser<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;password&quot;</span><span class="nt">&gt;</span>myPassword<span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+<span class="nt">&lt;/container&gt;</span>    
+</pre></div></li>
+<li><p>Run the test goal with the following profile activated:</p>
+<div class="highlight"><pre><span class="n">mvn</span> <span class="n">clean</span> <span class="n">test</span> <span class="o">-</span><span class="n">Parq</span><span class="o">-</span><span class="n">jbossas</span><span class="o">-</span><span class="n">remote</span>     
+</pre></div></li>
+</ul></li>
+<li><p>Test the quickstart on a managed server</p>
+
+<p>Arquillian&rsquo;s managed container adapter requires that your server is not running as it will start the container for you. However, you must first let it know where to find the JBoss EAP directory. The simplest way to do this is to set the <code>JBOSS_HOME</code> environment variable to the full path to your JBoss EAP directory. Alternatively, you can set the path in the <code>jbossHome</code> property in the Arquillian configuration file.</p>
+
+<ul>
+<li>Open the <code>src/test/resources/arquillian.xml</code> file located in the quickstart directory.</li>
+<li><p>Find the configuration for the JBoss container. It should look like this:</p>
+<div class="highlight"><pre><span class="c">&lt;!-- Example configuration for a managed/remote JBoss EAP instance --&gt;</span>
+<span class="nt">&lt;container</span> <span class="na">qualifier=</span><span class="s">&quot;jboss&quot;</span> <span class="na">default=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- If you want to use the JBOSS_HOME environment variable, just delete the jbossHome property --&gt;</span>
+    <span class="c">&lt;!--&lt;configuration&gt; --&gt;</span>
+    <span class="c">&lt;!--&lt;property name=&quot;jbossHome&quot;&gt;/path/to/jboss/as&lt;/property&gt; --&gt;</span>
+    <span class="c">&lt;!--&lt;/configuration&gt; --&gt;</span>
+<span class="nt">&lt;/container&gt;</span>           
+</pre></div></li>
+<li><p>Uncomment the <code>configuration</code> element, find the <code>jbossHome</code> property and replace the &ldquo;/path/to/jboss/as&rdquo; value with the actual path to your JBoss EAP server.</p></li>
+<li><p>Run the test goal with the following profile activated:</p>
+<div class="highlight"><pre><span class="n">mvn</span> <span class="n">clean</span> <span class="n">test</span> <span class="o">-</span><span class="n">Parq</span><span class="o">-</span><span class="n">jbossas</span><span class="o">-</span><span class="n">managed</span>
+</pre></div></li>
+</ul></li>
+</ol>
+
+<h2><a id="use-jboss-developer-studio-or-eclipse-to-run-the-quickstarts" class="anchor" href="#use-jboss-developer-studio-or-eclipse-to-run-the-quickstarts"><span class="anchor-icon"></span></a>Use JBoss Developer Studio or Eclipse to Run the Quickstarts</h2>
+
+<p>You can also deploy the quickstarts from Eclipse using JBoss tools. For more information on how to set up Maven and the JBoss tools, refer to the <a href="https://access.redhat.com/site/documentation/JBoss_Enterprise_Application_Platform/">JBoss Enterprise Application Platform Development Guide</a> or <a href="http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/" title="Get Started Developing Applications">Get Started Developing Applications</a>.</p>
+
+<h2><a id="build-and-deploy-the-quickstart-to-openshift" class="anchor" href="#build-and-deploy-the-quickstart-to-openshift"><span class="anchor-icon"></span></a>Build and Deploy the Quickstart - to OpenShift</h2>
+
+<p><em>Note:</em> The following variables are used in these instructions. Be sure to replace them as follows:</p>
+
+<ul>
+<li>QUICKSTART_NAME should be replaced with your quickstart name, for example:  my-quickstart</li>
+<li>YOUR_DOMAIN_NAME should be replaced with your OpenShift account user name.</li>
+<li>APPLICATION_NAME should be replaced with a variation of the quickstart name, for example: myquickstart</li>
+<li>APPLICATION_UUID should be replaced with the UUID generated by OpenShift for your application, for example: 52864af85973ca430200006f</li>
+</ul>
+
+<h3><a id="create-an-openshift-account-and-domain" class="anchor" href="#create-an-openshift-account-and-domain"><span class="anchor-icon"></span></a>Create an OpenShift Account and Domain</h3>
+
+<p>If you do not yet have an OpenShift account and domain, <a href="https://openshift.redhat.com/app/login">Sign in to OpenShift</a> to create the account and domain. </p>
+
+<p><a href="https://openshift.redhat.com/app/getting_started">Get Started with OpenShift</a> details how to install the OpenShift Express command line interface.</p>
+
+<h3><a id="create-the-openshift-application" class="anchor" href="#create-the-openshift-application"><span class="anchor-icon"></span></a>Create the OpenShift Application</h3>
+
+<p>Open a shell command prompt and change to a directory of your choice. Enter the following command to create a JBoss EAP 6 application:</p>
+<div class="highlight"><pre><span class="n">rhc</span> <span class="n">app</span> <span class="n">create</span> <span class="o">-</span><span class="n">a</span> <span class="n">APPLICATION_NAME</span> <span class="o">-</span><span class="n">t</span> <span class="n">jbosseap</span><span class="o">-</span><span class="mi">6</span>
+</pre></div>
+<p><em>NOTE</em>: The domain name for this application will be APPLICATION_NAME-YOUR_DOMAIN_NAME.rhcloud.com`. Be sure to replace the variables as noted above.</p>
+
+<p>This command creates an OpenShift application named APPLICATION_NAME and will run the application inside the <code>jbosseap-6</code>  container. You should see some output similar to the following:</p>
+<div class="highlight"><pre><span class="gh">Application Options</span>
+<span class="gh">-------------------</span>
+  Namespace:  YOUR_DOMAIN_NAME
+  Cartridges: jbosseap-6 (addtl. costs may apply)
+  Gear Size:  default
+  Scaling:    no
+
+Creating application &#39;APPLICATION_NAME&#39; ... done
+
+Waiting for your DNS name to be available ... done
+
+Cloning into &#39;APPLICATION_NAME&#39;...
+Warning: Permanently added the RSA host key for IP address &#39;54.237.58.0&#39; to the list of known hosts.
+
+Your application &#39;APPLICATION_NAME&#39; is now available.
+
+  URL:        http://APPLICATION_NAME-YOUR_DOMAIN_NAME.rhcloud.com/
+  SSH to:     APPLICATION_UUID@APPLICATION_NAME-YOUR_DOMAIN_NAME.rhcloud.com
+  Git remote: ssh://APPLICATION_UUID@APPLICATION_NAME-YOUR_DOMAIN_NAME.rhcloud.com/~/git/APPLICATION_NAME.git/
+  Cloned to:  CURRENT_DIRECTORY/APPLICATION_NAME
+
+Run &#39;rhc show-app APPLICATION_NAME&#39; for more details about your app.
+</pre></div>
+<p>The create command creates a git repository in the current directory with the same name as the application. </p>
+
+<p>Notice that the output also reports the URL at which the application can be accessed. Make sure it is available by typing the published url into a browser or use command line tools such as curl or wget. Be sure to replace <code>APPLICATION_NAME</code> and <code>YOUR_DOMAIN_NAME</code> with your OpenShift application and account domain name.</p>
+
+<h3><a id="migrate-the-quickstart-source" class="anchor" href="#migrate-the-quickstart-source"><span class="anchor-icon"></span></a>Migrate the Quickstart Source</h3>
+
+<p>Now that you have confirmed it is working you can migrate the quickstart source. You do not need the generated default application, so navigate to the new git repository directory created by the OpenShift command and tell git to remove the source and pom files:</p>
+<div class="highlight"><pre><span class="n">cd</span> <span class="n">APPLICATION_NAME</span>
+<span class="n">git</span> <span class="n">rm</span> <span class="o">-</span><span class="n">r</span> <span class="n">src</span> <span class="n">pom</span><span class="p">.</span><span class="n">xml</span>
+</pre></div>
+<p>Copy the source for the QUICKSTART_NAME quickstart into this new git repository:</p>
+<div class="highlight"><pre><span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">QUICKSTART_HOME</span><span class="o">/</span><span class="n">QUICKSTART_NAME</span><span class="o">/</span><span class="n">src</span> <span class="p">.</span>
+<span class="n">cp</span> <span class="n">QUICKSTART_HOME</span><span class="o">/</span><span class="n">QUICKSTART_NAME</span><span class="o">/</span><span class="n">pom</span><span class="p">.</span><span class="n">xml</span> <span class="p">.</span>
+</pre></div>
+<h3><a id="configure-the-openshift-server" class="anchor" href="#configure-the-openshift-server"><span class="anchor-icon"></span></a>Configure the OpenShift Server</h3>
+
+<p>See individual quickstart README file for any specific server configuration requiremens.</p>
+
+<h3><a id="deploy-the-openshift-application" class="anchor" href="#deploy-the-openshift-application"><span class="anchor-icon"></span></a>Deploy the OpenShift Application</h3>
+
+<p>You can now deploy the changes to your OpenShift application using git as follows:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">add</span> <span class="n">src</span> <span class="n">pom</span><span class="p">.</span><span class="n">xml</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;QUICKSTART_NAME quickstart on OpenShift&quot;</span>
+<span class="n">git</span> <span class="n">push</span>
+</pre></div>
+<p>The final push command triggers the OpenShift infrastructure to build and deploy the changes. </p>
+
+<p>Note that the <code>openshift</code> profile in <code>pom.xml</code> is activated by OpenShift, and causes the WAR build by OpenShift to be copied to the <code>deployments/</code> directory, and deployed without a context path.</p>
+
+<h3><a id="test-the-openshift-application" class="anchor" href="#test-the-openshift-application"><span class="anchor-icon"></span></a>Test the OpenShift Application</h3>
+
+<p>When the push command returns, you can test the application by getting the following URL either via a browser or using tools such as curl or wget. Be sure to replace the <code>APPLICATION_NAME</code> and <code>YOUR_DOMAIN_NAME</code> variables in the URL with your OpenShift application and account domain name.</p>
+
+<ul>
+<li><a href="http://APPLICATION_NAME-YOUR_DOMAIN_NAME.rhcloud.com/">http://APPLICATION_NAME-YOUR_DOMAIN_NAME.rhcloud.com/</a> </li>
+</ul>
+
+<p>You can use the OpenShift command line tools or the OpenShift web console to discover and control the application.</p>
+
+<h3><a id="delete-the-openshift-application" class="anchor" href="#delete-the-openshift-application"><span class="anchor-icon"></span></a>Delete the OpenShift Application</h3>
+
+<p>When you are finished with the application you can delete it as follows:</p>
+<div class="highlight"><pre><span class="n">rhc</span> <span class="n">app</span><span class="o">-</span><span class="n">delete</span> <span class="o">-</span><span class="n">a</span> <span class="n">APPLICATION_NAME</span>
+</pre></div>
+<p><em>Note</em>: There is a limit to the number of applications you can deploy concurrently to OpenShift. If the <code>rhc app create</code> command returns an error indicating you have reached that limit, you must delete an existing application before you continue. </p>
+
+<ul>
+<li>To view the list of your OpenShift applications, type: <code>rhc domain show</code></li>
+<li>To delete an application from OpenShift, type the following, substituting the application name you want to delete: <code>rhc app-delete -a APPLICATION_NAME_TO_DELETE</code></li>
+</ul>
+
+<h2><a id="optional-components" class="anchor" href="#optional-components"><span class="anchor-icon"></span></a>Optional Components</h2>
+
+<p>The following components are needed for only a small subset of the quickstarts. Do not install or configure them unless the quickstart requires it.</p>
+
+<ul>
+<li><a href="#add-a-management-or-application-user">Add a User</a>: Add a Management or Application user for the quickstarts that run in a secured mode.</li>
+</ul>
+
+<h3><a id="add-a-management-or-application-user" class="anchor" href="#add-a-management-or-application-user"><span class="anchor-icon"></span></a>Add a Management or Application User</h3>
+
+<p>By default, JBoss EAP is now distributed with security enabled for the management interfaces. 
+A few of the quickstarts use these management interfaces and require that you create a management or application user to access the running application. 
+An <code>add-user</code> script is provided in the <code>EAP_HOME/bin</code> directory for that purpose. 
+You can run the script interactively or you can pass arguments on the command line.</p>
+
+<p>The following procedures describe how to add a user with the appropriate permissions to run the quickstarts that depend on them.</p>
+
+<h4><a id="add-a-management-user" class="anchor" href="#add-a-management-user"><span class="anchor-icon"></span></a>Add a Management User</h4>
+
+<p>You can choose to run the script interactively or you can pass arguments on the command line.</p>
+
+<h5><a id="add-a-management-user-interactively" class="anchor" href="#add-a-management-user-interactively"><span class="anchor-icon"></span></a>Add a Management User Interactively</h5>
+
+<ol>
+<li>Open a command line.</li>
+<li><p>Type the command for your operating system</p>
+<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">EAP_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">sh</span>
+<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">EAP_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">bat</span>
+</pre></div></li>
+<li><p>You should see the following response:</p>
+<div class="highlight"><pre><span class="n">What</span> <span class="n">type</span> <span class="n">of</span> <span class="n">user</span> <span class="k">do</span> <span class="n">you</span> <span class="n">wish</span> <span class="n">to</span> <span class="n">add</span><span class="o">?</span> 
+
+<span class="n">a</span><span class="p">)</span> <span class="n">Management</span> <span class="n">User</span> <span class="p">(</span><span class="n">mgmt</span><span class="o">-</span><span class="n">users</span><span class="p">.</span><span class="n">properties</span><span class="p">)</span> 
+<span class="n">b</span><span class="p">)</span> <span class="n">Application</span> <span class="n">User</span> <span class="p">(</span><span class="n">application</span><span class="o">-</span><span class="n">users</span><span class="p">.</span><span class="n">properties</span><span class="p">)</span>
+<span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">:</span>
+</pre></div>
+<p>At the prompt, press enter to use the default Management User.</p></li>
+<li><p>You should see the following response:</p>
+<div class="highlight"><pre><span class="n">Enter</span> <span class="n">the</span> <span class="n">details</span> <span class="n">of</span> <span class="n">the</span> <span class="n">new</span> <span class="n">user</span> <span class="n">to</span> <span class="n">add</span><span class="p">.</span>
+<span class="n">Using</span> <span class="n">realm</span> <span class="err">&#39;</span><span class="n">ManagementRealm</span><span class="err">&#39;</span> <span class="n">as</span> <span class="n">discovered</span> <span class="n">from</span> <span class="n">the</span> <span class="n">existing</span> <span class="n">property</span> <span class="n">files</span><span class="p">.</span>
+<span class="n">Username</span> <span class="o">:</span>
+</pre></div></li>
+<li><p>Enter the Username and, at the next prompt, enter the Password.</p>
+<div class="highlight"><pre><span class="n">Username</span> <span class="o">:</span> <span class="n">admin</span>
+<span class="n">Password</span> <span class="o">:</span> <span class="o">(</span><span class="n">choose</span> <span class="n">a</span> <span class="n">password</span> <span class="k">for</span> <span class="n">the</span> <span class="n">admin</span> <span class="n">user</span><span class="o">)</span>
+</pre></div>
+<p>Repeat the password.</p></li>
+<li><p>At the next prompt, you will be asked &ldquo;What groups do you want this user to belong to? (Please enter a comma separated list, or leave blank for none)[ ]: &rdquo;. Leave it blank and press enter.</p></li>
+<li><p>Choose yes for the remaining prompts.</p></li>
+</ol>
+
+<h5><a id="add-a-management-user-passing-arguments-on-the-command-line" class="anchor" href="#add-a-management-user-passing-arguments-on-the-command-line"><span class="anchor-icon"></span></a>Add a Management User Passing Arguments on the Command Line</h5>
+
+<p>If you prefer, you can create the management user non-interactively by passing each argument on the command line. </p>
+
+<p>For example, to add the Management User <code>admin</code> in the default <code>ManagementRealm</code> realm with password <code>adminPass1!</code>, type the following:</p>
+<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">EAP_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">u</span> <span class="err">&#39;</span><span class="n">admin</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">p</span> <span class="err">&#39;</span><span class="n">adminPass1</span><span class="o">!</span><span class="err">&#39;</span>
+    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">EAP_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">bat</span> <span class="o">-</span><span class="n">u</span> <span class="err">&#39;</span><span class="n">admin</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">p</span> <span class="err">&#39;</span><span class="n">adminPass1</span><span class="o">!</span><span class="err">&#39;</span>
+</pre></div>
+<h4><a id="add-an-application-user" class="anchor" href="#add-an-application-user"><span class="anchor-icon"></span></a>Add an Application User</h4>
+
+<p>You can choose to run the script interactively or you can pass arguments on the command line.</p>
+
+<h5><a id="add-an-application-user-interactively" class="anchor" href="#add-an-application-user-interactively"><span class="anchor-icon"></span></a>Add an Application User Interactively</h5>
+
+<ol>
+<li>Open a command line</li>
+<li><p>Type the command for your operating system</p>
+<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">EAP_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">sh</span>
+<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">EAP_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">bat</span>
+</pre></div></li>
+<li><p>You should see the following response:</p>
+<div class="highlight"><pre><span class="n">What</span> <span class="n">type</span> <span class="n">of</span> <span class="n">user</span> <span class="k">do</span> <span class="n">you</span> <span class="n">wish</span> <span class="n">to</span> <span class="n">add</span><span class="o">?</span> 
+
+<span class="n">a</span><span class="p">)</span> <span class="n">Management</span> <span class="n">User</span> <span class="p">(</span><span class="n">mgmt</span><span class="o">-</span><span class="n">users</span><span class="p">.</span><span class="n">properties</span><span class="p">)</span> 
+<span class="n">b</span><span class="p">)</span> <span class="n">Application</span> <span class="n">User</span> <span class="p">(</span><span class="n">application</span><span class="o">-</span><span class="n">users</span><span class="p">.</span><span class="n">properties</span><span class="p">)</span>
+<span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">:</span>
+</pre></div>
+<p>At the prompt, type:  <code>b</code></p></li>
+<li><p>You should see the following response:</p>
+<div class="highlight"><pre><span class="n">Enter</span> <span class="n">the</span> <span class="n">details</span> <span class="n">of</span> <span class="n">the</span> <span class="n">new</span> <span class="n">user</span> <span class="n">to</span> <span class="n">add</span><span class="p">.</span>
+<span class="n">Using</span> <span class="n">realm</span> <span class="err">&#39;</span><span class="n">ApplicationRealm</span><span class="err">&#39;</span> <span class="n">as</span> <span class="n">discovered</span> <span class="n">from</span> <span class="n">the</span> <span class="n">existing</span> <span class="n">property</span> <span class="n">files</span><span class="p">.</span>
+<span class="n">Username</span> <span class="o">:</span>
+</pre></div></li>
+<li><p>Enter the the Username and at the next prompt, enter the Password. If the quickstart README specifies a Username and Password, enter them here. Otherwise, use the default Username <code>quickstartUser</code> and Password <code>quickstartPwd1!</code>.</p>
+<div class="highlight"><pre><span class="n">Username</span> <span class="o">:</span> <span class="n">quickstartUser</span>
+<span class="n">Password</span> <span class="o">:</span> <span class="n">quickstartPwd1</span><span class="o">!</span>
+</pre></div></li>
+<li><p>At the next prompt, you will be asked &ldquo;What groups do you want this user to belong to? (Please enter a comma separated list, or leave blank for none)[  ]: &rdquo;. If the quickstart README specifies the groups to use, enter that here. Otherwise, type the group: <code>guest</code></p></li>
+</ol>
+
+<h4><a id="add-an-application-user-passing-arguments-on-the-command-line" class="anchor" href="#add-an-application-user-passing-arguments-on-the-command-line"><span class="anchor-icon"></span></a>Add an Application User Passing Arguments on the Command Line</h4>
+
+<p>If you prefer, you can create the application user non-interactively by passing each argument on the command line. </p>
+
+<p>For example, to add the Application User <code>quickstartUser</code> in the <code>ApplicationRealm</code> realm with password <code>quickstartPwd1!</code> in group <code>guest</code>, type the following:</p>
+<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">EAP_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">u</span> <span class="err">&#39;</span><span class="n">quickstartUser</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">p</span> <span class="err">&#39;</span><span class="n">quickstartPwd1</span><span class="o">!</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="err">&#39;</span><span class="n">guest</span><span class="err">&#39;</span>
+    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">EAP_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">bat</span>  <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">u</span> <span class="err">&#39;</span><span class="n">quickstartUser</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">p</span> <span class="err">&#39;</span><span class="n">quickstartPwd1</span><span class="o">!</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="err">&#39;</span><span class="n">guest</span><span class="err">&#39;</span>
+</pre></div></body></html>
