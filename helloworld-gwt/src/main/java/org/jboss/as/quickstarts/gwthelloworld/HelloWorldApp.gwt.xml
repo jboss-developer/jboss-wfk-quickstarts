@@ -24,4 +24,11 @@
   <inherits name="com.google.gwt.json.JSON" />
   <entry-point
     class="org.jboss.as.quickstarts.gwthelloworld.client.local.HelloWorldApp" />
+
+    <!-- Allow Super Dev Mode -->
+    <add-linker name="xsiframe" />
+    <set-configuration-property name="devModeRedirectEnabled" value="true" />
+    
+    <!-- Allow Source Maps -->
+    <set-property name="compiler.useSourceMaps" value="true" />
 </module>
