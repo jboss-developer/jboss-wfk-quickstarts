@@ -70,16 +70,23 @@ Undeploy the Archive
         mvn jboss-as:undeploy
 
 
-Run the Application in GWT Dev Mode
+Run the Application in GWT Super Dev Mode
 ---------------------------------------
 
-GWT Dev Mode provides an edit-save-refresh development experience. If you plan to modify this demo, we recommend you start the application in Dev Mode so you don't have to repackage the entire application every time you change it.
+Super Dev Mode allows GWT developers to quickly recompile their code and see the results in a browser. If you plan to modify this demo, we recommend you start the application in Super Dev Mode so you don't have to repackage the entire application every time you change it. It also allows developers to use a debugger to inspect a running GWT application. 
 
 1. Deploy the WAR file and start the JBoss EAP server as described above.
-2. Open a command line and navigate to the helloworld-gwt quickstart directory
+2. Open a command line and navigate to the helloworld-gwt quickstart directory.
 3. Execute the following command:
 
-        mvn gwt:run
+        mvn gwt:run-codeserver
+
+4. Open this link <http://localhost:9876/> in your browser.
+5. Drag the two bookmarklets "Dev Mode On" and "Dev Mode Off" to your browser's bookmark bar.
+6. Navigate your browser to <http://localhost:8080/jboss-helloworld-gwt/>.
+7. Click "Dev Mode On" to start development mode.
+8. If your browser support Source Maps, you can use it to see the Java source code and set breakpoints using the developer tools directly in the browser.
+
 
 Run the Arquillian Functional Tests
 -----------------------------------
