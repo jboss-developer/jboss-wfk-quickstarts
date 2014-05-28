@@ -83,7 +83,7 @@ Super Dev Mode allows GWT developers to quickly recompile their code and see the
 
 4. Open your browser to <http://localhost:9876/>.
 5. Drag the two bookmarklets "Dev Mode On" and "Dev Mode Off" to your browser's bookmark bar.
-6. Open your browser on <http://localhost:8080/jboss-helloworld-gwt/>.
+6. Open your browser to <http://localhost:8080/jboss-helloworld-gwt/>.
 7. Click "Dev Mode On" to start development mode.
 8. If your browser support Source Maps, you can use it to see the Java source code and set breakpoints using the developer tools directly in the browser.
 
