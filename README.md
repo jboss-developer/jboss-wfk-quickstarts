@@ -34,8 +34,6 @@ The following is a list of the currently available quickstarts. The table lists 
 
 Some quickstarts are designed to enhance or extend other quickstarts. These are noted in the **Prerequisites** column. If a quickstart lists prerequisites, those must be installed or deployed before working with the quickstart.
 
-Quickstarts with tutorials in the [Get Started Developing Applications](http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/ "Get Started Developing Applications") are noted with two asterisks ( ** ) following the quickstart name. 
-
 _Note:_ The quickstart README files use the replaceable value `EAP_HOME` to denote the path to the JBoss EAP 6 installation. When you encounter this value in a README file, be sure to replace it with the actual path to your JBoss EAP 6 installation. The 'JBOSS_HOME' environment variable, which is used in scripts, continues to work as it has in the past.
 
 [TOC-quickstart]
