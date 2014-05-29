@@ -44,7 +44,7 @@ This quickstart was built upon the HTML5 kitchensink quickstart, which was conve
 
 ### System requirements
 
-The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.5.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.6.
 
 All you need to build this project is Java 6.0 (Java SDK 1.6) or later, the iOS SDK and JBDS 7 with [JBoss Hybrid Mobile Tools + CordovaSim](http://developer.android.com/tools/sdk/eclipse-adt.html) installed. The iOS SDK is available as part of Apple XCode. If you need more detailed instructions to setup JBDS 7 with JBoss Hybrid Mobile Tools + CordovaSim, you can take a look at the user guide to [Install Hybrid Mobile Tools and CordovaSim](https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_Developer_Studio/7.1/html/User_Guide/Install_Hybrid_Mobile_Tools_and_CordovaSim.html).
 
