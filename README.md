@@ -292,7 +292,7 @@ You can either start the server yourself or let Arquillian manage its lifecycle 
 Use JBoss Developer Studio or Eclipse to Run the Quickstarts
 ------------------------------------------------------------
 
-You can also deploy the quickstarts from Eclipse using JBoss tools. For more information on how to set up Maven and the JBoss tools, refer to the [JBoss Enterprise Application Platform Development Guide](https://access.redhat.com/site/documentation/JBoss_Enterprise_Application_Platform/) or [Get Started Developing Applications](http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/ "Get Started Developing Applications").
+You can also deploy the quickstarts from Eclipse using JBoss tools. For more information on how to set up Maven and the JBoss tools, refer to the [JBoss Enterprise Application Platform Development Guide](https://access.redhat.com/site/documentation/JBoss_Enterprise_Application_Platform/).
 
 
 Build and Deploy the Quickstart - to OpenShift
