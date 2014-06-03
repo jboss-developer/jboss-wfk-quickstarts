@@ -114,7 +114,7 @@ span.success {
 
 /* Set the top margin color of headers to not display a border next to the status bar on iOS7 */
 .ui-header {
-	border-top: 1px solid #81B9EF
+	border-top: 1px solid #e9e9e9
 }
 
 /* Decrease margins applied on headers */
