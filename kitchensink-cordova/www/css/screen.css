@@ -22,6 +22,12 @@ body {
     font-family: Verdana, sans-serif;
 }
 
+/* CSS reset to ensure that the vertical scrollbar is visible on CordovaSim (Mac OS X) */
+body, html {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 p {
     margin-left: 8px;
     margin-right: 8px;
