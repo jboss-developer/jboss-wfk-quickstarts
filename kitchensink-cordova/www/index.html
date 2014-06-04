@@ -39,6 +39,14 @@
 
     <script type="text/javascript">
     	$( document ).ready( function() {
+            // Fix jQueryMobile header and footer positioning issues for iOS.
+            // See: https://github.com/jquery/jquery-mobile/issues/4113 and
+            // https://github.com/jquery/jquery-mobile/issues/5532
+            $(document).on('blur', 'input, textarea, select', function() {
+                setTimeout(function() {
+                window.scrollTo(document.body.scrollLeft, document.body.scrollTop);
+                }, 0);
+            });
 	        //setup the app after all scripts have loaded
 
             // On browsing to the Members jQuery Mobile page, update it to show all members
