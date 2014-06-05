@@ -184,6 +184,10 @@ $(function() {
             if(!elemPhoneNumber.get(0).validity.valid) {
                 errors.push({$elem : elemPhoneNumber});
             }
+            // Clear existing msgs
+            $('span.invalid').remove();
+            $('span.success').remove();
+
             // Display errors if any
             if(errors.length > 0) {
                 $.each(errors, function(idx, error) {
