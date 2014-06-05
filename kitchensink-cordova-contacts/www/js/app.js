@@ -155,8 +155,8 @@ $(function() {
 
             // Populate the form input values with the model properties
             $("#name").val(this.model.get("name"));
-            $("#email").val(this.model.get("phoneNumber"));
-            $("#phoneNumber").val(this.model.get("email"));
+            $("#email").val(this.model.get("email"));
+            $("#phoneNumber").val(this.model.get("phoneNumber"));
         },
 
         registerMember : function(event) {
@@ -380,11 +380,22 @@ $(function() {
         copyContact : function(event) {
             event.preventDefault();
 
+            var selectedName = $("#display-name").text(),
+                selectedPhone = $("#select-choice-phone").val(),
+                selectedEmail = $("#select-choice-email").val();
+
+            // Retain only digits from the phone number.
+            // This makes it easier for the end user to submit a contact for registration.
+            // It does not account for a phone number whose length exceeds the accepted length.
+            if(selectedPhone) {
+                selectedPhone = selectedPhone.replace(/\D+/g,"");
+            }
+
             // Update the global Member instance with the details of the selected contact
             window.FormMember = new Member({
-                name: $("#display-name").text(),
-                phoneNumber: $("#select-choice-email").val(),
-                email: $("#select-choice-phone").val()});
+                name: selectedName,
+                phoneNumber: selectedPhone,
+                email: selectedEmail});
 
             // Navigate to the register view, where the global Member will be used to populate the form
             App.navigate("register", {trigger:true});
