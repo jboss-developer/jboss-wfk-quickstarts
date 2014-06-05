@@ -192,6 +192,9 @@ $(function() {
                     });
                 }
             }
+            // Clear existing msgs
+            $('span.invalid').remove();
+            $('span.success').remove();
 
             // Display errors if any
             if(errors.length > 0) {
