@@ -26,15 +26,21 @@ the tests for the Backbone application.
 	<title>HTML5 Test Suite</title>
 
 	<link rel="stylesheet" href="qunit/qunit.css" type="text/css" media="screen">
-   <script type="text/javascript" src="../../main/webapp/js/libs/jquery-2.0.3.min.js"></script>
+    <link rel="stylesheet" href="screen.css" type="text/css" media="screen">
+    <script type="text/javascript" src="../../main/webapp/js/libs/jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="qunit/qunit.js"></script>
+    <script type="text/javascript" src="sinon/sinon-1.10.2.js"></script>
+    <script type="text/javascript" src="sinon/sinon-ie-1.10.2.js"></script>
+    <script type="text/javascript" src="sinon/sinon-qunit-1.0.0.js"></script>
 
-   <!-- The js file to be tested -->
-   <script type="text/javascript" src="../../main/webapp/js/libs/lodash-2.4.1.min.js"></script>
-   <script type="text/javascript" src="../../main/webapp/js/app.js"></script>
+    <script type="text/javascript" src="../../main/webapp/js/libs/lodash-2.4.1.min.js"></script>
+    <script type="text/javascript" src="../../main/webapp/js/libs/backbone-1.1.2.js"></script>
+    <script type="text/javascript" src="../../main/webapp/js/libs/jquery.mobile-1.4.2.min.js"></script>
+    <!-- The js file to be tested -->
+    <script type="text/javascript" src="../../main/webapp/js/app.js"></script>
 
-   <!-- The js file that contains the tests -->
-   <script type="text/javascript" src="test/test.js"></script>
+    <!-- The js file that contains the tests -->
+    <script type="text/javascript" src="test/test.js"></script>
 
 	<!-- Underscore.js Template for building members (simplified for testing) -->
 	<script type="text/template" id="member-tmpl"><% _.each(members, function(member) { %><div><%=member.id%></div><% }); %></script>
@@ -47,4 +53,37 @@ the tests for the Backbone application.
 	<ol id="qunit-tests"></ol>
 	<div id="qunit-fixture">test markup</div>
 </body>
+<script type="text/template" id="member-Body-tmpl">
+    <th><%=member.id%></td>
+    <td><%=member.name%></td>
+    <td><a href="mailto:<%=member.email%>" class="ui-link"><%=member.email%></a></td>
+    <td><a href="tel:<%=member.phoneNumber%>" class="ui-link">Call</a> or <a href="sms:<%=member.phoneNumber%>" class="ui-link">SMS</a> <%=member.phoneNumber%></td>
+    <td><a href="rest/members/<%=member.id%>" rel="external" target="_blank" class="resturl ui-link">JSON</a></td>
+</script>
+<script type="text/template" id="register-form">
+    <div class="wrap">
+        <form name="reg" id="reg" data-ajax="false">
+            <fieldset>
+                <legend>Register a member:</legend>
+                <div class="ui-field-contain">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>
+                </div>
+                <div class="ui-field-contain">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="Your Email" required/>
+                </div>
+                <div class="ui-field-contain">
+                    <label for="phoneNumber">Phone #:</label>
+                    <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{10,12}" placeholder="Your Phone #" required/>
+                </div>
+                <div id="formMsgs"></div>
+                <div class="ui-grid-a app-responsive">
+                    <div class="ui-block-a"><input type="submit" id="register" value="Register" data-theme="b"/></div>
+                    <div class="ui-block-b"><input type="button" name="cancel" id="cancel" value="Reset"/></div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</script>
 </html>
