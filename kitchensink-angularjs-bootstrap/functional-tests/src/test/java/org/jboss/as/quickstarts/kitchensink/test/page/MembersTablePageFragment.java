@@ -38,7 +38,7 @@ public class MembersTablePageFragment {
     }
 
     public void waitUntilPresent() {
-        waitModel().until().element(membersTable).is().present();
+        waitModel().until().element(membersTable).is().visible();
     }
 
 }
