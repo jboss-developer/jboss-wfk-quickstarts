@@ -19,7 +19,7 @@ public class RegistrationFormPageFragment {
      * Injects browser to our test.
      */
     @Drone
-    WebDriver browser;
+    private WebDriver browser;
 
     /**
      * Injects JavascriptExecutor for executing javascript on opened page
