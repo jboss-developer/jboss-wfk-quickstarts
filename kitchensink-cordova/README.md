@@ -13,7 +13,7 @@ What is it?
 
 This project serves as an example of the HTML5 [kitchensink](https://github.com/jboss-developer/jboss-wfk-quickstarts/tree/master/kitchensink-html5-mobile) quickstart converted to a hybrid [Apache Cordova](http://cordova.apache.org/) application.
 
-What does this mean? Basically, this takes our [HTML5 + REST](http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/wfk-quickstarts/kitchensink-html5-mobile/) / [jQuery Mobile](http://jquerymobile.com/) web application and converts it to a native application for both iOS and Android.
+What does this mean? Basically, this takes our [HTML5 + REST](http://www.jboss.org/quickstarts/wfk/kitchensink-html5-mobile/) / [jQuery Mobile](http://jquerymobile.com/) web application and converts it to a native application for both iOS and Android.
 
 These concepts can be applied to the conversion of most HTML5/JS based web apps by just replacing the specific paths described in this article with paths that match your environment. The existing web application is also enhanced with Cordova plugins to utilize device features through JavaScript APIs. This example uses the following plugins:
 
