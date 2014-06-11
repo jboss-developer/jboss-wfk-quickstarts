@@ -5,7 +5,7 @@ Level: Advanced
 Technologies: JPA 2.0, Junit, JMX, Spring MVC Annotations, AOP, Spring Data, JSP, webjars, and Dandellion  
 Summary: An example that incorporates multiple technologies in Red Hat JBoss Enterprise Application Platform 6.1 or later.  
 Target Product: WFK  
-Product Versions: EAP 6.1, EAP 6.2, WFK 2.5  
+Product Versions: EAP 6.1, EAP 6.2, WFK 2.6  
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
 
 What is it?  
@@ -46,7 +46,7 @@ System requirements
 -------------------
 
 The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.2 or 
-later with the Red Hat JBoss Web Framework Kit (WFK) 2.5.
+later with the Red Hat JBoss Web Framework Kit (WFK) 2.6.
 
 All you need to build this project is Java 7.0 or later and Maven 3.0 or later.
 
