@@ -15,8 +15,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.jboss.quickstarts.wfk</groupId>
@@ -49,8 +48,8 @@
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
-        <version.jboss.bom.eap>6.2.2.GA</version.jboss.bom.eap>
-        <version.jboss.bom.wfk>2.6.0-build-1</version.jboss.bom.wfk>
+        <version.jboss.bom.eap>6.2.3.GA</version.jboss.bom.eap>
+        <version.jboss.bom.wfk>2.6.0-redhat-1</version.jboss.bom.wfk>
 
         <!-- Define the version of the PicketLink BOM -->
         <version.picketlink>2.5.3.SP5-redhat-1</version.picketlink>
