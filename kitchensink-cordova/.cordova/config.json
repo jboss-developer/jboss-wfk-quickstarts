@@ -1,1 +1,1 @@
-{"id":"org.jboss.quickstarts.wfk.kitchensinkcordova","name":"kitchensink-cordova"}
+{"id":"org.jboss.quickstarts.wfk.kitchensinkcordova","name":"kitchensink-cordova","engine":{"id":"cordova","ver":"3.4.0"}}
