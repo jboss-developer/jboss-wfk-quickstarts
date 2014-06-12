@@ -4,7 +4,7 @@
 <h2><a id="testing-the-quickstarts" class="anchor" href="#testing-the-quickstarts"><span class="anchor-icon"></span></a>Testing the quickstarts</h2>
 
 <p>Profiles are used in the root POM to separate out these groups, allowing you to test the quickstarts easily. For example, to run those that require only started Server:</p>
-<div class="highlight"><pre>  <span class="n">mvn</span> <span class="n">clean</span> <span class="n">install</span> <span class="n">jboss</span><span class="o">-</span><span class="n">as</span><span class="o">:</span><span class="n">deploy</span> <span class="n">jboss</span><span class="o">-</span><span class="n">as</span><span class="o">:</span><span class="n">undeploy</span> <span class="o">-</span><span class="n">Parq</span><span class="o">-</span><span class="n">jbossas</span><span class="o">-</span><span class="n">remote</span> 
+<div class="highlight"><pre><span class="w">  </span><span class="vg">mvn</span><span class="w"> </span><span class="vg">clean</span><span class="w"> </span><span class="vg">install</span><span class="w"> </span><span class="vg">jboss</span><span class="o">-</span><span class="nl">as:</span><span class="vg">deploy</span><span class="w"> </span><span class="vg">jboss</span><span class="o">-</span><span class="nl">as:</span><span class="vg">undeploy</span><span class="w"> </span><span class="o">-</span><span class="vg">Parq</span><span class="o">-</span><span class="vg">jbossas</span><span class="o">-</span><span class="vg">remote</span><span class="w"> </span>
 </pre></div>
 <h2><a id="quickstarts-in-other-repositories" class="anchor" href="#quickstarts-in-other-repositories"><span class="anchor-icon"></span></a>Quickstarts in other repositories</h2>
 
@@ -12,13 +12,13 @@
 
 <ol>
 <li><p>Add the other repo as a remote</p>
-<div class="highlight"><pre> <span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">other</span> <span class="n">repo</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">other</span> <span class="n">repo</span> <span class="n">url</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span class="w"> </span><span class="vg">git</span><span class="w"> </span><span class="vg">remote</span><span class="w"> </span><span class="vg">add</span><span class="w"> </span><span class="o">-</span><span class="vg">f</span><span class="w"> </span><span class="o">&lt;</span><span class="vg">other</span><span class="w"> </span><span class="vg">repo</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="vg">other</span><span class="w"> </span><span class="vg">repo</span><span class="w"> </span><span class="vg">url</span><span class="o">&gt;</span>
 </pre></div></li>
 <li><p>Merge from the tag in the other repo that you wish to use. It is important to use a tag, to make tracking of history easier. We use a recursive merge strategy, always preferring changes from the other repo, in effect overwriting what we have locally.</p>
-<div class="highlight"><pre> <span class="nx">git</span> <span class="nx">merge</span> <span class="o">&lt;</span><span class="kt">tag</span><span class="o">&gt;</span> <span class="na">-s</span> <span class="nx">recursive</span> <span class="na">-Xtheirs</span> <span class="na">-m</span> <span class="s2">&quot;Merge &lt;Other repository name&gt; &#39;&lt;Tag&gt;&#39;&quot;</span>
+<div class="highlight"><pre><span class="w"> </span><span class="vg">git</span><span class="w"> </span><span class="vg">merge</span><span class="w"> </span><span class="o">&lt;</span><span class="vg">tag</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="vg">s</span><span class="w"> </span><span class="vg">recursive</span><span class="w"> </span><span class="o">-</span><span class="vg">Xtheirs</span><span class="w"> </span><span class="o">-</span><span class="vg">m</span><span class="w"> </span><span class="s2">&quot;Merge &lt;Other repository name&gt; &#39;&lt;Tag&gt;&#39;&quot;</span>
 </pre></div></li>
 <li><p>Review and push to upstream</p>
-<div class="highlight"><pre> <span class="n">git</span> <span class="n">push</span> <span class="n">upstream</span> <span class="n">HEAD</span><span class="o">:</span><span class="n">master</span>
+<div class="highlight"><pre><span class="w"> </span><span class="vg">git</span><span class="w"> </span><span class="vg">push</span><span class="w"> </span><span class="vg">upstream</span><span class="w"> </span><span class="nl">HEAD:</span><span class="vg">master</span>
 </pre></div></li>
 </ol>
 
@@ -35,12 +35,12 @@
 
 <p>For RHEL you can use this <a href="https://github.com/lnxchk/ruby-1.9.3-rpm">spec</a></p></li>
 <li><p>Install Ruby GEMs</p>
-<div class="highlight"><pre><span class="n">gem</span> <span class="n">install</span> <span class="n">redcarpet</span> <span class="n">nokogiri</span> <span class="n">pygments</span><span class="p">.</span><span class="n">rb</span>
+<div class="highlight"><pre><span class="vg">gem</span><span class="w"> </span><span class="vg">install</span><span class="w"> </span><span class="vg">redcarpet</span><span class="w"> </span><span class="vg">nokogiri</span><span class="w"> </span><span class="vg">pygments</span><span class="o">.</span><span class="vg">rb</span>
 </pre></div></li>
 </ol>
 
 <p>Then just run</p>
-<div class="highlight"><pre>    <span class="p">.</span><span class="o">/</span><span class="n">dist</span><span class="o">/</span><span class="n">release</span><span class="o">-</span><span class="n">utils</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">m</span>
+<div class="highlight"><pre><span class="w">    </span><span class="o">./</span><span class="vg">dist</span><span class="o">/</span><span class="vg">release</span><span class="o">-</span><span class="vg">utils</span><span class="o">.</span><span class="vg">sh</span><span class="w"> </span><span class="o">-</span><span class="vg">m</span>
 </pre></div>
 <p>To render all markdown files to HTML.</p>
 
@@ -76,10 +76,10 @@
 <li>Make sure you have access to rsync files to <code>filemgmt.jboss.org/download_htdocs/jbossas</code></li>
 <li>Release the archetypes</li>
 <li><p>Regenerate the quickstart based on archetypes</p>
-<div class="highlight"><pre> <span class="n">dist</span><span class="o">/</span><span class="n">release</span><span class="o">-</span><span class="n">utils</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">r</span>
+<div class="highlight"><pre><span class="w"> </span><span class="vg">dist</span><span class="o">/</span><span class="vg">release</span><span class="o">-</span><span class="vg">utils</span><span class="o">.</span><span class="vg">sh</span><span class="w"> </span><span class="o">-</span><span class="vg">r</span>
 </pre></div></li>
 <li><p>Release</p>
-<div class="highlight"><pre> <span class="n">dist</span><span class="o">/</span><span class="n">release</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">s</span> <span class="o">&lt;</span><span class="n">old</span> <span class="n">snapshot</span> <span class="n">version</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">r</span> <span class="o">&lt;</span><span class="n">release</span> <span class="n">version</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span class="w"> </span><span class="vg">dist</span><span class="o">/</span><span class="vg">release</span><span class="o">.</span><span class="vg">sh</span><span class="w"> </span><span class="o">-</span><span class="vg">s</span><span class="w"> </span><span class="o">&lt;</span><span class="vg">old</span><span class="w"> </span><span class="vg">snapshot</span><span class="w"> </span><span class="vg">version</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="vg">r</span><span class="w"> </span><span class="o">&lt;</span><span class="vg">release</span><span class="w"> </span><span class="vg">version</span><span class="o">&gt;</span>
 </pre></div>
 <p>This will update the version number, commit and tag, build the distro zip and upload it to <download.jboss.org>. Then it will reset the version number back to the snapshot version number.</p></li>
 </ol>

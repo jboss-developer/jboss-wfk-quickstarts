@@ -30,6 +30,7 @@
 
 <table><thead><tr><th align='left'><strong>Quickstart Name</strong></th><th align='left'><strong>Demonstrated Technologies</strong></th><th align='left'><strong>Description</strong></th><th align='left'><strong>Experience Level Required</strong></th><th align='left'><strong>Prerequisites</strong></th></tr></thead><tbody><tr><td align='left'><a href='cdi-add-interceptor-binding/README.html' title='cdi-add-interceptor-binding'>cdi-add-interceptor-binding</td><td align='left'>  DeltaSpike, CDI</td><td align='left'>Creating a basic CDI extension to automatically add an interceptor binding</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
 <tr><td align='left'><a href='contacts-mobile-basic/README.html' title='contacts-mobile-basic'>contacts-mobile-basic</td><td align='left'>  HTML5,  JavaScript,  REST,  jQuery, jQuery Mobile</td><td align='left'>A basic example of CRUD operations in a mobile only website.</td><td align='left'>Beginner</td><td align='left'> </td></tr>
+<tr><td align='left'><a href='contacts-mobile-picketlink-secured/README.html' title='contacts-mobile-picketlink-secured'>contacts-mobile-picketlink-secured</td><td align='left'>  HTML5,  JavaScript,  REST,  jQuery, jQuery Mobile</td><td align='left'>A PicketLink secured example of CRUD operations in a mobile only website.</td><td align='left'>Beginner</td><td align='left'> </td></tr>
 <tr><td align='left'><a href='deltaspike-authorization/README.html' title='deltaspike-authorization'>deltaspike-authorization</td><td align='left'>  CDI,  Deltaspike, JSF</td><td align='left'>Demonstrate the creation of a custom authorization example using @SecurityBindingType from DeltaSpike</td><td align='left'>Beginner</td><td align='left'> </td></tr>
 <tr><td align='left'><a href='deltaspike-beanbuilder/README.html' title='deltaspike-beanbuilder'>deltaspike-beanbuilder</td><td align='left'>  DeltaSpike, CDI</td><td align='left'>Shows how to create new beans using DeltaSpike utilities.</td><td align='left'>Advanced</td><td align='left'> </td></tr>
 <tr><td align='left'><a href='deltaspike-beanmanagerprovider/README.html' title='deltaspike-beanmanagerprovider'>deltaspike-beanmanagerprovider</td><td align='left'>  Deltaspike,  JPA,  JSF, CDI</td><td align='left'>Shows how to use DeltaSpike BeanManagerProvider to access CDI in a EntityListener</td><td align='left'>Intermediate</td><td align='left'> </td></tr>
@@ -91,7 +92,7 @@
 <ul>
 <li>If you have not yet installed Maven, see the <a href="http://maven.apache.org/guides/getting-started/index.html">Maven Getting Started Guide</a> for details.</li>
 <li><p>If you have installed Maven, you can check the version by typing the following in a command line:</p>
-<div class="highlight"><pre><span class="n">mvn</span> <span class="o">--</span><span class="n">version</span> 
+<div class="highlight"><pre><span class="vg">mvn</span><span class="w"> </span><span class="o">--</span><span class="vg">version</span><span class="w"> </span>
 </pre></div></li>
 </ul></li>
 <li><p>The JBoss EAP distribution ZIP.</p>
@@ -112,23 +113,23 @@
 
 <ol>
 <li><p>Locate the Maven install directory for your operating system. It is usually installed in <code>${user.home}/.m2/</code>. </p>
-<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span> <span class="n">or</span> <span class="n">Mac</span><span class="o">:</span>   <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span>
-    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="s">&quot;\Documents and Settings\USER_NAME\.m2</span><span class="se">\&quot;</span><span class="s">  -or-  &quot;</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">USER_NAME</span><span class="err">\</span><span class="p">.</span><span class="n">m2</span><span class="err">\</span><span class="s">&quot;</span>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="vg">Linux</span><span class="w"> </span><span class="vg">or</span><span class="w"> </span><span class="nl">Mac:</span><span class="w">   </span><span class="o">~/.</span><span class="vg">m2</span><span class="o">/</span>
+<span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="nl">Windows:</span><span class="w"> </span><span class="s2">&quot;\Documents and Settings\USER_NAME\.m2\&quot;</span><span class="w">  </span><span class="o">-</span><span class="vg">or</span><span class="o">-</span><span class="w">  </span><span class="s2">&quot;\Users\USER_NAME\.m2\&quot;</span>
 </pre></div></li>
 <li><p>If you have an existing <code>settings.xml</code> file, rename it so you can restore it later.</p>
-<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span> <span class="n">or</span> <span class="n">Mac</span><span class="o">:</span>  <span class="n">mv</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">settings</span><span class="p">.</span><span class="n">xml</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">settings</span><span class="o">-</span><span class="n">backup</span><span class="p">.</span><span class="n">xml</span>
-    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">ren</span> <span class="s">&quot;\Documents and Settings\USER_NAME\.m2\settings.xml&quot;</span> <span class="n">settings</span><span class="o">-</span><span class="n">backup</span><span class="p">.</span><span class="n">xml</span>
-            <span class="o">-</span><span class="n">or</span><span class="o">-</span> <span class="n">ren</span> <span class="s">&quot;\Users\USER_NAME\.m2\settings.xml&quot;</span> <span class="n">settings</span><span class="o">-</span><span class="n">backup</span><span class="p">.</span><span class="n">xml</span>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="vg">Linux</span><span class="w"> </span><span class="vg">or</span><span class="w"> </span><span class="nl">Mac:</span><span class="w">  </span><span class="vg">mv</span><span class="w"> </span><span class="o">~/.</span><span class="vg">m2</span><span class="o">/</span><span class="vg">settings</span><span class="o">.</span><span class="vg">xml</span><span class="w"> </span><span class="o">~/.</span><span class="vg">m2</span><span class="o">/</span><span class="vg">settings</span><span class="o">-</span><span class="vg">backup</span><span class="o">.</span><span class="vg">xml</span>
+<span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="nl">Windows:</span><span class="w"> </span><span class="vg">ren</span><span class="w"> </span><span class="s2">&quot;\Documents and Settings\USER_NAME\.m2\settings.xml&quot;</span><span class="w"> </span><span class="vg">settings</span><span class="o">-</span><span class="vg">backup</span><span class="o">.</span><span class="vg">xml</span>
+<span class="w">            </span><span class="o">-</span><span class="vg">or</span><span class="o">-</span><span class="w"> </span><span class="vg">ren</span><span class="w"> </span><span class="s2">&quot;\Users\USER_NAME\.m2\settings.xml&quot;</span><span class="w"> </span><span class="vg">settings</span><span class="o">-</span><span class="vg">backup</span><span class="o">.</span><span class="vg">xml</span>
 </pre></div></li>
 <li><p>If you have an existing <code>repository/</code> directory, rename it so you can restore it later. For example</p>
-<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span> <span class="n">or</span> <span class="n">Mac</span><span class="o">:</span>  <span class="n">mv</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">repository</span><span class="o">/</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">repository</span><span class="o">-</span><span class="n">backup</span><span class="o">/</span>
-    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">ren</span> <span class="s">&quot;\Documents and Settings\USER_NAME\.m2</span><span class="se">\r</span><span class="s">epository</span><span class="se">\&quot;</span><span class="s"> repository-backup</span>
-            <span class="o">-</span><span class="n">or</span><span class="o">-</span> <span class="n">ren</span> <span class="s">&quot;\Users\USER_NAME\.m2</span><span class="se">\r</span><span class="s">epository</span><span class="se">\&quot;</span><span class="s"> repository-backup</span>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="vg">Linux</span><span class="w"> </span><span class="vg">or</span><span class="w"> </span><span class="nl">Mac:</span><span class="w">  </span><span class="vg">mv</span><span class="w"> </span><span class="o">~/.</span><span class="vg">m2</span><span class="o">/</span><span class="vg">repository</span><span class="o">/</span><span class="w"> </span><span class="o">~/.</span><span class="vg">m2</span><span class="o">/</span><span class="vg">repository</span><span class="o">-</span><span class="vg">backup</span><span class="o">/</span>
+<span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="nl">Windows:</span><span class="w"> </span><span class="vg">ren</span><span class="w"> </span><span class="s2">&quot;\Documents and Settings\USER_NAME\.m2\repository\&quot;</span><span class="w"> </span><span class="vg">repository</span><span class="o">-</span><span class="vg">backup</span>
+<span class="w">            </span><span class="o">-</span><span class="vg">or</span><span class="o">-</span><span class="w"> </span><span class="vg">ren</span><span class="w"> </span><span class="s2">&quot;\Users\USER_NAME\.m2\repository\&quot;</span><span class="w"> </span><span class="vg">repository</span><span class="o">-</span><span class="vg">backup</span>
 </pre></div></li>
 <li><p>Copy the <code>settings.xml</code> file from the root of the quickstarts directory to your Maven install directory.</p>
-<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span> <span class="n">or</span> <span class="n">Mac</span><span class="o">:</span>  <span class="n">cp</span> <span class="n">QUICKSTART_HOME</span><span class="o">/</span><span class="n">settings</span><span class="p">.</span><span class="n">xml</span>  <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">settings</span><span class="p">.</span><span class="n">xml</span>
-    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">copy</span> <span class="n">QUICKSTART_HOME</span><span class="o">/</span><span class="n">settings</span><span class="p">.</span><span class="n">xml</span> <span class="s">&quot;\Documents and Settings\USER_NAME\.m2\settings.xml&quot;</span>
-            <span class="o">-</span><span class="n">or</span><span class="o">-</span> <span class="n">copy</span> <span class="n">QUICKSTART_HOME</span><span class="o">/</span><span class="n">settings</span><span class="p">.</span><span class="n">xml</span> <span class="s">&quot;\Users\USER_NAME\.m2\settings.xml&quot;</span>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="vg">Linux</span><span class="w"> </span><span class="vg">or</span><span class="w"> </span><span class="nl">Mac:</span><span class="w">  </span><span class="vg">cp</span><span class="w"> </span><span class="vg">QUICKSTART_HOME</span><span class="o">/</span><span class="vg">settings</span><span class="o">.</span><span class="vg">xml</span><span class="w">  </span><span class="o">~/.</span><span class="vg">m2</span><span class="o">/</span><span class="vg">settings</span><span class="o">.</span><span class="vg">xml</span>
+<span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="nl">Windows:</span><span class="w"> </span><span class="vg">copy</span><span class="w"> </span><span class="vg">QUICKSTART_HOME</span><span class="o">/</span><span class="vg">settings</span><span class="o">.</span><span class="vg">xml</span><span class="w"> </span><span class="s2">&quot;\Documents and Settings\USER_NAME\.m2\settings.xml&quot;</span>
+<span class="w">            </span><span class="o">-</span><span class="vg">or</span><span class="o">-</span><span class="w"> </span><span class="vg">copy</span><span class="w"> </span><span class="vg">QUICKSTART_HOME</span><span class="o">/</span><span class="vg">settings</span><span class="o">.</span><span class="vg">xml</span><span class="w"> </span><span class="s2">&quot;\Users\USER_NAME\.m2\settings.xml&quot;</span>
 </pre></div></li>
 </ol>
 
@@ -138,18 +139,18 @@
 
 <ol>
 <li><p>Locate the Maven install directory for your operating system. It is usually installed in <code>${user.home}/.m2/</code>. </p>
-<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span> <span class="n">or</span> <span class="n">Mac</span><span class="o">:</span>   <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span>
-    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="s">&quot;\Documents and Settings\USER_NAME\.m2</span><span class="se">\&quot;</span><span class="s">  -or-  &quot;</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">USER_NAME</span><span class="err">\</span><span class="p">.</span><span class="n">m2</span><span class="err">\</span><span class="s">&quot;</span>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="vg">Linux</span><span class="w"> </span><span class="vg">or</span><span class="w"> </span><span class="nl">Mac:</span><span class="w">   </span><span class="o">~/.</span><span class="vg">m2</span><span class="o">/</span>
+<span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="nl">Windows:</span><span class="w"> </span><span class="s2">&quot;\Documents and Settings\USER_NAME\.m2\&quot;</span><span class="w">  </span><span class="o">-</span><span class="vg">or</span><span class="o">-</span><span class="w">  </span><span class="s2">&quot;\Users\USER_NAME\.m2\&quot;</span>
 </pre></div></li>
 <li><p>Restore the <code>settings.xml</code> file/</p>
-<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span> <span class="n">or</span> <span class="n">Mac</span><span class="o">:</span>  <span class="n">mv</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">settings</span><span class="o">-</span><span class="n">backup</span><span class="p">.</span><span class="n">xml</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">settings</span><span class="p">.</span><span class="n">xml</span>
-    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">ren</span> <span class="s">&quot;\Documents and Settings\USER_NAME\.m2\settings-backup.xml&quot;</span> <span class="n">settings</span><span class="p">.</span><span class="n">xml</span>
-            <span class="o">-</span><span class="n">or</span><span class="o">-</span> <span class="n">ren</span> <span class="s">&quot;\Users\USER_NAME\.m2\settings-backup.xml&quot;</span> <span class="n">settings</span><span class="p">.</span><span class="n">xml</span>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="vg">Linux</span><span class="w"> </span><span class="vg">or</span><span class="w"> </span><span class="nl">Mac:</span><span class="w">  </span><span class="vg">mv</span><span class="w"> </span><span class="o">~/.</span><span class="vg">m2</span><span class="o">/</span><span class="vg">settings</span><span class="o">-</span><span class="vg">backup</span><span class="o">.</span><span class="vg">xml</span><span class="w"> </span><span class="o">~/.</span><span class="vg">m2</span><span class="o">/</span><span class="vg">settings</span><span class="o">.</span><span class="vg">xml</span>
+<span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="nl">Windows:</span><span class="w"> </span><span class="vg">ren</span><span class="w"> </span><span class="s2">&quot;\Documents and Settings\USER_NAME\.m2\settings-backup.xml&quot;</span><span class="w"> </span><span class="vg">settings</span><span class="o">.</span><span class="vg">xml</span>
+<span class="w">            </span><span class="o">-</span><span class="vg">or</span><span class="o">-</span><span class="w"> </span><span class="vg">ren</span><span class="w"> </span><span class="s2">&quot;\Users\USER_NAME\.m2\settings-backup.xml&quot;</span><span class="w"> </span><span class="vg">settings</span><span class="o">.</span><span class="vg">xml</span>
 </pre></div></li>
 <li><p>Restore the <code>repository/</code> directory</p>
-<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span> <span class="n">or</span> <span class="n">Mac</span><span class="o">:</span>  <span class="n">mv</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">repository</span><span class="o">-</span><span class="n">backup</span><span class="o">/</span> <span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">repository</span><span class="o">/</span>
-    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">ren</span> <span class="s">&quot;\Documents and Settings\USER_NAME\.m2</span><span class="se">\r</span><span class="s">epository-backup</span><span class="se">\&quot;</span><span class="s"> repository</span>
-            <span class="o">-</span><span class="n">or</span><span class="o">-</span> <span class="n">ren</span> <span class="s">&quot;\Users\USER_NAME\.m2</span><span class="se">\r</span><span class="s">epository-backup</span><span class="se">\&quot;</span><span class="s"> repository</span>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="vg">Linux</span><span class="w"> </span><span class="vg">or</span><span class="w"> </span><span class="nl">Mac:</span><span class="w">  </span><span class="vg">mv</span><span class="w"> </span><span class="o">~/.</span><span class="vg">m2</span><span class="o">/</span><span class="vg">repository</span><span class="o">-</span><span class="vg">backup</span><span class="o">/</span><span class="w"> </span><span class="o">~/.</span><span class="vg">m2</span><span class="o">/</span><span class="vg">repository</span><span class="o">/</span>
+<span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="nl">Windows:</span><span class="w"> </span><span class="vg">ren</span><span class="w"> </span><span class="s2">&quot;\Documents and Settings\USER_NAME\.m2\repository-backup\&quot;</span><span class="w"> </span><span class="vg">repository</span>
+<span class="w">            </span><span class="o">-</span><span class="vg">or</span><span class="o">-</span><span class="w"> </span><span class="vg">ren</span><span class="w"> </span><span class="s2">&quot;\Users\USER_NAME\.m2\repository-backup\&quot;</span><span class="w"> </span><span class="vg">repository</span>
 </pre></div></li>
 </ol>
 
@@ -193,8 +194,8 @@
 <ol>
 <li>Open a command line and navigate to the root of the JBoss EAP directory.</li>
 <li><p>The following shows the command line to start the JBoss EAP server:</p>
-<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">EAP_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">standalone</span><span class="p">.</span><span class="n">sh</span>
-<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">EAP_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">standalone</span><span class="p">.</span><span class="n">bat</span>
+<div class="highlight"><pre><span class="vg">For</span><span class="w"> </span><span class="nl">Linux:</span><span class="w">   </span><span class="vg">EAP_HOME</span><span class="o">/</span><span class="vg">bin</span><span class="o">/</span><span class="vg">standalone</span><span class="o">.</span><span class="vg">sh</span>
+<span class="vg">For</span><span class="w"> </span><span class="nl">Windows:</span><span class="w"> </span><span class="vg">EAP_HOME</span><span class="o">\</span><span class="vg">bin</span><span class="o">\</span><span class="vg">standalone</span><span class="o">.</span><span class="vg">bat</span>
 </pre></div></li>
 </ol>
 
@@ -205,8 +206,8 @@
 <ol>
 <li>Open a command line and navigate to the root of the JBoss EAP directory.</li>
 <li><p>The following shows the command line to start the JBoss EAP server with the full profile:</p>
-<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">EAP_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">standalone</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">c</span> <span class="n">standalone</span><span class="o">-</span><span class="n">full</span><span class="p">.</span><span class="n">xml</span>
-<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">EAP_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">standalone</span><span class="p">.</span><span class="n">bat</span> <span class="o">-</span><span class="n">c</span> <span class="n">standalone</span><span class="o">-</span><span class="n">full</span><span class="p">.</span><span class="n">xml</span>
+<div class="highlight"><pre><span class="vg">For</span><span class="w"> </span><span class="nl">Linux:</span><span class="w">   </span><span class="vg">EAP_HOME</span><span class="o">/</span><span class="vg">bin</span><span class="o">/</span><span class="vg">standalone</span><span class="o">.</span><span class="vg">sh</span><span class="w"> </span><span class="o">-</span><span class="vg">c</span><span class="w"> </span><span class="vg">standalone</span><span class="o">-</span><span class="vg">full</span><span class="o">.</span><span class="vg">xml</span>
+<span class="vg">For</span><span class="w"> </span><span class="nl">Windows:</span><span class="w"> </span><span class="vg">EAP_HOME</span><span class="o">\</span><span class="vg">bin</span><span class="o">\</span><span class="vg">standalone</span><span class="o">.</span><span class="vg">bat</span><span class="w"> </span><span class="o">-</span><span class="vg">c</span><span class="w"> </span><span class="vg">standalone</span><span class="o">-</span><span class="vg">full</span><span class="o">.</span><span class="vg">xml</span>
 </pre></div></li>
 </ol>
 
@@ -217,8 +218,8 @@
 <ol>
 <li>Open a command line and navigate to the root of the JBoss EAP directory.</li>
 <li><p>The following shows the command line to start the JBoss EAP server. Replace the CUSTOM_OPTIONS with the custom optional parameters specified in the quickstart.</p>
-<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">EAP_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">standalone</span><span class="p">.</span><span class="n">sh</span> <span class="n">CUSTOM_OPTIONS</span>
-<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">EAP_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">standalone</span><span class="p">.</span><span class="n">bat</span> <span class="n">CUSTOM_OPTIONS</span>
+<div class="highlight"><pre><span class="vg">For</span><span class="w"> </span><span class="nl">Linux:</span><span class="w">   </span><span class="vg">EAP_HOME</span><span class="o">/</span><span class="vg">bin</span><span class="o">/</span><span class="vg">standalone</span><span class="o">.</span><span class="vg">sh</span><span class="w"> </span><span class="vg">CUSTOM_OPTIONS</span>
+<span class="vg">For</span><span class="w"> </span><span class="nl">Windows:</span><span class="w"> </span><span class="vg">EAP_HOME</span><span class="o">\</span><span class="vg">bin</span><span class="o">\</span><span class="vg">standalone</span><span class="o">.</span><span class="vg">bat</span><span class="w"> </span><span class="vg">CUSTOM_OPTIONS</span>
 </pre></div></li>
 </ol>
 
@@ -233,7 +234,7 @@
 <ol>
 <li>Open a command line and navigate to the root directory of the quickstart you want to build.</li>
 <li><p>Use this command if you only want to build the archive, but not deploy it:</p>
-<div class="highlight"><pre>    <span class="n">mvn</span> <span class="n">clean</span> <span class="n">package</span>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">mvn</span><span class="w"> </span><span class="vg">clean</span><span class="w"> </span><span class="vg">package</span>
 </pre></div></li>
 </ol>
 
@@ -243,14 +244,14 @@
 <li>Make sure you <a href="#start-the-jboss-eap-server">start the JBoss EAP server</a> as described in the README.</li>
 <li>Open a command line and navigate to the root directory of the quickstart you want to run.</li>
 <li><p>Use this command to build and deploy the archive:</p>
-<div class="highlight"><pre>    <span class="n">mvn</span> <span class="n">clean</span> <span class="n">package</span> <span class="n">jboss</span><span class="o">-</span><span class="n">as</span><span class="o">:</span><span class="n">deploy</span>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">mvn</span><span class="w"> </span><span class="vg">clean</span><span class="w"> </span><span class="vg">package</span><span class="w"> </span><span class="vg">jboss</span><span class="o">-</span><span class="nl">as:</span><span class="vg">deploy</span>
 </pre></div></li>
 </ol>
 
 <h4><a id="undeploy-an-archive" class="anchor" href="#undeploy-an-archive"><span class="anchor-icon"></span></a>Undeploy an Archive</h4>
 
 <p>The command to undeploy the quickstart is simply: </p>
-<div class="highlight"><pre>    <span class="n">mvn</span> <span class="n">jboss</span><span class="o">-</span><span class="n">as</span><span class="o">:</span><span class="n">undeploy</span>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">mvn</span><span class="w"> </span><span class="vg">jboss</span><span class="o">-</span><span class="nl">as:</span><span class="vg">undeploy</span>
 </pre></div>
 <h3><a id="verify-the-quickstarts-build-with-one-command" class="anchor" href="#verify-the-quickstarts-build-with-one-command"><span class="anchor-icon"></span></a>Verify the Quickstarts Build with One Command</h3>
 
@@ -264,13 +265,13 @@
 <li>Do not start the JBoss EAP server.</li>
 <li>Open a command line and navigate to the root directory of the quickstarts.</li>
 <li><p>Use this command to build the quickstarts:</p>
-<div class="highlight"><pre>    <span class="n">mvn</span> <span class="n">clean</span> <span class="n">install</span>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">mvn</span><span class="w"> </span><span class="vg">clean</span><span class="w"> </span><span class="vg">install</span>
 </pre></div></li>
 </ol>
 
 <p><em>Note</em>: If you see a <code>java.lang.OutOfMemoryError: PermGen space</code> error when you run this command, increase the memory by typing the following command for your operating system, then try the above command again.</p>
-<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">export</span> <span class="n">MAVEN_OPTS</span><span class="o">=</span><span class="s">&quot;-Xmx512m -XX:MaxPermSize=128m&quot;</span>
-    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">SET</span> <span class="n">MAVEN_OPTS</span><span class="o">=</span><span class="s">&quot;-Xmx512m -XX:MaxPermSize=128m&quot;</span>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="nl">Linux:</span><span class="w">   </span><span class="vg">export</span><span class="w"> </span><span class="vg">MAVEN_OPTS</span><span class="o">=</span><span class="s2">&quot;-Xmx512m -XX:MaxPermSize=128m&quot;</span>
+<span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="nl">Windows:</span><span class="w"> </span><span class="vg">SET</span><span class="w"> </span><span class="vg">MAVEN_OPTS</span><span class="o">=</span><span class="s2">&quot;-Xmx512m -XX:MaxPermSize=128m&quot;</span>
 </pre></div>
 <h3><a id="undeploy-the-deployed-quickstarts-with-one-command" class="anchor" href="#undeploy-the-deployed-quickstarts-with-one-command"><span class="anchor-icon"></span></a>Undeploy the Deployed Quickstarts with One Command</h3>
 
@@ -284,7 +285,7 @@
 <li>Start the JBoss EAP server.</li>
 <li>Open a command line and navigate to the root directory of the quickstarts.</li>
 <li><p>Use this command to undeploy any deployed quickstarts:</p>
-<div class="highlight"><pre>    <span class="n">mvn</span> <span class="n">jboss</span><span class="o">-</span><span class="n">as</span><span class="o">:</span><span class="n">undeploy</span> <span class="o">-</span><span class="n">fae</span>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">mvn</span><span class="w"> </span><span class="vg">jboss</span><span class="o">-</span><span class="nl">as:</span><span class="vg">undeploy</span><span class="w"> </span><span class="o">-</span><span class="vg">fae</span>
 </pre></div></li>
 </ol>
 
@@ -314,7 +315,7 @@
 <span class="nt">&lt;/container&gt;</span>    
 </pre></div></li>
 <li><p>Run the test goal with the following profile activated:</p>
-<div class="highlight"><pre><span class="n">mvn</span> <span class="n">clean</span> <span class="n">test</span> <span class="o">-</span><span class="n">Parq</span><span class="o">-</span><span class="n">jbossas</span><span class="o">-</span><span class="n">remote</span>     
+<div class="highlight"><pre><span class="vg">mvn</span><span class="w"> </span><span class="vg">clean</span><span class="w"> </span><span class="vg">test</span><span class="w"> </span><span class="o">-</span><span class="vg">Parq</span><span class="o">-</span><span class="vg">jbossas</span><span class="o">-</span><span class="vg">remote</span><span class="w">     </span>
 </pre></div></li>
 </ul></li>
 <li><p>Test the quickstart on a managed server</p>
@@ -334,14 +335,14 @@
 </pre></div></li>
 <li><p>Uncomment the <code>configuration</code> element, find the <code>jbossHome</code> property and replace the &ldquo;/path/to/jboss/as&rdquo; value with the actual path to your JBoss EAP server.</p></li>
 <li><p>Run the test goal with the following profile activated:</p>
-<div class="highlight"><pre><span class="n">mvn</span> <span class="n">clean</span> <span class="n">test</span> <span class="o">-</span><span class="n">Parq</span><span class="o">-</span><span class="n">jbossas</span><span class="o">-</span><span class="n">managed</span>
+<div class="highlight"><pre><span class="vg">mvn</span><span class="w"> </span><span class="vg">clean</span><span class="w"> </span><span class="vg">test</span><span class="w"> </span><span class="o">-</span><span class="vg">Parq</span><span class="o">-</span><span class="vg">jbossas</span><span class="o">-</span><span class="vg">managed</span>
 </pre></div></li>
 </ul></li>
 </ol>
 
 <h2><a id="use-jboss-developer-studio-or-eclipse-to-run-the-quickstarts" class="anchor" href="#use-jboss-developer-studio-or-eclipse-to-run-the-quickstarts"><span class="anchor-icon"></span></a>Use JBoss Developer Studio or Eclipse to Run the Quickstarts</h2>
 
-<p>You can also deploy the quickstarts from Eclipse using JBoss tools. For more information on how to set up Maven and the JBoss tools, refer to the <a href="https://access.redhat.com/site/documentation/JBoss_Enterprise_Application_Platform/">JBoss Enterprise Application Platform Development Guide</a> or <a href="http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/" title="Get Started Developing Applications">Get Started Developing Applications</a>.</p>
+<p>You can also deploy the quickstarts from Eclipse using JBoss tools. For more information on how to set up Maven and the JBoss tools, refer to the <a href="https://access.redhat.com/site/documentation/JBoss_Enterprise_Application_Platform/">JBoss Enterprise Application Platform Development Guide</a>.</p>
 
 <h2><a id="build-and-deploy-the-quickstart-to-openshift" class="anchor" href="#build-and-deploy-the-quickstart-to-openshift"><span class="anchor-icon"></span></a>Build and Deploy the Quickstart - to OpenShift</h2>
 
@@ -363,7 +364,7 @@
 <h3><a id="create-the-openshift-application" class="anchor" href="#create-the-openshift-application"><span class="anchor-icon"></span></a>Create the OpenShift Application</h3>
 
 <p>Open a shell command prompt and change to a directory of your choice. Enter the following command to create a JBoss EAP 6 application:</p>
-<div class="highlight"><pre><span class="n">rhc</span> <span class="n">app</span> <span class="n">create</span> <span class="o">-</span><span class="n">a</span> <span class="n">APPLICATION_NAME</span> <span class="o">-</span><span class="n">t</span> <span class="n">jbosseap</span><span class="o">-</span><span class="mi">6</span>
+<div class="highlight"><pre><span class="vg">rhc</span><span class="w"> </span><span class="vg">app</span><span class="w"> </span><span class="vg">create</span><span class="w"> </span><span class="o">-</span><span class="vg">a</span><span class="w"> </span><span class="vg">APPLICATION_NAME</span><span class="w"> </span><span class="o">-</span><span class="vg">t</span><span class="w"> </span><span class="vg">jbosseap</span><span class="il">-6</span>
 </pre></div>
 <p><em>NOTE</em>: The domain name for this application will be APPLICATION_NAME-YOUR_DOMAIN_NAME.rhcloud.com`. Be sure to replace the variables as noted above.</p>
 
@@ -398,12 +399,12 @@ Run &#39;rhc show-app APPLICATION_NAME&#39; for more details about your app.
 <h3><a id="migrate-the-quickstart-source" class="anchor" href="#migrate-the-quickstart-source"><span class="anchor-icon"></span></a>Migrate the Quickstart Source</h3>
 
 <p>Now that you have confirmed it is working you can migrate the quickstart source. You do not need the generated default application, so navigate to the new git repository directory created by the OpenShift command and tell git to remove the source and pom files:</p>
-<div class="highlight"><pre><span class="n">cd</span> <span class="n">APPLICATION_NAME</span>
-<span class="n">git</span> <span class="n">rm</span> <span class="o">-</span><span class="n">r</span> <span class="n">src</span> <span class="n">pom</span><span class="p">.</span><span class="n">xml</span>
+<div class="highlight"><pre><span class="vg">cd</span><span class="w"> </span><span class="vg">APPLICATION_NAME</span>
+<span class="vg">git</span><span class="w"> </span><span class="vg">rm</span><span class="w"> </span><span class="o">-</span><span class="vg">r</span><span class="w"> </span><span class="vg">src</span><span class="w"> </span><span class="vg">pom</span><span class="o">.</span><span class="vg">xml</span>
 </pre></div>
 <p>Copy the source for the QUICKSTART_NAME quickstart into this new git repository:</p>
-<div class="highlight"><pre><span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">QUICKSTART_HOME</span><span class="o">/</span><span class="n">QUICKSTART_NAME</span><span class="o">/</span><span class="n">src</span> <span class="p">.</span>
-<span class="n">cp</span> <span class="n">QUICKSTART_HOME</span><span class="o">/</span><span class="n">QUICKSTART_NAME</span><span class="o">/</span><span class="n">pom</span><span class="p">.</span><span class="n">xml</span> <span class="p">.</span>
+<div class="highlight"><pre><span class="vg">cp</span><span class="w"> </span><span class="o">-</span><span class="vg">r</span><span class="w"> </span><span class="vg">QUICKSTART_HOME</span><span class="o">/</span><span class="vg">QUICKSTART_NAME</span><span class="o">/</span><span class="vg">src</span><span class="w"> </span><span class="o">.</span>
+<span class="vg">cp</span><span class="w"> </span><span class="vg">QUICKSTART_HOME</span><span class="o">/</span><span class="vg">QUICKSTART_NAME</span><span class="o">/</span><span class="vg">pom</span><span class="o">.</span><span class="vg">xml</span><span class="w"> </span><span class="o">.</span>
 </pre></div>
 <h3><a id="configure-the-openshift-server" class="anchor" href="#configure-the-openshift-server"><span class="anchor-icon"></span></a>Configure the OpenShift Server</h3>
 
@@ -412,9 +413,9 @@ Run &#39;rhc show-app APPLICATION_NAME&#39; for more details about your app.
 <h3><a id="deploy-the-openshift-application" class="anchor" href="#deploy-the-openshift-application"><span class="anchor-icon"></span></a>Deploy the OpenShift Application</h3>
 
 <p>You can now deploy the changes to your OpenShift application using git as follows:</p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">add</span> <span class="n">src</span> <span class="n">pom</span><span class="p">.</span><span class="n">xml</span>
-<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;QUICKSTART_NAME quickstart on OpenShift&quot;</span>
-<span class="n">git</span> <span class="n">push</span>
+<div class="highlight"><pre><span class="vg">git</span><span class="w"> </span><span class="vg">add</span><span class="w"> </span><span class="vg">src</span><span class="w"> </span><span class="vg">pom</span><span class="o">.</span><span class="vg">xml</span>
+<span class="vg">git</span><span class="w"> </span><span class="vg">commit</span><span class="w"> </span><span class="o">-</span><span class="vg">m</span><span class="w"> </span><span class="s2">&quot;QUICKSTART_NAME quickstart on OpenShift&quot;</span>
+<span class="vg">git</span><span class="w"> </span><span class="vg">push</span>
 </pre></div>
 <p>The final push command triggers the OpenShift infrastructure to build and deploy the changes. </p>
 
@@ -433,7 +434,7 @@ Run &#39;rhc show-app APPLICATION_NAME&#39; for more details about your app.
 <h3><a id="delete-the-openshift-application" class="anchor" href="#delete-the-openshift-application"><span class="anchor-icon"></span></a>Delete the OpenShift Application</h3>
 
 <p>When you are finished with the application you can delete it as follows:</p>
-<div class="highlight"><pre><span class="n">rhc</span> <span class="n">app</span><span class="o">-</span><span class="n">delete</span> <span class="o">-</span><span class="n">a</span> <span class="n">APPLICATION_NAME</span>
+<div class="highlight"><pre><span class="vg">rhc</span><span class="w"> </span><span class="vg">app</span><span class="o">-</span><span class="vg">delete</span><span class="w"> </span><span class="o">-</span><span class="vg">a</span><span class="w"> </span><span class="vg">APPLICATION_NAME</span>
 </pre></div>
 <p><em>Note</em>: There is a limit to the number of applications you can deploy concurrently to OpenShift. If the <code>rhc app create</code> command returns an error indicating you have reached that limit, you must delete an existing application before you continue. </p>
 
@@ -468,21 +469,21 @@ You can run the script interactively or you can pass arguments on the command li
 <ol>
 <li>Open a command line.</li>
 <li><p>Type the command for your operating system</p>
-<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">EAP_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">sh</span>
-<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">EAP_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">bat</span>
+<div class="highlight"><pre><span class="vg">For</span><span class="w"> </span><span class="nl">Linux:</span><span class="w">   </span><span class="vg">EAP_HOME</span><span class="o">/</span><span class="vg">bin</span><span class="o">/</span><span class="vg">add</span><span class="o">-</span><span class="vg">user</span><span class="o">.</span><span class="vg">sh</span>
+<span class="vg">For</span><span class="w"> </span><span class="nl">Windows:</span><span class="w"> </span><span class="vg">EAP_HOME</span><span class="o">\</span><span class="vg">bin</span><span class="o">\</span><span class="vg">add</span><span class="o">-</span><span class="vg">user</span><span class="o">.</span><span class="vg">bat</span>
 </pre></div></li>
 <li><p>You should see the following response:</p>
-<div class="highlight"><pre><span class="n">What</span> <span class="n">type</span> <span class="n">of</span> <span class="n">user</span> <span class="k">do</span> <span class="n">you</span> <span class="n">wish</span> <span class="n">to</span> <span class="n">add</span><span class="o">?</span> 
+<div class="highlight"><pre><span class="vg">What</span><span class="w"> </span><span class="vg">type</span><span class="w"> </span><span class="vg">of</span><span class="w"> </span><span class="vg">user</span><span class="w"> </span><span class="vg">do</span><span class="w"> </span><span class="vg">you</span><span class="w"> </span><span class="vg">wish</span><span class="w"> </span><span class="vg">to</span><span class="w"> </span><span class="vg">add</span><span class="o">?</span><span class="w"> </span>
 
-<span class="n">a</span><span class="p">)</span> <span class="n">Management</span> <span class="n">User</span> <span class="p">(</span><span class="n">mgmt</span><span class="o">-</span><span class="n">users</span><span class="p">.</span><span class="n">properties</span><span class="p">)</span> 
-<span class="n">b</span><span class="p">)</span> <span class="n">Application</span> <span class="n">User</span> <span class="p">(</span><span class="n">application</span><span class="o">-</span><span class="n">users</span><span class="p">.</span><span class="n">properties</span><span class="p">)</span>
-<span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">:</span>
+<span class="vg">a</span><span class="p">)</span><span class="w"> </span><span class="vg">Management</span><span class="w"> </span><span class="vg">User</span><span class="w"> </span><span class="p">(</span><span class="vg">mgmt</span><span class="o">-</span><span class="vg">users</span><span class="o">.</span><span class="vg">properties</span><span class="p">)</span><span class="w"> </span>
+<span class="vg">b</span><span class="p">)</span><span class="w"> </span><span class="vg">Application</span><span class="w"> </span><span class="vg">User</span><span class="w"> </span><span class="p">(</span><span class="vg">application</span><span class="o">-</span><span class="vg">users</span><span class="o">.</span><span class="vg">properties</span><span class="p">)</span>
+<span class="p">(</span><span class="vg">a</span><span class="p">)</span><span class="o">:</span>
 </pre></div>
 <p>At the prompt, press enter to use the default Management User.</p></li>
 <li><p>You should see the following response:</p>
-<div class="highlight"><pre><span class="n">Enter</span> <span class="n">the</span> <span class="n">details</span> <span class="n">of</span> <span class="n">the</span> <span class="n">new</span> <span class="n">user</span> <span class="n">to</span> <span class="n">add</span><span class="p">.</span>
-<span class="n">Using</span> <span class="n">realm</span> <span class="err">&#39;</span><span class="n">ManagementRealm</span><span class="err">&#39;</span> <span class="n">as</span> <span class="n">discovered</span> <span class="n">from</span> <span class="n">the</span> <span class="n">existing</span> <span class="n">property</span> <span class="n">files</span><span class="p">.</span>
-<span class="n">Username</span> <span class="o">:</span>
+<div class="highlight"><pre><span class="vg">Enter</span><span class="w"> </span><span class="vg">the</span><span class="w"> </span><span class="vg">details</span><span class="w"> </span><span class="vg">of</span><span class="w"> </span><span class="vg">the</span><span class="w"> </span><span class="vg">new</span><span class="w"> </span><span class="vg">user</span><span class="w"> </span><span class="vg">to</span><span class="w"> </span><span class="vg">add</span><span class="o">.</span>
+<span class="vg">Using</span><span class="w"> </span><span class="vg">realm</span><span class="w"> </span><span class="c1">&#39;ManagementRealm&#39; as discovered from the existing property files.</span>
+<span class="vg">Username</span><span class="w"> </span><span class="o">:</span>
 </pre></div></li>
 <li><p>Enter the Username and, at the next prompt, enter the Password.</p>
 <div class="highlight"><pre><span class="n">Username</span> <span class="o">:</span> <span class="n">admin</span>
@@ -498,8 +499,8 @@ You can run the script interactively or you can pass arguments on the command li
 <p>If you prefer, you can create the management user non-interactively by passing each argument on the command line. </p>
 
 <p>For example, to add the Management User <code>admin</code> in the default <code>ManagementRealm</code> realm with password <code>adminPass1!</code>, type the following:</p>
-<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">EAP_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">u</span> <span class="err">&#39;</span><span class="n">admin</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">p</span> <span class="err">&#39;</span><span class="n">adminPass1</span><span class="o">!</span><span class="err">&#39;</span>
-    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">EAP_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">bat</span> <span class="o">-</span><span class="n">u</span> <span class="err">&#39;</span><span class="n">admin</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">p</span> <span class="err">&#39;</span><span class="n">adminPass1</span><span class="o">!</span><span class="err">&#39;</span>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="nl">Linux:</span><span class="w">   </span><span class="vg">EAP_HOME</span><span class="o">/</span><span class="vg">bin</span><span class="o">/</span><span class="vg">add</span><span class="o">-</span><span class="vg">user</span><span class="o">.</span><span class="vg">sh</span><span class="w"> </span><span class="o">-</span><span class="vg">u</span><span class="w"> </span><span class="c1">&#39;admin&#39; -p &#39;adminPass1!&#39;</span>
+<span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="nl">Windows:</span><span class="w"> </span><span class="vg">EAP_HOME</span><span class="o">\</span><span class="vg">bin</span><span class="o">\</span><span class="vg">add</span><span class="o">-</span><span class="vg">user</span><span class="o">.</span><span class="vg">bat</span><span class="w"> </span><span class="o">-</span><span class="vg">u</span><span class="w"> </span><span class="c1">&#39;admin&#39; -p &#39;adminPass1!&#39;</span>
 </pre></div>
 <h4><a id="add-an-application-user" class="anchor" href="#add-an-application-user"><span class="anchor-icon"></span></a>Add an Application User</h4>
 
@@ -510,21 +511,21 @@ You can run the script interactively or you can pass arguments on the command li
 <ol>
 <li>Open a command line</li>
 <li><p>Type the command for your operating system</p>
-<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">EAP_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">sh</span>
-<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">EAP_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">bat</span>
+<div class="highlight"><pre><span class="vg">For</span><span class="w"> </span><span class="nl">Linux:</span><span class="w">   </span><span class="vg">EAP_HOME</span><span class="o">/</span><span class="vg">bin</span><span class="o">/</span><span class="vg">add</span><span class="o">-</span><span class="vg">user</span><span class="o">.</span><span class="vg">sh</span>
+<span class="vg">For</span><span class="w"> </span><span class="nl">Windows:</span><span class="w"> </span><span class="vg">EAP_HOME</span><span class="o">\</span><span class="vg">bin</span><span class="o">\</span><span class="vg">add</span><span class="o">-</span><span class="vg">user</span><span class="o">.</span><span class="vg">bat</span>
 </pre></div></li>
 <li><p>You should see the following response:</p>
-<div class="highlight"><pre><span class="n">What</span> <span class="n">type</span> <span class="n">of</span> <span class="n">user</span> <span class="k">do</span> <span class="n">you</span> <span class="n">wish</span> <span class="n">to</span> <span class="n">add</span><span class="o">?</span> 
+<div class="highlight"><pre><span class="vg">What</span><span class="w"> </span><span class="vg">type</span><span class="w"> </span><span class="vg">of</span><span class="w"> </span><span class="vg">user</span><span class="w"> </span><span class="vg">do</span><span class="w"> </span><span class="vg">you</span><span class="w"> </span><span class="vg">wish</span><span class="w"> </span><span class="vg">to</span><span class="w"> </span><span class="vg">add</span><span class="o">?</span><span class="w"> </span>
 
-<span class="n">a</span><span class="p">)</span> <span class="n">Management</span> <span class="n">User</span> <span class="p">(</span><span class="n">mgmt</span><span class="o">-</span><span class="n">users</span><span class="p">.</span><span class="n">properties</span><span class="p">)</span> 
-<span class="n">b</span><span class="p">)</span> <span class="n">Application</span> <span class="n">User</span> <span class="p">(</span><span class="n">application</span><span class="o">-</span><span class="n">users</span><span class="p">.</span><span class="n">properties</span><span class="p">)</span>
-<span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">:</span>
+<span class="vg">a</span><span class="p">)</span><span class="w"> </span><span class="vg">Management</span><span class="w"> </span><span class="vg">User</span><span class="w"> </span><span class="p">(</span><span class="vg">mgmt</span><span class="o">-</span><span class="vg">users</span><span class="o">.</span><span class="vg">properties</span><span class="p">)</span><span class="w"> </span>
+<span class="vg">b</span><span class="p">)</span><span class="w"> </span><span class="vg">Application</span><span class="w"> </span><span class="vg">User</span><span class="w"> </span><span class="p">(</span><span class="vg">application</span><span class="o">-</span><span class="vg">users</span><span class="o">.</span><span class="vg">properties</span><span class="p">)</span>
+<span class="p">(</span><span class="vg">a</span><span class="p">)</span><span class="o">:</span>
 </pre></div>
 <p>At the prompt, type:  <code>b</code></p></li>
 <li><p>You should see the following response:</p>
-<div class="highlight"><pre><span class="n">Enter</span> <span class="n">the</span> <span class="n">details</span> <span class="n">of</span> <span class="n">the</span> <span class="n">new</span> <span class="n">user</span> <span class="n">to</span> <span class="n">add</span><span class="p">.</span>
-<span class="n">Using</span> <span class="n">realm</span> <span class="err">&#39;</span><span class="n">ApplicationRealm</span><span class="err">&#39;</span> <span class="n">as</span> <span class="n">discovered</span> <span class="n">from</span> <span class="n">the</span> <span class="n">existing</span> <span class="n">property</span> <span class="n">files</span><span class="p">.</span>
-<span class="n">Username</span> <span class="o">:</span>
+<div class="highlight"><pre><span class="vg">Enter</span><span class="w"> </span><span class="vg">the</span><span class="w"> </span><span class="vg">details</span><span class="w"> </span><span class="vg">of</span><span class="w"> </span><span class="vg">the</span><span class="w"> </span><span class="vg">new</span><span class="w"> </span><span class="vg">user</span><span class="w"> </span><span class="vg">to</span><span class="w"> </span><span class="vg">add</span><span class="o">.</span>
+<span class="vg">Using</span><span class="w"> </span><span class="vg">realm</span><span class="w"> </span><span class="c1">&#39;ApplicationRealm&#39; as discovered from the existing property files.</span>
+<span class="vg">Username</span><span class="w"> </span><span class="o">:</span>
 </pre></div></li>
 <li><p>Enter the the Username and at the next prompt, enter the Password. If the quickstart README specifies a Username and Password, enter them here. Otherwise, use the default Username <code>quickstartUser</code> and Password <code>quickstartPwd1!</code>.</p>
 <div class="highlight"><pre><span class="n">Username</span> <span class="o">:</span> <span class="n">quickstartUser</span>
@@ -538,6 +539,6 @@ You can run the script interactively or you can pass arguments on the command li
 <p>If you prefer, you can create the application user non-interactively by passing each argument on the command line. </p>
 
 <p>For example, to add the Application User <code>quickstartUser</code> in the <code>ApplicationRealm</code> realm with password <code>quickstartPwd1!</code> in group <code>guest</code>, type the following:</p>
-<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">EAP_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">u</span> <span class="err">&#39;</span><span class="n">quickstartUser</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">p</span> <span class="err">&#39;</span><span class="n">quickstartPwd1</span><span class="o">!</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="err">&#39;</span><span class="n">guest</span><span class="err">&#39;</span>
-    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">EAP_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">bat</span>  <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">u</span> <span class="err">&#39;</span><span class="n">quickstartUser</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">p</span> <span class="err">&#39;</span><span class="n">quickstartPwd1</span><span class="o">!</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="err">&#39;</span><span class="n">guest</span><span class="err">&#39;</span>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="nl">Linux:</span><span class="w">   </span><span class="vg">EAP_HOME</span><span class="o">/</span><span class="vg">bin</span><span class="o">/</span><span class="vg">add</span><span class="o">-</span><span class="vg">user</span><span class="o">.</span><span class="vg">sh</span><span class="w"> </span><span class="o">-</span><span class="vg">a</span><span class="w"> </span><span class="o">-</span><span class="vg">u</span><span class="w"> </span><span class="c1">&#39;quickstartUser&#39; -p &#39;quickstartPwd1!&#39; -g &#39;guest&#39;</span>
+<span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="nl">Windows:</span><span class="w"> </span><span class="vg">EAP_HOME</span><span class="o">\</span><span class="vg">bin</span><span class="o">\</span><span class="vg">add</span><span class="o">-</span><span class="vg">user</span><span class="o">.</span><span class="vg">bat</span><span class="w">  </span><span class="o">-</span><span class="vg">a</span><span class="w"> </span><span class="o">-</span><span class="vg">u</span><span class="w"> </span><span class="c1">&#39;quickstartUser&#39; -p &#39;quickstartPwd1!&#39; -g &#39;guest&#39;</span>
 </pre></div></body></html>
