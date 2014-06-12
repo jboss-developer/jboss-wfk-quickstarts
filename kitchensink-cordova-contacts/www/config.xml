@@ -21,27 +21,23 @@
 	<feature name="App">
 		<param name="android-package" value="org.apache.cordova.App" />
 	</feature>
-
 	<feature name="Contacts">
 		<param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
 		<param name="ios-package" value="CDVContacts" />
-	</feature>
-
-	<feature name="Notification">
-		<param name="android-package" value="org.apache.cordova.dialogs.Notification" />
-		<param name="ios-package" value="CDVNotification" />
-	</feature>
-	<feature name="Vibration">
-		<param name="android-package" value="org.apache.cordova.vibration.Vibration" />
-		<param name="ios-package" value="CDVVibration" />
-	</feature>
-	<feature name="StatusBar">
-		<param name="ios-package" value="CDVStatusBar" />
 	</feature>
 	<feature name="Device">
 		<param name="android-package" value="org.apache.cordova.device.Device" />
 		<param name="ios-package" value="CDVDevice" />
 	</feature>
-
-
+	<feature name="Notification">
+		<param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+		<param name="ios-package" value="CDVNotification" />
+	</feature>
+	<feature name="StatusBar">
+		<param name="ios-package" value="CDVStatusBar" />
+	</feature>
+	<feature name="Vibration">
+		<param name="android-package" value="org.apache.cordova.vibration.Vibration" />
+		<param name="ios-package" value="CDVVibration" />
+	</feature>
 </widget>

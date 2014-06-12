@@ -22,17 +22,20 @@
 	<feature name="App">
 		<param name="android-package" value="org.apache.cordova.App" />
 	</feature>
+	<feature name="Device">
+		<param name="android-package" value="org.apache.cordova.device.Device" />
+		<param name="ios-package" value="CDVDevice" />
+	</feature>
 	<feature name="NetworkStatus">
 		<param name="android-package"
 			value="org.apache.cordova.networkinformation.NetworkManager" />
 		<param name="ios-package" value="CDVConnection" />
 	</feature>
-	<feature name="Device">
-		<param name="android-package" value="org.apache.cordova.device.Device" />
-		<param name="ios-package" value="CDVDevice" />
-	</feature>
 	<feature name="StatusBar">
 		<param name="ios-package" value="CDVStatusBar" />
 	</feature>
+	
+	
+	
 
 </widget>
