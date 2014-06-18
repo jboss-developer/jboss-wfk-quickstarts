@@ -145,7 +145,6 @@
                 <!-- All the modules that require nothing but JBoss Enterprise
                     Application Platform or JBoss AS -->
                 <module>contacts-mobile-basic</module>
-                <module>contacts-mobile-picketlink-secured</module>
                 <module>cdi-add-interceptor-binding</module>
                 <module>deltaspike-authorization</module>
                 <module>deltaspike-beanbuilder</module>
