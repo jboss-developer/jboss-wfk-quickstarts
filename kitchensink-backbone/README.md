@@ -79,6 +79,31 @@ Undeploy the Archive
 
         mvn jboss-as:undeploy
 
+Minification
+------------
+
+By default, the project uses the [wro4j](http://code.google.com/p/wro4j/) plugin, which provides the ability to concatenate, 
+validate and minify JavaScript and CSS files. These minified files, as well as their unmodified versions are deployed with the project.
+
+With just a few quick changes to the project, you can link to the minified versions of your JavaScript and CSS files.
+
+First, in the <project-root>/src/main/webapp/index.html file, search for references to minification and comment or 
+uncomment the appropriate lines.
+
+Finally, wro4j runs in the compile phase so any standard build command like package, install, etc. will trigger it. 
+The plugin is in a profile with an id of "minify" so you will want to specify that profile in your maven build.
+
+NOTE: You must either specify the default profile for no tests or the arquillian test profile to run tests when minifying 
+to avoid test errors. For example:
+
+    #No Tests
+    mvn clean package jboss-as:deploy -Pminify,default
+
+OR
+
+    #With Tests
+    mvn clean package jboss-as:deploy -Pminify,arq-jbossas-remote
+
 
 Run the Arquillian Tests
 -------------------------
