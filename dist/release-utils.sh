@@ -78,8 +78,8 @@ update()
     for pom in $poms
     do
         echo "Updating ${pom}"
-        mvn org.codehaus.mojo:versions-maven-plugin:${VERSIONS_MAVEN_PLUGIN_VERSION}:set -DnewVersion=${NEWVERSION} -f ${pom} -q -s contributor-settings.xml
-        mvn org.codehaus.mojo:versions-maven-plugin:${VERSIONS_MAVEN_PLUGIN_VERSION}:commit -f ${pom} -q -s contributor-settings.xml
+        mvn org.codehaus.mojo:versions-maven-plugin:${VERSIONS_MAVEN_PLUGIN_VERSION}:set -DnewVersion=${NEWVERSION} -f ${pom} -q
+        mvn org.codehaus.mojo:versions-maven-plugin:${VERSIONS_MAVEN_PLUGIN_VERSION}:commit -f ${pom} -q
     done
 }
 
