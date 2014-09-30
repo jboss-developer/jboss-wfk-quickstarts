@@ -157,6 +157,7 @@
                 <!-- All the modules that require nothing but JBoss Enterprise
                     Application Platform or JBoss AS -->
                 <module>contacts-mobile-basic</module>
+                <module>contacts-angularjs</module>
                 <module>cdi-add-interceptor-binding</module>
                 <module>deltaspike-authorization</module>
                 <module>deltaspike-beanbuilder</module>
@@ -209,6 +210,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <modules>
+                <module>contacts-angularjs/functional-tests</module>
                 <module>contacts-mobile-basic/functional-tests</module>
                 <module>deltaspike-authorization/functional-tests</module>
                 <module>deltaspike-beanmanagerprovider/functional-tests</module>

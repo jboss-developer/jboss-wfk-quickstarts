@@ -1,0 +1,116 @@
+<!--
+    JBoss, Home of Professional Open Source
+    Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
+    contributors by the @authors tag. See the copyright.txt in the
+    distribution for a full listing of individual contributors.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!-- This is an Angular.js template -->
+
+<!-- Status messages to be displayed -->
+<div rh-message-bag messages="messages"></div>
+
+<!-- This form is used to add new Contact entries. Upon loading all fields are empty. -->
+<form name="contactForm" role="form" id="contactForm">
+
+    <!-- Form group for First Name input and associated error messages. -->
+    <!-- ng-class conditionally applies a class string (e.g 'has-error'), dependent upon a boolean expression. -->
+    <div class="form-group" ng-class="{'has-error': contactForm.firstName.$invalid}">
+        <label for="firstName">First Name:</label>
+        <!-- ng-pattern validates the contents of an input against a provided regexp. -->
+        <input type="text" name="firstName" class="form-control"  id="firstName" placeholder="Enter a first name."
+               ng-model="contact.firstName" ng-pattern="/^[A-Za-z]+$/" required>
+        <!-- Appropriate error messages, to be displayed as required. -->
+        <!-- ng-show conditionally applies the style {display: none !important} if statement is false. -->
+        <p class="help-block" id="firstName-required" ng-show="contactForm.firstName.$dirty && contactForm.firstName.$error.required">
+            A first name is required.
+        </p>
+        <p class="help-block" id="firstName-format" ng-show="contactForm.firstName.$dirty && contactForm.firstName.$error.pattern">
+            Please provide a name without numbers or special characters.
+        </p>
+    </div>
+
+    <!-- Form group for Last Name input and associated error messages. -->
+    <!-- ng-class conditionally applies a class string (e.g 'has-error'), dependent upon a boolean expression. -->
+    <div class="form-group" ng-class="{'has-error': contactForm.lastName.$invalid}">
+        <label for="lastName">Last Name:</label>
+        <!-- ng-pattern validates the contents of an input against a provided regexp. -->
+        <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Enter a last name."
+               ng-model="contact.lastName" ng-pattern="/^[A-Za-z]+$/" required>
+        <!-- Appropriate error messages, to be displayed as required. -->
+        <!-- ng-show conditionally applies the style {display: none !important} if statement is false. -->
+        <p class="help-block" id="lastName-required" ng-show="contactForm.lastName.$dirty && contactForm.lastName.$error.required">
+            A last name is required.
+        </p>
+        <p class="help-block" id="lastName-format" ng-show="contactForm.lastName.$dirty && contactForm.lastName.$error.pattern">
+            Please provide a name without numbers or special characters.
+        </p>
+    </div>
+
+    <!-- Form group for Phone Number input and associated error messages. -->
+    <!-- ng-class conditionally applies a class string (e.g 'has-error'), dependent upon a boolean expression. -->
+    <div class="form-group" ng-class="{'has-error': contactForm.phoneNumber.$invalid}">
+        <label for="phoneNumber">Phone:</label>
+        <!-- ng-pattern validates the contents of an input against a provided regexp. -->
+        <input type="text" name="phoneNumber" class="form-control" id="phoneNumber" placeholder="(NNN) NNN-NNNN"
+               ng-model="contact.phoneNumber" ng-pattern="/^\([0,2-9]{1}[0-9]{2}\)\s?[0-9]{3}\-[0-9]{4}$/" required>
+        <!-- Appropriate error messages, to be displayed as required. -->
+        <!-- ng-show conditionally applies the style {display: none !important} if statement is false. -->
+        <p class="help-block" id="phoneNumber-required" ng-show="contactForm.phoneNumber.$dirty && contactForm.phoneNumber.$error.required">
+            A phone number is required.
+        </p>
+        <p class="help-block" id="phoneNumber-format" ng-show="contactForm.phoneNumber.$dirty && contactForm.phoneNumber.$error.pattern">
+            Please a provide a valid number in the format (NNN) NNN-NNNN not starting with 1.
+        </p>
+    </div>
+
+    <!-- Form group for Email input and associated error messages. -->
+    <!-- ng-class conditionally applies a class string (e.g 'has-error'), dependent upon a boolean expression. -->
+    <div class="form-group" ng-class="{'has-error': contactForm.email.$invalid}">
+        <label for="email">Email:</label>
+        <input type="email" name="email" class="form-control" id="email" placeholder="name@company.domain"
+               ng-model="contact.email" required>
+        <!-- Appropriate error messages, to be displayed as required. -->
+        <!-- ng-show conditionally applies the style {display: none !important} if statement is false. -->
+        <p class="help-block" id="email-required" ng-show="contactForm.email.$dirty && contactForm.email.$error.required">
+            Please enter a valid email address.
+        </p>
+        <p class="help-block" id="email-format" ng-show="contactForm.email.$dirty && contactForm.email.$error.email">
+            The email address must be in the form of name@company.domain
+        </p>
+    </div>
+
+    <!-- Form group for Birth Date input and associated error messages. -->
+    <!-- ng-class conditionally applies a class string (e.g 'has-error'), dependent upon a boolean expression. -->
+    <div class="form-group" ng-class="{'has-error': contactForm.birthDate.$invalid}">
+        <label for="birthDate">Birth Date:</label>
+        <!-- min & max provide the valid range of dates for the input. -->
+        <input type="date" name="birthDate" class="form-control" id="birthDate" min="1900-01-01"
+               max="{{date | date:'yyyy-MM-dd'}}" ng-model="contact.birthDate" required>
+        <!-- Appropriate error messages, to be displayed as required. -->
+        <!-- ng-show conditionally applies the style {display: none !important} if statement is false. -->
+        <p class="help-block" id="birthdate-required" ng-show="contactForm.birthDate.$dirty && contactForm.birthDate.$error.required">
+            Please enter a valid birthdate.
+        </p>
+        <p class="help-block" id="birthdate-max-age" ng-show="contactForm.birthDate.$dirty && contactForm.birthDate.$error.min">
+            Nobody is that old. Unless they are a vampire.
+        </p>
+        <p class="help-block" id="birthdate-future" ng-show="contactForm.birthDate.$dirty && contactForm.birthDate.$error.max">
+            Birthdates cannot be in the future. Please choose one from the past. Unless they are a time traveler.
+        </p>
+    </div>
+
+    <!-- Load the appropriate form controls depending on whether the variable $scope.create is truthy -->
+    <div ng-if="create" ng-include="'templates/contact/addControls.html'"></div>
+    <div ng-if="!create" ng-include="'templates/contact/editControls.html'"></div>
+
+</form>
