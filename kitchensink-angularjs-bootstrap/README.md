@@ -128,7 +128,7 @@ If you do not yet have an OpenShift account and domain, [Sign in to OpenShift](h
 
 Note that we use the `jboss-as-quickstart@jboss.org` user for these examples. You need to substitute it with your own user name.
 
-Open a shell command prompt and change to a directory of your choice. Enter the following command, replacing APPLICATION_TYPE with `jbosseap-6` for quickstarts running on JBoss Enterprise Application Platform 6.1 or later:
+Open a shell command prompt and change to a directory of your choice. Enter the following command, replacing APPLICATION_TYPE with `jbosseap-6` for quickstarts running on Red Hat JBoss Enterprise Application Platform 6.1 or later:
 
     rhc app create -a kitchensinkangularjsbootstrap -t APPLICATION_TYPE
 

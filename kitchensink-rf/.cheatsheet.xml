@@ -464,7 +464,7 @@
                 serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/kitchensinkrf/util/Resources.java,fromLine=52)"/>
         </subitem>
         <subitem
-            label="If you want to define your own datasource, take a look at the Administration and Configuration Guide for JBoss Enterprise Application Platform 6"
+            label="If you want to define your own datasource, take a look at the Administration and Configuration Guide for Red Hat JBoss Enterprise Application Platform 6"
             skip="true">
             <command
                 required="false"
@@ -687,7 +687,7 @@
                 serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/java/org/jboss/as/quickstarts/kitchensinkrf/rest/MemberResourceRESTService.java,fromLine=65)"/>
         </subitem>
         <subitem
-            label="The listAllMembers() method is called when the raw endpoint is accessed and offers up a list of endpoints. Notice that the object is automatically marshalled to JSON by RESTEasy (the JAX-RS implementation included in JBoss Enterprise Application Platform 6)."
+            label="The listAllMembers() method is called when the raw endpoint is accessed and offers up a list of endpoints. Notice that the object is automatically marshalled to JSON by RESTEasy (the JAX-RS implementation included in Red Hat JBoss Enterprise Application Platform 6)."
             skip="true">
             <command
                 required="false"
@@ -759,7 +759,7 @@
             Lucky for you, the Arquillian project is here to help!
             <br/>
             <br/>
-            Arquillian provides all the boiler plate for running your test inside JBoss Enterprise Application Platform
+            Arquillian provides all the boiler plate for running your test inside Red Hat JBoss Enterprise Application Platform
             6,
             allowing you to concentrate on testing your application.
             In order to do that, it utilizes Shrinkwrap, a fluent API for defining packaging,
