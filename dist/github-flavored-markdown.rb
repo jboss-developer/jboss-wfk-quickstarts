@@ -141,8 +141,8 @@ def markdown(source_path)
   text.gsub!("\[TOC\]", toc)
   rendered = markdown.render(text)
   metadata(source_path.path, rendered)
-  rendered = rendered.gsub(/README.md/, "README.html").gsub(/CONTRIBUTING.md/, "CONTRIBUTING.html")
-  '<!DOCTYPE html><html><head><title>README</title><link href="http://www.jboss.org/jdf/stylesheets/documentation.css" rel="stylesheet"></link><link href="http://www.jboss.org/jdf/stylesheets/pygments.css" rel="stylesheet"></link></head><body>' + rendered + '</body></html>'
+  rendered = rendered.gsub(/README.md/, "README.html")
+  '<!DOCTYPE html><html><head><title>README</title><link href="http://static.jboss.org/ffe/0/www/vendor/redhat/documentation.css" rel="stylesheet"></link><link href="http://static.jboss.org/ffe/0/www/vendor/redhat/pygments.css" rel="stylesheet"></link></head><body>' + rendered + '</body></html>'
   end
 
 def optionize(options)
