@@ -16,11 +16,14 @@
  */
 package org.jboss.as.quickstarts.kitchensink.test;
 
+import java.net.URL;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
@@ -33,8 +36,6 @@ import org.json.JSONStringer;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import java.net.URL;
 
 /**
  * Test for REST API of the application
@@ -51,7 +52,7 @@ public class RESTTest {
 
     private static final String API_PATH = "rest/members";
 
-    private final DefaultHttpClient httpClient = new DefaultHttpClient();
+    private final CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 
     /**
      * Injects URL on which application is running.
@@ -89,7 +90,7 @@ public class RESTTest {
     @Test
     @InSequence(2)
     public void testGetMember() throws Exception {
-        DefaultHttpClient httpClient = this.httpClient;
+        CloseableHttpClient httpClient = this.httpClient;
 
         HttpResponse response = httpClient.execute(new HttpGet(contextPath.toString() + API_PATH));
         Assert.assertEquals(200, response.getStatusLine().getStatusCode());

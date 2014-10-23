@@ -32,8 +32,8 @@ import org.openqa.selenium.WebElement;
 import java.net.URL;
 import java.util.List;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.jboss.arquillian.graphene.Graphene.waitAjax;
 import static org.jboss.arquillian.graphene.Graphene.waitModel;
 
