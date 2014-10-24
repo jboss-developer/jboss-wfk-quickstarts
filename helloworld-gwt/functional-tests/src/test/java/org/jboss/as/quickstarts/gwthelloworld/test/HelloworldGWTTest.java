@@ -16,58 +16,61 @@
  */
 package org.jboss.as.quickstarts.gwthelloworld.test;
 
+import java.io.File;
+import java.net.URL;
+
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.drone.api.annotation.Drone;
-import org.jboss.arquillian.graphene.findby.FindByJQuery;
+import org.jboss.arquillian.graphene.Graphene;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.arquillian.junit.InSequence;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.io.File;
-import java.net.URL;
-
-import static org.jboss.arquillian.graphene.Graphene.guardAjax;
-import static org.jboss.arquillian.graphene.Graphene.waitModel;
-import static org.junit.Assert.assertEquals;
-
 /**
  * Tests GWT Hello World quickstart
  *
- * @author Emil Cervenan
+ * @author Matous Jobanek (mjobanek@redhat.com)
  */
 @RunAsClient
 @RunWith(Arquillian.class)
 public class HelloworldGWTTest {
 
     /**
-     * Locator for name input field
+     * The message written out when we try to greet the empty string.
      */
-    @FindBy(tagName = "input")
-    WebElement input;
+    private String GREETING_ERROR = "Sorry, can't say hello now. Server responded with status code 404";
 
     /**
-     * Locator for submit button
+     * The name which is typed into the {@link #nameField}.
      */
-    @FindBy(tagName = "button")
-    WebElement button;
+    private static final String NAME = "Joe Doe";
 
     /**
-     * Locator for hello message
+     * The text field into which {@link #NAME} is typed.
      */
-    @FindByJQuery("form div.gwt-Label")
-    WebElement message;
+    @FindBy(css = "input[name='name']")
+    private WebElement nameField;
 
     /**
-     * Name to be entered
+     * The button which is pushed after entering the {@link #NAME} into the {@link #nameField}.
      */
-    private static final String NAME = "John Doe";
+    @FindBy(css = "button[name='sayHelloButton']")
+    private WebElement button;
+
+    /**
+     * The text label which writes out greeting.
+     */
+    @FindBy(css = "fieldset>div")
+    private WebElement label;
 
     /**
      * Specifies relative path to the war of built application in the main project.
@@ -78,13 +81,13 @@ public class HelloworldGWTTest {
      * Injects browser to our test.
      */
     @Drone
-    WebDriver browser;
+    private WebDriver browser;
 
     /**
      * Injects URL on which application is running.
      */
     @ArquillianResource
-    URL contextPath;
+    private URL contextPath;
 
     /**
      * Creates deployment which is sent to the container upon test's start.
@@ -96,17 +99,48 @@ public class HelloworldGWTTest {
         return ShrinkWrap.createFromZipFile(WebArchive.class, new File(DEPLOYMENT_WAR));
     }
 
-    @Test
-    public void sayHelloTest() {
+    private void open() {
         browser.get(contextPath.toString());
-        waitModel().until().element(input).is().present();
+    }
 
-        input.clear();
-        input.sendKeys(NAME);
+    /**
+     * This method tests if the ordinary greeting mechanism works properly.
+     */
+    @Test
+    @InSequence(1)
+    public void testGreeting() {
 
-        guardAjax(button).click();
+        open();
 
-        assertEquals("Entered name does not match.", "Hello " + NAME + "!", message.getText());
+        Graphene.waitModel().until().element(nameField).is().visible();
+        nameField.sendKeys(NAME);
+
+        Graphene.guardAjax(button).click();
+
+        Graphene.waitModel().until().element(label).is().visible();
+        Assert.assertTrue("Greeting service is not functioning well!", label.getText().equals("Hello " + NAME + "!"));
+    }
+
+    /**
+     * This method tests what happens if empty string
+     * into {@link #nameField} is entered. We await error message
+     * saying we can't greet empty string.
+     */
+    @Test
+    @InSequence(2)
+    public void testEmptyGreeting() {
+
+        open();
+
+        Graphene.waitModel().until().element(nameField).is().visible();
+
+        // entering of the empty string
+        nameField.sendKeys("");
+
+        Graphene.guardAjax(button).click();
+
+        Graphene.waitModel().until().element(label).is().visible();
+        Assert.assertTrue("We greet the empty string!", label.getText().equals(GREETING_ERROR));
     }
 
 }
