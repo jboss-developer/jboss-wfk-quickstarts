@@ -525,6 +525,10 @@ $(function() {
         // Add all items in the **Members** collection at once.
         addAllMembers : function() {
 //			console.log("AppView - addAllMembers() - start");
+
+            // Dsiplay the loader widget
+            $.mobile.loading("show");
+
             // For every member in the Members collection, invoke the 'addOneMember' method.
             Members.each(this.addOneMember);
 
@@ -533,6 +537,9 @@ $(function() {
 
             // Create the buttons in the list, since the markup was added dynamically.
             $("#members a[data-role='button']").button();
+
+            // Hide the loader widget
+            $.mobile.loading("hide");
         },
 
         updateMemberTable : function() {
@@ -611,6 +618,17 @@ $(function() {
             // Start the router.
 			Backbone.history.start();
 		},
+
+        // Display the loader widget before executing the method for any Backbone route.
+        execute : function(callback, args) {
+            $.mobile.loading("show");
+            window.setTimeout(function() {
+                if (callback) {
+                    callback.apply(this, args);
+                }
+                $.mobile.loading("hide");
+            }, 300);
+        },
 
         // Navigate to the Intro view.
 		showIntro : function() {

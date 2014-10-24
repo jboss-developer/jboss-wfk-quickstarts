@@ -207,6 +207,9 @@ $(function() {
                     email : elemEmail.val(),
                     phoneNumber : elemPhoneNumber.val()
                 };
+                // Display the loader widget
+                $.mobile.loading("show");
+
                 // Trigger a 'create' event on the Members collection, providing callbacks for success and failure.
                 window.Members.create(modelToAdd, {success:this.onRegisterSuccess, error:this.onRegisterFailure});
             }
@@ -215,6 +218,10 @@ $(function() {
         // Invoked when a Member was registered successfully.
         onRegisterSuccess: function(model, response) {
 //        	console.log("RegisterMemberView - onRegisterSuccess() - start");
+
+            // Hide the loader widget
+            $.mobile.loading("hide");
+
             this.resetForm();
 
             // Mark success on the registration form
@@ -224,6 +231,10 @@ $(function() {
         // Invoked when a Member was registered unsuccessfully.
         onRegisterFailure: function(model, jqXHR) {
 //          console.log("RegisterMemberView - onRegisterFailure - ajax done");
+
+            // Hide the loader widget
+            $.mobile.loading("hide");
+
             //clear existing  msgs
             $('span.success').remove();
 
@@ -316,11 +327,18 @@ $(function() {
         // Add all items in the **Members** collection at once.
         addAllMembers : function() {
 //			console.log("AppView - addAllMembers() - start");
+
+            // Dsiplay the loader widget
+            $.mobile.loading("show");
+
             // For every member in the Members collection, invoke the 'addOneMember' method.
             Members.each(this.addOneMember);
 
             // Update the jQuery Mobile list, since we dynamically added elements to it.
             $( "#member-table" ).table( "refresh" );
+
+            // Hide the loader widget
+            $.mobile.loading("hide");
         },
 
         updateMemberTable : function() {
@@ -393,7 +411,18 @@ $(function() {
             // Bind the 'member-art' jQuery Mobile page as the 'el' for the Backbone View.
 			var listMembersView = new ListAllMembersView({ el: "#member-art"});
 			window.ViewManager.showView(listMembersView);
-		}
+		},
+
+        // Display the loader widget before executing the method for any Backbone route.
+        execute : function(callback, args) {
+            $.mobile.loading("show");
+            window.setTimeout(function() {
+                if (callback) {
+                    callback.apply(this, args);
+                }
+                $.mobile.loading("hide");
+            }, 300);
+        }
 	});
 
     // Finally, let's start the application.
