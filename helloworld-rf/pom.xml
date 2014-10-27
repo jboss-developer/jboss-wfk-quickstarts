@@ -93,15 +93,10 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the RichFaces core library -->
+        <!-- Import the RichFaces library -->
         <dependency>
-            <groupId>org.richfaces.core</groupId>
-            <artifactId>richfaces-core-impl</artifactId>
-        </dependency>
-        <!-- Import the RichFaces components -->
-        <dependency>
-            <groupId>org.richfaces.ui</groupId>
-            <artifactId>richfaces-components-ui</artifactId>
+            <groupId>org.richfaces</groupId>
+            <artifactId>richfaces</artifactId>
         </dependency>
 
     </dependencies>

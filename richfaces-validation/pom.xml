@@ -131,15 +131,11 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import RichFaces runtime dependencies - these will be included
-         as libraries in the WAR -->
+        <!-- Import RichFaces runtime dependency - that will be included
+         as library in the WAR -->
         <dependency>
-            <groupId>org.richfaces.ui</groupId>
-            <artifactId>richfaces-components-ui</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.richfaces.core</groupId>
-            <artifactId>richfaces-core-impl</artifactId>
+            <groupId>org.richfaces</groupId>
+            <artifactId>richfaces</artifactId>
         </dependency>
 
         <!-- Now we declare any tools needed -->
