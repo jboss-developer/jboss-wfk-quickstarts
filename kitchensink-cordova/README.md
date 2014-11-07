@@ -5,7 +5,7 @@ Level: Intermediate
 Technologies: HTML5, REST, Apache Cordova  
 Summary: Based on kitchensink, but uses hybrid HTML5 running as a native application on mobiles  
 Target Product: WFK  
-Product Versions: EAP 6.1, EAP 6.2, WFK 2.6  
+Product Versions: EAP 6.1, EAP 6.2, EAP 6.3, WFK 2.7  
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
 
 What is it?
@@ -44,7 +44,7 @@ This quickstart was built upon the HTML5 kitchensink quickstart, which was conve
 
 ### System requirements
 
-The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.6.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.7.
 
 All you need to build this project is Java 6.0 (Java SDK 1.6) or later, the iOS SDK and JBDS 7 with [JBoss Hybrid Mobile Tools + CordovaSim](https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_Developer_Studio/7.1/html/User_Guide/chap-Hybrid_Mobile_Tools_and_CordovaSim_Technology_Preview.html) installed. The iOS SDK is available as part of Apple XCode. If you need more detailed instructions to setup JBDS 7 with JBoss Hybrid Mobile Tools + CordovaSim, you can take a look at the user guide to [Install Hybrid Mobile Tools and CordovaSim](https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_Developer_Studio/7.1/html/User_Guide/Install_Hybrid_Mobile_Tools_and_CordovaSim.html).
 
