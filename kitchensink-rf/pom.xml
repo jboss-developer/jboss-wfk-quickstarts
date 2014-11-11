@@ -207,7 +207,7 @@
             <artifactId>richfaces</artifactId>
         </dependency>
 
-        <!-- Import the Atmosphere framework for a4j:push
+        <!-- Import the Atmosphere framework for a4j:push -->
         <dependency>
             <groupId>org.atmosphere</groupId>
             <artifactId>atmosphere-runtime</artifactId>
@@ -217,7 +217,7 @@
                     <artifactId>slf4j-api</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency-->
+        </dependency>
 
         <!-- Now we declare any tools needed -->
 
