@@ -1,9 +1,9 @@
-kitchensink-cordova-contacts: Example Mobile Applications Using Hybrid HTML5 + REST with Apache Cordova
+kitchensink-cordova-contacts: Apache Cordova Contacts Mobile HTML5 and REST Example
 ===============================================================================================
 Author: Vineet Reynolds  
 Level: Intermediate  
 Technologies: HTML5, REST, Apache Cordova  
-Summary: Based on kitchensink, but uses hybrid HTML5 running as a native application on mobiles  
+Summary: The `kitchensink-cordova-contacts` quickstart is an example of a hybrid Apache Cordova Contacts API application using HTML5 and jQuery Mobile.  
 Target Product: WFK  
 Product Versions: EAP 6.1, EAP 6.2, EAP 6.3, WFK 2.7  
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
@@ -11,7 +11,7 @@ Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
 What is it?
 -----------
 
-This project serves as an example of the HTML5 [kitchensink](http://www.jboss.org/quickstarts/wfk/kitchensink-backbone/) quickstart converted to a hybrid [Apache Cordova](http://cordova.apache.org/) application. It demonstrates the use of the Cordova Contacts API and extends the kitchensink example to do so.
+The `kitchensink-cordova-contacts` quickstart is an example of the HTML5 [kitchensink](http://www.jboss.org/quickstarts/wfk/kitchensink-backbone/) quickstart converted to a hybrid [Apache Cordova](http://cordova.apache.org/) application. It demonstrates the use of the Cordova Contacts API and extends the kitchensink example to do so.
 
 What does this mean? Basically, this takes our [HTML5 + REST](http://www.jboss.org/quickstarts/wfk/kitchensink-backbone/) / [jQuery Mobile](http://jquerymobile.com/) web application and converts it to a native application for both iOS and Android.
 

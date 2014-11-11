@@ -1,9 +1,9 @@
-kitchensink-cordova: Example Mobile Applications Using Hybrid HTML5 + REST with Apache Cordova
+kitchensink-cordova: Mobile Hybrid HTML5, REST, and Apache Cordova Example
 ===============================================================================================
 Author: Kris Borchers  
 Level: Intermediate  
 Technologies: HTML5, REST, Apache Cordova  
-Summary: Based on kitchensink, but uses hybrid HTML5 running as a native application on mobiles  
+Summary: The `kitchensink-cordova` quickstart is an example of a hybrid Apache Cordova application using HTML5 and jQuery Mobile.  
 Target Product: WFK  
 Product Versions: EAP 6.1, EAP 6.2, EAP 6.3, WFK 2.7  
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
@@ -11,7 +11,7 @@ Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
 What is it?
 -----------
 
-This project serves as an example of the HTML5 [kitchensink](http://www.jboss.org/quickstarts/wfk/kitchensink-html5-mobile) quickstart converted to a hybrid [Apache Cordova](http://cordova.apache.org/) application.
+The `kitchensink-cordova` quickstart serves as an example of the HTML5 [kitchensink](http://www.jboss.org/quickstarts/wfk/kitchensink-html5-mobile) quickstart converted to a hybrid [Apache Cordova](http://cordova.apache.org/) application.
 
 What does this mean? Basically, this takes our [HTML5 + REST](http://www.jboss.org/quickstarts/wfk/kitchensink-html5-mobile/) / [jQuery Mobile](http://jquerymobile.com/) web application and converts it to a native application for both iOS and Android.
 

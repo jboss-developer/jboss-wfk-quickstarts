@@ -1,9 +1,9 @@
-helloworld-gwt: Helloworld with a GWT (Google Web Toolkit) Front End Client
+helloworld-gwt: Helloworld with a Google Web Toolkit (GWT) Front End
 ===========================================================================
 Author: Christian Sadilek  
 Level: Beginner  
 Technologies: GWT  
-Summary: Demonstrates the use of CDI 1.0 and JAX-RS with a GWT front-end client  
+Summary: The `helloword-gwt` quickstart demonstrates CDI 1.0, JAX-RS, and backend RESTful services with a Google Web Toolkit (GWT) front-end client.  
 Target Product: WFK  
 Product Versions: EAP 6.1, EAP 6.2, EAP 6.3, WFK 2.7  
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
@@ -11,7 +11,7 @@ Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
 What is it?
 -----------
 
-This example demonstrates the use of *CDI 1.0* and *JAX-RS* in Red Hat JBoss Enterprise Application Platform 6.1 or later with a GWT front-end client.
+The `helloword-gwt` quickstart demonstrates the use of *CDI 1.0* and *JAX-RS* in Red Hat JBoss Enterprise Application Platform 6.1 or later with a Google Web Toolkit (GWT) front-end client.
 GWT is basically a typesafe, statically checked programming model for producing HTML5+CSS3+JavaScript front-ends. In this example, we use RESTful services on the backend.
 
 You can test the REST endpoint at the URL http://localhost:8080/jboss-helloworld-gwt/hello/json/David

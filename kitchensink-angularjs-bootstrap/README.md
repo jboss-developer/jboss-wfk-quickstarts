@@ -1,9 +1,9 @@
-kitchensink-angularjs-bootstrap: Shows how to use AngularJS and Twitter Bootstrap with JAX-RS and Java EE on JBoss
+kitchensink-angularjs-bootstrap: Demonstrates AngularJS, Twitter Bootstrap, with JAX-RS
 ========================
 Author: Vineet Reynolds  
 Level: Intermediate  
 Technologies: AngularJS, CDI, JPA, EJB, JPA, JAX-RS, BV  
-Summary: An example that incorporates multiple technologies  
+Summary: The `kitchensink-angularjs-bootstrap` quickstart shows how to use AngularJS and Twitter Bootstrap with JAX-RS and Java EE.  
 Target Product: WFK  
 Product Versions: EAP 6.1, EAP 6.2, EAP 6.3, WFK 2.7  
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts>  
@@ -11,9 +11,7 @@ Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts>
 What is it?
 -----------
 
-This is your project! It is a sample, deployable Maven 3 project to help you get your foot in the door developing with AngularJS and Bootstrap on Java EE 6 with Red Hat JBoss Enterprise Application Platform 6.1 or later.
-
-This project is setup to allow you to create a compliant Java EE 6 application using CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to introduce you to database access in enterprise Java. 
+The `kitchensink-angularjs-bootstrap` quickstart demonstrates AngularJS and Twitter Bootstrap with JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to introduce you to database access in enterprise Java. 
 
 System requirements
 -------------------

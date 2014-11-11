@@ -1,9 +1,9 @@
-kitchensink-angularjs: Shows how to use AngularJS with JAX-RS and Java EE on JBoss
+kitchensink-angularjs: Demonstrates AngularJS with JAX-RS
 ========================
 Author: Pete Muir  
 Level: Intermediate  
 Technologies: AngularJS, CDI, JPA, EJB, JPA, JAX-RS, BV  
-Summary: An example that incorporates multiple technologies  
+Summary: The `kitchensink-angularjs` quickstart demonstrates a Java EE 6 application using AngularJS with JAX-RS, CDI, EJB 3.1, JPA 2.0 and Bean Validation 1.0.  
 Target Product: WFK  
 Product Versions: EAP 6.1, EAP 6.2, EAP 6.3, WFK 2.7  
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts>  

@@ -1,9 +1,9 @@
-kitchensink-backbone: Shows how to use Backbone.js with JAX-RS and Java EE on JBoss
+kitchensink-backbone: Example Using Backbone.js with JAX-RS and Java EE
 ========================
 Author: Joshua Wilson  
 Level: Intermediate  
 Technologies: Backbone, CDI, JPA, EJB, JPA, JAX-RS, BV  
-Summary: An example of Backbone.js integrated with jQuery, REST, and a Java back-end running on JBoss.  
+Summary: The `kitchensink-backbone` quickstart demonstrates how to use Backbone.js, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0 in an application.  
 Target Product: WFK  
 Product Versions: EAP 6.1, EAP 6.2, EAP 6.3, WFK 2.7  
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
@@ -14,11 +14,11 @@ What is it?
 This is your project! It is a sample, deployable Maven 3 project to help you get your foot in the door developing with 
 Backbone.js on Java EE 6 on Red Hat JBoss Enterprise Application Platform 6.1 or later.
 
-This project is setup to allow you to create a compliant Java EE 6 application using CDI 1.0, EJB 3.1, JPA 2.0 and Bean 
+The `kitchensink-backbone` quickstart demonstrates how to use Backbone.js in a compliant Java EE 6 application using CDI 1.0, EJB 3.1, JPA 2.0 and Bean 
 Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to introduce you to 
 database access in enterprise Java.
 
-Backbone.js is a MVC for the browser.  That is to say, it has a Model (JavaScript/JSON objects that hold data), a View 
+Backbone.js is an MVC for the browser.  That is to say, it has a Model (JavaScript/JSON objects that hold data), a View 
 (HTML/Templates/CSS for display), and a Controller (JavaScript files that take commands from the screen and send them to 
 the server and then return the results). 
 

@@ -1,9 +1,9 @@
-kitchensink-rf: Example Using Multiple Java EE 6 Technologies with RichFaces
+kitchensink-rf: Kitchensink With a JSF Richfaces Front End
 ========================
 Author: Pete Muir, Brian Leathem  
 Level: Intermediate  
 Technologies: CDI, JSF, JPA, EJB, JPA, JAX-RS, BV, RichFaces  
-Summary: The canonical JSF kitchensink quickstart implemented with JSF and RichFaces  
+Summary: The `kitchensink-rf` quickstart demonstrates a Java EE 6 application using JSF 2.0 with Richfaces 4, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0.  
 Target Product: WFK  
 Product Versions: EAP 6.1, EAP 6.2, EAP 6.3, WFK 2.7  
 Source: <https://github.com/richfaces/jdf-quickstarts>  
@@ -11,7 +11,7 @@ Source: <https://github.com/richfaces/jdf-quickstarts>
 What is it?
 -----------
 
-This is your project! It is a sample, deployable Maven 3 project to help you get your foot in the door developing with Java EE 6 on Red Hat JBoss Enterprise Application Platform 6.2 or later.
+The `kitchensink-rf` quickstart is based on the `kitchensink` quickstart, but demonstrates how to create a Java EE 6 compliant application using JSF 2.0, CDI 1.0, and RichFaces 4.1.
 
 This project is setup to allow you to create a compliant Java EE 6 application using JSF 2.0 with RichFaces 4, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to introduce you to database access in enterprise Java.
 

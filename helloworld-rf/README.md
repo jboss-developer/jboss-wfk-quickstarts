@@ -1,9 +1,9 @@
-helloworld-rf: Helloworld with a JSF (JavaServer Faces) Front End
+helloworld-rf: Helloworld with a JSF Richfaces Front End
 ==================================================================
 Author: Brian Leathem  
 Level: Beginner  
 Technologies: CDI, JSF, RichFaces  
-Summary: Similar to the helloworld quickstart, but with a JSF and RichFaces front end  
+Summary: The `helloworld-rf` quickstart demonstrates how to create a Java EE 6 compliant application using JSF 2.0, CDI 1.0, and AJAX-enabled RichFaces 4.1.  
 Target Product: WFK  
 Product Versions: EAP 6.1, EAP 6.2, EAP 6.3, WFK 2.7  
 Source: <https://github.com/richfaces/jdf-quickstarts>  
@@ -11,7 +11,7 @@ Source: <https://github.com/richfaces/jdf-quickstarts>
 What is it?
 -----------
 
-This project demonstrates how to create a Java EE 6 compliant application using JSF 2.0, CDI 1.0, and RichFaces 4.1.
+The `helloworld-rf` quickstart is based on the `helloworld` quickstart, but demonstrates how to create a Java EE 6 compliant application using JSF 2.0, CDI 1.0, and RichFaces 4.1.
 
 In this example, a standard JSF `h:inputText` component is AJAX enabled using the RichFaces `a4j:ajax tag`. This triggers the application server to re-render only a subsection of the page on a browser event.
 
