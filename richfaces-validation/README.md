@@ -3,7 +3,7 @@ richfaces-validation: RichFaces and Bean Validation
 Author: Lukas Fryc  
 Level: Beginner  
 Technologies: RichFaces  
-Summary: The `richfaces-validation` quickstart demonstrates how to use JSF 2.0, RichFaces 4.2, CDI 1.0, JPA 2.0 and Bean Validation 1.0.  
+Summary: The `richfaces-validation` quickstart demonstrates how to use JSF 2.1, RichFaces 4.5, CDI 1.0, JPA 2.0 and Bean Validation 1.0.  
 Target Product: WFK  
 Product Versions: EAP 6.1, EAP 6.2, EAP 6.3, WFK 2.7  
 Source: <https://github.com/richfaces/as-quickstarts>  
@@ -11,14 +11,14 @@ Source: <https://github.com/richfaces/as-quickstarts>
 What is it?
 -----------
 
-The `richfaces-validation` quickstart demonstrates how to use JSF 2.0, RichFaces 4.2, CDI 1.0, JPA 2.0 and Bean Validation 1.0. 
+The `richfaces-validation` quickstart demonstrates how to use JSF 2.1, RichFaces 4.5, CDI 1.0, JPA 2.0 and Bean Validation 1.0. 
 
 It consists of one entity, `Member`, which is annotated with JSR-303 (Bean Validation) constraints. In typical applications, these constraints are checked in several places:
 
 * As database constraints
 * In the persistence layer
 * In the view layer (using JSF / Bean Validation integration)
-* On the client (using RichFaces 4.2 - Client Side Validation)
+* On the client (using RichFaces 4.5 - Client Side Validation)
 
 This ensures the constraints are applied consistently, across all layers, allowing clear and precise error reporting, while not breaking the DRY (Don't Repeat Yourself) principle.
 
