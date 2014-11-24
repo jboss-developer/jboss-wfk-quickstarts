@@ -44,6 +44,9 @@
             <exclude>**/.settings/**</exclude>
             <exclude>**/.classpath</exclude>
             <exclude>**/.gitignore</exclude>
+            <exclude>helloworld-gwt/src/main/gwt-unitCache/**</exclude>
+            <exclude>helloworld-gwt/src/main/webapp/WEB-INF/deploy/**</exclude>
+            <exclude>helloworld-gwt/src/main/webapp/HelloWorldApp/**</exclude>
          </excludes>
       </fileSet>
    </fileSets>
