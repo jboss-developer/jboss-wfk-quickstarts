@@ -20,7 +20,7 @@ import org.jboss.arquillian.graphene.findby.FindByJQuery;
 import org.jboss.arquillian.graphene.fragment.Root;
 import org.openqa.selenium.WebElement;
 
-import static org.jboss.arquillian.graphene.Graphene.waitModel;
+import static org.jboss.arquillian.graphene.Graphene.*;
 
 public class NavigationPageFragment {
 
@@ -33,35 +33,45 @@ public class NavigationPageFragment {
     /**
      * Locator for Home page link
      */
-    @FindByJQuery("a[href='#intro']")
+    @FindByJQuery("a[href='#intro']:visible")
     private WebElement homeLink;
 
     /**
      * Locator for Add Member page
      */
-    @FindByJQuery("a[href='#register']")
+    @FindByJQuery("a[href='#register']:visible")
     private WebElement registerLink;
 
     /**
      * Locator for List Members page
      */
-    @FindByJQuery("a[href='#member']")
+    @FindByJQuery("a[href='#member']:visible")
     private WebElement listLink;
 
+    /**
+     * Locator for loading icon
+     */
+    @FindByJQuery(".ui-loader:visible")
+    private WebElement loader;
+
     public void openHomePage() {
-        homeLink.click();
+        guardNoRequest(homeLink).click();
+        waitForPage();
     }
 
     public void openRegistrationPage() {
-        registerLink.click();
+        guardNoRequest(registerLink).click();
+        waitForPage();
     }
 
     public void openMemberListPage() {
-        listLink.click();
+        guardAjax(listLink).click();
+        waitForPage();
     }
 
-    public void waitUntilPresent() {
-        waitModel().until().element(navigation).is().present();
+
+    public void waitForPage() {
+        waitAjax().until().element(loader).is().not().visible();
     }
 
 }

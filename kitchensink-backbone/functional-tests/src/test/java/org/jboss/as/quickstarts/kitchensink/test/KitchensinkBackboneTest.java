@@ -19,7 +19,7 @@ package org.jboss.as.quickstarts.kitchensink.test;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.drone.api.annotation.Drone;
-import org.jboss.arquillian.graphene.findby.FindByJQuery;
+import org.jboss.arquillian.graphene.page.Page;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
 import org.jboss.arquillian.test.api.ArquillianResource;
@@ -61,7 +61,7 @@ public class KitchensinkBackboneTest {
     /**
      * Locator for navigation panel page fragment
      */
-    @FindByJQuery("[data-role='navbar']:visible")
+    @Page
     NavigationPageFragment navigation;
 
     /**
@@ -136,7 +136,7 @@ public class KitchensinkBackboneTest {
     @Before
     public void loadPage() {
         browser.get(contextPath.toString());
-        navigation.waitUntilPresent();
+        navigation.waitForPage();
     }
 
     @Test
