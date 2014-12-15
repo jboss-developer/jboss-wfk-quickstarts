@@ -12,7 +12,7 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.jboss.tools.aerogear.hybrid.core.HybridAppNature</nature>
+		<nature>org.eclipse.thym.core.HybridAppNature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
 </projectDescription>

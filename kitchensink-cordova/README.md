@@ -54,7 +54,7 @@ All you need to build this project is Java 6.0 (Java SDK 1.6) or later, the iOS 
 First we need to import the existing code to JBDS
 
 1. In JBDS, click on `File`, then `Import`.
-2. Select `General` --> `Existing Projects into Workspace` and click `Next`.
+2. Select `Mobile` --> `Import Cordova Project` and click `Next`.
 3. In `Select root directory`, click on the `Browse...` button, then find and select `QUICKSTART_HOME/kitchensink-cordova/`. Be sure to replace `QUICKSTART_HOME` with the root directory of your quickstarts.
 4. Click the `Finish` button to start the project import.
 
@@ -85,7 +85,7 @@ All you need to build this project is Java 6.0 (Java SDK 1.6) or later, the Andr
 First we need to import the existing code to JBDS
 
 1. In JBDS, click on `File`, then `Import`.
-2. Select `General` --> `Existing Projects into Workspace` and click `Next`.
+2. Select `Mobile` --> `Import Cordova Project` and click `Next`.
 3. In `Select root directory`, click on the `Browse...` button, then find and select `QUICKSTART_HOME/kitchensink-cordova/`. Be sure to replace `QUICKSTART_HOME` with the root directory of your quickstarts.
 4. Click the `Finish` button to start the project import.
 
