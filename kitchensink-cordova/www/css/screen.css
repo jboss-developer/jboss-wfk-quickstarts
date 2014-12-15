@@ -72,10 +72,11 @@ article .wrap {
 
 embed {
     width: 90%;
-    word-wrap: break-word;
-    white-space: pre-wrap;
+    /* Set min-height to 85% since header and footer occupy the rest */
+    min-height: 85%;
     padding: 10px;
     margin: 0;
+    overflow: scroll;
 }
 
 /* Header and footer styles */
