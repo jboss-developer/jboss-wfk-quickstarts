@@ -573,7 +573,7 @@ $(function() {
 
         /* Adds an iframe with source set to the /rest/members collection or an individual element in it */
         showJSON : function() {
-            var $content = $("#json-art div[data-role='content']");
+            var $content = $("article[data-role='page']#json-art .ui-content");
             $content.empty();
             var url = "http://html5-jdf.rhcloud.com/rest/members/";
             if(this.memberId != null) {
