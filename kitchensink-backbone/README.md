@@ -12,7 +12,7 @@ What is it?
 -----------
 
 This is your project! It is a sample, deployable Maven 3 project to help you get your foot in the door developing with 
-Backbone.js on Java EE 6 on Red Hat JBoss Enterprise Application Platform 6.1 or later.
+Backbone.js on Java EE 6 in Red Hat JBoss Enterprise Application Platform 6.1 or later.
 
 The `kitchensink-backbone` quickstart demonstrates how to use Backbone.js in a compliant Java EE 6 application using CDI 1.0, EJB 3.1, JPA 2.0 and Bean 
 Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to introduce you to 
@@ -28,14 +28,14 @@ All of the code using the Backbone.js library can be found in /src/main/webapp/j
 System requirements
 -------------------
 
-The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.7.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (JBoss EAP) 6.1 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.7.
 
 All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
 Configure Maven
 ---------------
 
-If you have not yet done so, you must [Configure Maven](../README.md#configure-maven) before testing the quickstarts.
+If you have not yet done so, you must [Configure Maven](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts) before testing the quickstarts.
 
 
 Start the JBoss EAP Server
@@ -112,7 +112,7 @@ This quickstart provides Arquillian tests. By default, these tests are configure
 require the use of a container.
 
 _NOTE: The following commands assume you have configured your Maven user settings. If you have not, you must include 
-Maven setting arguments on the command line. See [Run the Arquillian Tests](../README.md#run-the-arquillian-tests) for complete 
+Maven setting arguments on the command line. See [Run the Arquillian Tests](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/RUN_ARQUILLIAN_TESTS.md#run-the-arquillian-tests) for complete 
 instructions and additional options._
 
 1. Make sure you have started the JBoss EAP server as described above.
@@ -143,10 +143,9 @@ To run these tests, you must build the main project as described above.
 
         mvn clean verify -Parq-jbossas-managed
 
-Run the Quickstart in JBoss Developer Studio or Eclipse
+Run the Quickstart in Red Hat JBoss Developer Studio or Eclipse
 -------------------------------------
-You can also start the server and deploy the quickstarts from Eclipse using JBoss tools. For more information, see 
-[Use JBoss Developer Studio or Eclipse to Run the Quickstarts](../README.md#use-jboss-developer-studio-or-eclipse-to-run-the-quickstarts)
+You can also start the server and deploy the quickstarts or run the Arquillian tests from Eclipse using JBoss tools. For more information, see [Use JBoss Developer Studio or Eclipse to Run the Quickstarts](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_JBDS.md#use-jboss-developer-studio-or-eclipse-to-run-the-quickstarts) 
 
 
 Debug the Application

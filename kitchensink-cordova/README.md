@@ -11,7 +11,7 @@ Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>
 What is it?
 -----------
 
-The `kitchensink-cordova` quickstart serves as an example of the HTML5 [kitchensink](http://www.jboss.org/quickstarts/wfk/kitchensink-html5-mobile) quickstart converted to a hybrid [Apache Cordova](http://cordova.apache.org/) application.
+The `kitchensink-cordova` quickstart serves as an example of the HTML5 [kitchensink](http://www.jboss.org/quickstarts/wfk/kitchensink-html5-mobile) quickstart converted to a hybrid [Apache Cordova](http://cordova.apache.org/) application in Red Hat JBoss Enterprise Application Platform.
 
 What does this mean? Basically, this takes our [HTML5 + REST](http://www.jboss.org/quickstarts/wfk/kitchensink-html5-mobile/) / [jQuery Mobile](http://jquerymobile.com/) web application and converts it to a native application for both iOS and Android.
 
@@ -44,16 +44,16 @@ This quickstart was built upon the HTML5 kitchensink quickstart, which was conve
 
 ### System requirements
 
-The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.7.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (JBoss EAP) 6.1 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.7.
 
-All you need to build this project is Java 6.0 (Java SDK 1.6) or later, the iOS SDK and JBDS 7 with [JBoss Hybrid Mobile Tools + CordovaSim](https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_Developer_Studio/7.1/html/User_Guide/chap-Hybrid_Mobile_Tools_and_CordovaSim_Technology_Preview.html) installed. The iOS SDK is available as part of Apple XCode. If you need more detailed instructions to setup JBDS 7 with JBoss Hybrid Mobile Tools + CordovaSim, you can take a look at the user guide to [Install Hybrid Mobile Tools and CordovaSim](https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_Developer_Studio/7.1/html/User_Guide/Install_Hybrid_Mobile_Tools_and_CordovaSim.html).
+All you need to build this project is Java 6.0 (Java SDK 1.6) or later, the iOS SDK and JBoss Developer Studio 7 with [JBoss Hybrid Mobile Tools + CordovaSim](https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_Developer_Studio/7.1/html/User_Guide/chap-Hybrid_Mobile_Tools_and_CordovaSim_Technology_Preview.html) installed. The iOS SDK is available as part of Apple XCode. If you need more detailed instructions to setup JBoss Developer Studio 7 with JBoss Hybrid Mobile Tools + CordovaSim, you can take a look at the user guide to [Install Hybrid Mobile Tools and CordovaSim](https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_Developer_Studio/7.1/html/User_Guide/Install_Hybrid_Mobile_Tools_and_CordovaSim.html).
 
 
 ### Import the Quickstart Code
 
-First we need to import the existing code to JBDS
+First we need to import the existing code to JBoss Developer Studio
 
-1. In JBDS, click on `File`, then `Import`.
+1. In JBoss Developer Studio, click on `File`, then `Import`.
 2. Select `Mobile` --> `Import Cordova Project` and click `Next`.
 3. In `Select root directory`, click on the `Browse...` button, then find and select `QUICKSTART_HOME/kitchensink-cordova/`. Be sure to replace `QUICKSTART_HOME` with the root directory of your quickstarts.
 4. Click the `Finish` button to start the project import.
@@ -61,7 +61,7 @@ First we need to import the existing code to JBDS
 
 ### Deploy and Access the application
 
-1. Select your project in JBDS.
+1. Select your project in JBoss Developer Studio.
 2. Click on `Run`, then `Run As` and `Run on iOS Simulator`.
 
 The iOS simulator will started, and the application will be deployed and run on it.
@@ -78,13 +78,13 @@ This application is built upon the HTML5 kitchensink quickstart, which was conve
 
 ### System requirements
 
-All you need to build this project is Java 6.0 (Java SDK 1.6) or later, the Android SDK and JBDS 7 with [JBoss Hybrid Mobile Tools + CordovaSim](https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_Developer_Studio/7.1/html/User_Guide/chap-Hybrid_Mobile_Tools_and_CordovaSim_Technology_Preview.html) and the [Android Development Tools plugin](http://developer.android.com/tools/sdk/eclipse-adt.html) from Google. If you need more detailed instructions to setup JBDS 7 with JBoss Hybrid Mobile Tools + CordovaSim, you can take a look at the user guide to [Install Hybrid Mobile Tools and CordovaSim](https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_Developer_Studio/7.1/html/User_Guide/Install_Hybrid_Mobile_Tools_and_CordovaSim.html).
+All you need to build this project is Java 6.0 (Java SDK 1.6) or later, the Android SDK and JBoss Developer Studio 7 with [JBoss Hybrid Mobile Tools + CordovaSim](https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_Developer_Studio/7.1/html/User_Guide/chap-Hybrid_Mobile_Tools_and_CordovaSim_Technology_Preview.html) and the [Android Development Tools plugin](http://developer.android.com/tools/sdk/eclipse-adt.html) from Google. If you need more detailed instructions to setup JBoss Developer Studio 7 with JBoss Hybrid Mobile Tools + CordovaSim, you can take a look at the user guide to [Install Hybrid Mobile Tools and CordovaSim](https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_Developer_Studio/7.1/html/User_Guide/Install_Hybrid_Mobile_Tools_and_CordovaSim.html).
 
 ### Import the Quickstart Code
 
-First we need to import the existing code to JBDS
+First we need to import the existing code to JBoss Developer Studio
 
-1. In JBDS, click on `File`, then `Import`.
+1. In JBoss Developer Studio, click on `File`, then `Import`.
 2. Select `Mobile` --> `Import Cordova Project` and click `Next`.
 3. In `Select root directory`, click on the `Browse...` button, then find and select `QUICKSTART_HOME/kitchensink-cordova/`. Be sure to replace `QUICKSTART_HOME` with the root directory of your quickstarts.
 4. Click the `Finish` button to start the project import.
@@ -92,7 +92,7 @@ First we need to import the existing code to JBDS
 
 ### Deploy and Access the application
 
-1. Select your project in JBDS.
+1. Select your project in JBoss Developer Studio.
 2. Click on `Run`, then `Run As` and `Run on Android Emulator`.
 
 The Android emulator will started, and the application will be deployed and run on it.
