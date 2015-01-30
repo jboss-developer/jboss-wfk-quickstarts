@@ -131,35 +131,35 @@
             skip="true">
             <command
                 required="false"
-                serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.xhtml,fromLine=39,toLine=112)"/>
+                serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.xhtml,fromLine=36,toLine=109)"/>
         </subitem>
         <subitem
             label="The form logic is encapsulated in a JSF composite component, which we will take a look at next."
             skip="true">
             <command
                 required="false"
-                serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.xhtml,fromLine=43,toLine=43)"/>
+                serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.xhtml,fromLine=40)"/>
         </subitem>
         <subitem
             label="This application exposes REST endpoints for each registered member. The application helpfully displays the URL to the REST endpoint on this page. "
             skip="true">
             <command
                 required="false"
-                serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.xhtml,fromLine=87,toLine=89)"/>
+                serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.xhtml,fromLine=84,toLine=86)"/>
         </subitem>
         <subitem
             label="A RichFaces popup for a details view"
             skip="true">
             <command
                 required="false"
-                serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.xhtml,fromLine=93,toLine=106)"/>
+                serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.xhtml,fromLine=90,toLine=103)"/>
         </subitem>
         <subitem
             label="RichFaces push triggers an ajax refresh on server-side events."
             skip="true">
             <command
                 required="false"
-                serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.xhtml,fromLine=108,toLine=110)"/>
+                serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/src/main/webapp/index.xhtml,fromLine=105,toLine=107)"/>
         </subitem>
 
     </item>
