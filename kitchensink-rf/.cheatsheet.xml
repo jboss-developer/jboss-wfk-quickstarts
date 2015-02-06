@@ -906,14 +906,14 @@
             skip="true">
             <command
                 required="false"
-                serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/pom.xml,fromLine=238,toLine=314)"/>
+                serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/pom.xml,fromLine=326,toLine=354)"/>
         </subitem>
         <subitem
             label="Arquillian decides which container to use depending on your classpath. Here we define the remote JBoss AS container. "
             skip="true">
             <command
                 required="false"
-                serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/pom.xml,fromLine=277,toLine=289)"/>
+                serialization="org.jboss.tools.project.examples.cheatsheet.openFileInEditor(path=/${currentProject}/pom.xml,fromLine=342,toLine=354)"/>
         </subitem>
 
     </item>
