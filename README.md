@@ -1,12 +1,12 @@
 Red Hat JBoss Web Framework Kit (WFK) Quickstarts
 ====================
-Summary: The quickstarts demonstrate Java EE 6 and a few additional technologies from the JBoss stack. They provide small, specific, working examples that can be used as a reference for your own project.
+Summary: The quickstarts demonstrate Java EE 6 and a few additional technologies from the JBoss stack. They provide small, specific, and working examples that can be used as a reference for your own project.
 
 Introduction
 ------------
 
 
-These quickstarts run on Red Hat JBoss Enterprise Application Platform 6.1 or later with the Red Hat JBoss Web Framework Kit. We recommend using the JBoss EAP ZIP file. This version uses the correct dependencies and ensures you test and compile against your runtime environment. 
+These quickstarts run on Red Hat JBoss Enterprise Application Platform 6.1 or later with the Red Hat JBoss Web Framework Kit. We recommend using the JBoss EAP ZIP file. This version uses the correct dependencies and ensures you to test and compile against your runtime environment. 
 
 Be sure to read this entire document before you attempt to work with the quickstarts. It contains the following information:
 
